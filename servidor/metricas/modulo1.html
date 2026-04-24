@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Introducción a Modelos de Negocio SaaS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #118AB2, #06D6A0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-card {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .feature-box {
+            background-color: #e3f2fd; /* blue-50 */
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #118AB2;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .advantage-box {
+            background-color: #e8f5e9; /* green-50 */
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #06D6A0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .concept-card {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.1);
+            border-top: 5px solid;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+        }
+        .concept-card.orange { border-color: #FFD166; }
+        .concept-card.darkblue { border-color: #073B4C; }
+        .concept-card.green { border-color: #06D6A0; }
+        .concept-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        .failure-point-box {
+            background-color: #fef2f2; /* red-50 */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #FF6B6B;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .failure-icon {
+            font-size: 2rem;
+            color: #FF6B6B;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Palette Name: Energetic & Playful -->
+
+    <div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-7xl">
+
+        <header class="text-center py-12">
+            <h1 class="text-4xl md:text-6xl font-black mb-4 gradient-text">Visión General: Modelos de Negocio SaaS</h1>
+            <p class="text-xl md:text-2xl text-gray-600">Comprendiendo los Fundamentos y la Estrategia en modelos SaaS.</p>
+        </header>
+
+        <main class="space-y-16">
+
+            <section class="section-card">
+                <h2 class="text-3xl font-bold mb-6 text-[#073B4C] text-center">¿Qué es SaaS? Software como Servicio</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    <strong>SaaS (Software as a Service)</strong> es un modelo de negocio y distribución de software donde los usuarios acceden a una aplicación a través de internet, generalmente mediante suscripción mensual o anual, en lugar de comprar una licencia e instalarla localmente.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="feature-box">
+                        <span class="text-3xl text-[#118AB2]">🌐</span>
+                        <div>
+                            <h3 class="text-xl font-bold text-[#118AB2]">Acceso Online</h3>
+                            <p class="text-sm text-gray-700">Se usa desde un navegador, sin necesidad de instalación.</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <span class="text-3xl text-[#118AB2]">💲</span>
+                        <div>
+                            <h3 class="text-xl font-bold text-[#118AB2]">Pago por Uso o Suscripción</h3>
+                            <p class="text-sm text-gray-700">Normalmente mensual (MRR) o anual (ARR).</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <span class="text-3xl text-[#118AB2]">🔄</span>
+                        <div>
+                            <h3 class="text-xl font-bold text-[#118AB2]">Actualizaciones Automáticas</h3>
+                            <p class="text-sm text-gray-700">El proveedor gestiona mejoras, correcciones y nuevas funciones.</p>
+                        </div>
+                    </div>
+                    <div class="feature-box">
+                        <span class="text-3xl text-[#118AB2]">⚖️</span>
+                        <div>
+                            <h3 class="text-xl font-bold text-[#118AB2]">Escalabilidad</h3>
+                            <p class="text-sm text-gray-700">Se adapta fácilmente a más usuarios o mayores volúmenes de datos.</p>
+                        </div>
+                    </div>
+                    <div class="feature-box md:col-span-2">
+                        <span class="text-3xl text-[#118AB2]">👥</span>
+                        <div>
+                            <h3 class="text-xl font-bold text-[#118AB2]">Multiusuario (Multi-tenant)</h3>
+                            <p class="text-sm text-gray-700">Muchos clientes usan la misma infraestructura, pero con datos aislados.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-card">
+                <h2 class="text-3xl font-bold mb-6 text-[#073B4C] text-center">Ventajas del SaaS para el Cliente</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center">
+                    El modelo SaaS ofrece beneficios significativos que lo hacen atractivo para empresas y usuarios individuales.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="advantage-box">
+                        <span class="text-3xl text-[#06D6A0]">💰</span>
+                        <div>
+                            <h3 class="text-xl font-bold text-[#06D6A0]">Coste Inicial Bajo</h3>
+                            <p class="text-sm text-gray-700">Reduce la inversión inicial en software y hardware.</p>
+                        </div>
+                    </div>
+                    <div class="advantage-box">
+                        <span class="text-3xl text-[#06D6A0]">🔧</span>
+                        <div>
+                            <h3 class="text-xl font-bold text-[#06D6A0]">No Necesita Mantenimiento</h3>
+                            <p class="text-sm text-gray-700">El proveedor se encarga de la infraestructura y el mantenimiento técnico.</p>
+                        </div>
+                    </div>
+                    <div class="advantage-box">
+                        <span class="text-3xl text-[#06D6A0]">🌍</span>
+                        <div>
+                            <h3 class="text-xl font-bold text-[#06D6A0]">Accesible desde Cualquier Lugar</h3>
+                            <p class="text-sm text-gray-700">Permite trabajar de forma remota y flexible.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nueva sección B2B vs B2C -->
+            <section class="section-card">
+                <h2 class="text-3xl font-bold mb-6 text-[#073B4C] text-center">SaaS B2B vs. SaaS B2C</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center">
+                    Aunque ambos son modelos SaaS, el enfoque de negocio (a empresas vs. a consumidores) implica diferencias clave en estrategia, ventas y comportamiento del cliente.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="flex flex-col items-center text-center">
+                        <h3 class="text-xl font-bold text-[#118AB2] mb-2">SaaS B2B (Business to Business)</h3>
+                        <p class="text-sm text-gray-700 mb-4">
+                            Se vende a otras empresas. Decisiones de compra más racionales, ciclos de venta más largos, mayor LTV por cliente, énfasis en ROI y características empresariales.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 text-sm mb-4 text-left">
+                            <li><strong>Ciclo de Ventas:</strong> Largo, involucra a varios stakeholders.</li>
+                            <li><strong>Precios:</strong> Generalmente más altos, basados en valor para la empresa.</li>
+                            <li><strong>Soporte:</strong> Más personalizado y técnico.</li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col items-center text-center">
+                        <h3 class="text-xl font-bold text-[#06D6A0] mb-2">SaaS B2C (Business to Consumer)</h3>
+                        <p class="text-sm text-gray-700 mb-4">
+                            Se vende directamente a consumidores individuales. Decisiones más emocionales, ciclos de venta cortos, precios más bajos, énfasis en la facilidad de uso y la experiencia personal.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 text-sm mb-4 text-left">
+                            <li><strong>Ciclo de Ventas:</strong> Corto, a menudo autoservicio.</li>
+                            <li><strong>Precios:</strong> Más bajos, volumen de usuarios.</li>
+                            <li><strong>Soporte:</strong> Más escalable, basado en FAQs y comunidad.</li>
+                        </ul>
+                    </div>
+                </div>
+                <img src="https://www.regpacks.com/wp-content/uploads/2021/09/image_8-3.png" alt="Comparativa B2B vs B2C SaaS" class="mt-8 rounded-lg shadow-md mx-auto max-w-full h-auto">
+                <p class="text-center text-sm text-gray-500 mt-4">
+                    [Image of B2B vs B2C comparison chart]
+                </p>
+            </section>
+            <!-- Fin de nueva sección B2B vs B2C -->
+
+            <section class="section-card">
+                <h2 class="text-3xl font-bold mb-6 text-[#073B4C] text-center">Filosofía: Servicio como Software, No Software como Servicio</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center">
+                    En las etapas semilla, el enfoque debe ser <strong>resolver problemas reales de los clientes con el mínimo de tecnología posible</strong>, antes de escalar un producto completo.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                    <div class="concept-card orange">
+                        <span class="concept-icon text-[#FFD166]">💡</span>
+                        <h3 class="text-xl font-bold mb-2 text-[#FFD166]">Tu Ventaja: Resolución de Problemas</h3>
+                        <p class="text-sm text-gray-700">La tecnología es un medio, no el fin. La gente compra soluciones a sus problemas, no tu producto en sí.</p>
+                    </div>
+                    <div class="concept-card darkblue">
+                        <span class="concept-icon text-[#073B4C]">🤝</span>
+                        <h3 class="text-xl font-bold mb-2 text-[#073B4C]">Cercanía al Cliente: Aprendizaje Acelerado</h3>
+                        <p class="text-sm text-gray-700">El objetivo #1 en etapas semilla es conocer las necesidades del cliente. El contacto directo acelera tu aprendizaje y evita desarrollar algo que nadie necesita.</p>
+                    </div>
+                    <div class="concept-card green md:col-span-2">
+                        <span class="concept-icon text-[#06D6A0]">🛠️</span>
+                        <h3 class="text-xl font-bold mb-2 text-[#06D6A0]">Producto Mínimo Viable (MVP) con Low/No-Code</h3>
+                        <p class="text-sm text-gray-700">Desarrolla una versión inicial con la mínima tecnología posible (no-code/low-code). Resuelve un problema específico por el que los clientes estén dispuestos a pagar. ¡No te avergüences por liderar un servicio al principio!</p>
+                    </div>
+                </div>
+                <p class="text-center text-lg text-gray-700 leading-relaxed mt-10 font-bold">
+                    Evita la tentación de escalar prematuramente y gastar meses en desarrollo sin validar que tu solución resuelve una necesidad real.
+                </p>
+            </section>
+
+            <!-- Nueva sección 12 factores de fallo -->
+            <section class="section-card">
+                <h2 class="text-3xl font-bold mb-6 text-[#073B4C] text-center">12 Factores de Fallo en SaaS</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center">
+                    El camino de una startup SaaS es complejo. Después de haber trabajado con decenas de Saas. Aquí recopilamos los errores más comunes que te pueden llevar al fracaso.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="failure-point-box">
+                        <span class="failure-icon">1️⃣</span>
+                        <p class="text-sm text-gray-700">No ser capaces de identificar una necesidad.</p>
+                    </div>
+                    <div class="failure-point-box">
+                        <span class="failure-icon">2️⃣</span>
+                        <p class="text-sm text-gray-700">No hablar con clientes.</p>
+                    </div>
+                    <div class="failure-point-box">
+                        <span class="failure-icon">3️⃣</span>
+                        <p class="text-sm text-gray-700">No ser capaces de resolver el problema con un software a la altura.</p>
+                    </div>
+                    <div class="failure-point-box">
+                        <span class="failure-icon">4️⃣</span>
+                        <p class="text-sm text-gray-700">Falta de diferenciación.</p>
+                    </div>
+                    <div class="failure-point-box">
+                        <span class="failure-icon">5️⃣</span>
+                        <p class="text-sm text-gray-700">Equipo descompensado o con falta de perfiles.</p>
+                    </div>
+                    <div class="failure-point-box">
+                        <span class="failure-icon">6️⃣</span>
+                        <p class="text-sm text-gray-700">Falta de foco.</p>
+                    </div>
+                    <div class="failure-point-box">
+                        <span class="failure-icon">7️⃣</span>
+                        <p class="text-sm text-gray-700">Mercado pequeño o decreciente.</p>
+                    </div>
+                    <div class="failure-point-box">
+                        <span class="failure-icon">8️⃣</span>
+                        <p class="text-sm text-gray-700">Fallo en estrategia Go To Market.</p>
+                    </div>
+                    <div class="failure-point-box">
+                        <span class="failure-icon">9️⃣</span>
+                        <p class="text-sm text-gray-700">Poca retención.</p>
+                    </div>
+                    <div class="failure-point-box">
+                        <span class="failure-icon">🔟</span>
+                        <p class="text-sm text-gray-700">Quedarse sin caja.</p>
+                    </div>
+                    <div class="failure-point-box">
+                        <span class="failure-icon">1️⃣1️⃣</span>
+                        <p class="text-sm text-gray-700">Desmotivación de los fundadores.</p>
+                    </div>
+                    <div class="failure-point-box">
+                        <span class="failure-icon">1️⃣2️⃣</span>
+                        <p class="text-sm text-gray-700">Problemas de socios.</p>
+                    </div>
+                </div>
+                <p class="text-center text-gray-600 italic mt-8">
+                    "Es importante señalar que no tener éxito con una startup no tiene por qué ser algo totalmente malo. Aprender lo que funciona y lo que no, te ayudará como emprendedor y te proporcionará valiosas lecciones para tu próxima aventura. Pero no es nada bonito, lo sé por experiencia propia."
+                </p>
+            </section>
+            <!-- Fin de nueva sección 12 factores de fallo -->
+
+            <section class="section-card">
+                <h2 class="text-3xl font-bold mb-6 text-[#073B4C] text-center">Ideas Clave para el Éxito en SaaS Early Stage</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-8 text-center">
+                    Principios fundamentales para fundadores que buscan construir startups SaaS resilientes y exitosas.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold mb-2 text-[#118AB2]">Enfoque en el Problema, No en la Tecnología</h3>
+                        <p class="text-sm text-gray-700">Tu ventaja competitiva es resolver problemas, no tu pila tecnológica. Prioriza la solución sobre la complejidad técnica.</p>
+                    </div>
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold mb-2 text-[#06D6A0]">Cercanía al Cliente</h3>
+                        <p class="text-sm text-gray-700">Interactúa directamente para entender sus necesidades y validar la solución. Esto acelera el aprendizaje y evita el desarrollo de productos que no encajan.</p>
+                    </div>
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold mb-2 text-[#FFD166]">Producto Mínimo Viable (MPV)</h3>
+                        <p class="text-sm text-gray-700">Crea una versión inicial con la tecnología justa para resolver un problema específico y que los clientes paguen por ello. Usa herramientas no-code/low-code.</p>
+                    </div>
+                    <div class="bg-red-50 border-l-4 border-red-400 p-4 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold mb-2 text-[#FF6B6B]">Evita la Escalada Prematura</h3>
+                        <p class="text-sm text-gray-700">No inviertas meses en desarrollo masivo sin validar el mercado. La paciencia y el enfoque son clave.</p>
+                    </div>
+                    <div class="bg-purple-50 border-l-4 border-purple-400 p-4 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold mb-2 text-[#6B46C1]">Mentalidad de Servicio Primero</h3>
+                        <p class="text-sm text-gray-700">Adaptarse a la necesidad del mercado es más valioso que la escalabilidad inicial. Resuelve el problema antes de productivizarlo.</p>
+                    </div>
+                    <div class="bg-indigo-50 border-l-4 border-indigo-400 p-4 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold mb-2 text-[#5A67D8]">Cuidado con la Presión del Ecosistema</h3>
+                        <p class="text-sm text-gray-700">El crecimiento desmedido sin dirección puede ser perjudicial. Todo negocio necesita un tiempo de maduración.</p>
+                    </div>
+                     <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded-lg shadow-sm md:col-span-2 lg:col-span-3">
+                        <h3 class="text-xl font-bold mb-2 text-[#06D6A0]">Servicio Primero, Escalabilidad Después</h3>
+                        <p class="text-sm text-gray-700">Resolver un problema bien definido es el paso inicial para crear algo escalable. Una mentalidad de servicio es esencial, pero debe evolucionar hacia una empresa liderada por producto.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center py-10 mt-12 border-t border-gray-200">
+            <p class="text-gray-500">Infografía para el Módulo 1 del Curso SaaS.</p>
+        </footer>
+
+    </div>
+</body>
+</html>
