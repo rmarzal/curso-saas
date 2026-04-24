@@ -81,10 +81,10 @@ if (isset($_SESSION['username'])) {
     <div class="instruction">Inserta tu usuario y contraseña</div>
     <?php
       if (isset($_GET['error'])) {
-        echo '<div class="error"></div>';
+        echo '<div class="error">Usuario o contraseña incorrectos.</div>';
       }
     ?>
-    <form method="post" action="check_login.php">
+    <form method="post" action="/metricas/check_login.php">
       <input type="text" name="username" placeholder="Usuario" required />
       <input type="password" name="password" placeholder="Contraseña" required />
       <button type="submit">Entrar</button>
