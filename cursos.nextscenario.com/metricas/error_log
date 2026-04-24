@@ -1,0 +1,10 @@
+[01-Jul-2025 13:09:17 Europe/Madrid] PHP Parse error:  syntax error, unexpected 'method' (T_STRING), expecting ',' or ';' in /home2/bicilink/public_html/cursos.nextscenario.com/metricas/login.php on line 80
+[01-Jul-2025 13:28:44 Europe/Madrid] PHP Notice:  Undefined variable: marys in /home2/bicilink/public_html/cursos.nextscenario.com/metricas/check_login.php on line 7
+[01-Jul-2025 13:32:50 Europe/Madrid] PHP Notice:  Undefined variable: mys in /home2/bicilink/public_html/cursos.nextscenario.com/metricas/check_login.php on line 7
+[01-Jul-2025 13:33:15 Europe/Madrid] PHP Notice:  Undefined variable: mys in /home2/bicilink/public_html/cursos.nextscenario.com/metricas/check_login.php on line 7
+[01-Jul-2025 13:38:15 Europe/Madrid] PHP Notice:  Undefined variable: marys in /home2/bicilink/public_html/cursos.nextscenario.com/metricas/check_login.php on line 6
+[01-Jul-2025 13:38:26 Europe/Madrid] PHP Notice:  Undefined variable: marys in /home2/bicilink/public_html/cursos.nextscenario.com/metricas/check_login.php on line 6
+[01-Jul-2025 13:39:17 Europe/Madrid] PHP Notice:  Undefined variable: marys in /home2/bicilink/public_html/cursos.nextscenario.com/metricas/check_login.php on line 6
+[01-Jul-2025 13:41:17 Europe/Madrid] PHP Notice:  Undefined variable: marys in /home2/bicilink/public_html/cursos.nextscenario.com/metricas/check_login.php on line 6
+[23-Jul-2025 13:53:39 Europe/Madrid] PHP Parse error:  syntax error, unexpected '"adrianrodrigo@adrirodrigoagen' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home2/bicilink/public_html/cursos.nextscenario.com/metricas/check_login.php on line 7
+[23-Jul-2025 13:54:02 Europe/Madrid] PHP Parse error:  syntax error, unexpected '"adrianrodrigo@adrirodrigoagen' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in /home2/bicilink/public_html/cursos.nextscenario.com/metricas/check_login.php on line 7
