@@ -291,6 +291,303 @@ strong { font-weight: 600; color: var(--c-ink); }
     font-size: 10px !important;
 }
 
+/* ─────────────────────────  Pill buttons  ───────────────────────── */
+.pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-family: 'Geist', system-ui, sans-serif;
+    font-weight: 500; font-size: 14px;
+    letter-spacing: -0.005em;
+    border: 1px solid transparent;
+    text-decoration: none;
+    transition: transform .1s ease, background .15s ease, filter .15s ease;
+    cursor: pointer;
+}
+.pill:active { transform: translateY(1px); }
+.pill-primary { background: var(--c-ink); color: var(--c-paper); }
+.pill-primary:hover { background: var(--c-ink-2); color: var(--c-paper); }
+.pill-accent { background: var(--c-accent); color: var(--c-ink); font-weight: 600; }
+.pill-accent:hover { filter: brightness(0.96); color: var(--c-ink); }
+.pill-ghost { border-color: var(--c-line-strong); color: var(--c-ink); background: transparent; }
+.pill-ghost:hover { background: rgba(10,18,48,0.04); color: var(--c-ink); }
+
+/* ─────────────────────────  Hero highlight + serif italic  ───────────────────────── */
+.ns-h1 .hl, .sub-h1 .hl {
+    background: var(--c-accent);
+    padding: 0 8px;
+    border-radius: 4px;
+    display: inline-block;
+    transform: rotate(-0.5deg);
+}
+.ns-h1 em, .sub-h1 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+
+/* ─────────────────────────  4-col KPI grid (.grid-4-kpi + .bigmetric)  ───────────────────────── */
+.grid-4-kpi {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 36px;
+}
+@media (max-width: 720px) { .grid-4-kpi { grid-template-columns: repeat(2, 1fr); } }
+.bigmetric {
+    border: 1px solid var(--c-line);
+    border-radius: 18px;
+    padding: 22px;
+    background: color-mix(in oklab, var(--c-paper) 60%, white);
+}
+.bigmetric .l {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--c-mute);
+}
+.bigmetric .v {
+    font-size: 38px; letter-spacing: -0.03em;
+    font-weight: 400;
+    margin: 6px 0 0;
+    font-variant-numeric: tabular-nums;
+    color: var(--c-ink);
+}
+.bigmetric .v em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+.bigmetric .sub { font-size: 12px; color: var(--c-mute); margin-top: 4px; }
+
+/* ─────────────────────────  Feature row alternating left/right  ───────────────────────── */
+.mf-feature {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    padding: 56px 0;
+    border-top: 1px solid var(--c-line);
+}
+.mf-feature:nth-of-type(even) { grid-template-columns: 1fr 1.1fr; }
+.mf-feature:nth-of-type(even) .mf-text { order: 2; }
+@media (max-width: 900px) {
+    .mf-feature, .mf-feature:nth-of-type(even) { grid-template-columns: 1fr; }
+    .mf-feature:nth-of-type(even) .mf-text { order: 0; }
+}
+.mf-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.12em;
+    color: var(--c-mute);
+    text-transform: uppercase;
+}
+.mf-text h3 {
+    font-family: 'Geist', system-ui, sans-serif !important;
+    font-weight: 500 !important;
+    font-size: clamp(26px, 3vw, 38px) !important;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    margin: 10px 0 14px !important;
+    color: var(--c-ink) !important;
+}
+.mf-text h3 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+.mf-text p {
+    color: var(--c-mute) !important;
+    font-size: 16px;
+    line-height: 1.55;
+    max-width: 480px;
+    margin: 0 0 16px !important;
+}
+.mf-text ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.mf-text ul li {
+    display: flex;
+    gap: 10px;
+    align-items: start;
+    font-size: 14px;
+    color: var(--c-ink);
+}
+.mf-text ul li .chk {
+    color: var(--c-pos);
+    font-family: 'JetBrains Mono', monospace;
+    flex-shrink: 0;
+}
+
+.mf-visual {
+    background: var(--c-ink);
+    color: var(--c-paper) !important;
+    border-radius: 20px;
+    padding: 24px;
+    min-height: 280px;
+    position: relative;
+    overflow: hidden;
+}
+.mf-visual::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(500px 300px at 80% 0%, color-mix(in oklab, var(--c-accent) 14%, transparent), transparent 55%);
+    pointer-events: none;
+}
+.mf-visual > * { position: relative; }
+.mf-visual .vl {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em;
+    color: color-mix(in oklab, var(--c-paper) 55%, transparent);
+    text-transform: uppercase;
+}
+.mf-visual .vv {
+    font-size: 38px; font-weight: 400;
+    letter-spacing: -0.025em; margin-top: 4px;
+    font-variant-numeric: tabular-nums;
+    color: var(--c-paper);
+}
+.mf-visual .vv em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+
+/* ─────────────────────────  Two-column comparison  ───────────────────────── */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+}
+@media (max-width: 720px) { .two-col { grid-template-columns: 1fr; } }
+.two-col-card {
+    border: 1px solid var(--c-line);
+    border-radius: 18px;
+    padding: 28px;
+    background: color-mix(in oklab, var(--c-paper) 60%, white);
+}
+.two-col-card.dark {
+    background: var(--c-ink);
+    color: var(--c-paper);
+    border-color: transparent;
+}
+.two-col-card.accent {
+    background: var(--c-accent);
+    color: var(--c-ink);
+    border-color: transparent;
+}
+.two-col-card .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+.two-col-card h3 {
+    font-family: 'Geist', system-ui, sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 22px !important;
+    letter-spacing: -0.02em;
+    margin: 8px 0 12px !important;
+    color: inherit !important;
+}
+.two-col-card p { font-size: 14px; line-height: 1.55; margin: 0 0 14px !important; opacity: 0.86; }
+.two-col-card ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex; flex-direction: column; gap: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.two-col-card ul li { display: flex; gap: 8px; align-items: start; }
+.two-col-card ul li::before { content: '·'; opacity: 0.6; }
+
+/* ─────────────────────────  Steps grid  ───────────────────────── */
+.steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 32px;
+}
+@media (max-width: 900px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+.step {
+    border: 1px solid var(--c-line);
+    border-radius: 16px;
+    padding: 22px;
+    background: color-mix(in oklab, var(--c-paper) 60%, white);
+}
+.step .sn {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 38px;
+    color: var(--c-ink);
+    opacity: 0.32;
+    line-height: 1;
+}
+.step h4 {
+    font-family: 'Geist', system-ui, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.015em;
+    margin: 6px 0 8px !important;
+    color: var(--c-ink) !important;
+}
+.step p { color: var(--c-mute) !important; font-size: 13px; line-height: 1.5; margin: 0 !important; }
+
+/* ─────────────────────────  Sub-CTA (closing card)  ───────────────────────── */
+.sub-cta {
+    margin: 64px 0 24px;
+    background: var(--c-ink);
+    color: var(--c-paper);
+    border-radius: 24px;
+    padding: 56px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.sub-cta::after {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(700px 350px at 50% 100%, color-mix(in oklab, var(--c-accent) 18%, transparent), transparent 55%);
+    pointer-events: none;
+}
+.sub-cta > * { position: relative; }
+.sub-cta h2 {
+    font-family: 'Geist', system-ui, sans-serif !important;
+    font-weight: 500 !important;
+    font-size: clamp(28px, 3.4vw, 44px) !important;
+    letter-spacing: -0.025em !important;
+    line-height: 1.1 !important;
+    color: var(--c-paper) !important;
+    margin: 0 0 14px !important;
+    max-width: 22ch;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.sub-cta h2 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+.sub-cta p {
+    color: color-mix(in oklab, var(--c-paper) 75%, transparent) !important;
+    font-size: 17px;
+    line-height: 1.5;
+    max-width: 50ch;
+    margin: 0 auto 28px !important;
+}
+.sub-cta .pill-accent { background: var(--c-accent); color: var(--c-ink); }
+.sub-cta .pill-ghost { border-color: color-mix(in oklab, var(--c-paper) 30%, transparent); color: var(--c-paper) !important; }
+.sub-cta .pill-ghost:hover { background: color-mix(in oklab, var(--c-paper) 8%, transparent); color: var(--c-paper) !important; }
+
+/* ─────────────────────────  Section heads inside .ns-card  ───────────────────────── */
+.ns-card .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 32px;
+    margin: 48px 0 28px;
+}
+@media (max-width: 720px) { .ns-card .section-head { flex-direction: column; align-items: flex-start; } }
+.ns-card .section-head h2 {
+    font-family: 'Geist', system-ui, sans-serif !important;
+    font-weight: 500 !important;
+    font-size: clamp(28px, 3.4vw, 44px) !important;
+    letter-spacing: -0.03em !important;
+    line-height: 1 !important;
+    margin: 8px 0 0 !important;
+    max-width: 720px;
+    color: var(--c-ink) !important;
+    text-align: left !important;
+}
+.ns-card .section-head h2 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+.ns-card .section-head p { max-width: 360px; color: var(--c-mute) !important; margin: 0 !important; font-size: 14px; line-height: 1.5; opacity: 1; }
+.ns-card .section-head .ns-hero-eyebrow { margin: 0; }
+
 /* ─────────────────────────  Neutralizar el contenedor original  ───────────────────────── */
 /* Las páginas tienen <main class="container max-w-..."> o similar. El shell ya
  * provee el ancho y la card. Forzamos que el contenedor original deje de
