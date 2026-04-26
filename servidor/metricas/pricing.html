@@ -1,455 +1,371 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Infografía Detallada: Estrategias de Precios en SaaS</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&amp;display=swap" rel="stylesheet"/>
-<style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; /* Soft blue-gray background */
-            color: #1f2937; /* Dark gray text */
-        }
-        .gradient-text {
-            background: linear-gradient(90deg, #118AB2, #06D6A0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .section-card {
-            background-color: #fff;
-            padding: 2.5rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            margin-bottom: 2rem;
-            border: 1px solid #e2e8f0;
-        }
-        h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #4a5568;
-            margin-bottom: 1rem;
-        }
-        .metric-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #073B4C;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid #06D6A0;
-            padding-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-        }
-        .metric-title .icon-large {
-            font-size: 2.5rem;
-            margin-right: 0.75rem;
-            line-height: 1; /* Aligns text and icon */
-        }
-        .formula {
-            background-color: #e3f2fd; /* Light blue */
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            font-family: 'Fira Code', monospace; /* Monospaced font for clarity */
-            font-size: 1.1rem;
-            color: #073B4C;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            text-align: center;
-            overflow-x: auto; /* For long formulas on small screens */
-        }
-        .info-box {
-            background-color: #f8fafc; /* Lighter blue-gray */
-            padding: 1rem;
-            border-radius: 0.5rem;
-            border-left: 4px solid #118AB2; /* Blue accent */
-            margin-top: 1rem;
-            font-size: 0.95rem;
-            color: #4a5568;
-        }
-        .info-box strong {
-            color: #073B4C;
-        }
-        .ul-indented {
-            padding-left: 1.5rem;
-            list-style-type: disc;
-        }
-        .ul-indented li {
-            margin-bottom: 0.5rem;
-        }
-        /* Estilos específicos para esta infografía */
-        .key-concept {
-            background-color: #e6fffa; /* Very light green */
-            padding: 0.75rem 1.25rem;
-            border-radius: 0.5rem;
-            border-left: 4px solid #06D6A0;
-            margin-top: 1rem;
-            font-size: 1.05rem;
-            color: #073B4C;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-        }
-        .key-concept .icon {
-            font-size: 1.5rem;
-            margin-right: 0.75rem;
-        }
-        .image-placeholder {
-            background-color: #e2e8f0;
-            height: 200px; /* Adjust as needed */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            font-weight: bold;
-            border-radius: 0.5rem;
-            margin-top: 1.5rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            font-size: 0.9rem;
-            border: 1px dashed #94a3b8;
-        }
-        .psychology-point {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-            color: #334155;
-        }
-        .psychology-point .emoji {
-            font-size: 1.8rem;
-            margin-right: 0.75rem;
-            line-height: 1;
-            flex-shrink: 0;
-        }
-        .psychology-point strong {
-            color: #073B4C;
-        }
-    </style>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Estrategias de precios en SaaS · Curso SaaS</title>
+<link rel="stylesheet" href="_design.css" />
+</head>
+<body>
 
-<link href="_design.css" rel="stylesheet"/></head>
-<body class="p-8"><nav class="ns-static-nav"><div class="ns-inner"><a class="ns-back" href="/metricas/pro/embed.php"><svg fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"></path></svg>Volver al curso</a><span class="ns-eyebrow">Infografía · Curso SaaS</span><a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a></div></nav>
+<nav class="ns-static-nav">
+    <div class="ns-inner">
+        <a class="ns-back" href="/metricas/pro/embed.php">
+            <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"/></svg>
+            Volver al curso
+        </a>
+        <span class="ns-eyebrow">Infografía · Curso SaaS</span>
+        <a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a>
+    </div>
+</nav>
+
 <div class="ns-shell">
-<header class="ns-hero">
-<span class="ns-hero-eyebrow"><span class="dot"></span>Infografía · Curso SaaS</span>
-<h1 class="ns-h1">Estrategias de Precios en SaaS</h1>
-<p class="ns-lede">"El precio no es solo un número, es un posicionamiento estratégico y una propuesta de valor."</p>
-</header>
-<main class="ns-card">
-<div class="container mx-auto max-w-7xl">
-<main class="space-y-12">
-<section class="section-card">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-<div>
-<p class="text-lg text-gray-700 leading-relaxed mb-4">
-                            En el universo SaaS, el precio va más allá de un simple número. Es la brújula que <strong>define la percepción de tu producto y su lugar en el mercado</strong>. 
-                        </p>
-<div class="key-concept">
-<span class="icon">💡</span> Un precio adecuado = Mayor ingreso y crecimiento.
-                        </div>
-<div class="key-concept mt-4">
-<span class="icon">⚠️</span> Un precio erróneo = Poca percepción de valor, baja retención y dificultad para escalar.
-                        </div>
-</div>
-<div class="image-placeholder">
-<img alt="Descripción de la imagen" src="https://consejosdeventas.com/wp-content/uploads/2020/04/price-vs-value-1.jpg"/> </div>
-</div>
-<div class="mt-8">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-6">
-<div>
-<p class="text-lg text-gray-700 leading-relaxed mb-4">
-                                Muchos fundadores subestiman su valor, cobrando poco. O, peor aún, copian precios de la competencia sin entender por qué. ¡Cuidado con la influencia B2C! En <strong>B2B</strong>, las decisiones de compra se basan más en la <strong>confianza y el valor percibido</strong> que en el precio. Un precio bajo, irónicamente, puede generar desconfianza.
-                            </p>
-<div class="key-concept mt-4">
-<span class="icon">🛡️</span> El precio es una herramienta de posicionamiento y confianza.
-                            </div>
-</div>
-</div>
-<p class="text-lg text-gray-700 leading-relaxed mt-6">
-                        Tu precio debe reflejar cómo tu producto resuelve sus problemas. Además, es <strong>más fácil bajar precios que subirlos</strong>.
-                    </p>
-<div class="key-concept mt-4">
-<span class="icon">📈</span> Alinea tu precio con el valor  real que ofreces.
+
+    <header class="ns-hero">
+        <span class="ns-hero-eyebrow"><span class="dot"></span>Módulo 03 · Pricing SaaS</span>
+        <h1 class="ns-h1">Estrategias de <em>precios</em> en SaaS.</h1>
+        <p class="ns-lede">
+            <em>"El precio no es solo un número, es un posicionamiento estratégico y
+            una propuesta de valor."</em> En B2B, las decisiones se basan más en la
+            <span style="background: var(--c-accent); padding: 0 6px; border-radius: 4px; color: var(--c-ink);">confianza y valor percibido</span>
+            que en el precio. Un precio bajo, irónicamente, puede generar desconfianza.
+        </p>
+
+        <div class="grid-4-kpi">
+            <div class="bigmetric"><div class="l">Estrategias</div><div class="v">11</div><div class="sub">Modelos de pricing SaaS</div></div>
+            <div class="bigmetric"><div class="l">Tácticas psicológicas</div><div class="v">4</div><div class="sub">Anclaje · charm · prestigio · diseño</div></div>
+            <div class="bigmetric"><div class="l">Más fácil</div><div class="v">↓</div><div class="sub">Bajar precios que subirlos</div></div>
+            <div class="bigmetric"><div class="l">Decisión</div><div class="v">¿€<em>?</em></div><div class="sub">Mostrar precios o no</div></div>
+        </div>
+    </header>
+
+    <main class="ns-card">
+
+        <!-- Bloque 1 — El precio como posicionamiento -->
+        <section class="mf-feature" style="border-top: 0; padding-top: 0;">
+            <div class="mf-text">
+                <div class="mf-tag">01 · El precio como posicionamiento</div>
+                <h3>El precio define <em>cómo te ven</em>.</h3>
+                <p>
+                    En el universo SaaS, el precio va más allá de un simple número. Es la
+                    brújula que <strong>define la percepción de tu producto y su lugar
+                    en el mercado</strong>.
+                </p>
+                <p>
+                    Muchos fundadores subestiman su valor, cobrando poco. O, peor aún,
+                    copian precios de la competencia sin entender por qué. ¡Cuidado con
+                    la influencia B2C! En <strong>B2B</strong>, las decisiones de compra
+                    se basan más en la <strong>confianza y el valor percibido</strong>
+                    que en el precio. Un precio bajo, irónicamente, puede generar
+                    desconfianza.
+                </p>
+                <p>
+                    Tu precio debe reflejar cómo tu producto resuelve sus problemas.
+                    Además, es <strong>más fácil bajar precios que subirlos</strong>.
+                </p>
+                <ul>
+                    <li><span class="chk">💡</span><strong>Un precio adecuado</strong> = mayor ingreso y crecimiento.</li>
+                    <li><span class="chk">⚠</span><strong>Un precio erróneo</strong> = poca percepción de valor, baja retención, dificultad para escalar.</li>
+                    <li><span class="chk">🛡</span>El precio es una herramienta de <strong>posicionamiento y confianza</strong>.</li>
+                    <li><span class="chk">📈</span>Alinea tu precio con el <strong>valor real</strong> que ofreces.</li>
+                    <li><span class="chk">🔄</span>La <strong>escalabilidad</strong> depende de una estructura de precios flexible.</li>
+                </ul>
+            </div>
+            <div class="mf-visual">
+                <div class="vl">Precio vs Valor</div>
+                <div class="vv">€ <em>= valor</em></div>
+                <div style="margin-top: 22px; padding: 16px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 12px;">
+                    <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 18px; line-height: 1.4; color: var(--c-paper);">
+                        "El precio es la brújula que define la percepción de tu producto
+                        y su lugar en el mercado."
                     </div>
-<div class="key-concept mt-4">
-<span class="icon">🔄</span> La escalabilidad depende de una estructura de precios flexible.
-                    </div>
-</div>
-</section>
-<section class="section-card">
-<h2 "="" class="metric-title">📊 Estrategias Comunes de Fijación de Precios en SaaS</h2>
-<p class="text-center text-lg text-gray-700 leading-relaxed mb-8">
-                    Exploramos los modelos de precios más efectivos para tu negocio SaaS.
+                </div>
+                <div style="margin-top: 14px; padding: 10px 12px; background: color-mix(in oklab, var(--c-accent) 18%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--c-accent); letter-spacing: 0.06em;">
+                    ⚠ EN B2B EL PRECIO BAJO GENERA DESCONFIANZA
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 2 — 11 Estrategias de Pricing -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>02 · Estrategias de fijación</span>
+                    <h2>11 estrategias <em>comunes</em> en SaaS.</h2>
+                </div>
+                <p>Exploramos los modelos de precios más efectivos para tu negocio SaaS. Pros, contras y ejemplos reales de cada uno.</p>
+            </div>
+
+            <div class="steps" style="grid-template-columns: repeat(2, 1fr); margin-top: 16px;">
+
+                <div class="step">
+                    <div class="sn">💲</div>
+                    <h4>1. Precio Fijo</h4>
+                    <p><strong>Definición:</strong> una tarifa única para un uso razonable. Simplicidad al máximo.</p>
+                    <p style="margin-top: 8px !important;"><strong>Pros:</strong> simple para el cliente, predecible, permite un precio inicial elevado.<br><strong>Contras:</strong> pérdida de ingresos potenciales de clientes grandes que pagan lo mismo que los pequeños.</p>
+                    <p style="margin-top: 8px !important; font-size: 11px !important; opacity: 0.7;"><em>Ej: algunos SaaS de productividad con suscripción única.</em></p>
+                </div>
+
+                <div class="step">
+                    <div class="sn">📊</div>
+                    <h4>2. Precio por Uso o Tokens</h4>
+                    <p><strong>Definición:</strong> pagas según lo que consumes. Ideal para infraestructuras o IA.</p>
+                    <p style="margin-top: 8px !important;"><strong>Pros:</strong> escala naturalmente con el crecimiento del cliente.<br><strong>Contras:</strong> puede disociar el valor percibido del precio (cobrar por llamadas API en vez de soluciones). Dificultad para predecir gastos.</p>
+                    <p style="margin-top: 8px !important; font-size: 11px !important; opacity: 0.7;"><em>Ej: IA por tokens, AWS cobra por uso de recursos.</em></p>
+                </div>
+
+                <div class="step">
+                    <div class="sn">👥</div>
+                    <h4>3. Precio por Asiento o Usuario</h4>
+                    <p><strong>Definición:</strong> el coste varía según el número de personas que usan la herramienta. Clásico en colaboración.</p>
+                    <p style="margin-top: 8px !important;"><strong>Pros:</strong> crece con el tamaño de la empresa, alinea el gasto con la expansión.<br><strong>Contras:</strong> puede desincentivar la adopción interna si cada usuario es un coste extra, limitando la penetración.</p>
+                    <p style="margin-top: 8px !important; font-size: 11px !important; opacity: 0.7;"><em>Ej: Factorial, Slack, Microsoft 365, Zoom.</em></p>
+                </div>
+
+                <div class="step">
+                    <div class="sn">🧩</div>
+                    <h4>4. Precio por Funcionalidades</h4>
+                    <p><strong>Definición:</strong> acceso segmentado por funcionalidades disponibles en cada nivel. Flexibilidad total.</p>
+                    <p style="margin-top: 8px !important;"><strong>Ventajas:</strong> atrae a diferentes segmentos (básico a avanzado), ideal para productos con funcionalidades específicas para usuarios avanzados, facilita versiones para empresas grandes con precios justificados, mayor flexibilidad y experimentación comercial.</p>
+                    <p style="margin-top: 8px !important; font-size: 11px !important; opacity: 0.7;"><em>Ej: la mayoría de SaaS con planes "Básico", "Estándar", "Premium".</em></p>
+                </div>
+
+                <div class="step">
+                    <div class="sn">⭐</div>
+                    <h4>5. Precio Basado en el Valor</h4>
+                    <p><strong>Definición:</strong> el precio se fija por los beneficios que el usuario obtiene (ahorro de tiempo, aumento de ingresos, eficiencia).</p>
+                    <p style="margin-top: 8px !important;"><strong>Claves:</strong> entender la disposición a pagar (investigación de mercado, encuestas), el precio debe reflejar cómo el producto resuelve problemas, ideal para ventas consultivas.</p>
+                    <p style="margin-top: 8px !important; font-size: 11px !important; opacity: 0.7;"><em>Ej: software que garantiza un aumento del 20% en ventas justifica su precio por el ROI.</em></p>
+                </div>
+
+                <div class="step">
+                    <div class="sn">⚙</div>
+                    <h4>6. Precio Basado en Costes</h4>
+                    <p><strong>Definición:</strong> precio = costes operativos + margen de beneficio.</p>
+                    <p style="margin-top: 8px !important;"><strong>Pros:</strong> garantiza cobertura de costes y márgenes estables.<br><strong>Contras:</strong> no considera valor percibido ni competencia. Puede llevar a precios poco competitivos. Útil con costes fijos elevados.</p>
+                    <p style="margin-top: 8px !important; font-size: 11px !important; opacity: 0.7;"><em>Ej: SaaS con infraestructura propia o alto soporte.</em></p>
+                </div>
+
+                <div class="step">
+                    <div class="sn">🆚</div>
+                    <h4>7. Precio Según la Competencia</h4>
+                    <p><strong>Definición:</strong> fijas el precio basándote en lo que cobran otros productos similares.</p>
+                    <p style="margin-top: 8px !important;"><strong>Aplicación:</strong> se puede igualar, bajar o subir el precio de los competidores. Ideal en mercados saturados donde los clientes comparan.<br><strong>Desventaja:</strong> copiar sin entender la lógica puede llevar a márgenes insuficientes o no reflejar el valor real.</p>
+                    <p style="margin-top: 8px !important; font-size: 11px !important; opacity: 0.7;"><em>Ej: un nuevo software de gestión de redes sociales.</em></p>
+                </div>
+
+                <div class="step">
+                    <div class="sn">🥛</div>
+                    <h4>8. Descremado de Precios</h4>
+                    <p><strong>Definición:</strong> lanzas con precio alto y lo reduces progresivamente. Captura a los "early adopters" primero.</p>
+                    <p style="margin-top: 8px !important;"><strong>Beneficios:</strong> maximiza ingresos iniciales, refuerza exclusividad, financia crecimiento.<br><strong>Riesgos:</strong> resistencia de clientes sensibles al precio, oportunidad para competidores más baratos.</p>
+                    <p style="margin-top: 8px !important; font-size: 11px !important; opacity: 0.7;"><em>Ej: HubSpot, Notion. Software de IA que ajusta su precio con el tiempo.</em></p>
+                </div>
+
+                <div class="step">
+                    <div class="sn">🚀</div>
+                    <h4>9. Precios de Penetración</h4>
+                    <p><strong>Definición:</strong> lanzas con un precio inicial bajo (incluso gratis) para ganar muchos usuarios y monetizas después con planes premium o subidas de precio.</p>
+                    <p style="margin-top: 8px !important;"><strong>Ventajas:</strong> facilita adopción rápida, reduce fricción, crea barreras de entrada.<br><strong>Desafíos:</strong> difícil subir precios sin descontento. Requiere respaldo financiero inicial.</p>
+                    <p style="margin-top: 8px !important; font-size: 11px !important; opacity: 0.7;"><em>Ej: Dropbox (almacenamiento gratuito inicial), Factorial.</em></p>
+                </div>
+
+                <div class="step">
+                    <div class="sn">🎁</div>
+                    <h4>10. Modelo Freemium</h4>
+                    <p><strong>Definición:</strong> ofrece una versión gratuita con funciones limitadas y opciones de pago para acceso avanzado. Permite probar el producto sin riesgo.</p>
+                    <p style="margin-top: 8px !important;"><strong>Características clave:</strong> atrae una gran base de usuarios, facilita la adopción y demostración de valor, la conversión se basa en la necesidad de funciones avanzadas o el alcance de límites.</p>
+                    <p style="margin-top: 8px !important; font-size: 11px !important; opacity: 0.7;"><em>Ej: Spotify, Asana, Zoom.</em></p>
+                </div>
+
+                <div class="step" style="grid-column: span 2;">
+                    <div class="sn">♾</div>
+                    <h4>11. Lifetime Deals (Pago Único)</h4>
+                    <p><strong>Definición:</strong> ofrece acceso de por vida al software con un único pago inicial. Popular en plataformas como AppSumo para inyección de capital y base de usuarios.</p>
+                    <p style="margin-top: 12px !important;"><strong>¿Por qué un SaaS optaría por este modelo?</strong></p>
+                    <ul style="list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--c-mute);">
+                        <li>· <strong>Flujo de caja inmediato:</strong> grandes pagos por adelantado para financiar crecimiento sin inversión externa.</li>
+                        <li>· <strong>Adquisición masiva:</strong> descuentos atractivos atraen clientes rápidamente, útil para startups en busca de tracción.</li>
+                        <li>· <strong>Validación del producto:</strong> una oferta LTD es una prueba real de la disposición a pagar y el valor percibido.</li>
+                        <li>· <strong>Marketing y viralidad:</strong> crea urgencia y boca a boca por ser una oferta limitada y única.</li>
+                        <li>· <strong>Adiós al churn:</strong> el churn técnico (por impago) desaparece al no haber pagos recurrentes.</li>
+                    </ul>
+                    <p style="margin-top: 12px !important;"><strong>Riesgos del lifetime pricing:</strong></p>
+                    <ul style="list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--c-mute);">
+                        <li>· <strong>Pérdida de ingresos recurrentes:</strong> renuncias a ingresos futuros continuos.</li>
+                        <li>· <strong>Costes de soporte a largo plazo:</strong> los usuarios LTD siguen consumiendo recursos y soporte sin generar ingresos adicionales.</li>
+                        <li>· <strong>Percepción del producto:</strong> un precio bajo puede hacer que el producto parezca de menor calidad.</li>
+                    </ul>
+                    <p style="margin-top: 12px !important;"><strong>Estrategias para implementar sin riesgo:</strong></p>
+                    <ul style="list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: var(--c-mute);">
+                        <li>· <strong>Limitar cantidad de ofertas:</strong> ej., solo 500 licencias.</li>
+                        <li>· <strong>Canal de adquisición:</strong> usar LTD para el plan básico y ofrecer módulos premium por suscripción.</li>
+                        <li>· <strong>Cobrar por extras:</strong> actualizaciones o soporte avanzado con coste adicional.</li>
+                        <li>· <strong>Canales específicos:</strong> lanzar LTDs en plataformas como AppSumo, manteniendo el modelo estándar en tu web principal.</li>
+                    </ul>
+                    <p style="margin-top: 12px !important; font-size: 11px !important; opacity: 0.7;"><em>Ej: Internxt o Acumbamail usaron estas estrategias en AppSumo para crecer.</em></p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Bloque 3 — Upselling & Cross-selling -->
+        <section class="mf-feature" style="border-top: 1px solid var(--c-line);">
+            <div class="mf-text">
+                <div class="mf-tag">03 · Optimización de ingresos</div>
+                <h3>Upselling y <em>cross-selling</em>.</h3>
+                <p>
+                    Estrategias clave para aumentar la facturación con tus clientes
+                    existentes — ¡sin subir precios base!
                 </p>
-<div class="mb-10 p-6 border rounded-lg shadow-sm">
-<p class="metric-title"><span class="icon-large">💲</span> Precio Fijo</p>
-<p class="text-gray-700"><strong>Definición:</strong> Una tarifa única para un uso razonable. Simplicidad al máximo.</p>
-<div class="info-box">
-<h4 class="font-bold mb-2">Pros y Contras:</h4>
-<ul class="ul-indented">
-<li><strong>Pros:</strong> <strong>Simple</strong> para el cliente, <strong>predecible</strong>, permite un precio inicial <strong>elevado</strong>.</li>
-<li><strong>Contras:</strong> Pérdida de <strong>ingresos potenciales</strong> de clientes grandes, que pagan lo mismo que los pequeños.</li>
-</ul>
-<p class="text-center text-sm text-gray-500 mt-4"><em>Ejemplo: Algunos SaaS de productividad con una suscripción única.</em></p>
-</div>
-</div>
-<div class="mb-10 p-6 border rounded-lg shadow-sm">
-<p class="metric-title"><span class="icon-large">📊</span> Precio por Uso o Tokens</p>
-<p class="text-gray-700"><strong>Definición:</strong> Pagas según lo que consumes. Ideal para infraestructuras o IA.</p>
-<div class="info-box">
-<h4 class="font-bold mb-2">Pros y Contras:</h4>
-<ul class="ul-indented">
-<li><strong>Pros:</strong> Precio <strong>escala naturalmente</strong> con el crecimiento del cliente.</li>
-<li><strong>Contras:</strong> Puede <strong>disociar el valor percibido</strong> del precio (ej., cobrar por llamadas API en vez de soluciones). Dificultad para el cliente de predecir gastos.</li>
-</ul>
-<img alt="Descripción de la imagen" src="https://i.postimg.cc/Vk2KYw5P/pricing-gpt.jpg"/> </div>
-<p class="text-center text-sm text-gray-500 mt-4"><em>Ejemplo: IA por Tokens, Amazon Web Services (AWS) cobra por el uso de recursos.</em></p>
-</div>
-</section></main></div>
-<div class="mb-10 p-6 border rounded-lg shadow-sm">
-<p class="metric-title"><span class="icon-large">👥</span> Precio por Asiento o Usuario</p>
-<p class="text-gray-700"><strong>Definición:</strong> El coste varía según el número de personas que usan la herramienta. Clásico en colaboración.</p>
-<div class="info-box">
-<h4 class="font-bold mb-2">Pros y Contras:</h4>
-<ul class="ul-indented">
-<li><strong>Pros:</strong> <strong>Crece con el tamaño</strong> de la empresa, alinea el gasto con la expansión.</li>
-<li><strong>Contras:</strong> Puede <strong>desincentivar la adopción</strong> interna si cada usuario es un coste extra, limitando la penetración.</li>
-</ul>
-<img alt="Descripción de la imagen" src="https://i.postimg.cc/VNcXGkdv/pricing-factorial.jpg"/> </div>
-<p class="text-center text-sm text-gray-500 mt-4"><em>Ejemplo: Factorial, Slack, Microsoft 365, Zoom.</em></p>
-</div>
-<div class="mb-10 p-6 border rounded-lg shadow-sm">
-<p class="metric-title"><span class="icon-large">🧩</span> Precio por Funcionalidades (Planes Escalonados)</p>
-<p class="text-gray-700"><strong>Definición:</strong> Acceso segmentado por funcionalidades disponibles en cada nivel. Flexibilidad total.</p>
-<div class="info-box">
-<h4 class="font-bold mb-2">Ventajas:</h4>
-<ul class="ul-indented">
-<li>Atrae a <strong>diferentes segmentos</strong> (básico a avanzado).</li>
-<li>Ideal para productos con <strong>funcionalidades específicas</strong> para usuarios avanzados.</li>
-<li>Facilita versiones para <strong>empresas grandes</strong> con precios justificados por características avanzadas.</li>
-<li>Mayor <strong>flexibilidad</strong> y experimentación comercial.</li>
-</ul>
-<img alt="Descripción de la imagen" src="https://i.postimg.cc/bvzsSDZx/pricing-Nextscenario.jpg"/>
-<p class="text-center text-sm text-gray-500 mt-4"><em>Ejemplo: La mayoría de los SaaS con planes "Básico", "Estándar", "Premium".</em></p>
-</div>
-</div>
-<div class="mb-10 p-6 border rounded-lg shadow-sm">
-<p class="metric-title"><span class="icon-large">⭐</span> Precio Basado en el Valor</p>
-<p class="text-gray-700"><strong>Definición:</strong> El precio se fija por los beneficios que el usuario obtiene (ahorro de tiempo, aumento de ingresos, eficiencia).</p>
-<div class="info-box">
-<h4 class="font-bold mb-2">Claves:</h4>
-<ul class="ul-indented">
-<li>Entender la <strong>disposición a pagar</strong> del cliente (investigación de mercado, encuestas).</li>
-<li>El precio debe reflejar cómo el producto <strong>resuelve problemas</strong>.</li>
-<li>Ideal para ventas consultivas.</li>
-</ul>
-<p class="text-center text-sm text-gray-500 mt-4"><em>Ejemplo: Un software que garantiza un aumento del 20% en ventas justifica su precio por el ROI.</em></p>
-</div>
-</div>
-<div class="mb-10 p-6 border rounded-lg shadow-sm">
-<p class="metric-title"><span class="icon-large">⚙️</span> Precio Basado en Costes</p>
-<p class="text-gray-700"><strong>Definición:</strong> Precio = Costes operativos + Margen de beneficio.</p>
-<div class="info-box">
-<h4 class="font-bold mb-2">Pros y Contras:</h4>
-<ul class="ul-indented">
-<li><strong>Pros:</strong> Garantiza <strong>cobertura de costes</strong> y <strong>márgenes estables</strong>.</li>
-<li><strong>Contras:</strong> No considera <strong>valor percibido</strong> ni <strong>competencia</strong>. Puede llevar a precios poco competitivos.</li>
-<li>Útil con <strong>costes fijos elevados</strong> (infraestructura propia, alto soporte).</li>
-</ul>
-<p class="text-center text-sm text-gray-500 mt-4"><em>Ejemplo: SaaS con infraestructura propia o alto nivel de soporte.</em></p>
-</div>
-</div>
-<div class="mb-10 p-6 border rounded-lg shadow-sm">
-<p class="metric-title"><span class="icon-large">🆚</span> Precio Según la Competencia</p>
-<p class="text-gray-700"><strong>Definición:</strong> Fijas el precio basándote en lo que cobran otros productos similares.</p>
-<div class="info-box">
-<h4 class="font-bold mb-2">Aplicación y Desventajas:</h4>
-<ul class="ul-indented">
-<li>Se puede <strong>igualar, bajar o subir</strong> el precio de los competidores.</li>
-<li>Ideal en <strong>mercados saturados</strong> donde los clientes comparan.</li>
-<li><strong>Desventaja:</strong> Copiar sin entender la lógica puede llevar a <strong>márgenes insuficientes</strong> o a no reflejar el valor real.</li>
-</ul>
-<p class="text-center text-sm text-gray-500 mt-4"><em>Ejemplo: Un nuevo software de gestión de redes sociales.</em></p>
-</div>
-</div>
-<div class="mb-10 p-6 border rounded-lg shadow-sm">
-<p class="metric-title"><span class="icon-large">🥛</span> Descremado de Precios</p>
-<p class="text-gray-700"><strong>Definición:</strong> Lanzas con precio alto y lo reduces progresivamente. Captura a los "early adopters" primero.</p>
-<div class="info-box">
-<h4 class="font-bold mb-2">Beneficios y Riesgos:</h4>
-<ul class="ul-indented">
-<li><strong>Beneficios:</strong> Maximiza <strong>ingresos iniciales</strong>, refuerza <strong>exclusividad</strong>, financia <strong>crecimiento</strong>.</li>
-<li><strong>Riesgos:</strong> Resistencia de clientes sensibles al precio, oportunidad para <strong>competidores más baratos</strong>.</li>
-</ul>
-<p class="text-center text-sm text-gray-500 mt-4"><em>Ejemplo: HubSpot, Notion. Un software de IA que ajusta su precio con el tiempo.</em></p>
-</div>
-</div>
-<div class="mb-10 p-6 border rounded-lg shadow-sm">
-<p class="metric-title"><span class="icon-large">🚀</span> Estrategia de Precios de Penetración</p>
-<p class="text-gray-700"><strong>Definición:</strong> Lanzas con un precio inicial bajo (incluso gratis) para ganar muchos usuarios y monetizas después con planes premium o subidas de precio.</p>
-<div class="info-box">
-<h4 class="font-bold mb-2">Ventajas y Desafíos:</h4>
-<ul class="ul-indented">
-<li><strong>Ventajas:</strong> Facilita <strong>adopción rápida</strong>, reduce fricción, crea <strong>barreras de entrada</strong>.</li>
-<li><strong>Desafíos:</strong> Difícil subir precios sin descontento. Requiere <strong>respaldo financiero</strong> inicial.</li>
-</ul>
-<p class="text-center text-sm text-gray-500 mt-4"><em>Ejemplo: Dropbox (almacenamiento gratuito inicial), Factorial.</em></p>
-</div>
-</div>
-<div class="mb-10 p-6 border rounded-lg shadow-sm">
-<p class="metric-title"><span class="icon-large">🎁</span> Modelo Freemium</p>
-<p class="text-gray-700"><strong>Definición:</strong> Ofrece una versión gratuita con funciones limitadas y opciones de pago para acceso avanzado. Permite probar el producto sin riesgo.</p>
-<div class="info-box">
-<h4 class="font-bold mb-2">Características Clave:</h4>
-<ul class="ul-indented">
-<li>Atrae una <strong>gran base de usuarios</strong>.</li>
-<li>Facilita la <strong>adopción y demostración de valor</strong>.</li>
-<li>La conversión se basa en la necesidad de <strong>funciones avanzadas</strong> o el alcance de límites.</li>
-</ul>
-<p class="text-center text-sm text-gray-500 mt-4"><em>Ejemplo: Spotify, Asana, Zoom.</em></p>
-</div>
-</div>
-<div class="mb-10 p-6 border rounded-lg shadow-sm">
-<p class="metric-title"><span class="icon-large">♾️</span> Lifetime Deals (Pago Único)</p>
-<p class="text-gray-700"><strong>Definición:</strong> Ofrece acceso de por vida al software con un único pago inicial. Popular en plataformas como AppSumo para inyección de capital y base de usuarios.</p>
-<img alt="Descripción de la imagen" src="https://i.postimg.cc/Gpyd2bQF/appsumo.jpg"/>
-<div class="info-box">
-<h4 class="font-bold mb-2">¿Por qué un SaaS optaría por este modelo?</h4>
-<ul class="ul-indented">
-<li><strong>Flujo de caja inmediato:</strong> Grandes pagos por adelantado para financiar crecimiento sin inversión externa.</li>
-<li><strong>Adquisición masiva:</strong> Descuentos atractivos atraen clientes rápidamente, útil para startups en busca de tracción.</li>
-<li><strong>Validación del producto:</strong> Una oferta LTD es una prueba real de la disposición a pagar y el valor percibido.</li>
-<li><strong>Marketing y Viralidad:</strong> Crea urgencia y boca a boca por ser una oferta limitada y única.</li>
-<li><strong>Adiós al Churn:</strong> El churn técnico (por impago) desaparece al no haber pagos recurrentes.</li>
-</ul>
-<h4 class="font-bold mt-4 mb-2">Riesgos del Lifetime Pricing:</h4>
-<ul class="ul-indented">
-<li><strong>Pérdida de ingresos recurrentes:</strong> Renuncias a ingresos futuros continuos.</li>
-<li><strong>Costes de soporte a largo plazo:</strong> Los usuarios LTD siguen consumiendo recursos y soporte sin generar ingresos adicionales.</li>
-<li><strong>Percepción del producto:</strong> Un precio bajo puede hacer que el producto parezca de menor calidad.</li>
-</ul>
-<h4 class="font-bold mt-4 mb-2">Estrategias para Implementar Sin Riesgo:</h4>
-<ul class="ul-indented">
-<li><strong>Limitar cantidad de ofertas:</strong> Ej., solo 500 licencias.</li>
-<li><strong>Canal de adquisición:</strong> Usar LTD para el plan básico y ofrecer módulos premium por suscripción.</li>
-<li><strong>Cobrar por extras:</strong> Actualizaciones o soporte avanzado con costo adicional.</li>
-<li><strong>Canales específicos:</strong> Lanzar LTDs en plataformas como AppSumo, manteniendo el modelo estándar en tu web principal.</li>
-</ul>
-<p class="text-center text-sm text-gray-500 mt-4"><em>Ejemplo: Internxt o Acumbamail usaron estas estrategias en AppSumo para crecer.</em></p>
-</div>
-</div>
-<section class="section-card">
-<h2 class="metric-title">📈 Optimización de Ingresos: Upselling y Cross-selling</h2>
-<p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    Estrategias clave para aumentar la facturación con tus clientes existentes, ¡sin subir precios base!
+                <p>
+                    <strong>Upselling (venta adicional):</strong> incentivar a un cliente
+                    a comprar un plan superior o un servicio con más funcionalidades.
                 </p>
-<div class="mb-10 p-6 border rounded-lg shadow-sm">
-<p class="metric-title"><span class="icon-large">⬆️</span> Upselling y Cross-selling</p>
-<p class="text-gray-700 mb-4">
-<strong>Upselling (Venta Adicional):</strong> Incentivar a un cliente a comprar un plan superior o un servicio con más funcionalidades.
-                        <br/><strong>Cross-selling (Venta Cruzada):</strong> Fomentar la adquisición de módulos o servicios complementarios.
-                    </p>
-<div class="info-box">
-<h4 class="font-bold mb-2">Ejemplos Prácticos en SaaS:</h4>
-<ul class="ul-indented">
-<li><strong>Planes escalonados:</strong> Ofrecer niveles de suscripción (básico, pro, enterprise) con distintas funcionalidades y límites.</li>
-<li><strong>Funcionalidades premium:</strong> Vender módulos adicionales (ej., reportes avanzados, automatización, IA).</li>
-<li><strong>Soporte y consultoría:</strong> Ofrecer soporte prioritario o consultoría personalizada en planes de mayor valor.</li>
-<li><strong>Uso basado en volumen:</strong> El cliente paga más a medida que consume más recursos (ej., emails enviados, almacenamiento).</li>
-</ul>
-<img alt="Descripción de la imagen" src="https://i.postimg.cc/44BkXKGC/upsell-downsell.jpg"/>
-</div>
-</div>
-</section>
-<section class="section-card">
-<h2 class="metric-title">🧠 La Psicología del Precio en SaaS</h2>
-<p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    La forma en que presentas tus tarifas es tan importante como las tarifas mismas. La psicología influye en la percepción y la conversión.
+                <p>
+                    <strong>Cross-selling (venta cruzada):</strong> fomentar la
+                    adquisición de módulos o servicios complementarios.
                 </p>
-<div class="mb-10 p-6 border rounded-lg shadow-sm">
-<p class="metric-title"><span class="icon-large">💡</span> Tácticas Psicológicas Clave</p>
-<div class="info-box">
-<div class="psychology-point">
-<span class="emoji">⚓</span> <div><strong>Efecto Ancla:</strong> Presentar primero una opción cara para que las demás parezcan más asequibles.</div>
+                <ul>
+                    <li><span class="chk">→</span><strong>Planes escalonados:</strong> niveles de suscripción (básico, pro, enterprise) con distintas funcionalidades y límites.</li>
+                    <li><span class="chk">→</span><strong>Funcionalidades premium:</strong> módulos adicionales (reportes avanzados, automatización, IA).</li>
+                    <li><span class="chk">→</span><strong>Soporte y consultoría:</strong> soporte prioritario o consultoría personalizada en planes de mayor valor.</li>
+                    <li><span class="chk">→</span><strong>Uso basado en volumen:</strong> el cliente paga más a medida que consume más recursos (emails enviados, almacenamiento).</li>
+                </ul>
+            </div>
+            <div class="mf-visual">
+                <div class="vl">ARPA · expansión típica</div>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 14px;">
+                    <div style="display: flex; justify-content: space-between; padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);"><span>Mes 1 · Plan básico</span><span style="color: var(--c-accent);">€29</span></div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);"><span>Mes 4 · Upsell Pro</span><span style="color: var(--c-accent);">€79</span></div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);"><span>Mes 8 · +módulo IA</span><span style="color: var(--c-accent);">€119</span></div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 14px; background: color-mix(in oklab, var(--c-accent) 18%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--c-accent);"><span>Mes 12 · Enterprise</span><span style="color: var(--c-accent);">€259</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 4 — Psicología del precio (4 cards) -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>04 · Psicología del precio</span>
+                    <h2>La forma <em>cuenta</em> tanto como el número.</h2>
+                </div>
+                <p>La forma en que presentas tus tarifas es tan importante como las tarifas mismas. La psicología influye en la percepción y la conversión.</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="sn">⚓</div>
+                    <h4>Efecto Ancla</h4>
+                    <p>Presentar primero una opción cara para que las demás parezcan más asequibles.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">💸</div>
+                    <h4>Precios de Encanto</h4>
+                    <p>Usar precios terminados en .99 (ej., 9.99€) para una percepción de menor coste en el mercado masivo.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">💎</div>
+                    <h4>Precios de Prestigio</h4>
+                    <p>Usar precios redondeados (ej., 100€) para transmitir exclusividad y calidad superior en productos premium.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">🎨</div>
+                    <h4>Diseño de la página de precios</h4>
+                    <p>Destacar visualmente el plan más popular, resaltar beneficios clave y usar testimonios para guiar al usuario.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 5 — Mostrar precios o no (two-col) -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>05 · ¿Mostrarlos en la web?</span>
+                    <h2>¿Precios <em>visibles</em> o pedir contacto?</h2>
+                </div>
+                <p>Una decisión estratégica crucial: ¿publicar los precios o pedir contacto a ventas? Depende de tu producto y tu mercado.</p>
+            </div>
+
+            <div class="two-col">
+                <div class="two-col-card accent">
+                    <div class="tag">✅ Mostrar precios</div>
+                    <h3>Ventajas</h3>
+                    <ul>
+                        <li><strong>Transparencia y confianza:</strong> elimina dudas, vital para startups y pymes.</li>
+                        <li><strong>Proceso ágil:</strong> acelera la compra en productos de autoservicio.</li>
+                        <li><strong>Filtrado de clientes:</strong> el equipo de ventas no pierde tiempo con no cualificados.</li>
+                        <li><strong>Comparabilidad:</strong> facilita que los clientes te comparen con la competencia.</li>
+                    </ul>
+                </div>
+                <div class="two-col-card dark">
+                    <div class="tag">❌ Ocultarlos</div>
+                    <h3>Desventajas y razones para ocultarlos</h3>
+                    <p><strong>Desventajas de mostrar precios:</strong></p>
+                    <ul>
+                        <li>Pérdida de oportunidad de ajustar la oferta por perfil de cliente.</li>
+                        <li>Dificultad en el mercado corporativo (enterprise), donde los precios varían por personalización.</li>
+                        <li>Menor flexibilidad para cambios futuros.</li>
+                    </ul>
+                    <p style="margin-top: 12px !important;"><strong>Ocultar precios es ideal cuando:</strong></p>
+                    <ul>
+                        <li>El producto requiere fuerte personalización.</li>
+                        <li>Vendes a grandes empresas (precio consultivo, no factor principal).</li>
+                        <li>Buscas fomentar el contacto directo con ventas para cualificar clientes.</li>
+                        <li>Quieres maximizar la percepción de valor antes de revelar el coste.</li>
+                        <li>Estás en etapas iniciales y el precio no está claro.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 24px; padding: 18px 22px; background: var(--c-paper); border: 1px solid var(--c-line); border-radius: 14px; text-align: center; font-size: 14px; color: var(--c-mute); font-style: italic;">
+                Un enfoque mixto (planes básicos públicos, enterprise con "Contacta ventas") es común y efectivo.
+            </div>
+        </section>
+
+        <!-- Bloque 6 — Puntos clave finales -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>06 · Puntos clave</span>
+                    <h2>Para tu <em>estrategia</em>.</h2>
+                </div>
+                <p>Lo que tienes que recordar antes de fijar el precio del plan que vas a publicar mañana.</p>
+            </div>
+
+            <div class="steps">
+                <div class="step"><div class="sn">A</div><h4>El precio es posicionamiento</h4><p>Muchos fundadores subestiman el valor: un precio bajo puede generar desconfianza. El precio es una herramienta de posicionamiento.</p></div>
+                <div class="step"><div class="sn">B</div><h4>Alinea precio con valor</h4><p>El precio debe alinearse con el valor que el cliente espera recibir. Es más fácil bajar precios que subirlos.</p></div>
+                <div class="step"><div class="sn">C</div><h4>Explora múltiples estrategias</h4><p>Precio fijo, por uso, por asiento/usuario, por funcionalidades, basado en valor.</p></div>
+                <div class="step"><div class="sn">D</div><h4>LTDs con cuidado</h4><p>Los Lifetime Deals son potentes para liquidez y validación, pero gestiónalos con cuidado.</p></div>
+                <div class="step"><div class="sn">E</div><h4>Optimiza con upsell</h4><p>Optimiza ingresos con upselling y cross-selling para tus clientes existentes.</p></div>
+                <div class="step"><div class="sn">F</div><h4>Dinámica y basada en datos</h4><p>Tu estrategia de precios debe ser dinámica, basada en datos y en pruebas constantes para maximizar crecimiento y rentabilidad.</p></div>
+            </div>
+        </section>
+
+        <!-- Closing CTA -->
+        <section class="sub-cta">
+            <h2>Domina tus precios, <em>impulsa</em> tu SaaS.</h2>
+            <p>
+                El precio no es solo un número — es un posicionamiento estratégico y una
+                propuesta de valor. Elige tu modelo, alinea con el valor real, y prueba
+                constantemente.
+            </p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a class="pill pill-accent" href="/metricas/pro/pricing.php">Volver al módulo →</a>
+                <a class="pill pill-ghost" href="https://tidycal.com/nextscenario/mentoria-curso" target="_blank" rel="noopener">Auditar tu pricing</a>
+            </div>
+        </section>
+
+    </main>
+
 </div>
-<div class="psychology-point">
-<span class="emoji">💸</span> <div><strong>Precios de Encanto:</strong> Usar precios terminados en .99 (ej., 9.99€) para una percepción de menor costo en el mercado masivo.</div>
-</div>
-<div class="psychology-point">
-<span class="emoji">💎</span> <div><strong>Precios de Prestigio:</strong> Usar precios redondeados (ej., 100€) para transmitir exclusividad y calidad superior en productos premium.</div>
-</div>
-<div class="psychology-point">
-<span class="emoji">🎨</span> <div><strong>Diseño de la Página de Precios:</strong> Destacar visualmente el plan más popular, resaltar beneficios clave y usar testimonios para guiar al usuario.</div>
-<img alt="Descripción de la imagen" src="https://i.postimg.cc/xCfxZRcX/pricing-metricool.jpg"/> </div>
-</div>
-</div>
-</section>
-<section class="section-card">
-<h2 class="metric-title">🌐 ¿Mostrar los Precios en la Web o No?</h2>
-<p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    Una decisión estratégica crucial: ¿publicar los precios o pedir contacto a ventas? Depende de tu producto y tu mercado.
-                </p>
-<div class="mb-10 p-6 border rounded-lg shadow-sm">
-<p class="metric-title"><span class="icon-large">✅</span> Ventajas de Mostrar los Precios</p>
-<div class="info-box">
-<ul class="ul-indented">
-<li><strong>Transparencia y Confianza:</strong> Elimina dudas, vital para startups y pymes.</li>
-<li><strong>Proceso Ágil:</strong> Acelera la compra en productos de autoservicio.</li>
-<li><strong>Filtrado de Clientes:</strong> El equipo de ventas no pierde tiempo con no cualificados.</li>
-<li><strong>Comparabilidad:</strong> Facilita que los clientes te comparen con la competencia.</li>
-</ul>
-</div>
-</div>
-<div class="mb-10 p-6 border rounded-lg shadow-sm">
-<p class="metric-title"><span class="icon-large">❌</span> Desventajas de Mostrar y Razones para Ocultar</p>
-<div class="info-box">
-<h4 class="font-bold mb-2">Desventajas de Mostrar Precios:</h4>
-<ul class="ul-indented">
-<li>Pérdida de oportunidad de <strong>ajustar la oferta</strong> por perfil de cliente.</li>
-<li>Dificultad en el mercado <strong>corporativo (enterprise)</strong>, donde los precios varían por personalización.</li>
-<li>Menor <strong>flexibilidad</strong> para cambios futuros.</li>
-</ul>
-<h4 class="font-bold mt-4 mb-2">Ocultar precios es ideal cuando:</h4>
-<ul class="ul-indented">
-<li>El producto requiere <strong>fuerte personalización</strong>.</li>
-<li>Vendes a <strong>grandes empresas</strong> (precio consultivo, no es el factor principal).</li>
-<li>Buscas fomentar el <strong>contacto directo con ventas</strong> para cualificar clientes.</li>
-<li>Quieres <strong>maximizar la percepción de valor</strong> antes de revelar el coste.</li>
-<li>Estás en <strong>etapas iniciales</strong> y el precio no está claro.</li>
-</ul>
-<p class="text-center text-sm text-gray-500 mt-4"><em>Un enfoque mixto (planes básicos públicos, enterprise con "Contacta Ventas") es común y efectivo.</em></p>
-</div>
-</div>
-</section>
-<section class="section-card">
-<h2 class="metric-title">✨ Puntos Clave para tu Estrategia de Precios</h2>
-<div class="info-box bg-blue-50 border-blue-200">
-<ul class="ul-indented">
-<li>Muchos fundadores subestiman el valor: un precio bajo puede generar <strong>desconfianza</strong> y el precio es una herramienta de <strong>posicionamiento</strong>.</li>
-<li>El precio debe alinearse con el <strong>valor</strong> que el cliente espera recibir. ¡Es más fácil bajar precios que subirlos!</li>
-<li>Explora diversas estrategias: <strong>precio fijo, por uso, por asiento/usuario, por funcionalidades, y basado en el valor.</strong></li>
-<li>Los <strong>Lifetime Deals</strong> son potentes para liquidez y validación, pero ¡gestiónalos con cuidado!</li>
-<li>Optimiza ingresos con <strong>upselling y cross-selling</strong> para tus clientes existentes.</li>
-<li>Tu estrategia de precios debe ser <strong>dinámica, basada en datos y en pruebas constantes</strong> para maximizar crecimiento y rentabilidad.</li>
-</ul>
-</div>
-</section>
-<footer class="text-center py-12">
-<h2 class="text-3xl font-bold text-[#073B4C] mb-4">¡Domina tus Precios, Impulsa tu SaaS!</h2>
-<p class="text-xl text-gray-600 mb-6"></p>
+
+<footer class="ns-foot">
+    <strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br>
+    Nextscenario · <a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a>
 </footer>
-</main>
-</div>
-<footer class="ns-foot"><strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br/>Nextscenario · <a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a></footer>
+
 </body>
 </html>

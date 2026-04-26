@@ -1,659 +1,284 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>North Star Metric</title>
-<!-- Tailwind CSS CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<!-- Google Fonts: Inter -->
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<!-- Font Awesome para íconos -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
-<style>
-        /* Definición de variables CSS para colores y sombras */
-        :root {
-            --color-primary: #1a202c; /* Azul oscuro casi negro, para texto principal */
-            --color-secondary: #2c5282; /* Azul marino para acentos y títulos */
-            --color-accent-green: #38a169; /* Verde esmeralda para destacados */
-            --color-accent-blue: #4299e1; /* Azul cielo para otro acento */
-            --color-bg-light: #f7fafc; /* Fondo muy claro */
-            --color-card-bg: #ffffff; /* Fondo de las tarjetas */
-            --color-border: #e2e8f0; /* Color del borde sutil */
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
-            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.2);
-        }
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>North Star Metric: la brújula del crecimiento · Curso SaaS</title>
+<link rel="stylesheet" href="_design.css" />
+</head>
+<body>
 
-        /* Estilos generales del cuerpo y contenedor principal */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--color-bg-light);
-            color: var(--color-primary);
-            line-height: 1.65; /* Mayor altura de línea para mejor legibilidad */
-            padding: 2rem 1rem; /* Padding general en el cuerpo */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: var(--color-card-bg);
-            border-radius: 1.5rem; /* Bordes más redondeados */
-            box-shadow: var(--shadow-xl); /* Sombra más pronunciada para el contenedor principal */
-            padding: 3rem 2.5rem; /* Padding interno generoso */
-            box-sizing: border-box;
-        }
+<nav class="ns-static-nav">
+    <div class="ns-inner">
+        <a class="ns-back" href="/metricas/pro/embed.php">
+            <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"/></svg>
+            Volver al curso
+        </a>
+        <span class="ns-eyebrow">Infografía · Curso SaaS</span>
+        <a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a>
+    </div>
+</nav>
 
-        /* Estilos del encabezado principal */
-        .header {
-            text-align: center;
-            margin-bottom: 4rem; /* Más espacio */
-        }
-        .header h1 {
-            font-size: 4rem; /* Tamaño de fuente grande */
-            font-weight: 900; /* Extra bold */
-            background: linear-gradient(90deg, var(--color-accent-blue), var(--color-secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-            letter-spacing: -0.04em; /* Espaciado entre letras */
-        }
-        .header p {
-            font-size: 1.4rem; /* Tamaño de subtexto de encabezado */
-            color: #4a5568; /* Gris oscuro */
-            max-width: 700px;
-            margin: 0.75rem auto 0;
-            line-height: 1.6;
-        }
-
-        /* Estilos de los títulos de sección */
-        .section-title {
-            font-size: 3rem; /* Tamaño grande */
-            font-weight: 800; /* Extra bold */
-            color: var(--color-secondary);
-            margin-bottom: 3.5rem; /* Espacio inferior */
-            text-align: center;
-            position: relative;
-            line-height: 1.2;
-            letter-spacing: -0.03em;
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 150px; /* Ancho de la línea decorativa */
-            height: 6px; /* Grosor de la línea */
-            background-color: var(--color-accent-green);
-            margin: 1rem auto 0;
-            border-radius: 3px;
-            opacity: 0.8;
-        }
-
-        /* Estilos de las tarjetas (cards) */
-        .card {
-            background-color: var(--color-card-bg);
-            border-radius: 1.25rem; /* Menos redondeado que el contenedor principal */
-            padding: 2rem; /* Espaciado interno generoso */
-            box-shadow: var(--shadow-md); /* Sombra más suave */
-            border: 1px solid var(--color-border);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-            box-sizing: border-box;
-            height: 100%; /* Asegura que todas las tarjetas tengan la misma altura en una fila */
-        }
-        .card:hover {
-            transform: translateY(-8px); /* Levantamiento más notorio */
-            box-shadow: var(--shadow-lg); /* Sombra más fuerte */
-        }
-        .card-inner-bg {
-             background-color: #edf2f7; /* Fondo gris claro suave */
-             border-radius: 0.75rem;
-             padding: 1.5rem; /* Padding interno consistente */
-             margin-top: 1rem;
-             border: 1px dashed #cbd5e0; /* Borde más sutil */
-             height: 100%; /* Asegura que el contenido interno ocupe todo el espacio */
-             display: flex;
-             flex-direction: column; /* Para manejar el contenido interno */
-        }
-        .card-title {
-            font-size: 1.8rem; /* Tamaño del título de la tarjeta */
-            font-weight: 700;
-            color: var(--color-secondary);
-            margin-bottom: 1rem; /* Espacio debajo del título */
-            display: flex;
-            align-items: center;
-            line-height: 1.3;
-        }
-        .card-title i {
-            margin-right: 1rem;
-            color: var(--color-accent-green);
-            font-size: 1.6em; /* Tamaño grande para los íconos del título */
-            min-width: 35px; /* Asegura un ancho mínimo para el ícono */
-            text-shadow: 0 1px 3px rgba(0,0,0,0.08);
-        }
-
-        /* Estilos para puntos de lista con íconos */
-        .bullet-point {
-            display: flex;
-            align-items: flex-start; /* Alinea el ícono y el texto al inicio */
-            margin-bottom: 1.25rem; /* Espacio entre cada punto */
-            font-size: 1.1rem; /* Tamaño de fuente para listas */
-            color: #2d3748; /* Gris oscuro para el texto de lista */
-            line-height: 1.6;
-        }
-        .bullet-point-icon {
-            display: flex;
-            align-items: center;
-            font-weight: 600;
-            color: var(--color-secondary);
-            flex-shrink: 0; /* Evita que el ícono se encoja */
-            margin-right: 0.8rem; /* Espacio entre ícono y texto */
-        }
-        .bullet-point-icon i {
-            color: var(--color-accent-green); /* Color de acento para los íconos de lista */
-            font-size: 1.2em;
-            line-height: 1;
-        }
-        .bullet-point span {
-            display: block; /* Asegura que el texto ocupe su propia línea si es largo */
-            flex-grow: 1; /* Permite que el texto crezca */
-        }
-        .highlight {
-            font-weight: 700;
-            color: var(--color-accent-blue);
-        }
-
-        /* Estilos específicos para secciones de ejemplos (NSM) */
-        .example-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.75rem; /* Espacio entre tarjetas de ejemplo */
-            margin-top: 2rem;
-        }
-        .example-card {
-            background-color: var(--color-card-bg);
-            border-radius: 1rem;
-            padding: 1.75rem;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--color-border);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            height: 100%; /* Consistent height */
-            display: flex;
-            flex-direction: column;
-        }
-        .example-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-        .example-card h4 {
-            font-size: 1.35rem; /* Títulos de ejemplo */
-            font-weight: 700;
-            color: var(--color-secondary);
-            margin-bottom: 0.6rem;
-            display: flex;
-            align-items: center;
-        }
-        .example-card h4 i {
-            margin-right: 0.6rem;
-            color: var(--color-accent-green);
-            font-size: 1.1em;
-        }
-        .example-card p {
-            font-size: 1rem;
-            color: #4a5568;
-            line-height: 1.6;
-            margin-bottom: 0.75rem; /* Espacio bajo los párrafos */
-        }
-        .example-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 0.5rem 0 0;
-            flex-grow: 1; /* Permite que la lista ocupe el espacio restante */
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-        .example-card ul li {
-            font-size: 1rem;
-            color: #2d3748;
-            line-height: 1.5;
-            margin-bottom: 0.6rem; /* Espacio entre ítems de lista */
-            position: relative;
-            padding-left: 1.1rem; /* Espacio para viñeta personalizada */
-        }
-        .example-card ul li::before {
-            content: '•';
-            color: var(--color-accent-blue);
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-size: 1.1em;
-            line-height: inherit;
-        }
-        .example-card .metric {
-            font-weight: 600;
-            color: var(--color-accent-blue);
-        }
-
-        /* Estilos para el árbol de métricas */
-        .metric-tree {
-            background-color: #ebf8ff; /* Fondo azul claro muy suave */
-            border-radius: 1.25rem;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid #bee3f8;
-            text-align: center;
-        }
-        .metric-tree-node {
-            background-color: var(--color-secondary);
-            color: white;
-            padding: 0.9rem 1.4rem;
-            border-radius: 0.6rem;
-            font-weight: 700;
-            font-size: 1.2rem;
-            display: inline-block;
-            margin-bottom: 1.2rem;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.1);
-            max-width: 95%;
-            box-sizing: border-box;
-            word-break: break-word;
-        }
-        .metric-tree-level {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.1rem; /* Espacio entre nodos del mismo nivel */
-            margin-bottom: 1.1rem;
-        }
-        .metric-tree-subnode {
-            background-color: var(--color-accent-blue);
-            color: white;
-            padding: 0.7rem 1.1rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            font-size: 1rem;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-            flex-grow: 1;
-            min-width: 140px; /* Ancho mínimo para mantener la forma */
-            box-sizing: border-box;
-            word-break: break-word;
-        }
-        .metric-tree-sub-subnode {
-            background-color: #90cdf4; /* Azul más claro */
-            color: var(--color-primary);
-            padding: 0.5rem 0.9rem;
-            border-radius: 0.4rem;
-            font-size: 0.9rem;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-            flex-grow: 1;
-            min-width: 100px;
-            box-sizing: border-box;
-            word-break: break-word;
-        }
-        .metric-tree-connector {
-            font-size: 2rem; /* Tamaño de la flecha */
-            color: #a0aec0; /* Gris para la flecha */
-            margin: 0.4rem 0;
-            line-height: 1;
-        }
-        .metric-tree p {
-            margin-top: 1.5rem;
-            font-size: 1.1rem;
-            color: #4a5568;
-        }
-
-        /* Estilos para la sección CRO (Metodología de Implementación) */
-        .cro-step-card {
-            background-color: var(--color-card-bg);
-            border-radius: 1.25rem;
-            padding: 1.75rem;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--color-border);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: transform 0.2s ease;
-            box-sizing: border-box;
-            height: 100%; /* Consistent height */
-        }
-        .cro-step-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-        .cro-step-card .step-number {
-            font-size: 2.8rem; /* Tamaño del número de paso */
-            font-weight: 900;
-            color: var(--color-accent-blue); /* Color de acento */
-            line-height: 1;
-            margin-bottom: 1rem;
-        }
-        .cro-step-card h4 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--color-secondary);
-            margin-bottom: 0.7rem;
-            line-height: 1.3;
-        }
-        .cro-step-card p {
-            font-size: 1rem;
-            color: #4a5568;
-            line-height: 1.5;
-        }
-
-        /* Estilos para la sección de Errores Comunes */
-        .error-card {
-            background-color: #fff5f5; /* Fondo rojo muy suave */
-            border-radius: 1.25rem;
-            padding: 1.75rem;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid #fed7d7; /* Borde rojo suave */
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            transition: transform 0.2s ease;
-            height: 100%;
-        }
-        .error-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-        .error-card h4 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: #c53030; /* Rojo más oscuro */
-            margin-bottom: 0.6rem;
-            display: flex;
-            align-items: center;
-        }
-        .error-card h4 i {
-            margin-right: 0.6rem;
-            color: #e53e3e; /* Rojo de acento */
-            font-size: 1.1em;
-        }
-        .error-card p {
-            font-size: 1rem;
-            color: #4a5568;
-            line-height: 1.5;
-            margin-bottom: 0.5rem;
-        }
-        .error-card strong {
-            color: #a02020; /* Rojo oscuro para "Solución" */
-        }
-        .error-card ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 0.5rem;
-        }
-        .error-card ul li {
-            font-size: 1rem;
-            color: #2d3748;
-            line-height: 1.5;
-            position: relative;
-            padding-left: 1.1rem;
-            margin-bottom: 0.4rem;
-        }
-        .error-card ul li::before {
-            content: '•';
-            color: #e53e3e;
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-size: 1.1em;
-            line-height: inherit;
-        }
-
-
-        /* Responsive adjustments */
-        @media (max-width: 1024px) {
-            .container { padding: 2.5rem 1.5rem; }
-            .header h1 { font-size: 3.5rem; }
-            .header p { font-size: 1.3rem; }
-            .section-title { font-size: 2.5rem; margin-bottom: 3rem;}
-            .section-title::after { width: 120px; height: 5px; }
-            .card { padding: 1.8rem; }
-            .card-title { font-size: 1.6rem; }
-            .card-inner-bg { padding: 1.2rem; }
-            .bullet-point { font-size: 1.05rem; margin-bottom: 1rem;}
-            .example-grid { gap: 1.5rem;}
-            .example-card { padding: 1.5rem; }
-            .example-card h4 { font-size: 1.25rem; }
-            .example-card p, .example-card ul li { font-size: 0.95rem; }
-            .metric-tree { padding: 2rem; }
-            .metric-tree-node { font-size: 1.1rem; padding: 0.8rem 1.3rem;}
-            .metric-tree-level { gap: 1rem; }
-            .metric-tree-subnode { font-size: 0.95rem; padding: 0.6rem 1rem; min-width: 120px;}
-            .metric-tree-sub-subnode { font-size: 0.85rem; padding: 0.4rem 0.8rem; min-width: 90px;}
-            .cro-step-card { padding: 1.5rem; }
-            .cro-step-card .step-number { font-size: 2.5rem; }
-            .cro-step-card h4 { font-size: 1.3rem; }
-            .cro-step-card p { font-size: 0.95rem; }
-            .error-card { padding: 1.5rem; }
-            .error-card h4 { font-size: 1.25rem; }
-            .error-card p, .error-card ul li { font-size: 0.95rem; }
-        }
-        @media (max-width: 768px) {
-            body { padding: 1rem 0.5rem; }
-            .container { padding: 1.5rem 1rem; border-radius: 1rem;}
-            .header h1 { font-size: 2.5rem; }
-            .header p { font-size: 1.1rem; }
-            .section-title { font-size: 2rem; margin-bottom: 2rem; }
-            .section-title::after { width: 90px; height: 4px; }
-            .card { padding: 1.2rem; margin-bottom: 1rem; }
-            .card-title { font-size: 1.4rem; flex-direction: column; align-items: flex-start; text-align: left; }
-            .card-title i { margin-right: 0; margin-bottom: 0.5rem; font-size: 1.4em; }
-            .card-inner-bg { padding: 1rem; }
-            .bullet-point { font-size: 0.95rem; margin-bottom: 0.8rem; }
-            .bullet-point-icon { margin-right: 0.6rem; }
-            .example-grid { grid-template-columns: 1fr; gap: 1rem; } /* Una columna en móviles */
-            .example-card { padding: 1.2rem; }
-            .example-card h4 { font-size: 1.15rem; }
-            .example-card p, .example-card ul li { font-size: 0.9rem; }
-            .metric-tree { padding: 1.2rem; }
-            .metric-tree-node { font-size: 0.9rem; padding: 0.7rem 1rem; max-width: 100%;}
-            .metric-tree-level { gap: 0.5rem; }
-            .metric-tree-subnode { font-size: 0.85rem; padding: 0.5rem 0.8rem; min-width: unset;}
-            .metric-tree-sub-subnode { font-size: 0.75rem; padding: 0.3rem 0.6rem; min-width: unset;}
-            .metric-tree-connector { font-size: 1.5rem; }
-            .cro-step-card { padding: 1rem; }
-            .cro-step-card .step-number { font-size: 2rem; margin-bottom: 0.75rem; }
-            .cro-step-card h4 { font-size: 1.2rem; }
-            .cro-step-card p { font-size: 0.9rem; }
-            .error-card { padding: 1rem; }
-            .error-card h4 { font-size: 1.15rem; }
-            .error-card p, .error-card ul li { font-size: 0.9rem; }
-        }
-    </style>
-
-<link href="_design.css" rel="stylesheet"/></head>
-<body><nav class="ns-static-nav"><div class="ns-inner"><a class="ns-back" href="/metricas/pro/embed.php"><svg fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"></path></svg>Volver al curso</a><span class="ns-eyebrow">Infografía · Curso SaaS</span><a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a></div></nav>
 <div class="ns-shell">
-<header class="ns-hero">
-<span class="ns-hero-eyebrow"><span class="dot"></span>Infografía · Curso SaaS</span>
-<h1 class="ns-h1">North Star Metric: La Brújula que Guía el Crecimiento de tu Empresa</h1>
-<p class="ns-lede">Captura la esencia del valor que tu producto proporciona. Representa el momento en que los clientes experimentan el beneficio principal.</p>
-</header>
-<main class="ns-card">
-<div class="container">
-<div class="header">
+
+    <header class="ns-hero">
+        <span class="ns-hero-eyebrow"><span class="dot"></span>Módulo 04 · Métricas SaaS</span>
+        <h1 class="ns-h1"><em>North Star Metric</em>: la brújula del crecimiento.</h1>
+        <p class="ns-lede">
+            La métrica única y fundamental que mejor representa el valor central que
+            tu producto entrega a los clientes. Sirve como
+            <span style="background: var(--c-accent); padding: 0 6px; border-radius: 4px; color: var(--c-ink);">brújula estratégica</span>
+            que orienta todas las decisiones, iniciativas y esfuerzos del equipo hacia
+            un objetivo común y significativo.
+        </p>
+
+        <div class="grid-4-kpi">
+            <div class="bigmetric"><div class="l">Características clave</div><div class="v">4</div><div class="sub">Lo que la hace efectiva</div></div>
+            <div class="bigmetric"><div class="l">Inputs typical</div><div class="v">4×4</div><div class="sub">Adquisición · activación · retención · monetización</div></div>
+            <div class="bigmetric"><div class="l">Pasos para identificarla</div><div class="v">4</div><div class="sub">De propuesta a métrica</div></div>
+            <div class="bigmetric"><div class="l">Errores comunes</div><div class="v">4</div><div class="sub">A evitar siempre</div></div>
+        </div>
+    </header>
+
+    <main class="ns-card">
+
+        <!-- Bloque 1 — ¿Qué es y para qué sirve? -->
+        <section class="mf-feature" style="border-top: 0; padding-top: 0;">
+            <div class="mf-text">
+                <div class="mf-tag">01 · Definición</div>
+                <h3>¿Qué es y para qué <em>sirve</em>?</h3>
+                <p>
+                    Es la <strong>métrica única y fundamental</strong> que mejor
+                    representa el valor central que tu producto o servicio entrega a los
+                    clientes. Sirve como la <strong>brújula estratégica</strong> que
+                    orienta todas las decisiones, iniciativas y esfuerzos del equipo
+                    hacia un objetivo común y significativo.
+                </p>
+                <ul>
+                    <li><span class="chk">→</span>Captura la esencia del valor que tu producto proporciona.</li>
+                    <li><span class="chk">→</span>Representa el <em>"momento aha"</em> en que los clientes experimentan el beneficio principal.</li>
+                    <li><span class="chk">→</span>Alinea todos los equipos hacia un único objetivo.</li>
+                </ul>
+            </div>
+            <div class="mf-visual">
+                <div class="vl">La metáfora</div>
+                <div class="vv">Brújula<em> ⊙</em></div>
+                <div style="margin-top: 22px; padding: 16px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 12px;">
+                    <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 20px; line-height: 1.35; color: var(--c-paper);">
+                        "Una sola métrica que orienta todas las decisiones del equipo
+                        hacia el valor real para el cliente."
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 2 — Características (steps) -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>02 · Características</span>
+                    <h2>4 atributos de una NSM <em>efectiva</em>.</h2>
+                </div>
+                <p>Las cuatro pruebas que tu candidata a NSM debe pasar antes de subirla al dashboard de la empresa.</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="sn">01</div>
+                    <h4>Refleja el valor del cliente</h4>
+                    <p>Captura el valor que el cliente recibe del producto. <em>Ej: Spotify "tiempo escuchando música". Airbnb "noches reservadas".</em></p>
+                </div>
+                <div class="step">
+                    <div class="sn">02</div>
+                    <h4>Predice el crecimiento del negocio</h4>
+                    <p>Debe tener una correlación directa con el crecimiento y la salud financiera. Es un indicador adelantado del éxito comercial.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">03</div>
+                    <h4>Es accionable y medible</h4>
+                    <p>El equipo puede influenciarla directamente con sus acciones. Debe ser medible de forma consistente y confiable.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">04</div>
+                    <h4>Es simple y comprensible</h4>
+                    <p>Cualquier persona en la organización debe entenderla inmediatamente sin necesidad de explicaciones complejas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 3 — Marco de Inputs -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>03 · El marco de inputs</span>
+                    <h2>La NSM y su <em>ecosistema</em>.</h2>
+                </div>
+                <p>La North Star Metric necesita un ecosistema de métricas de apoyo ("inputs") que diferentes equipos pueden optimizar.</p>
+            </div>
+
+            <div style="margin-top: 24px; padding: 36px 28px; background: var(--c-ink); color: var(--c-paper); border-radius: 18px; position: relative; overflow: hidden;">
+                <div style="position: absolute; inset: 0; background: radial-gradient(700px 350px at 50% 0%, color-mix(in oklab, var(--c-accent) 16%, transparent), transparent 55%); pointer-events: none;"></div>
+                <div style="position: relative; text-align: center;">
+
+                    <div style="display: inline-flex; padding: 14px 26px; background: var(--c-accent); color: var(--c-ink); font-weight: 700; border-radius: 10px; font-family: 'Geist', sans-serif; letter-spacing: -0.01em; font-size: 15px;">
+                        NORTH STAR METRIC
+                    </div>
+
+                    <div style="margin: 20px 0; font-family: 'JetBrains Mono', monospace; color: color-mix(in oklab, var(--c-paper) 50%, transparent); font-size: 18px;">↓</div>
+
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 760px; margin: 0 auto;">
+                        <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-accent-2) 28%, transparent); border-radius: 8px; font-family: 'Geist', sans-serif; font-weight: 500; font-size: 12px; color: var(--c-paper);">INPUTS DE ADQUISICIÓN</div>
+                        <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-accent-2) 28%, transparent); border-radius: 8px; font-family: 'Geist', sans-serif; font-weight: 500; font-size: 12px; color: var(--c-paper);">INPUTS DE ACTIVACIÓN</div>
+                        <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-accent-2) 28%, transparent); border-radius: 8px; font-family: 'Geist', sans-serif; font-weight: 500; font-size: 12px; color: var(--c-paper);">INPUTS DE RETENCIÓN</div>
+                        <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-accent-2) 28%, transparent); border-radius: 8px; font-family: 'Geist', sans-serif; font-weight: 500; font-size: 12px; color: var(--c-paper);">INPUTS DE MONETIZACIÓN</div>
+                    </div>
+
+                    <div style="margin: 14px 0; font-family: 'JetBrains Mono', monospace; color: color-mix(in oklab, var(--c-paper) 50%, transparent); font-size: 18px;">↓</div>
+
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 760px; margin: 0 auto;">
+                        <div style="padding: 10px 12px; background: color-mix(in oklab, var(--c-paper) 14%, transparent); border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);">Tráfico Web</div>
+                        <div style="padding: 10px 12px; background: color-mix(in oklab, var(--c-paper) 14%, transparent); border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);">Tasa de Onboarding</div>
+                        <div style="padding: 10px 12px; background: color-mix(in oklab, var(--c-paper) 14%, transparent); border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);">Frecuencia de Uso</div>
+                        <div style="padding: 10px 12px; background: color-mix(in oklab, var(--c-paper) 14%, transparent); border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);">Tasa Conv. a Pago</div>
+                    </div>
+
+                    <p style="margin: 24px 0 0; max-width: 56ch; margin-left: auto; margin-right: auto; font-size: 14px; color: color-mix(in oklab, var(--c-paper) 78%, transparent); line-height: 1.55;">
+                        Estos inputs aseguran que cada equipo entienda cómo sus acciones diarias
+                        <strong style="color: var(--c-accent);">contribuyen directamente</strong> a la North Star Metric.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 4 — Ejemplos (Facebook, Slack, Medium) -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>04 · Ejemplos reales</span>
+                    <h2>NSM de empresas <em>líderes</em>.</h2>
+                </div>
+                <p>Métricas reales que han guiado a empresas líderes en su crecimiento. Cada una refleja su propuesta de valor central.</p>
+            </div>
+
+            <div class="steps" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="step">
+                    <div class="sn">FB</div>
+                    <h4>Facebook</h4>
+                    <p><strong>NSM:</strong> Usuarios Activos Mensuales (MAU).</p>
+                    <p style="margin-top: 8px !important;">Refleja el valor central: conectar a las personas. Más MAU significan más valor para usuarios y anunciantes.</p>
+                    <p style="margin-top: 8px !important; font-size: 12px !important;"><strong>Inputs:</strong> nuevos registros, activación de usuarios, engagement diario, retención.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">SL</div>
+                    <h4>Slack</h4>
+                    <p><strong>NSM:</strong> mensajes enviados por equipos activos.</p>
+                    <p style="margin-top: 8px !important;">Se centra en el uso real de la comunicación. Un equipo que envía mensajes regularmente está obteniendo valor real.</p>
+                    <p style="margin-top: 8px !important; font-size: 12px !important;"><strong>Inputs:</strong> equipos registrados, activación exitosa, adopción de características, uso consistente.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">MD</div>
+                    <h4>Medium</h4>
+                    <p><strong>NSM:</strong> tiempo total de lectura.</p>
+                    <p style="margin-top: 8px !important;">Refleja su misión de contenido de calidad. Indica que los usuarios encuentran valor y los escritores crean contenido que resuena.</p>
+                    <p style="margin-top: 8px !important; font-size: 12px !important;"><strong>Inputs:</strong> publicaciones de calidad, descubrimiento de contenido, engagement (aplausos, comentarios), retención de lectores/escritores.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 5 — Cómo identificarla (4 pasos steps) -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>05 · Cómo encontrarla</span>
+                    <h2>4 pasos para <em>encontrar</em> tu NSM.</h2>
+                </div>
+                <p>Un proceso estructurado para encontrar tu brújula de crecimiento.</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="sn">01</div>
+                    <h4>Define tu propuesta de valor</h4>
+                    <p>¿Cuál es el "momento aha" que experimentan los usuarios? ¿Qué problema fundamental resuelves?</p>
+                </div>
+                <div class="step">
+                    <div class="sn">02</div>
+                    <h4>Analiza el comportamiento de mejores clientes</h4>
+                    <p>¿Qué patrones de comportamiento comparten tus clientes más satisfechos? ¿Qué acciones realizan consistentemente?</p>
+                </div>
+                <div class="step">
+                    <div class="sn">03</div>
+                    <h4>Evalúa la correlación con el crecimiento</h4>
+                    <p>Prueba métricas candidatas contra datos históricos de crecimiento. Debe mostrar una correlación fuerte con ingresos y retención.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">04</div>
+                    <h4>Considera la practicidad organizacional</h4>
+                    <p>Debe ser medible consistentemente y algo que diferentes equipos puedan influenciar con sus recursos actuales.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 6 — Errores comunes -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow" style="--c-pos: var(--c-neg);"><span class="dot" style="background: var(--c-neg); box-shadow: 0 0 0 4px color-mix(in oklab, var(--c-neg) 20%, transparent);"></span>06 · Errores comunes</span>
+                    <h2>Trampas a <em>evitar</em>.</h2>
+                </div>
+                <p>Evita estas trampas para mantener el rumbo de tu crecimiento. Las más comunes — y la solución de cada una.</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="sn">⊘</div>
+                    <h4>Error 1 — Métrica vanidosa</h4>
+                    <p>Métricas que suenan bien pero no reflejan valor real (ej. page views sin uso real).</p>
+                    <p style="margin-top: 8px !important; font-size: 12px !important;"><strong>Solución:</strong> pregúntate si un aumento en tu métrica garantiza más valor para el cliente.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">⊞</div>
+                    <h4>Error 2 — Múltiples North Stars</h4>
+                    <p>Diluye el enfoque y crea confusión organizacional sobre qué priorizar.</p>
+                    <p style="margin-top: 8px !important; font-size: 12px !important;"><strong>Solución:</strong> elige una métrica principal y usa otras como inputs o métricas de salud secundarias.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">⊕</div>
+                    <h4>Error 3 — Cambiar la métrica frecuentemente</h4>
+                    <p>Destruye la consistencia y el enfoque a largo plazo necesario para el crecimiento.</p>
+                    <p style="margin-top: 8px !important; font-size: 12px !important;"><strong>Solución:</strong> elige cuidadosamente y comprométete con ella por 1-2 años, salvo cambios drásticos.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">⊠</div>
+                    <h4>Error 4 — No conectar con inputs accionables</h4>
+                    <p>Es un destino sin mapa; los equipos no sabrán qué acciones tomar para influenciar la métrica.</p>
+                    <p style="margin-top: 8px !important; font-size: 12px !important;"><strong>Solución:</strong> desarrolla un marco completo de inputs que diferentes equipos puedan optimizar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing CTA -->
+        <section class="sub-cta">
+            <h2>Una métrica. <em>Una</em> dirección.</h2>
+            <p>
+                La North Star Metric no es una métrica más en el dashboard — es el filtro
+                que decide a qué dedica el equipo cada hora de la semana. Elígela bien y
+                comprométete con ella.
+            </p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a class="pill pill-accent" href="/metricas/pro/metricas_fundamentales.php">Volver al módulo →</a>
+                <a class="pill pill-ghost" href="https://tidycal.com/nextscenario/mentoria-curso" target="_blank" rel="noopener">Definir tu NSM</a>
+            </div>
+        </section>
+
+    </main>
+
 </div>
-<section class="mb-16">
-<div class="grid grid-cols-1 gap-7">
-<div class="card">
-<h3 class="card-title"><i class="fas fa-bullseye"></i> ¿Qué es y Para Qué Sirve?</h3>
-<div class="card-inner-bg">
-<ul class="list-none p-0">
-<li class="bullet-point">
-<span>Es la métrica única y fundamental que mejor representa el valor central que tu producto o servicio entrega a los clientes. Sirve como labrújula estratégica  que orienta todas las decisiones, iniciativas y esfuerzos del equipo hacia un objetivo común y significativo</span>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class="mb-16">
-<h2 class="section-title">Características Fundamentales de una North Star Metric Efectiva</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-7">
-<div class="card">
-<h3 class="card-title"><i class="fas fa-hand-holding-usd"></i> 1. Refleja el Valor del Cliente</h3>
-<p class="mt-2 text-sm text-gray-600"><em>Ej: Spotify: "tiempo escuchando música". Airbnb: "noches reservadas".</em></p>
-</div>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-chart-line"></i> 2. Predice el Crecimiento del Negocio</h3>
-<p>Debe tener una correlación directa con el crecimiento y la salud financiera. Es un indicador adelantado del éxito comercial.</p>
-</div>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-check-circle"></i> 3. Es Accionable y Medible</h3>
-<p>El equipo puede influenciarla directamente con sus acciones. Debe ser medible de forma consistente y confiable.</p>
-</div>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-lightbulb"></i> 4. Es Simple y Comprensible</h3>
-<p>Cualquier persona en la organización debe entenderla inmediatamente sin necesidad de explicaciones complejas.</p>
-</div>
-</div>
-</section>
-<section class="mb-16">
-<h2 class="section-title">El Marco de los Inputs de la NSM</h2>
-<p class="text-center text-lg text-gray-700 mb-10">La North Star Metric necesita un <span class="highlight">ecosistema de métricas de apoyo</span> ("inputs") que diferentes equipos pueden optimizar.</p>
-<div class="metric-tree">
-<div class="metric-tree-node">NORTH STAR METRIC</div>
-<div class="metric-tree-connector"><i class="fas fa-arrow-down"></i></div>
-<div class="metric-tree-level">
-<div class="metric-tree-subnode">INPUTS DE ADQUISICIÓN</div>
-<div class="metric-tree-subnode">INPUTS DE ACTIVACIÓN</div>
-<div class="metric-tree-subnode">INPUTS DE RETENCIÓN</div>
-<div class="metric-tree-subnode">INPUTS DE MONETIZACIÓN</div>
-</div>
-<div class="metric-tree-connector"><i class="fas fa-arrow-down"></i></div>
-<div class="metric-tree-level">
-<div class="metric-tree-sub-subnode">Tráfico Web</div>
-<div class="metric-tree-sub-subnode">Tasa de Onboarding</div>
-<div class="metric-tree-sub-subnode">Frecuencia de Uso</div>
-<div class="metric-tree-sub-subnode">Tasa de Conversión a Pago</div>
-</div>
-<p>Estos inputs aseguran que cada equipo entienda cómo sus acciones diarias <span class="font-semibold text-blue-800">contribuyen directamente</span> a la North Star Metric.</p>
-</div>
-</section>
-<section class="mb-16">
-<h2 class="section-title">Ejemplos de North Star Metrics</h2>
-<p class="text-center text-lg text-gray-700 mb-10">Métricas reales que han guiado a <span class="highlight">empresas líderes</span> en su crecimiento.</p>
-<div class="example-grid">
-<div class="example-card">
-<h4><i class="fab fa-facebook"></i> Facebook</h4>
-<p><strong>NSM:</strong> <span class="metric">Usuarios Activos Mensuales (MAU)</span></p>
-<p>Refleja el valor central: conectar a las personas. Más MAU significan más valor para usuarios y anunciantes.</p>
-<ul>
-<li><span class="font-semibold">Inputs:</span> Nuevos registros, activación de usuarios, engagement diario, retención.</li>
-</ul>
-</div>
-<div class="example-card">
-<h4><i class="fab fa-slack"></i> Slack</h4>
-<p><strong>NSM:</strong> <span class="metric">Mensajes Enviados por Equipos Activos</span></p>
-<p>Se centra en el uso real de la comunicación. Un equipo que envía mensajes regularmente está obteniendo valor real.</p>
-<ul>
-<li><span class="font-semibold">Inputs:</span> Equipos registrados, activación exitosa, adopción de características, uso consistente.</li>
-</ul>
-</div>
-<div class="example-card">
-<h4><i class="fas fa-book-reader"></i> Medium</h4>
-<p><strong>NSM:</strong> <span class="metric">Tiempo Total de Lectura</span></p>
-<p>Refleja su misión de contenido de calidad. Indica que los usuarios encuentran valor y los escritores crean contenido que resuena.</p>
-<ul>
-<li><span class="font-semibold">Inputs:</span> Publicaciones de calidad, descubrimiento de contenido, engagement (aplausos, comentarios), retención de lectores/escritores.</li>
-</ul>
-</div>
-</div>
-</section>
-<section class="mb-16">
-<h2 class="section-title">Cómo Identificar tu NSM Perfecta</h2>
-<p class="text-center text-lg text-gray-700 mb-10">Un proceso estructurado para <span class="highlight">encontrar tu brújula</span> de crecimiento.</p>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-7">
-<div class="card">
-<h3 class="card-title"><i class="fas fa-lightbulb"></i> Paso 1: Define tu Propuesta de Valor</h3>
-<div class="card-inner-bg">
-<ul class="list-none p-0">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-question-circle"></i></div>
-<span>¿Cuál es el "momento aha" que experimentan los usuarios? ¿Qué problema fundamental resuelves?</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-users-line"></i> Paso 2: Analiza el Comportamiento de Mejores Clientes</h3>
-<div class="card-inner-bg">
-<ul class="list-none p-0">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-chart-bar"></i></div>
-<span>¿Qué patrones de comportamiento comparten tus clientes más satisfechos? ¿Qué acciones realizan consistentemente?</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-arrow-up-right-dots"></i> Paso 3: Evalúa la Correlación con el Crecimiento</h3>
-<div class="card-inner-bg">
-<ul class="list-none p-0">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-chart-pie"></i></div>
-<span>Prueba métricas candidatas contra datos históricos de crecimiento. Debe mostrar una correlación fuerte con ingresos y retención.</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-gears"></i> Paso 4: Considera la Practicidad Organizacional</h3>
-<div class="card-inner-bg">
-<ul class="list-none p-0">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-laptop"></i></div>
-<span>Debe ser medible consistentemente y algo que diferentes equipos puedan influenciar con tus recursos actuales.</span>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section class="mb-16">
-<h2 class="section-title">Errores Comunes y Cómo Evitarlos</h2>
-<p class="text-center text-lg text-gray-700 mb-10">Evita estas trampas para <span class="highlight">mantener el rumbo</span> de tu crecimiento.</p>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-7">
-<div class="error-card">
-<h4><i class="fas fa-ban"></i> Error 1: Elegir una Métrica Vanidosa</h4>
-<p>Métricas que suenan bien pero no reflejan valor real (ej. page views sin uso real).</p>
-<p><strong>Solución:</strong> Pregúntate si un aumento en tu métrica garantiza más valor para el cliente.</p>
-</div>
-<div class="error-card">
-<h4><i class="fas fa-layer-group"></i> Error 2: Tener Múltiples North Stars</h4>
-<p>Diluye el enfoque y crea confusión organizacional sobre qué priorizar.</p>
-<p><strong>Solución:</strong> Elige una métrica principal y usa otras como inputs o métricas de salud secundarias.</p>
-</div>
-<div class="error-card">
-<h4><i class="fas fa-rotate"></i> Error 3: Cambiar la Métrica Frecuentemente</h4>
-<p>Destruye la consistencia y el enfoque a largo plazo necesario para el crecimiento.</p>
-<p><strong>Solución:</strong> Elige cuidadosamente y comprométete con ella por 1-2 años, salvo cambios drásticos.</p>
-</div>
-<div class="error-card">
-<h4><i class="fas fa-unlink"></i> Error 4: No Conectar con Inputs Accionables</h4>
-<p>Es un destino sin mapa; los equipos no sabrán qué acciones tomar para influenciar la métrica.</p>
-<p><strong>Solución:</strong> Desarrolla un marco completo de inputs que diferentes equipos puedan optimizar.</p>
-</div>
-</div>
-</section>
-<footer class="text-center text-gray-500 text-sm mt-12 pt-8 border-t border-gray-200">
-<p class="mb-2">Infografía sobre North Star Metric: la brújula para el crecimiento empresarial.</p>
-<p>© 2025. Todos los derechos reservados.</p>
+
+<footer class="ns-foot">
+    <strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br>
+    Nextscenario · <a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a>
 </footer>
-</div>
-</main>
-</div>
-<footer class="ns-foot"><strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br/>Nextscenario · <a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a></footer>
+
 </body>
 </html>
