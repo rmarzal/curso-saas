@@ -1,6 +1,25 @@
 <?php
 // Variables esperadas: $module_num, $module_title, $module_subtitle (opcional)
 $module_subtitle = $module_subtitle ?? '';
+
+// Orden de módulos del curso (Notion). Sirve para renderizar el nav prev/next.
+$module_order = [
+    "00" => ["num" => "00", "title" => "¿Qué empresa quieres construir?",       "href" => "que_empresa_quieres_construir.php"],
+    "01" => ["num" => "01", "title" => "Introducción a Modelos de Negocio SaaS", "href" => "introduccion_modelos_negocio.php"],
+    "02" => ["num" => "02", "title" => "Modelos de negocio y limitación",        "href" => "modelos_de_negocio.php"],
+    "03" => ["num" => "03", "title" => "Pricing SaaS",                           "href" => "pricing.php"],
+    "04" => ["num" => "04", "title" => "Métricas SaaS fundamentales",            "href" => "metricas_fundamentales.php"],
+    "05" => ["num" => "05", "title" => "B2B SaaS Metrics Framework",             "href" => "framework_b2b.php"],
+    "06" => ["num" => "06", "title" => "Retención y Engagement",                 "href" => "retencion_engagement.php"],
+    "07" => ["num" => "07", "title" => "Análisis de Cohortes",                   "href" => "analisis_cohortes.php"],
+    "08" => ["num" => "08", "title" => "Benchmark SaaS",                         "href" => "benchmark_saas.php"],
+    "09" => ["num" => "09", "title" => "Modelos Financieros SaaS",               "href" => "modelos_financieros.php"],
+    "10" => ["num" => "10", "title" => "Reporting a inversores",                 "href" => "reporting.php"],
+];
+$_keys = array_keys($module_order);
+$_idx  = array_search($module_num, $_keys, true);
+$prev_mod = ($_idx !== false && $_idx > 0) ? $module_order[$_keys[$_idx - 1]] : null;
+$next_mod = ($_idx !== false && $_idx < count($_keys) - 1) ? $module_order[$_keys[$_idx + 1]] : null;
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -326,6 +345,77 @@ $module_subtitle = $module_subtitle ?? '';
         .site-foot a { color: var(--mute); }
         .site-foot a:hover { color: var(--ink); }
 
+        /* Module navigation (prev / home / next) */
+        .module-nav {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 10px;
+            margin: 0 0 24px;
+            align-items: stretch;
+        }
+        @media (max-width: 720px) {
+            .module-nav { grid-template-columns: 1fr; }
+        }
+        .mn-btn {
+            display: flex; align-items: center; gap: 12px;
+            padding: 12px 16px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: color-mix(in oklab, var(--paper) 60%, white);
+            color: var(--ink);
+            transition: transform .12s ease, border-color .12s ease, background .12s ease;
+            min-height: 60px;
+        }
+        .mn-btn:hover {
+            transform: translateY(-1px);
+            border-color: var(--line-strong);
+        }
+        .mn-prev { justify-content: flex-start; text-align: left; }
+        .mn-next { justify-content: flex-end; text-align: right; }
+        .mn-btn .label { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+        .mn-btn .num {
+            font-family: var(--font-mono);
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--mute);
+        }
+        .mn-btn .t {
+            font-size: 14px; font-weight: 500;
+            letter-spacing: -0.01em;
+            line-height: 1.25;
+            color: var(--ink);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .mn-btn svg.arr { flex-shrink: 0; opacity: 0.5; transition: transform .15s ease, opacity .15s ease; }
+        .mn-btn:hover svg.arr { opacity: 1; }
+        .mn-prev:hover svg.arr { transform: translateX(-3px); }
+        .mn-next:hover svg.arr { transform: translateX(3px); }
+
+        .mn-home {
+            background: var(--ink); color: var(--paper);
+            border-color: var(--ink);
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 12px 22px;
+            white-space: nowrap;
+        }
+        .mn-home:hover { background: var(--ink-2); border-color: var(--ink-2); transform: translateY(-1px); }
+        .mn-home .dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: var(--accent);
+            margin-right: 6px;
+            box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 30%, transparent);
+        }
+
+        .mn-disabled {
+            opacity: 0.4; pointer-events: none;
+            background: transparent;
+            border-style: dashed;
+        }
+        .mn-disabled .t { color: var(--mute); }
+
         /* Buttons / pills */
         .pill {
             display: inline-flex; align-items: center; gap: 8px;
@@ -367,3 +457,46 @@ $module_subtitle = $module_subtitle ?? '';
                 <p class="lede"><?php echo $module_subtitle; ?></p>
             <?php endif; ?>
         </header>
+
+        <nav class="module-nav" aria-label="Navegación del curso">
+            <?php if ($prev_mod): ?>
+                <a class="mn-btn mn-prev" href="<?php echo $prev_mod['href']; ?>">
+                    <svg class="arr" width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 4L6.5 10L12.5 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span class="label">
+                        <span class="num">Anterior · Mód. <?php echo $prev_mod['num']; ?></span>
+                        <span class="t"><?php echo htmlspecialchars($prev_mod['title']); ?></span>
+                    </span>
+                </a>
+            <?php else: ?>
+                <span class="mn-btn mn-prev mn-disabled">
+                    <svg class="arr" width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 4L6.5 10L12.5 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span class="label">
+                        <span class="num">Inicio del curso</span>
+                        <span class="t">No hay módulo anterior</span>
+                    </span>
+                </span>
+            <?php endif; ?>
+
+            <a class="mn-btn mn-home" href="embed.php">
+                <span class="dot"></span>
+                Índice del curso
+            </a>
+
+            <?php if ($next_mod): ?>
+                <a class="mn-btn mn-next" href="<?php echo $next_mod['href']; ?>">
+                    <span class="label">
+                        <span class="num">Siguiente · Mód. <?php echo $next_mod['num']; ?></span>
+                        <span class="t"><?php echo htmlspecialchars($next_mod['title']); ?></span>
+                    </span>
+                    <svg class="arr" width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 4L13.5 10L7.5 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            <?php else: ?>
+                <span class="mn-btn mn-next mn-disabled">
+                    <span class="label">
+                        <span class="num">Fin del curso</span>
+                        <span class="t">No hay módulo siguiente</span>
+                    </span>
+                    <svg class="arr" width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 4L13.5 10L7.5 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+            <?php endif; ?>
+        </nav>
