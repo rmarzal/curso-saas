@@ -113,60 +113,29 @@ $extra = [
             margin-bottom: 1.25rem;
         }
 
-        .info-bar {
-            display: flex; flex-wrap: wrap; align-items: center;
-            gap: 0.6rem 1rem;
-            background: var(--c-card);
-            border: 1px solid var(--c-border);
-            border-radius: 0.85rem;
-            padding: 0.75rem 1rem;
-            box-shadow: 0 2px 10px rgba(20,40,60,0.04);
+        .actions-bar {
+            display: flex; flex-wrap: wrap; gap: 0.75rem;
             margin-bottom: 1.25rem;
-            font-size: 0.9rem;
-        }
-        .info-bar .who {
-            display: flex; align-items: center; gap: 0.5rem;
-            color: var(--c-ink); font-weight: 600;
-        }
-        .info-bar .who .avatar {
-            width: 1.85rem; height: 1.85rem; border-radius: 50%;
-            background: linear-gradient(135deg, var(--c-blue), var(--c-mint));
-            color: #fff; font-weight: 700; font-size: 0.78rem;
-            display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0;
-        }
-        .info-bar .sep {
-            width: 1px; height: 1.4rem; background: var(--c-border);
-            display: none;
-        }
-        @media (min-width: 720px) { .info-bar .sep { display: block; } }
-        .info-bar .email {
-            color: var(--c-muted); font-weight: 500; text-decoration: none;
-        }
-        .info-bar .email:hover { color: var(--c-blue); }
-        .info-bar .actions {
-            display: flex; flex-wrap: wrap; gap: 0.4rem;
-            margin-left: auto;
         }
         .pill {
-            display: inline-flex; align-items: center; gap: 0.35rem;
-            padding: 0.4rem 0.75rem;
-            border-radius: 999px;
-            font-weight: 600; font-size: 0.82rem;
+            display: inline-flex; align-items: center; gap: 0.55rem;
+            padding: 0.85rem 1.4rem;
+            border-radius: 0.7rem;
+            font-weight: 700; font-size: 1rem;
             text-decoration: none;
-            transition: transform .12s, box-shadow .12s, background .12s;
+            transition: transform .15s, box-shadow .15s, background .15s, border-color .15s;
         }
         .pill-primary {
             background: linear-gradient(135deg, var(--c-blue), var(--c-mint));
             color: #fff;
-            box-shadow: 0 4px 10px -4px rgba(17,138,178,0.4);
+            box-shadow: 0 8px 20px -8px rgba(17,138,178,0.55);
         }
-        .pill-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 14px -4px rgba(17,138,178,0.5); }
+        .pill-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px rgba(17,138,178,0.65); }
         .pill-ghost {
-            background: #f3f7fa; color: var(--c-ink);
-            border: 1px solid var(--c-border);
+            background: #fff; color: var(--c-ink);
+            border: 1.5px solid var(--c-blue);
         }
-        .pill-ghost:hover { background: #e7f0f5; border-color: var(--c-blue); color: var(--c-blue); }
+        .pill-ghost:hover { transform: translateY(-2px); background: #f0f8fc; box-shadow: 0 8px 18px -8px rgba(17,138,178,0.3); }
 
         .info-note {
             font-size: 0.8rem; color: var(--c-muted);
@@ -238,17 +207,9 @@ $extra = [
             </p>
         </header>
 
-        <div class="info-bar">
-            <div class="who">
-                <span class="avatar">RM</span>
-                <span>Rubén Marzal</span>
-            </div>
-            <span class="sep"></span>
-            <a class="email" href="mailto:admin@nextscenario.com">admin@nextscenario.com</a>
-            <div class="actions">
-                <a class="pill pill-primary" href="https://tidycal.com/nextscenario/mentoria-curso" target="_blank" rel="noopener">📅 Agendar mentoría</a>
-                <a class="pill pill-ghost" href="https://tinyurl.com/7as42k8c" target="_blank" rel="noopener">📕 Libro SaaS</a>
-            </div>
+        <div class="actions-bar">
+            <a class="pill pill-primary" href="https://tidycal.com/nextscenario/mentoria-curso" target="_blank" rel="noopener">📅 Agendar mentoría</a>
+            <a class="pill pill-ghost" href="https://tinyurl.com/7as42k8c" target="_blank" rel="noopener">📕 Libro SaaS</a>
         </div>
 
         <p class="info-note">
