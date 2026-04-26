@@ -1,367 +1,409 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Modelos de Negocio y Cómo Limitar un Producto</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Tailwind gray-50 */
-            padding-top: 64px; /* Space for fixed header */
-            color: #1f2937; /* Tailwind gray-900 */
-        }
-        .section-card {
-            background-color: #ffffff;
-            padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow */
-            margin-bottom: 2rem;
-            border: 1px solid #e2e8f0; /* Subtle border */
-        }
-        .main-heading-gradient {
-            background: linear-gradient(90deg, #3b82f6, #60a5fa); /* Blue gradient */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .sub-heading {
-            color: #1e3a8a; /* Darker blue for main headings */
-        }
-        .metric-card {
-            background-color: #eff6ff; /* Light blue background for metric details */
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03); /* Subtle shadow */
-            border-left: 4px solid;
-            margin-bottom: 1rem;
-        }
-        .metric-card.blue-border { border-color: #3b82f6; }
-        .metric-card.green-border { border-color: #10b981; }
-        .metric-card.yellow-border { border-color: #f59e0b; }
-        .metric-card.red-border { border-color: #ef4444; }
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Modelos de negocio y limitaciones de producto · Curso SaaS</title>
+<link rel="stylesheet" href="_design.css" />
+</head>
+<body>
 
-        .icon-text-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.75rem;
-            font-size: 1rem;
-            color: #374151;
-        }
-        .icon-text-item span {
-            font-size: 1.5rem; /* Larger icon size */
-            margin-right: 0.75rem;
-            color: #3b82f6; /* Blue for icons */
-        }
-        .error-item {
-            color: #ef4444;
-            font-weight: 600;
-        }
-
-        .pro-con-list {
-            list-style-type: disc;
-            margin-left: 1.25rem; /* pl-5 */
-            font-size: 0.875rem; /* text-sm */
-            color: #4b5563; /* Tailwind gray-700 */
-        }
-        .pro-con-list li {
-            margin-bottom: 0.35rem;
-        }
-        .pro-con-list strong {
-            color: #1f2937; /* Tailwind gray-900 for emphasis */
-        }
-        
-        /* Fixed Navigation */
-        .fixed-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #1e3a8a; /* Darker blue for nav */
-            z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-        .nav-link {
-            display: inline-block;
-            padding: 1rem 1.25rem;
-            color: #bfdbfe; /* Light blue for nav links */
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .nav-link:hover {
-            background-color: #3b82f6; /* Primary blue on hover */
-            color: #ffffff;
-        }
-        .nav-link.active {
-            background-color: #60a5fa; /* Lighter blue for active */
-            color: #ffffff;
-        }
-    </style>
-
-<link href="_design.css" rel="stylesheet"/></head>
-<body class="text-gray-800"><nav class="ns-static-nav"><div class="ns-inner"><a class="ns-back" href="/metricas/pro/embed.php"><svg fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"></path></svg>Volver al curso</a><span class="ns-eyebrow">Infografía · Curso SaaS</span><a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a></div></nav>
-<div class="ns-shell">
-<header class="ns-hero">
-<span class="ns-hero-eyebrow"><span class="dot"></span>Infografía · Curso SaaS</span>
-<h1 class="ns-h1">Modelos de Negocio y Limitaciones de Producto</h1>
-<p class="ns-lede">Product-Led Growth (PLG) &amp; Product Led Sales(PLS)</p>
-</header>
-<main class="ns-card">
-<nav class="fixed-nav">
-<div class="container mx-auto flex justify-center py-2">
-<a class="nav-link" href="#intro">Introducción</a>
-<a class="nav-link" href="#limitaciones-tipos">Tipos de Límites</a>
-<a class="nav-link" href="#freemium-model-detail">Modelo Freemium</a>
-<a class="nav-link" href="#freetrial-model-detail">Modelo Free Trial</a>
-<a class="nav-link" href="#strategy-define">Define tu Estrategia</a>
-<a class="nav-link" href="#expert-opinions-freemium">Opiniones Expertas</a>
-<a class="nav-link" href="#final-key-points">Puntos Clave Finales</a>
-</div>
+<nav class="ns-static-nav">
+    <div class="ns-inner">
+        <a class="ns-back" href="/metricas/pro/embed.php">
+            <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"/></svg>
+            Volver al curso
+        </a>
+        <span class="ns-eyebrow">Infografía · Curso SaaS</span>
+        <a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a>
+    </div>
 </nav>
-<div class="container mx-auto p-4 sm:p-6 md:p-8 max-w-7xl">
-<main class="space-y-12">
-<section class="section-card" id="introduccion">
-<h2 class="text-3xl font-bold mb-6 text-center sub-heading">El Debate en PLG: Expectativas vs. Realidad</h2>
-<img alt="Diagrama comparativo de expectativas idealizadas y la realidad de los modelos PLG" class="mx-auto my-6 rounded-lg shadow-sm" src="https://cdn.prod.website-files.com/635754018bfa6476addffaf9/67a1ec02d74401a6c40c2ca6_sales-led-model-vs-product-led-model-1024x515.png"/>
-<p class="text-lg text-gray-700 leading-relaxed mb-4 text-center">
-                    En <strong>Product-Led Growth (PLG)</strong>, los modelos <strong>Freemium</strong> y <strong>Free Trial</strong> buscan captar usuarios con acceso gratuito limitado. Pero, ¿la realidad coincide con las altas expectativas?
+
+<div class="ns-shell">
+
+    <header class="ns-hero">
+        <span class="ns-hero-eyebrow"><span class="dot"></span>Módulo 02 · Modelos de negocio</span>
+        <h1 class="ns-h1">Modelos de negocio y <em>limitaciones</em> de producto.</h1>
+        <p class="ns-lede">
+            Product-Led Growth (PLG), <strong>Freemium vs Free Trial</strong> y cómo
+            limitar el producto. ¿La realidad coincide con las expectativas idealizadas?
+            La <span style="background: var(--c-accent); padding: 0 6px; border-radius: 4px; color: var(--c-ink);">conversión real</span>
+            se mueve entre el 1% y el 5%.
+        </p>
+
+        <div class="grid-4-kpi">
+            <div class="bigmetric"><div class="l">Conversión típica</div><div class="v">1—5<em>%</em></div><div class="sub">Freemium → pago</div></div>
+            <div class="bigmetric"><div class="l">Tipos de límite</div><div class="v">3</div><div class="sub">Funcionalidad · uso · tiempo</div></div>
+            <div class="bigmetric"><div class="l">Free trial típico</div><div class="v">14d</div><div class="sub">Holded · Factorial · Quipu</div></div>
+            <div class="bigmetric"><div class="l">Útil sub-€</div><div class="v">€80</div><div class="sub">Precios bajos B2C-like</div></div>
+        </div>
+    </header>
+
+    <main class="ns-card">
+
+        <!-- Bloque 1 — Expectativas vs Realidad -->
+        <section class="mf-feature" style="border-top: 0; padding-top: 0;">
+            <div class="mf-text">
+                <div class="mf-tag">01 · El debate PLG</div>
+                <h3>Expectativas vs <em>realidad</em>.</h3>
+                <p>
+                    En <strong>Product-Led Growth (PLG)</strong>, los modelos
+                    <strong>Freemium</strong> y <strong>Free Trial</strong> buscan captar
+                    usuarios con acceso gratuito limitado. Pero, ¿la realidad coincide
+                    con las altas expectativas?
                 </p>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div>
-<h3 class="text-xl font-bold mb-3 text-[#10b981]">✅ Expectativas Idealizadas</h3>
-<div class="icon-text-item"><span>🚀</span><p>Gran cantidad de usuarios gratuitos rápidamente.</p></div>
-<div class="icon-text-item"><span>💰</span><p>Altas tasas de conversión a clientes de pago.</p></div>
-<div class="icon-text-item"><span>🪄</span><p>Modelo de captación auto-sostenible.</p></div>
-</div>
-<div>
-<h3 class="text-xl font-bold mb-3 text-[#ef4444]">❌ Realidad y Desafíos</h3>
-<div class="icon-text-item error-item"><span>📉</span><p>Dificultad para generar muchos usuarios o viralidad.</p></div>
-<div class="icon-text-item error-item"><span>⚖️</span><p>Tasas de conversión a pago menores de lo esperado.</p></div>
-<div class="icon-text-item error-item"><span>⚔️</span><p>Mala definición de límites: canibalización de planes de pago.</p></div>
-<div class="icon-text-item error-item"><span>💸</span><p>Costes de mantenimiento de freemium más altos de lo previsto.</p></div>
-</div>
-</div>
-<p class="text-lg text-gray-700 leading-relaxed text-center mt-8">
-<span class="font-bold">La clave:</span> Conocer a fondo el modelo. Especialmente útil para SaaS con planes de precio por debajo de 80€.
+                <p>
+                    <strong>La clave:</strong> conocer a fondo el modelo. Especialmente
+                    útil para SaaS con planes de precio por debajo de 80€.
                 </p>
-</section>
-<section class="section-card" id="limitaciones-tipos">
-<h2 class="text-3xl font-bold mb-6 text-center sub-heading">¿Cómo Limitar un Producto?</h2>
-<img alt="Diagrama de los tres tipos de limitaciones de producto" class="mx-auto my-6 rounded-lg shadow-sm" src="https://placehold.co/600x200/c7d2fe/1e3a8a?text=3+Tipos+de+Limites"/>
-<p class="text-lg text-gray-700 leading-relaxed mb-8 text-center">
-                    Los productos SaaS ofrecen acceso gratuito con tres tipos de limitaciones clave:
+            </div>
+            <div class="mf-visual">
+                <div class="vl">Ideales vs realidad</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px;">
+                    <div style="padding: 14px; background: color-mix(in oklab, var(--c-accent) 18%, transparent); border-radius: 10px;">
+                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--c-accent); text-transform: uppercase; letter-spacing: 0.1em;">✅ Idealizado</div>
+                        <div style="font-size: 12px; line-height: 1.6; color: var(--c-paper); margin-top: 8px;">
+                            🚀 Muchos free rápido<br>
+                            💰 Conversiones altas<br>
+                            🪄 Auto-sostenible
+                        </div>
+                    </div>
+                    <div style="padding: 14px; background: color-mix(in oklab, var(--c-neg) 22%, transparent); border-radius: 10px;">
+                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #FFB3B3; text-transform: uppercase; letter-spacing: 0.1em;">❌ Realidad</div>
+                        <div style="font-size: 12px; line-height: 1.6; color: var(--c-paper); margin-top: 8px;">
+                            📉 Poca viralidad<br>
+                            ⚖ Conversión baja<br>
+                            ⚔ Canibalización<br>
+                            💸 Costes altos
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 2 — Tipos de límite -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>02 · Cómo limitar</span>
+                    <h2>3 formas de <em>limitar</em> un producto.</h2>
+                </div>
+                <p>Los productos SaaS ofrecen acceso gratuito con tres tipos de limitaciones clave.</p>
+            </div>
+
+            <div class="steps" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="step">
+                    <div class="sn">01</div>
+                    <h4>Por funcionalidades</h4>
+                    <p>Acceso a lo básico; pago por funciones avanzadas.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">02</div>
+                    <h4>Por uso</h4>
+                    <p>Acceso completo hasta un límite (usuarios, volumen).</p>
+                </div>
+                <div class="step">
+                    <div class="sn">03</div>
+                    <h4>Por tiempo</h4>
+                    <p>Acceso completo por un periodo limitado (prueba).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 3 — Freemium concept -->
+        <section class="mf-feature" style="border-top: 1px solid var(--c-line);">
+            <div class="mf-text">
+                <div class="mf-tag">03 · Modelo Freemium</div>
+                <h3>Acceso indefinido y <em>escala</em>.</h3>
+                <p>
+                    Permite a los usuarios utilizar una versión básica del producto de
+                    forma <strong>indefinida</strong>, con la opción de actualizar a un
+                    plan pago con más funcionalidades. Esta estrategia permite que los
+                    usuarios exploren su valor <strong>sin necesitar soporte de ventas
+                    o marketing</strong>.
                 </p>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<div class="metric-card blue-border text-center">
-<h3 class="text-xl font-bold mb-2 text-[#3b82f6]">1. Por Funcionalidades</h3>
-<p class="text-sm text-gray-700">Acceso a lo básico; pago por funciones avanzadas.</p>
-</div>
-<div class="metric-card blue-border text-center">
-<h3 class="text-xl font-bold mb-2 text-[#3b82f6]">2. Por Uso</h3>
-<p class="text-sm text-gray-700">Acceso completo hasta un límite (usuarios, volumen).</p>
-</div>
-<div class="metric-card blue-border text-center">
-<h3 class="text-xl font-bold mb-2 text-[#3b82f6]">3. Por Tiempo</h3>
-<p class="text-sm text-gray-700">Acceso completo por un periodo limitado (prueba).</p>
-</div>
-</div>
-</section>
-<section class="section-card" id="freemium-model-detail">
-<h2 class="text-3xl font-bold mb-6 text-center sub-heading">El Modelo Freemium: Acceso Indefinido y Escala</h2>
-<img alt="[Image of Freemium model examples like Notion and Figma]" class="mx-auto my-6 rounded-lg shadow-sm" src="https://substackcdn.com/image/fetch/$s_!_l6h!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3d31e989-13b3-4c65-90ee-d87dc8c8a01a_2930x1598.png"/>
-<div class="metric-card green-border">
-<h3 class="text-2xl font-bold mb-3 text-[#10b981]">Concepto</h3>
-<p class="text-sm text-gray-700 leading-relaxed">
-                        Permite a los usuarios utilizar una versión básica del producto de forma <strong>indefinida</strong>, con la opción de actualizar a un plan pago con más funcionalidades. Esta estrategia permite que los usuarios exploren su valor <strong>sin necesitar soporte de ventas o marketing</strong>.
+                <p>
+                    Esto es menos común en modelos B2B, pero sigue siendo factible para
+                    tickets bajos. Los clientes B2B con un ARPA inferior a 50 euros
+                    tienen un comportamiento similar a los clientes B2C.
+                </p>
+            </div>
+            <div class="mf-visual">
+                <div class="vl">Freemium · ejemplos típicos</div>
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent); display: flex; justify-content: space-between;"><span>Heyzine</span><span style="color: var(--c-accent);">por uso</span></div>
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent); display: flex; justify-content: space-between;"><span>Mailtrack</span><span style="color: var(--c-accent);">por func.</span></div>
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent); display: flex; justify-content: space-between;"><span>Internxt</span><span style="color: var(--c-accent);">por uso</span></div>
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent); display: flex; justify-content: space-between;"><span>RevenueCat</span><span style="color: var(--c-accent);">por uso</span></div>
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent); display: flex; justify-content: space-between;"><span>Discord</span><span style="color: var(--c-accent);">por func.</span></div>
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent); display: flex; justify-content: space-between;"><span>YouTube</span><span style="color: var(--c-accent);">por func.</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 4 — Detalle Freemium examples -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>04 · Casos Freemium</span>
+                    <h2>Ejemplos <em>destacados</em>.</h2>
+                </div>
+                <p>Seis casos reales donde el modelo Freemium funciona — cada uno con su tipo de limitación específica.</p>
+            </div>
+
+            <div class="steps" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="step">
+                    <div class="sn">A</div>
+                    <h4>Heyzine — Limitación por uso</h4>
+                    <p>Plataforma online que convierte archivos PDF en flipbooks interactivos y personalizables. La herramienta es gratuita, sin publicidad ni marcas de agua, y permite compartir, descargar o incrustar las publicaciones en sitios web. Fundada por Albert Balada, fundador en solitario, que superó el millón de ARR, él solo. Ahora, con varios millones, ya son algunas más, pero muy pocas más. Todo un ejemplo de fundador en solitario autofinanciado (bootstrapping). Heyzine utiliza la limitación por uso de flipbooks, similar a lo que hace Miro con tableros.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">B</div>
+                    <h4>Mailtrack / Mailsuite — Por funcionalidades</h4>
+                    <p>Extensión para Gmail que permite saber si los correos electrónicos enviados han sido abiertos o no. El plan gratuito permite realizar un seguimiento básico y recibir notificaciones de lectura. Este plan incluye una marca de agua en los correos electrónicos que indica que el mensaje fue rastreado por Mailsuite.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">C</div>
+                    <h4>Internxt — Por uso</h4>
+                    <p>Plataforma de almacenamiento en la nube enfocada en la privacidad y seguridad de los datos del usuario. Internxt limita el plan gratuito al tamaño de los datos almacenados. El plan gratuito incluye 10 GB de almacenamiento en la nube.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">D</div>
+                    <h4>RevenueCat — Por uso</h4>
+                    <p>Plataforma que ayuda a las apps móviles a gestionar las suscripciones en App Store y Google Play. Simplifica el proceso de implementación y gestión de suscripciones al proporcionar una infraestructura para pagos. El plan gratuito permite gestionar suscripciones y realizar un seguimiento básico del rendimiento de la app. Su limitación es el volumen de ingresos, que suele ser bastante alto.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">E</div>
+                    <h4>Discord — Por funcionalidades</h4>
+                    <p>Ofrece su funcionalidad principal de comunicación gratuita. Monetiza funciones adicionales a través de suscripciones <strong>Nitro</strong> (emojis personalizados, mejor calidad de streaming, etc.).</p>
+                </div>
+                <div class="step">
+                    <div class="sn">F</div>
+                    <h4>YouTube — Por funcionalidades</h4>
+                    <p>Permite acceso gratuito a la mayoría de contenidos. <strong>YouTube Premium</strong> elimina anuncios y desbloquea funciones avanzadas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 5 — Pros y Contras Freemium -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>05 · Pros y contras Freemium</span>
+                    <h2>Qué <em>ganas</em> y qué <em>pierdes</em>.</h2>
+                </div>
+                <p>El modelo no es gratis. Hay ventajas reales pero también costes ocultos que conviene conocer.</p>
+            </div>
+
+            <div class="two-col">
+                <div class="two-col-card accent">
+                    <div class="tag">Ventajas ✅</div>
+                    <h3>Lo que el Freemium te da</h3>
+                    <ul>
+                        <li><strong>Expansión de la base de usuarios:</strong> permite obtener una amplia base de usuarios. Cuantos más usuarios utilicen el producto, más fácil será posicionarlo en el mercado y mejorar el reconocimiento de marca. Este enfoque debe ir apoyado por estrategias para incorporar un bucle de viralidad.</li>
+                        <li><strong>Feedback y pruebas de producto:</strong> los usuarios gratuitos ofrecen insights sobre el producto que ayudan a mejorarlo. Pueden ser de gran ayuda para detectar posibles problemas del producto.</li>
+                        <li><strong>Bajo CAC:</strong> la gratuidad permite captar usuarios de manera más económica y efectiva, favoreciendo el crecimiento orgánico.</li>
+                    </ul>
+                </div>
+                <div class="two-col-card dark">
+                    <div class="tag">Desventajas ❌</div>
+                    <h3>Lo que te cuesta</h3>
+                    <ul>
+                        <li><strong>Costes de infraestructura (COGS):</strong> a medida que el número de usuarios gratuitos aumenta, los costes de servidor y soporte pueden escalar con rapidez, especialmente si los ingresos de los usuarios de pago no compensan.</li>
+                        <li><strong>Baja tasa de conversión:</strong> las conversiones de freemium a pago suelen ser bajas y rondan entre el 1% y el 5% de media, lo que puede dificultar la rentabilidad. En productos de alto coste de infraestructura, como aquellos que dependen de API de pago, este modelo no suele ser viable sin una base sólida de usuarios de pago.</li>
+                        <li><strong>Canibalización entre planes:</strong> ofrecer demasiado en la versión gratuita puede canibalizar las conversiones a planes de pago. Hay que tener claro dónde y cómo hacer el corte.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 6 — Free Trial -->
+        <section class="mf-feature" style="border-top: 1px solid var(--c-line);">
+            <div class="mf-text">
+                <div class="mf-tag">06 · Modelo Free Trial</div>
+                <h3>Experiencia completa, <em>limitada</em>.</h3>
+                <p>
+                    El free trial permite que los usuarios prueben el producto
+                    <strong>completo</strong> durante un período <strong>limitado</strong>,
+                    generalmente entre tres y treinta días. Esta estrategia se basa en
+                    ofrecer al usuario acceso completo a todas las funcionalidades para
+                    que experimente el valor completo del producto y se sienta motivado
+                    a suscribirse al finalizar el período.
+                </p>
+                <ul>
+                    <li><span class="chk">✓</span><strong>Experiencia de producto completa:</strong> al permitir el acceso total al producto, los usuarios pueden probar todo su potencial.</li>
+                    <li><span class="chk">✓</span><strong>Tiempo definido de conversión:</strong> el límite impulsa al usuario a tomar una decisión, lo que puede incrementar la tasa de conversión y conocer antes si la estrategia funciona.</li>
+                    <li><span class="chk">✗</span><strong>Más esfuerzo de soporte y ventas:</strong> requiere un enfoque más agresivo de ventas y soporte para optimizar las conversiones en el tiempo limitado.</li>
+                    <li><span class="chk">✗</span><strong>Desafíos de retención:</strong> tras la prueba, la transición a pago puede llevar a un incremento en bajas si el usuario no considera que el producto justifica el precio.</li>
+                    <li><span class="chk">✗</span><strong>Usuarios temporales:</strong> muchos se inscriben solo para aprovechar el período gratuito y luego cancelan, generando alta rotación si no hay valor diferencial efectivo.</li>
+                </ul>
+            </div>
+            <div class="mf-visual">
+                <div class="vl">Free Trial · ejemplos ES</div>
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);"><span>Holded</span><span style="color: var(--c-accent);">14d</span></div>
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);"><span>Factorial</span><span style="color: var(--c-accent);">14d</span></div>
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);"><span>Quipu</span><span style="color: var(--c-accent);">15d</span></div>
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);"><span>Signaturit</span><span style="color: var(--c-accent);">14d</span></div>
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);"><span>Velneo</span><span style="color: var(--c-accent);">30d</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 7 — Detalle Free Trial examples -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>07 · Casos Free Trial</span>
+                    <h2>Empresas con free trial <em>exitoso</em>.</h2>
+                </div>
+                <p>Cinco SaaS españoles aplican el modelo de free trial con éxito. Cada uno con su periodo y su matiz.</p>
+            </div>
+
+            <div class="steps" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="step">
+                    <div class="sn">14d</div>
+                    <h4>Holded</h4>
+                    <p>Ofrece una prueba gratuita de 14 días de su software de gestión completo. Al finalizar el periodo de prueba, los usuarios deben seleccionar uno de los planes de pago para continuar utilizando la plataforma.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">14d</div>
+                    <h4>Factorial</h4>
+                    <p>Plataforma de gestión de recursos humanos. Ofrece una prueba gratuita de 14 días para empresas. Durante este tiempo, las empresas pueden acceder a todas las funciones avanzadas de la plataforma. Una vez terminado el periodo de prueba, deben optar por un plan de pago para continuar usándolas.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">15d</div>
+                    <h4>Quipu</h4>
+                    <p>Plataforma de facturación y contabilidad para autónomos y pymes que ofrece una prueba gratuita de 15 días.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">14d</div>
+                    <h4>Signaturit</h4>
+                    <p>Plataforma española de firma digital que ayuda a las empresas a firmar documentos de manera segura y legalmente vinculante. La plataforma ofrece una prueba gratuita de 14 días, con acceso completo a las funciones de firma electrónica y generación de documentos. Al terminar el periodo de prueba, es necesario un plan de pago para continuar utilizando el servicio.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">30d</div>
+                    <h4>Velneo</h4>
+                    <p>Plataforma de desarrollo de aplicaciones empresariales enfocada en pymes. Ofrece una prueba gratuita de 30 días, donde los usuarios pueden probar todas sus herramientas para crear aplicaciones personalizadas. Finalizado el periodo, los usuarios deben suscribirse a un plan para continuar desarrollando con la plataforma.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 8 — Estrategia: Crecimiento vs Rentabilidad -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>08 · Define tu estrategia</span>
+                    <h2>Crecimiento vs <em>rentabilidad</em>.</h2>
+                </div>
+                <p>Para mí existen dos enfoques claros: el del mundo startup, intentar construir el mejor producto, levantar varias rondas de inversión, crecer rápido y hacer un "winner takes all" — o construir empresas cuyo crecimiento lo determinan sus beneficios.</p>
+            </div>
+
+            <div class="two-col">
+                <div class="two-col-card dark">
+                    <div class="tag">Enfoque 1</div>
+                    <h3>Winner Takes All</h3>
+                    <p>El término "winner takes all" acuñado en Silicon Valley se refiere a una situación en la que una empresa crece rápido y se hace con la mayoría del mercado, con una ventaja tan grande — ya sea en aporte de valor, precio, etc. — que hace que sea muy complicado competir para las otras empresas. Este modelo consiste en hacer crecer la empresa a toda costa, hasta que domine el mercado, independientemente de márgenes y beneficios.</p>
+                    <ul>
+                        <li><strong>+ Dominio de mercado:</strong> ventaja competitiva masiva.</li>
+                        <li><strong>+ Capital de inversión:</strong> permite escalar rápidamente sin preocuparse por la rentabilidad inmediata.</li>
+                        <li><strong>− Alta dependencia de inversores:</strong> necesita rondas constantes.</li>
+                        <li><strong>− Riesgo elevado:</strong> requiere eliminar competidores y puede ser insostenible si no se logra la dominación.</li>
+                        <li><strong>Ej.</strong> Amazon, Google, Facebook.</li>
+                    </ul>
+                </div>
+                <div class="two-col-card accent">
+                    <div class="tag">Enfoque 2</div>
+                    <h3>Bootstrapping</h3>
+                    <p>El modelo de pagar las facturas con la cuenta de pérdidas y ganancias — montar negocios cómo se ha hecho toda la vida, donde el juez es el EBITDA. Para estos negocios, es más complicado construir modelos gratuitos porque el momento en el que el usuario paga llega mucho más tarde que en una estrategia de ventas B2B y requiere tiempo. Por lo que debemos financiar esos periodos de construcción y mejora de producto.</p>
+                    <ul>
+                        <li><strong>+ Control total:</strong> sin dependencia de inversores externos.</li>
+                        <li><strong>+ Sostenibilidad:</strong> el crecimiento está ligado a la rentabilidad real.</li>
+                        <li><strong>+ Libertad:</strong> permite construir a tu propio ritmo.</li>
+                        <li><strong>− Crecimiento más lento:</strong> limitado por el flujo de caja interno.</li>
+                        <li><strong>− Desafío con modelos gratuitos:</strong> el pago llega más tarde y requiere financiación.</li>
+                        <li><strong>Ej.</strong> Heyzine (Albert), Metricool (Juan Pablo).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 9 — Opiniones expertas -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>09 · Opiniones expertas</span>
+                    <h2>Lo que dicen los <em>fundadores</em>.</h2>
+                </div>
+                <p>Dos voces con experiencia real construyendo modelos freemium que funcionan. Sin teoría — con cicatrices.</p>
+            </div>
+
+            <div class="two-col">
+                <div class="two-col-card">
+                    <div class="tag">Eduardo Manchón · Mailsuite & Panoramio</div>
+                    <h3>"La clave del freemium…"</h3>
+                    <p style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 17px; line-height: 1.4;">
+                        "La clave del freemium es que tu producto sea <strong>realmente
+                        bueno</strong> — que tenga un valor diferencial claro y capacidad
+                        de crecer a saco y escalar. De lo contrario el modelo no
+                        funcionará."
                     </p>
-<p class="text-sm text-gray-700 mt-2">
-                        Esto es menos común en modelos B2B, pero sigue siendo factible para tickets bajos. Los clientes de negocios B2B con un Arpa (precio medio por cliente) inferior a 50 euros, tienen un comportamiento similar a los clientes B2C.
+                    <ul>
+                        <li>El modelo está basado en chorrocientos mil signups (registros) de los cuales una pequeña parte (que en números absolutos es grande) paga. O hay muchísima popularidad o no sirve de nada.</li>
+                        <li>Uno no se hace popular sin aportar nada genuina y diferencialmente valioso.</li>
+                        <li>Sobre todo hace falta cierta mentalidad: si te quejas de los "free" y te molesta que "hagan gasto", no es tu modelo. El modelo se basa en cuidar mucho a los free y que paguen contentos de hacerlo, no en apretarles.</li>
+                        <li>Ofrecerlo gratis no es un trial durante X tiempo, ni un producto capado arbitrariamente — sino un producto totalmente funcional donde jamás es necesario pagar si no quieres (o con límites generosos).</li>
+                        <li>Canva es el ejemplo más excelso: averiguar qué funcionalidad o limitación hace que el cliente se "autocalifique" — si quiere X cosa entonces es un cliente cualitativamente distinto que está dispuesto a pagar.</li>
+                        <li>Otra bondad: no necesitas pagar PPC ni vendedores. Todo es automático y escalable.</li>
+                        <li>Repito: este rollo no aplica a un producto a menos que tengas un valor diferencial sustancial que gracias a su gratuidad se popularice — y eso es lo que casi nadie tiene. Cuando no lo tienes, es más fácil cerrar el producto (solo de pago) y venderlo de la manera clásica. O petarlo de funcionalidad, precio alto e irte al upmarket (B2B / enterprise) — porque ahí arriba si el producto es bueno o malo da igual, se vende por otras razones.</li>
+                    </ul>
+                </div>
+                <div class="two-col-card dark">
+                    <div class="tag">Miguel Carranza · CEO RevenueCat</div>
+                    <h3>"Pétalo con los frees…"</h3>
+                    <p>
+                        En una entrevista, Miguel Carranza comentaba que ellos tienen un
+                        montón de clientes free y que en su consejo de administración hay
+                        grandes inversores en capital riesgo de EE. UU. que habían
+                        recomendado un <strong>VP of Free</strong> — un directivo
+                        responsable solo de la parte free del modelo.
                     </p>
-</div>
-<h3 class="text-2xl font-bold mb-4 mt-6 text-center text-[#3b82f6]">Ejemplos Destacados de Freemium</h3>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="metric-card blue-border">
-<h4 class="text-xl font-bold mb-2 text-[#3b82f6]">Heyzine (Limitación por Uso)</h4>
-<p class="text-sm text-gray-700">Plataforma en línea que convierte archivos PDF en flipbooks interactivos y personalizables. La herramienta es gratuita, sin publicidad ni marcas de agua, y permite compartir, descargar o incrustar las publicaciones en sitios web.</p>
-<ul class="pro-con-list mt-2">
-<li>Fundada por Albert Balada, fundador en solitario, que superó el millón de ARR, él solo. Ahora, con varios millones, ya son algunas más, pero muy pocas más. Todo un ejemplo de fundador en solitario autofinanciado (bootstraping).</li>
-<li>Heyzine utiliza la <strong>limitación por uso</strong>, en este caso de flipbooks, algo similar a lo que hace Miro con tableros.</li>
-</ul>
-</div>
-<div class="metric-card blue-border">
-<h4 class="text-xl font-bold mb-2 text-[#3b82f6]">Mailtrack / Mailsuite (Limitación por Funcionalidades)</h4>
-<p class="text-sm text-gray-700">Extensión para Gmail que permite saber si los correos electrónicos enviados han sido abiertos o no. El plan gratuito de Mailsuite permite realizar un seguimiento básico de los correos electrónicos y recibir notificaciones de lectura. Este plan incluye una marca de agua en los correos electrónicos que indica que el mensaje fue rastreado por Mailsuite.</p>
-</div>
-<div class="metric-card blue-border">
-<h4 class="text-xl font-bold mb-2 text-[#3b82f6]">Internxt (Limitación por Uso)</h4>
-<p class="text-sm text-gray-700">Plataforma de almacenamiento en la nube enfocada en la privacidad y seguridad de los datos del usuario. Internxt limita el plan gratuito al tamaño de los datos almacenados. El plan gratuito de Internxt incluye 10 GB de almacenamiento en la nube.</p>
-</div>
-<div class="metric-card blue-border">
-<h4 class="text-xl font-bold mb-2 text-[#3b82f6]">RevenueCat (Limitación por Uso)</h4>
-<p class="text-sm text-gray-700">Plataforma que ayuda a las aplicaciones móviles a gestionar las suscripciones en la App Store y Google Play. Simplifica el proceso de implementación y gestión de suscripciones en apps al proporcionar una infraestructura para pagos. El plan gratuito de RevenueCat permite gestionar suscripciones y realizar un seguimiento básico del rendimiento de la app. Su limitación es el volumen de ingresos que suele ser bastante alto.</p>
-</div>
-<div class="metric-card blue-border">
-<h4 class="text-xl font-bold mb-2 text-[#3b82f6]">Discord (Limitación por Funcionalidades)</h4>
-<p class="text-sm text-gray-700">Ofrece su funcionalidad principal de comunicación gratuita. Monetiza funciones adicionales a través de suscripciones <strong>Nitro</strong> (emojis personalizados, mejor calidad de streaming, etc.).</p>
-</div>
-<div class="metric-card blue-border">
-<h4 class="text-xl font-bold mb-2 text-[#3b82f6]">YouTube (Limitación por Funcionalidades)</h4>
-<p class="text-sm text-gray-700">Permite acceso gratuito a la mayoría de contenidos. <strong>YouTube Premium</strong> elimina anuncios y desbloquea funciones avanzadas.</p>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-<div class="metric-card green-border">
-<h3 class="text-2xl font-bold mb-3 text-[#10b981]">Ventajas del Freemium ✅</h3>
-<div class="icon-text-item"><span>📈</span><p><strong>Expansión de la base de usuarios:</strong> Permite obtener una amplia base de usuarios. Cuantos más usuarios utilicen el producto, más fácil será posicionar el producto en el mercado y mejorar el reconocimiento de marca. Este enfoque debe ir apoyado por estrategias para incorporar un bucle de viralidad.</p></div>
-<div class="icon-text-item"><span>👂</span><p><strong>Feedback y pruebas de producto:</strong> Los usuarios gratuitos ofrecen insights sobre el producto que ayudan a mejorarlo. Pueden ser de gran ayuda para detectar posibles problemas del producto.</p></div>
-<div class="icon-text-item"><span>💸</span><p><strong>Bajo coste de adquisición de clientes (CAC):</strong> La gratuidad permite captar usuarios de manera más económica y efectiva, favoreciendo el crecimiento orgánico.</p></div>
-</div>
-<div class="metric-card red-border">
-<h3 class="text-2xl font-bold mb-3 text-[#ef4444]">Desventajas del Freemium ❌</h3>
-<div class="icon-text-item error-item"><span>💰</span><p><strong>Costes de infraestructura (COGS):</strong> A medida que el número de usuarios gratuitos aumenta, los costes de servidor y soporte pueden escalar con rapidez, especialmente si los ingresos de los usuarios de pago no compensan.</p></div>
-<div class="icon-text-item error-item"><span>⬇️</span><p><strong>Baja tasa de conversión:</strong> Las tasas de conversión de freemium a pago suelen ser bajas y rondan entre el 1% y el 5% de media, lo que puede dificultar la rentabilidad. En productos de alto coste de infraestructura, como aquellos que dependen de API de pago, este modelo no suele ser viable sin una base sólida de usuarios de pago.</p></div>
-<div class="icon-text-item error-item"><span>🚫</span><p><strong>Canibalización de usuarios entre planes:</strong> Ofrecer demasiado en la versión gratuita puede canibalizar las conversiones a planes de pago. Hay que tener claro dónde y cómo hacer el corte.</p></div>
-</div>
-</div>
-</section>
-<section class="section-card" id="freetrial-model-detail">
-<h2 class="text-3xl font-bold mb-6 text-center sub-heading">El Modelo Free Trial: Experiencia Completa Limitada</h2>
-<img alt="[Image of Free Trial visual representation]" class="mx-auto my-6 rounded-lg shadow-sm" src="https://i.postimg.cc/QNR52Wzp/Clean-Shot-2025-06-26-at-11-09-43.jpg"/>
-<div class="metric-card green-border">
-<h3 class="text-2xl font-bold mb-3 text-[#10b981]">Concepto</h3>
-<p class="text-sm text-gray-700 leading-relaxed">
-                        El modelo de free trial permite que los usuarios prueben el producto <strong>completo</strong> durante un período <strong>limitado</strong>, generalmente entre tres y treinta días. Esta estrategia se basa en ofrecer al usuario acceso completo a todas las funcionalidades para que experimente el valor completo del producto y se sienta motivado a suscribirse al finalizar el período de prueba.
+                    <p style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 18px; line-height: 1.35; margin-top: 12px;">
+                        "Tú pétalo con los frees, que luego el dinero vendrá solo. Y
+                        efectivamente vino."
                     </p>
+                    <p>
+                        Los casos de Heyzine, Mailtrack, RevenueCat, Notion son claros
+                        ejemplos de que esta estrategia funciona. Pero no tenemos que
+                        olvidar que cada año se crean cientos de productos que lo
+                        intentan y fracasan.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing CTA -->
+        <section class="sub-cta">
+            <h2>Elige tu límite. Elige tu <em>juego</em>.</h2>
+            <p>
+                Freemium o Free Trial. Crecimiento o rentabilidad. Winner-takes-all o
+                bootstrap. La estrategia correcta depende del producto, del ticket y del
+                tipo de empresa que quieras construir.
+            </p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a class="pill pill-accent" href="/metricas/pro/modelos_de_negocio.php">Volver al módulo →</a>
+                <a class="pill pill-ghost" href="https://tidycal.com/nextscenario/mentoria-curso" target="_blank" rel="noopener">Diseñar tu modelo</a>
+            </div>
+        </section>
+
+    </main>
+
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-<div class="metric-card blue-border">
-<h3 class="text-2xl font-bold mb-3 text-[#10b981]">Ventajas del Free Trial ✅</h3>
-<div class="icon-text-item"><span>✨</span><p><strong>Experiencia de producto completa:</strong> Al permitir el acceso total al producto, los usuarios pueden probar todo su potencial.</p></div>
-<div class="icon-text-item"><span>⏰</span><p><strong>Tiempo definido de conversión:</strong> El límite de tiempo impulsa al usuario a tomar una decisión, lo que puede incrementar la tasa de conversión y poder conocer antes si nuestra estrategia funciona.</p></div>
-</div>
-<div class="metric-card red-border">
-<h3 class="text-2xl font-bold mb-3 text-[#ef4444]">Desventajas del Free Trial ❌</h3>
-<div class="icon-text-item error-item"><span>🗣️</span><p><strong>Más esfuerzo de soporte y ventas:</strong> A diferencia del freemium, el free trial requiere un enfoque más agresivo de ventas y soporte para optimizar las conversiones en el tiempo limitado.</p></div>
-<div class="icon-text-item error-item"><span>📉</span><p><strong>Desafíos de retención:</strong> Una vez finalizado el periodo de prueba, la transición a un modelo de pago puede llevar a un incremento en las bajas, ya que algunos usuarios pueden no considerar que el producto justifica el precio.</p></div>
-<div class="icon-text-item error-item"><span>💨</span><p><strong>Usuarios temporales:</strong> Muchos usuarios pueden inscribirse solo para aprovechar el período gratuito y luego cancelarlo, generando una alta rotación si no se les presenta un valor diferencial efectivo.</p></div>
-</div>
-</div>
-<h3 class="text-2xl font-bold mb-4 mt-8 text-center text-[#3b82f6]">Ejemplos de Empresas con Free Trial Exitoso</h3>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<div class="metric-card blue-border">
-<h4 class="text-xl font-bold mb-2 text-[#3b82f6]">Holded</h4>
-<p class="text-sm text-gray-700">Ofrece una prueba gratuita de <strong>14 días</strong> de su software de gestión completo. Al finalizar el periodo de prueba, los usuarios deben seleccionar uno de los planes de pago para continuar utilizando la plataforma.</p>
-</div>
-<div class="metric-card blue-border">
-<h4 class="text-xl font-bold mb-2 text-[#3b82f6]">Factorial</h4>
-<p class="text-sm text-gray-700">Plataforma de gestión de recursos humanos, ofrece una prueba gratuita de <strong>14 días</strong> para empresas. Durante este tiempo, las empresas pueden acceder a todas las funciones avanzadas de la plataforma. Una vez terminado el periodo de prueba, deben optar por un plan de pago para continuar usándolas.</p>
-</div>
-<div class="metric-card blue-border">
-<h4 class="text-xl font-bold mb-2 text-[#3b82f6]">Quipu</h4>
-<p class="text-sm text-gray-700">Plataforma de facturación y contabilidad para autónomos y pymes que ofrece una prueba gratuita de <strong>15 días</strong>.</p>
-</div>
-<div class="metric-card blue-border">
-<h4 class="text-xl font-bold mb-2 text-[#3b82f6]">Signaturit</h4>
-<p class="text-sm text-gray-700">Plataforma española de firma digital que ayuda a las empresas a firmar documentos de manera segura y legalmente vinculante. La plataforma ofrece una prueba gratuita de <strong>14 días</strong>, con acceso completo a las funciones de firma electrónica y generación de documentos. Al terminar el periodo de prueba, es necesario un plan de pago para continuar utilizando el servicio.</p>
-</div>
-<div class="metric-card blue-border">
-<h4 class="text-xl font-bold mb-2 text-[#3b82f6]">Velneo</h4>
-<p class="text-sm text-gray-700">Plataforma de desarrollo de aplicaciones empresariales enfocada en pymes. Ofrece una prueba gratuita de <strong>30 días</strong>, donde los usuarios pueden probar todas sus herramientas para crear aplicaciones personalizadas. Finalizado el periodo, los usuarios deben suscribirse a un plan para continuar desarrollando con la plataforma.</p>
-</div>
-</div>
-</section>
-<section class="section-card" id="strategy-define">
-<h2 class="text-3xl font-bold mb-6 text-center sub-heading">Define tu Estrategia: Crecimiento vs. Rentabilidad</h2>
-<img alt="[Image of business strategy types]" class="mx-auto my-6 rounded-lg shadow-sm" src="https://placehold.co/600x200/dbeafe/1e3a8a?text=Estrategias+de+Negocio"/>
-<p class="text-lg text-gray-700 leading-relaxed mb-6 text-center">
-                    Para mi existen dos enfoques claros, el del mundo startup, intentar construir el mejor producto, levantar varias rondas de inversión, crecer rápido y hacer un «winner takes all» o construir empresas cuyo crecimiento lo determinan sus beneficios.
-                </p>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-<div class="metric-card blue-border">
-<h3 class="text-2xl font-bold mb-3 text-[#3b82f6]">Enfoque 1: Winner Takes All (Startup de alto crecimiento)</h3>
-<p class="text-sm text-gray-700 leading-relaxed">
-                            El término «winner takes all» («el ganador se lo lleva todo») acuñado en Silicon Valley, se refiere a una situación en la que una empresa crece rápido y se hace con la mayoría del mercado, con una ventaja tan grande, ya sea en aporte de valor, precio, etc., que hace que sea muy complicado competir para las otras empresas. Este modelo consiste en hacer crecer la empresa a toda costa, hasta que domine el mercado, independientemente de márgenes y beneficios.
-                        </p>
-<h4 class="font-bold text-sm mt-4 text-[#10b981]">Ventajas</h4>
-<ul class="pro-con-list">
-<li><strong>Dominio de mercado:</strong> Consigue una ventaja competitiva masiva.</li>
-<li><strong>Capital de inversión:</strong> Permite escalar rápidamente sin preocuparse por la rentabilidad inmediata.</li>
-</ul>
-<h4 class="font-bold text-sm mt-4 text-[#ef4444]">Desventajas</h4>
-<ul class="pro-con-list">
-<li><strong>Alta dependencia de inversores:</strong> Necesita rondas constantes de financiación.</li>
-<li><strong>Riesgo elevado:</strong> Requiere eliminar competidores y puede ser insostenible si no se logra la dominación.</li>
-</ul>
-<p class="text-xs text-gray-600 mt-2">Ej: Las plataformas tecnológicas, como Amazon, Google o Facebook suelen dominar sus respectivos mercados.</p>
-</div>
-<div class="metric-card green-border">
-<h3 class="text-2xl font-bold mb-3 text-[#10b981]">Enfoque 2: Crecimiento por Beneficios (Bootstrapping)</h3>
-<p class="text-sm text-gray-700 leading-relaxed">
-                            Otro enfoque, es el modelo de pagar las facturas con la cuenta de pérdidas y ganancias, es decir, montar negocios cómo se ha hecho toda la vida, donde el juez es el ebitda. Para estos negocios, es más complicado construir estos modelos gratuitos porque el momento en el que el usuario paga, llega mucho más tarde que en una estrategia de ventas B2B y requiere tiempo. Por lo que debemos financiar esos periodos de construcción y mejora de producto.
-                        </p>
-<h4 class="font-bold text-sm mt-4 text-[#10b981]">Ventajas</h4>
-<ul class="pro-con-list">
-<li><strong>Control total:</strong> No hay dependencia de inversores externos.</li>
-<li><strong>Sostenibilidad:</strong> El crecimiento está ligado a la rentabilidad real.</li>
-<li><strong>Libertad:</strong> Permite construir el producto y el negocio a tu propio ritmo.</li>
-</ul>
-<h4 class="font-bold text-sm mt-4 text-[#ef4444]">Desventajas</h4>
-<ul class="pro-con-list">
-<li><strong>Crecimiento más lento:</strong> Limitado por el flujo de caja interno.</li>
-<li><strong>Desafío con modelos gratuitos:</strong> El pago del usuario llega más tarde, requiriendo financiación para esos periodos.</li>
-</ul>
-<p class="text-xs text-gray-600 mt-2">Ej: Heyzine (Albert), Metricool (Juan Pablo).</p>
-</div>
-</div>
-</section>
-<section class="section-card" id="expert-opinions-freemium">
-<h2 class="text-3xl font-bold mb-6 text-center sub-heading">Opiniones Expertas sobre el Modelo Freemium</h2>
-<img alt="[Image of expert opinions]" class="mx-auto my-6 rounded-lg shadow-sm" src="https://placehold.co/600x200/eff6ff/1e3a8a?text=Opiniones+Expertos"/>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-<div class="metric-card yellow-border">
-<h3 class="text-2xl font-bold mb-3 text-[#f59e0b]">Eduardo Manchón (Fundador Mailsuite y Panoramio)</h3>
-<p class="text-sm text-gray-700 leading-relaxed">
-                            "La clave del freemium es que tu producto sea <strong>realmente bueno</strong>, es decir, que tenga un valor diferencial claro y capacidad de crecer a saco y escalar, etc. de lo contrario el modelo no funcionará."
-                        </p>
-<ul class="pro-con-list mt-2">
-<li>El modelo está basado en chorrocientos mil signups (registros) de los cuales una pequeña parte (que en números absolutos es grande) paga. O hay muchísima popularidad o no sirve de nada.</li>
-<li>Uno no se hace popular sin aportar nada genuina y diferencialmente valioso.</li>
-<li>Sobre todo hace falta cierta mentalidad, porque si eres de los que se quejan de los “free” y te molesta que “hagan gasto” entonces no es tu modelo, porque el modelo se basa precisamente en cuidar mucho a los “free” y que paguen contentos de hacerlo, no en apretarles constantemente para que paguen.</li>
-<li>Ofrecerlo gratis no significa un trial durante X tiempo, ni un producto capado arbitrariamente, sino un producto totalmente funcional donde jamás es necesario pagar si no quieres (o con límites generosos).</li>
-<li>Canva es el ejemplo más excelso. Es un trabajo de filigrana averiguar qué funcionalidad o limitación hace que el cliente se “autocalifique”, es decir, si quiere X cosa entonces es un tipo de cliente cualitativamente diferente que está dispuesto a pagar.</li>
-<li>Otra bondad del modelo, y no menor, es que no necesitas pagar PPC, ni vendedores, todo es automático y escalable.</li>
-</ul>
-<p class="text-xs text-gray-600 mt-2">
-                            Pero repito que todo este rollo no se puede aplicar a un producto a menos que tengas un valor diferencial sustancial que gracias a su gratuidad se popularice y eso es lo que casi nadie tiene, por lo que cuando no tienes eso, es más fácil cerrar el producto (hacerlo solo de pago) y venderlo de la manera clásica. O la otra opción, petarlo de funcionalidad, poner precio alto e irte al upmarket (B2B o entreprise) porque ahí arriba si el producto es bueno o malo da absolutamente igual, se vende por otras razones.
-                        </p>
-</div>
-<div class="metric-card blue-border">
-<h3 class="text-2xl font-bold mb-3 text-[#3b82f6]">Miguel Carranza (CEO RevenueCat)</h3>
-<p class="text-sm text-gray-700 leading-relaxed">
-                            En una entrevista Miguel Carranza comentaba que ellos tienen un montón de clientes free y que en su consejo de administración tiene grandes inversores en capital riesgo de EE. UU., que habían recomendado un «VP of Free», un directivo responsable solo de la parte free del modelo.
-                        </p>
-<ul class="pro-con-list mt-2">
-<li>"Tú pétalo con los frees que luego el dinero vendrá solo, y efectivamente vino."</li>
-</ul>
-<p class="text-sm text-gray-700 leading-relaxed mt-4">
-                            Los casos de Heyzine, Mailtrack, Revenue Cat, Notion, son claros ejemplos de que esta estrategia funciona. Pero no tenemos que olvidar que cada año se crean
-                        </p>
-</div>
-</div>
-</section>
-</main>
-</div>
-</main>
-</div>
-<footer class="ns-foot"><strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br/>Nextscenario · <a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a></footer>
+
+<footer class="ns-foot">
+    <strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br>
+    Nextscenario · <a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a>
+</footer>
+
 </body>
 </html>
-```
