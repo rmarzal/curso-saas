@@ -11,23 +11,18 @@ $modules = [
     ["1️⃣", "Introducción a Modelos de Negocio SaaS",     "/metricas/pro/introduccion_modelos_negocio.php",  "Características del modelo SaaS y los principales factores de fracaso."],
     ["2️⃣", "Modelos de negocio y limitación de producto", "/metricas/pro/modelos_de_negocio.php",           "Go to Market: Sales vs PLG, Freemium vs Free Trial y cómo limitar el producto."],
     ["3️⃣", "Pricing SaaS",                                "/metricas/pro/pricing.php",                      "Estrategias para definir y presentar tus precios."],
-    ["4️⃣", "Métricas SaaS fundamentales",                 "/metricas/Metricas_saas.html",                   "MRR, ARR, LTV, CAC, Churn y el ecosistema de datos SaaS."],
+    ["4️⃣", "Métricas SaaS fundamentales",                 "/metricas/pro/metricas_fundamentales.php",       "MRR, ARR, LTV, CAC, churn, eficiencia y unit economics."],
     ["5️⃣", "B2B SaaS Metrics Journey Framework",          "/metricas/pro/framework_b2b.php",                "Las métricas que importan en cada etapa del viaje B2B."],
     ["6️⃣", "Retención y Engagement",                      "/metricas/pro/retencion_engagement.php",         "Cómo medir retención e introducción a la analítica de producto."],
     ["7️⃣", "Análisis de Cohortes",                        "/metricas/pro/analisis_cohortes.php",            "Estudio de cohortes paso a paso con plantilla de Google Sheets."],
     ["8️⃣", "Benchmark SaaS",                              "/metricas/pro/benchmark_saas.php",               "Cómo comparar tu SaaS con el mercado y situarte en la media."],
-    ["9️⃣", "Modelos Financieros SaaS",                    "/metricas/modelos_financieros.html",             "Conceptos clave y construcción de modelos financieros SaaS."],
+    ["9️⃣", "Modelos Financieros SaaS",                    "/metricas/pro/modelos_financieros.php",          "Cashflow, cuenta de pérdidas y ganancias y balance."],
     ["🔟", "Reporting a inversores",                       "/metricas/pro/reporting.php",                    "Data Room y One Pager para presentar a inversores."],
 ];
 
 $extra = [
-    ["🎯", "North Star Metric",            "/metricas/north_star_metric.html",       "La brújula que guía el crecimiento de tu empresa."],
     ["👥", "Entrevistas a clientes",       "/metricas/entrevistas_clientes.html",    "Cómo hacer entrevistas a clientes que aporten señal."],
-    ["🚀", "Product Led Growth",           "/metricas/product_led_growth.html",      "PLG y el encaje real con el Product-Market Fit."],
-    ["🤝", "Product Led Sales",            "/metricas/product_led_sales.html",       "Estrategia híbrida entre producto y ventas para SaaS."],
     ["🧭", "Quién lidera las métricas",    "/metricas/quien_lidera_metricas.html",   "Roles y responsabilidades en torno a los datos."],
-    ["⚠️", "Vanity Metrics",              "/metricas/vanity_metrics.html",          "El peligro de las métricas que no significan nada."],
-    ["⚙️", "Optimización SaaS",           "/metricas/optimización_saas.html",       "Cómo mejorar la rentabilidad de un negocio SaaS."],
 ];
 ?>
 <!DOCTYPE html>
@@ -35,114 +30,198 @@ $extra = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso SaaS · Métricas, Finanzas y Modelos Financieros</title>
+    <title>Curso SaaS · Métricas, Finanzas y Modelos Financieros para SaaS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --c-ink: #073B4C;
+            --c-ink-2: #0e5870;
+            --c-blue: #118AB2;
+            --c-mint: #06D6A0;
+            --c-bg: #f5f7fa;
+            --c-card: #ffffff;
+            --c-border: #e6ecf2;
+            --c-muted: #5b6b78;
+        }
+        * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8;
+            font-family: 'Inter', system-ui, sans-serif;
+            background: linear-gradient(180deg, #eef3f7 0%, #f5f7fa 280px);
             color: #1f2937;
         }
-        .gradient-text {
-            background: linear-gradient(90deg, #118AB2, #06D6A0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .topbar {
+            display: flex; justify-content: space-between; align-items: center;
+            color: var(--c-muted); font-size: 0.875rem;
+            padding: 0.25rem 0 1.25rem;
         }
+        .topbar a {
+            color: var(--c-blue); text-decoration: none; font-weight: 500;
+        }
+        .topbar a:hover { text-decoration: underline; }
+
         .hero {
-            background: linear-gradient(135deg, #073B4C 0%, #118AB2 60%, #06D6A0 100%);
+            background: linear-gradient(135deg, #073B4C 0%, #0e5870 45%, #118AB2 100%);
             color: #fff;
-            border-radius: 1rem;
-            padding: 3rem 2rem;
-            box-shadow: 0 10px 30px rgba(7, 59, 76, 0.15);
+            border-radius: 1.5rem;
+            padding: 3rem 2.25rem 2.75rem;
+            position: relative; overflow: hidden;
+            box-shadow: 0 18px 48px -16px rgba(7,59,76,0.4);
+            margin-bottom: 2rem;
         }
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: auto -150px -150px auto;
+            width: 460px; height: 460px;
+            background: radial-gradient(circle, rgba(6,214,160,0.4) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 4.4vw, 3rem); font-weight: 800;
+            line-height: 1.12; letter-spacing: -0.02em;
+            max-width: 22ch;
+        }
+        .hero .lead {
+            margin-top: 1rem;
+            font-size: 1.1rem; line-height: 1.55;
+            color: rgba(255,255,255,0.9);
+            max-width: 60ch;
+        }
+        .hero .lead strong { color: #b9f3e3; font-weight: 600; }
+
         .section-card {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
+            background: var(--c-card);
+            border: 1px solid var(--c-border);
+            border-radius: 1.25rem;
+            padding: 1.85rem 1.85rem 1.5rem;
+            box-shadow: 0 4px 14px rgba(20,40,60,0.04);
+            margin-bottom: 1.75rem;
+        }
+        .section-title {
+            display: flex; align-items: center; gap: 0.55rem;
+            font-size: 1.45rem; font-weight: 700;
+            color: var(--c-ink);
+            margin: 0 0 0.5rem;
+            letter-spacing: -0.01em;
+        }
+        .section-sub {
+            color: var(--c-muted);
+            font-size: 0.98rem; line-height: 1.55;
+            margin-bottom: 1.25rem;
+        }
+
+        .actions-bar {
+            display: flex; flex-wrap: wrap; gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+        .pill {
+            display: inline-flex; align-items: center; gap: 0.55rem;
+            padding: 0.85rem 1.4rem;
+            border-radius: 0.7rem;
+            font-weight: 700; font-size: 1rem;
+            text-decoration: none;
+            transition: transform .15s, box-shadow .15s, background .15s, border-color .15s;
+        }
+        .pill-primary {
+            background: linear-gradient(135deg, var(--c-blue), var(--c-mint));
+            color: #fff;
+            box-shadow: 0 8px 20px -8px rgba(17,138,178,0.55);
+        }
+        .pill-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -8px rgba(17,138,178,0.65); }
+        .pill-ghost {
+            background: #fff; color: var(--c-ink);
+            border: 1.5px solid var(--c-blue);
+        }
+        .pill-ghost:hover { transform: translateY(-2px); background: #f0f8fc; box-shadow: 0 8px 18px -8px rgba(17,138,178,0.3); }
+
+        .info-note {
+            font-size: 0.8rem; color: var(--c-muted);
+            line-height: 1.5;
+            padding: 0 0.25rem;
+            margin-bottom: 1.25rem;
+        }
+        .info-note a { color: var(--c-blue); font-weight: 600; text-decoration: none; }
+        .info-note a:hover { text-decoration: underline; }
+
+        .grid-modules {
+            display: grid; gap: 0.85rem;
+            grid-template-columns: 1fr;
+        }
+        @media (min-width: 720px) {
+            .grid-modules { grid-template-columns: repeat(2, 1fr); }
         }
         .module-card {
             background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-            text-decoration: none;
-            color: inherit;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-            transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-            height: 100%;
+            border: 1px solid var(--c-border);
+            border-radius: 0.9rem;
+            padding: 1.1rem 1.2rem;
+            display: flex; gap: 0.95rem; align-items: flex-start;
+            text-decoration: none; color: inherit;
+            transition: transform .15s, box-shadow .15s, border-color .15s;
         }
         .module-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(17,138,178,0.12);
-            border-color: #06D6A0;
+            border-color: var(--c-mint);
+            box-shadow: 0 10px 22px -10px rgba(17,138,178,0.28);
         }
         .module-card .num {
-            font-size: 2.2rem;
-            line-height: 1;
+            font-size: 1.65rem; line-height: 1;
             flex-shrink: 0;
+            width: 2.5rem; height: 2.5rem;
+            display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, #f0f8fc, #e7f7f0);
+            border-radius: 0.65rem;
         }
         .module-card h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: #073B4C;
-            margin: 0 0 0.35rem 0;
+            font-size: 1.05rem; font-weight: 700; color: var(--c-ink);
+            margin: 0 0 0.25rem; line-height: 1.3;
         }
         .module-card p {
-            font-size: 0.92rem;
-            color: #4a5568;
-            margin: 0;
-            line-height: 1.45;
+            font-size: 0.88rem; color: var(--c-muted);
+            margin: 0; line-height: 1.45;
         }
-        .extra-card .num { font-size: 1.6rem; }
-        .extra-card h3 { font-size: 1rem; }
-        .topbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 0 1.5rem 0;
-            color: #4a5568;
-            font-size: 0.9rem;
+
+        footer.site-foot {
+            text-align: center; font-size: 0.82rem; color: var(--c-muted);
+            padding: 2rem 0 1rem; line-height: 1.6;
         }
-        .logout-btn {
-            color: #118AB2;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .logout-btn:hover { text-decoration: underline; }
+        footer.site-foot strong { color: var(--c-ink); }
     </style>
 </head>
-<body class="p-6 md:p-10">
-    <div class="container mx-auto max-w-6xl">
+<body class="px-4 sm:px-6 md:px-10 py-6 md:py-8">
+    <div class="container mx-auto max-w-5xl">
 
         <div class="topbar">
-            <div>Sesión: <strong><?php echo $username; ?></strong></div>
-            <a class="logout-btn" href="/metricas/logout.php">Cerrar sesión</a>
+            <div>Sesión: <strong style="color: var(--c-ink);"><?php echo $username; ?></strong></div>
+            <a href="/metricas/logout.php">Cerrar sesión</a>
         </div>
 
-        <header class="hero text-center mb-10">
-            <div class="text-5xl mb-3">💻</div>
-            <h1 class="text-3xl md:text-5xl font-black mb-4">Curso SaaS: Métricas, Finanzas y Modelos Financieros</h1>
-            <p class="text-lg md:text-xl opacity-90 max-w-3xl mx-auto">
-                Bienvenido al curso sobre métricas y modelos SaaS. Este curso online está diseñado para explicarte con detalle el modelo SaaS, sus métricas y modelos financieros.
-            </p>
-            <p class="text-sm md:text-base opacity-80 mt-4">
-                Impartido por <strong>Rubén Marzal</strong> · Nextscenario · <a class="underline" href="mailto:admin@nextscenario.com">admin@nextscenario.com</a>
+        <header class="hero">
+            <h1>Curso SaaS: Métricas, Finanzas y Modelos Financieros para SaaS</h1>
+            <p class="lead">
+                <strong>Bienvenido al curso sobre métricas y modelos SaaS.</strong>
+                Este curso online está diseñado para explicarte con detalle el modelo SaaS, sus métricas y modelos financieros.
             </p>
         </header>
 
-        <section class="section-card mb-8">
-            <h2 class="text-2xl md:text-3xl font-bold text-[#073B4C] mb-2">📅 Módulos del curso</h2>
-            <p class="text-gray-600 mb-6">Visualiza los videos cuando quieras, tantas veces como quieras. En cada apartado encontrarás el video del curso y el contenido de apoyo.</p>
+        <div class="actions-bar">
+            <a class="pill pill-primary" href="https://tidycal.com/nextscenario/mentoria-curso" target="_blank" rel="noopener">📅 Agendar mentoría</a>
+            <a class="pill pill-ghost" href="https://tinyurl.com/7as42k8c" target="_blank" rel="noopener">📕 Libro SaaS</a>
+        </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <p class="info-note">
+            📢 Visualiza los videos cuando quieras, tantas veces como quieras. Cada módulo incluye video del curso y contenido de apoyo.
+            La mentoría requiere <a href="https://tidycal.com/nextscenario/mentoria-curso" target="_blank" rel="noopener">contratación previa</a>.
+        </p>
+
+        <section class="section-card">
+            <h2 class="section-title">📅 Módulos del Curso · Métricas SaaS y Modelos Financieros</h2>
+            <p class="section-sub">11 módulos en orden. Cada uno con video del curso y contenido de apoyo.</p>
+
+            <div class="grid-modules">
                 <?php foreach ($modules as [$num, $title, $href, $desc]): ?>
                     <a class="module-card" href="<?php echo htmlspecialchars($href); ?>">
                         <span class="num"><?php echo $num; ?></span>
@@ -155,13 +234,14 @@ $extra = [
             </div>
         </section>
 
+        <?php if (!empty($extra)): ?>
         <section class="section-card">
-            <h2 class="text-2xl md:text-3xl font-bold text-[#073B4C] mb-2">✨ Contenido complementario</h2>
-            <p class="text-gray-600 mb-6">Infografías y materiales adicionales para profundizar.</p>
+            <h2 class="section-title">✨ Contenido complementario</h2>
+            <p class="section-sub">Material extra para profundizar.</p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div class="grid-modules">
                 <?php foreach ($extra as [$num, $title, $href, $desc]): ?>
-                    <a class="module-card extra-card" href="<?php echo htmlspecialchars($href); ?>">
+                    <a class="module-card" href="<?php echo htmlspecialchars($href); ?>">
                         <span class="num"><?php echo $num; ?></span>
                         <div>
                             <h3><?php echo htmlspecialchars($title); ?></h3>
@@ -171,9 +251,11 @@ $extra = [
                 <?php endforeach; ?>
             </div>
         </section>
+        <?php endif; ?>
 
-        <footer class="text-center text-sm text-gray-500 py-8">
-            Curso SaaS · Métricas, Finanzas y Modelos Financieros · Nextscenario
+        <footer class="site-foot">
+            <strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br>
+            Nextscenario · <a href="mailto:admin@nextscenario.com" style="color: var(--c-blue);">admin@nextscenario.com</a>
         </footer>
 
     </div>
