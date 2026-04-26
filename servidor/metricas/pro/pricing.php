@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php"); exit(); }
-$module_num = "3️⃣";
+$module_num = "03";
 $module_title = "Pricing SaaS";
 $module_subtitle = "Diferentes estrategias de pricing para posicionarnos en el mercado: desde cómo definir los precios hasta cómo presentarlos.";
 include __DIR__ . '/_partials/head.php';

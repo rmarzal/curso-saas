@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php"); exit(); }
-$module_num = "8️⃣";
+$module_num = "08";
 $module_title = "Benchmark SaaS — Cómo comparar negocios SaaS";
 $module_subtitle = "El benchmark de métricas SaaS entre negocios. Para saber si tu churn, tu CAC o tu LTV están en la media.";
 include __DIR__ . '/_partials/head.php';
