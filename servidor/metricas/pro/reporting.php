@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php?v=1"); exit(); }
+if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php"); exit(); }
 $module_num = "10";
 $module_title = "Reporting a inversores";
 $module_subtitle = "Cómo reportar a inversores y las principales herramientas que se utilizan: el One Pager y el Data Room.";
@@ -22,7 +22,7 @@ include __DIR__ . '/_partials/head.php';
             </div>
 
             <div class="resources">
-                <a class="resource" href="/metricas/reporting.html?v=2" target="_blank" rel="noopener">
+                <a class="resource" href="/metricas/reporting.html" target="_blank" rel="noopener">
                     <span class="ico">📑</span>
                     <span><span class="label">Contenido reporting: Data Room y One Pager</span><span class="meta">Infografía · abre en nueva pestaña</span></span>
                 </a>

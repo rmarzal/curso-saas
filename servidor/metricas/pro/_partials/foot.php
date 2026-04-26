@@ -17,7 +17,7 @@
                 </span>
             <?php endif; ?>
 
-            <a class="mn-btn mn-home" href="embed.php?v=1">
+            <a class="mn-btn mn-home" href="embed.php">
                 <span class="dot"></span>
                 Índice del curso
             </a>

@@ -1,0 +1,21 @@
+# Cache headers para que los navegadores siempre revaliden el contenido
+# antes de servir su copia local. El servidor ya envía ETag y Last-Modified,
+# así que la revalidación es eficiente (responde 304 Not Modified si no cambió).
+
+<IfModule mod_headers.c>
+    # HTML — siempre revalidar (contenido editorial que cambia tras deploy)
+    <FilesMatch "\.html$">
+        Header set Cache-Control "no-cache, must-revalidate, max-age=0"
+    </FilesMatch>
+
+    # PHP — nunca cachear (sesión, contenido dinámico)
+    <FilesMatch "\.php$">
+        Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+        Header set Pragma "no-cache"
+    </FilesMatch>
+
+    # Assets estáticos (CSS, PDF, imágenes) — cache largo con revalidación
+    <FilesMatch "\.(css|pdf|jpg|jpeg|png|svg|woff2?)$">
+        Header set Cache-Control "public, max-age=86400, must-revalidate"
+    </FilesMatch>
+</IfModule>

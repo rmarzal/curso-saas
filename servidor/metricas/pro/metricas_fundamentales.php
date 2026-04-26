@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php?v=1"); exit(); }
+if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php"); exit(); }
 $module_num = "04";
 $module_title = "Métricas SaaS fundamentales";
 $module_subtitle = "El lenguaje universal de los negocios SaaS. MRR, ARR, LTV, CAC, churn, eficiencia y unit economics.";
@@ -23,19 +23,19 @@ include __DIR__ . '/_partials/head.php';
             <h2 class="module-h2">Contenidos de apoyo</h2>
 
             <div class="resources cols-2">
-                <a class="resource" href="/metricas/vanity_metrics.html?v=2" target="_blank" rel="noopener">
+                <a class="resource" href="/metricas/vanity_metrics.html" target="_blank" rel="noopener">
                     <span class="ico">📕</span>
                     <span><span class="label">Contenido Vanity Metrics</span><span class="meta">Infografía · abre en nueva pestaña</span></span>
                 </a>
-                <a class="resource" href="/metricas/north_star_metric.html?v=2" target="_blank" rel="noopener">
+                <a class="resource" href="/metricas/north_star_metric.html" target="_blank" rel="noopener">
                     <span class="ico">📕</span>
                     <span><span class="label">Contenido North Star Metric</span><span class="meta">Infografía · abre en nueva pestaña</span></span>
                 </a>
-                <a class="resource" href="/metricas/Metricas_saas.html?v=2" target="_blank" rel="noopener">
+                <a class="resource" href="/metricas/Metricas_saas.html" target="_blank" rel="noopener">
                     <span class="ico">📕</span>
                     <span><span class="label">Contenido Métricas SaaS</span><span class="meta">Infografía · abre en nueva pestaña</span></span>
                 </a>
-                <a class="resource" href="/metricas/framework_b2b_saas_metrics.html?v=2" target="_blank" rel="noopener">
+                <a class="resource" href="/metricas/framework_b2b_saas_metrics.html" target="_blank" rel="noopener">
                     <span class="ico">📕</span>
                     <span><span class="label">Contenido B2B SaaS Metrics Framework</span><span class="meta">Infografía · abre en nueva pestaña</span></span>
                 </a>
