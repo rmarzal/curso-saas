@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php"); exit(); }
+if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php?v=1"); exit(); }
 $module_num = "01";
 $module_title = "Introducción Modelos de negocio SaaS";
 $module_subtitle = "Características del modelo SaaS y los principales factores de fracaso. La base sobre la que construimos el resto del curso.";
