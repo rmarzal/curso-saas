@@ -1,591 +1,380 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>FINANZAS: CONCEPTOS Y MODELOS FINANCIEROS EN MODELOS DE NEGOCIO SAAS</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." referrerpolicy="no-referrer" rel="stylesheet">
-<link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrM2lGT50d2Z/Fj8j1D9hSj/Y5+7c7R0N2t4v2E9J7y4f3/kQoKk4dE5/K3+4y7" rel="stylesheet"/>
-<script crossorigin="anonymous" defer="" integrity="sha384-hKzT2Pq3z0sJ2+0l0v3+4h7+0g5+6h4+8j9+1+2+3+4+5+6+7+8+9+0+1+2+3+4+5+6+7+8+9+0+1+2+3+4+5+6+7+8+9+0+1+2+3+4+5+6+7+8+9+0" src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
-<script crossorigin="anonymous" defer="" integrity="sha384-McykpDk7cR8Lw/d5TfL1/d7t8y7N5+3+4+5+6+7+8+9+0+1+2+3+4+5+6+7+8+9+0+1+2+3+4+5+6+7+8+9+0+1+2+3+4+5+6+7+8+9+0+1" onload="renderMathInElement(document.body, {delimiters: [ {left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}, {left: '\\(', right: '\\)', display: false}, {left: '\\[', right: '\\]', display: true}]});" src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
-<style>
-        :root {
-            --color-primary: #3b82f6; /* Tailwind blue-500 */
-            --color-primary-dark: #2563eb; /* Tailwind blue-600 */
-            --color-primary-darker: #1d4ed8; /* Tailwind blue-700 */
-            --color-accent: #059669; /* Tailwind emerald-600 */
-            --color-text-dark: #1f2937; /* Tailwind gray-900 */
-            --color-text-medium: #4b5563; /* Tailwind gray-600 */
-            --color-bg-light: #f8fafc; /* Tailwind gray-50 */
-            --color-card-bg: #ffffff;
-            --color-border: #e2e8f0; /* Tailwind gray-200 */
-            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
-            --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --shadow-strong: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Finanzas: conceptos y modelos financieros SaaS · Curso SaaS</title>
+<link rel="stylesheet" href="_design.css" />
+</head>
+<body>
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--color-bg-light);
-            color: var(--color-text-dark);
-            line-height: 1.7; /* Increased for better readability */
-            padding: 3rem 1.5rem;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: var(--color-card-bg);
-            border-radius: 2rem;
-            box-shadow: var(--shadow-strong);
-            padding: 4rem 3rem;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-        .header h1 {
-            font-size: 4.5rem;
-            font-weight: 900;
-            background: linear-gradient(90deg, var(--color-primary-darker), var(--color-primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-            line-height: 1.05;
-            letter-spacing: -0.03em;
-        }
-        .header p {
-            font-size: 1.6rem;
-            color: var(--color-text-medium);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .section-title {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--color-primary-darker);
-            margin-bottom: 3.5rem;
-            text-align: center;
-            position: relative;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 150px;
-            height: 7px;
-            background-color: var(--color-primary);
-            margin: 1.25rem auto 0;
-            border-radius: 3.5px;
-            opacity: 0.8;
-        }
-        .card {
-            background-color: var(--color-card-bg);
-            border-radius: 1.5rem;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-medium);
-            border: 1px solid var(--color-border);
-            margin-bottom: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-            min-height: 300px; /* Ensure cards have a minimum height */
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-        }
-        .card-inner-bg {
-             background-color: #f8fafc;
-             border-radius: 1rem;
-             padding: 1.5rem;
-             margin-top: 1rem;
-        }
-        .card-title {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--color-primary-dark);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            line-height: 1.2;
-        }
-        .card-title i {
-            margin-right: 1.25rem;
-            color: var(--color-primary);
-            min-width: 40px; /* Ensure icon doesn't shrink */
-            font-size: 2em;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .bullet-point {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-bottom: 1.5rem; /* Increased spacing */
-            font-size: 1.1rem;
-            color: var(--color-text-dark);
-        }
-        .bullet-point-icon {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-        .bullet-point-icon i {
-            color: var(--color-accent);
-            margin-right: 1rem;
-            font-size: 1.3em;
-            line-height: 1.5;
-            min-width: 28px;
-            flex-shrink: 0;
-        }
-        /* Adjusted .highlight to directly apply bold, ensuring Markdown ** works */
-        .highlight {
-            font-weight: 700;
-            color: var(--color-primary-dark);
-        }
-        /* Ensuring basic bold for text via markdown works */
-        strong {
-            font-weight: 700;
-        }
+<nav class="ns-static-nav">
+    <div class="ns-inner">
+        <a class="ns-back" href="/metricas/pro/embed.php">
+            <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"/></svg>
+            Volver al curso
+        </a>
+        <span class="ns-eyebrow">Infografía · Curso SaaS</span>
+        <a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a>
+    </div>
+</nav>
 
-        .metric-box {
-            background-color: #eff6ff;
-            border-left: 6px solid var(--color-primary);
-            padding: 1.5rem 2rem;
-            border-radius: 1rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-            color: var(--color-text-dark);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-        }
-        .metric-box strong {
-            color: var(--color-primary-dark);
-            font-weight: 700;
-        }
-        .metric-formula {
-            background-color: #e0ffe0;
-            border-left: 6px solid var(--color-accent);
-            padding: 1rem 1.5rem;
-            border-radius: 1rem;
-            font-family: 'Inter', sans-serif; /* Use Inter for formula text */
-            font-size: 0.95rem;
-            color: #166534;
-            margin-top: 0.75rem;
-            overflow-x: auto; /* Allow horizontal scroll for long formulas */
-            width: 100%; /* Ensure it takes full width */
-            white-space: pre-wrap; /* Preserve whitespace and wrap text */
-            word-break: break-word; /* Break long words */
-        }
-        /* Styling for KaTeX formulas within .metric-formula */
-        .metric-formula .katex {
-            font-size: 1em; /* Adjust font size within KaTeX */
-        }
-        .flow-arrow {
-            text-align: center;
-            margin: 2.5rem 0; /* Increased margin */
-            font-size: 4rem; /* Larger arrow */
-            color: var(--color-border);
-            animation: bounce 1.5s infinite;
-        }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        table {
-            border-collapse: separate;
-            border-spacing: 0;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: var(--shadow-light);
-            width: 100%;
-        }
-        th, td {
-            padding: 1rem 1.5rem;
-            border-color: var(--color-border);
-        }
-        th {
-            font-weight: 700;
-            background-color: #eef2f6;
-            color: var(--color-text-dark);
-            text-align: left;
-        }
-        td {
-            text-align: center;
-            color: var(--color-text-dark);
-        }
-        .table-cell-highlight {
-            background-color: #dcfce7;
-            color: #166534;
-            font-weight: 600;
-        }
-        .table-cell-warning {
-            background-color: #fee2e2;
-            color: #b91c1c;
-            font-weight: 600;
-        }
-
-        /* Framework specific styles */
-        .framework-visual {
-            position: relative;
-            width: 100%;
-            height: 450px;
-            background-color: #e0f2fe;
-            border-radius: 1.5rem;
-            margin-bottom: 4rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            box-shadow: var(--shadow-medium);
-            overflow: hidden;
-        }
-        .axis {
-            position: absolute;
-            font-weight: 600;
-            color: var(--color-primary-darker);
-            font-size: 1.25rem;
-        }
-        .axis-x {
-            bottom: 1.5rem;
-            right: 2rem;
-        }
-        .axis-y {
-            top: 2rem;
-            left: 2rem;
-            transform: rotate(-90deg);
-            transform-origin: top left;
-        }
-        .phase-box {
-            background-color: rgba(255, 255, 255, 0.95);
-            border: 3px solid var(--color-primary-dark);
-            border-radius: 1rem;
-            padding: 1.2rem 1.8rem;
-            font-weight: 800;
-            color: var(--color-primary-darker);
-            text-align: center;
-            box-shadow: var(--shadow-medium);
-            position: absolute;
-            z-index: 10;
-        }
-        .phase-growth {
-            top: 15%;
-            left: 10%;
-            transform: rotate(-5deg);
-        }
-        .phase-retention {
-            top: 40%;
-            left: 35%;
-            transform: rotate(5deg);
-        }
-        .phase-economics {
-            top: 65%;
-            left: 60%;
-            transform: rotate(-5deg);
-        }
-        .phase-line {
-            position: absolute;
-            height: 3px;
-            background-color: var(--color-primary);
-            opacity: 0.7;
-            border-radius: 2px;
-            z-index: 5;
-        }
-        .line-1 {
-            width: 30%;
-            top: 30%;
-            left: 20%;
-            transform: rotate(18deg);
-        }
-        .line-2 {
-            width: 30%;
-            top: 55%;
-            left: 45%;
-            transform: rotate(18deg);
-        }
-
-        /* Specific section styles for visual distinction */
-        .growth-section .card-title i { color: #10b981; }
-        .retention-section .card-title i { color: #f97316; }
-        .monetization-section .card-title i { color: #8b5cf6; }
-        .economics-section .card-title i { color: #ef4444; }
-
-        /* Responsive adjustments */
-        @media (max-width: 1024px) {
-            .header h1 { font-size: 3.5rem; }
-            .section-title { font-size: 2.5rem; }
-            .card-title { font-size: 1.8rem; }
-            .framework-visual { height: 350px; }
-            .phase-box { padding: 1rem 1.5rem; font-size: 1rem;}
-            .phase-growth { top: 12%; left: 8%;}
-            .phase-retention { top: 38%; left: 32%;}
-            .phase-economics { top: 62%; left: 58%;}
-            .axis { font-size: 1rem; }
-            .line-1, .line-2 { width: 28%; }
-        }
-        @media (max-width: 768px) {
-            body { padding: 2rem 1rem; }
-            .container { padding: 2.5rem 1.5rem; }
-            .header h1 { font-size: 2.8rem; }
-            .header p { font-size: 1.2rem; }
-            .section-title { font-size: 2rem; margin-bottom: 2.5rem; }
-            .section-title::after { width: 100px; height: 5px; }
-            .card { padding: 2rem; margin-bottom: 1.5rem; min-height: unset; }
-            .card-title { font-size: 1.6rem; flex-direction: column; align-items: flex-start; text-align: left; }
-            .card-title i { margin-right: 0; margin-bottom: 0.75rem; }
-            .bullet-point { font-size: 1rem; margin-bottom: 1rem; }
-            .bullet-point-icon { margin-bottom: 0.25rem; }
-            .metric-formula { margin-top: 0.5rem; }
-            .flow-arrow { font-size: 2.5rem; margin: 1.5rem 0; }
-            th, td { padding: 0.8rem 1rem; }
-            .framework-visual { height: 300px; }
-            .phase-box { padding: 0.8rem 1rem; font-size: 0.9rem; transform: rotate(0deg); }
-            .phase-growth { top: 10%; left: 2%;}
-            .phase-retention { top: 35%; left: 25%;}
-            .phase-economics { top: 60%; left: 50%;}
-            .axis { font-size: 0.8rem; }
-            .line-1, .line-2 { display: none; } /* Hide lines on small screens */
-        }
-        /* Custom styling for the added image */
-        .header-image {
-            max-width: 350px; /* Adjust max width as needed */
-            height: auto; /* Maintain aspect ratio */
-            margin: 2.5rem auto 3.5rem auto; /* Top, right/left auto for centering, bottom margin */
-            border-radius: 1.5rem; /* Rounded corners for the image */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-            display: block; /* Ensure it behaves as a block element for centering */
-        }
-    </style>
-
-</link><link href="_design.css" rel="stylesheet"/></head>
-<body><nav class="ns-static-nav"><div class="ns-inner"><a class="ns-back" href="/metricas/pro/embed.php"><svg fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"></path></svg>Volver al curso</a><span class="ns-eyebrow">Infografía · Curso SaaS</span><a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a></div></nav>
 <div class="ns-shell">
-<header class="ns-hero">
-<span class="ns-hero-eyebrow"><span class="dot"></span>Infografía · Curso SaaS</span>
-<h1 class="ns-h1">FINANZAS: CONCEPTOS Y MODELOS FINANCIEROS EN MODELOS DE NEGOCIO SAAS</h1>
-<p class="ns-lede">Los modelos financieros son herramientas analíticas que ayudan a los directivos y a los equipos financieros a comprender lo que realmente ocurre en su negocio. Posibilitan prever los ingresos, los costes y las métricas clave asociadas al modelo de negocio, para poder tomar decisiones, que afectan a la viabilidad de la empresa.</p>
-</header>
-<main class="ns-card">
-<div class="container">
-<div class="header">
+
+    <header class="ns-hero">
+        <span class="ns-hero-eyebrow"><span class="dot"></span>Módulo 09 · Modelos Financieros</span>
+        <h1 class="ns-h1">Finanzas: conceptos y <em>modelos financieros</em>.</h1>
+        <p class="ns-lede">
+            Los modelos financieros son herramientas analíticas que ayudan a directivos
+            y equipos financieros a comprender lo que realmente ocurre en su negocio.
+            Posibilitan prever ingresos, costes y métricas clave para tomar decisiones
+            que afectan a la viabilidad de la empresa. <span style="background: var(--c-accent); padding: 0 6px; border-radius: 4px; color: var(--c-ink);">Cash is king</span> —
+            los negocios mueren por la caja, no por no vender.
+        </p>
+
+        <div class="grid-4-kpi">
+            <div class="bigmetric"><div class="l">Modelos clave</div><div class="v">3</div><div class="sub">Cashflow · PyG · Balance</div></div>
+            <div class="bigmetric"><div class="l">Margen bruto SaaS</div><div class="v">&gt;70<em>%</em></div><div class="sub">Objetivo cerca del 80%</div></div>
+            <div class="bigmetric"><div class="l">Cash-flow secciones</div><div class="v">3</div><div class="sub">CFO · CFI · CFF</div></div>
+            <div class="bigmetric"><div class="l">Balance compone.</div><div class="v">3</div><div class="sub">Activos · pasivos · PN</div></div>
+        </div>
+    </header>
+
+    <main class="ns-card">
+
+        <!-- Bloque 1 — 3 modelos principales -->
+        <section style="padding: 0 0 56px; border-top: 0;">
+            <div class="section-head" style="margin-top: 0;">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>01 · Modelos principales</span>
+                    <h2>Los tres <em>modelos</em> que importan.</h2>
+                </div>
+                <p>Cashflow, Pérdidas y Ganancias, y Balance. Cada uno responde una pregunta diferente sobre tu negocio.</p>
+            </div>
+
+            <div class="steps" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="step">
+                    <div class="sn">📈</div>
+                    <h4>Cashflow o flujo de efectivo</h4>
+                    <p>También conocido como <strong>cash-flow</strong>. El movimiento real del dinero. Es decir, nos dice de cuánto dinero disponemos inmediatamente para atender obligaciones.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">📊</div>
+                    <h4>Pérdidas y Ganancias</h4>
+                    <p>La Cuenta de Pérdidas y Ganancias (PyG) o P&amp;L es un estado financiero clave que permite analizar el rendimiento operativo y la eficiencia del negocio en un período determinado. Muestra ingresos, gastos y el resultado final (beneficio o pérdida) de una empresa durante un período específico.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">⚖</div>
+                    <h4>Balance</h4>
+                    <p>Resumen financiero que muestra los activos, pasivos y el patrimonio neto de una empresa en un momento específico, generalmente al final de un período contable. Es una <strong>instantánea</strong> de la posición financiera.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 2 — Cash is King -->
+        <section class="mf-feature" style="border-top: 1px solid var(--c-line);">
+            <div class="mf-text">
+                <div class="mf-tag">02 · Cash is King</div>
+                <h3>Por qué el efectivo es el <em>rey</em>.</h3>
+                <p>
+                    Pensar que el <strong>beneficio</strong> es lo más importante es un
+                    error fácil de cometer. <strong>El beneficio es el combustible, no
+                    el destino.</strong> Sin embargo, el efectivo es quien realmente
+                    manda en un negocio.
+                </p>
+                <ul>
+                    <li><span class="chk">⊘</span>Puedes tener un buen margen o vender mucho, pero si tus clientes no te pagan y no puedes pagar tus facturas, el negocio cierra.</li>
+                    <li><span class="chk">⚠</span>Sin una buena gestión del cash-flow, estás destinado a cerrar la empresa.</li>
+                    <li><span class="chk">📉</span>Innumerables empresas rentables quiebran a diario porque se quedan sin liquidez. Aunque los beneficios existen sobre el papel, el <strong>efectivo está en el mundo real</strong>.</li>
+                    <li><span class="chk">💸</span>No se puede pagar el alquiler, ni al personal, ni a los deudores, ni a los proveedores con beneficios — solo con <strong>dinero en efectivo</strong>.</li>
+                </ul>
+                <p style="font-style: italic; color: var(--c-mute) !important;">Hay un documento que debes tener en tu mesita de noche, y actualizarlo a diario: el <strong>modelo de cash-flow</strong>.</p>
+            </div>
+            <div class="mf-visual">
+                <div class="vl">El error más común</div>
+                <div style="margin-top: 16px; padding: 18px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 12px;">
+                    <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 24px; line-height: 1.35; color: var(--c-paper);">
+                        "Cash is king. Profit is opinion."
+                    </div>
+                </div>
+                <div style="margin-top: 14px; padding: 12px 14px; background: color-mix(in oklab, var(--c-accent) 18%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--c-accent); letter-spacing: 0.06em;">
+                    👑 EL EFECTIVO MANDA SIEMPRE
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 3 — Modelo de Cash-Flow -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>03 · Modelo de cash-flow</span>
+                    <h2>Entradas y salidas de <em>dinero</em>.</h2>
+                </div>
+                <p>El flujo de efectivo es un modelo financiero que sigue las entradas y salidas de dinero de una empresa. Suele estar "mensualizado" y es el documento al que más veces se recurre.</p>
+            </div>
+
+            <div style="margin-top: 24px; padding: 18px 22px; background: var(--c-accent); border-radius: 14px; color: var(--c-ink);">
+                <strong>¡Venta cerrada no es lo mismo que venta cobrada!</strong> Por
+                suerte en el sector SaaS, los impagos no suelen ser elevados, porque se
+                corta el servicio y se suele pagar por adelantado.
+            </div>
+
+            <div class="steps" style="grid-template-columns: repeat(3, 1fr); margin-top: 24px;">
+                <div class="step">
+                    <div class="sn">💼</div>
+                    <h4>CFO · Operaciones</h4>
+                    <p>Cash-flow de operaciones. Efectivo generado o utilizado por las actividades comerciales principales (venta de suscripciones, prestación de servicios).</p>
+                </div>
+                <div class="step">
+                    <div class="sn">🏗</div>
+                    <h4>CFI · Inversiones</h4>
+                    <p>Cash-flow de inversiones. Efectivo generado o utilizado por la compra o venta de activos de capital (propiedades, software, equipos, inversiones financieras).</p>
+                </div>
+                <div class="step">
+                    <div class="sn">💰</div>
+                    <h4>CFF · Financiación</h4>
+                    <p>Cash-flow de financiación. Efectivo generado o utilizado por actividades de financiamiento (préstamos, rondas de inversión, pago de dividendos).</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 32px; padding: 28px; background: var(--c-paper-2); border: 1px solid var(--c-line); border-radius: 14px; color: var(--c-ink);">
+                <p style="margin: 0 !important;">En resumen, el flujo de efectivo nos proporciona una <strong>foto fiable de nuestras obligaciones financieras</strong>, detallando la liquidez de una empresa y su capacidad para financiar sus operaciones y proyectos futuros. Para gestionar con eficiencia la tesorería en un SaaS, no solo debemos fijarnos en el pasado, sino que debemos hacer proyecciones y comprobar cada mes la previsión con el real.</p>
+                <p style="margin-top: 12px !important;">Descarga una plantilla de cash-flow para tu SaaS aquí: <a style="color: var(--c-accent-2); font-weight: 600;" href="https://nextscenario.com/es/plantilla-business-plan-saas/" target="_blank" rel="noopener">nextscenario.com/es/plantilla-business-plan-saas</a></p>
+            </div>
+        </section>
+
+        <!-- Bloque 4 — Balance -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>04 · Balance</span>
+                    <h2>La instantánea <em>financiera</em>.</h2>
+                </div>
+                <p>El balance muestra los activos, pasivos y patrimonio neto de una empresa en un momento específico. Es una instantánea de la posición financiera.</p>
+            </div>
+
+            <div class="steps" style="grid-template-columns: repeat(3, 1fr); margin-top: 16px;">
+                <div class="step">
+                    <div class="sn">$</div>
+                    <h4>Activos</h4>
+                    <p>Recursos controlados por la empresa con valor económico que se espera generen beneficios futuros (efectivo, software, cuentas por cobrar, propiedades).</p>
+                    <p style="margin-top: 8px !important; font-size: 12px !important;"><strong>Corrientes:</strong> caja y equivalentes, cuentas por cobrar, ingresos diferidos.<br><strong>No corrientes:</strong> propiedad intelectual y software, equipamiento y hardware, inversiones a largo plazo.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">📋</div>
+                    <h4>Pasivos</h4>
+                    <p>Obligaciones financieras de la empresa (préstamos, cuentas por pagar).</p>
+                    <p style="margin-top: 8px !important; font-size: 12px !important;"><strong>Corrientes:</strong> deudas a corto plazo, cuentas por pagar.<br><strong>No corrientes:</strong> préstamos a largo plazo, obligaciones contractuales.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">💎</div>
+                    <h4>Patrimonio Neto</h4>
+                    <p>Diferencia entre activos y pasivos. Representa la inversión de los propietarios (capital social, reservas y beneficios retenidos).</p>
+                </div>
+            </div>
+
+            <h3 style="font-family: 'Geist', sans-serif; font-weight: 500; font-size: 24px; letter-spacing: -0.02em; margin-top: 40px; color: var(--c-ink);">Indicadores <em>clave</em> en el balance.</h3>
+
+            <div class="steps" style="grid-template-columns: repeat(3, 1fr); margin-top: 16px;">
+                <div class="step">
+                    <div class="sn">⚡</div>
+                    <h4>Ratio de liquidez</h4>
+                    <p>Mide la capacidad para cubrir deudas a corto plazo.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>Ratio</strong> = Activo Corriente / Pasivo Corriente</p>
+                </div>
+                <div class="step">
+                    <div class="sn">🔒</div>
+                    <h4>Ratio de endeudamiento</h4>
+                    <p>Evalúa el nivel de apalancamiento financiero.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>Ratio</strong> = Pasivos Totales / Patrimonio Neto</p>
+                </div>
+                <div class="step">
+                    <div class="sn">💼</div>
+                    <h4>Working Capital</h4>
+                    <p>Capital de trabajo. Indicador clave de la liquidez y capacidad operativa a corto plazo.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>WC</strong> = Activo Corriente − Pasivo Corriente</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 5 — PyG -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>05 · PyG</span>
+                    <h2>Cuenta de Pérdidas y <em>Ganancias</em>.</h2>
+                </div>
+                <p>La P&amp;L analiza el rendimiento operativo y la eficiencia del negocio en un período determinado. Uno de los libros contables más importantes de cualquier empresa, con independencia de su tamaño y actividad.</p>
+            </div>
+
+            <p class="module-p" style="font-size: 16px; line-height: 1.65; color: var(--c-ink); opacity: 0.86;">
+                Muestra el resultado de una empresa en un periodo determinado, tanto si
+                son beneficios como si son pérdidas, representando su capacidad para
+                obtener beneficios.
+            </p>
+
+            <h3 style="font-family: 'Geist', sans-serif; font-weight: 500; font-size: 22px; letter-spacing: -0.02em; margin-top: 32px; color: var(--c-ink);">Estructura de la <em>PyG</em> de un SaaS.</h3>
+
+            <div class="steps" style="grid-template-columns: repeat(2, 1fr); margin-top: 16px;">
+                <div class="step">
+                    <div class="sn">$</div>
+                    <h4>Revenue (ingresos)</h4>
+                    <p>Ingresos recurrentes y no recurrentes.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">⚙</div>
+                    <h4>Cost of Revenue / COGS</h4>
+                    <p>Costes asociados a la prestación de servicios (soporte, customer support, DevOps, hosting).</p>
+                </div>
+                <div class="step">
+                    <div class="sn">🛠</div>
+                    <h4>Gastos operativos (OpEx)</h4>
+                    <p>Gastos que apoyan la infraestructura, el crecimiento y el desarrollo (I+D, ventas, marketing, RRHH, finanzas).</p>
+                </div>
+                <div class="step">
+                    <div class="sn">💼</div>
+                    <h4>Otros gastos e ingresos no operativos</h4>
+                    <p>Gastos e ingresos por intereses de deuda y por inversiones en efectivo.</p>
+                </div>
+            </div>
+
+            <h3 style="font-family: 'Geist', sans-serif; font-weight: 500; font-size: 22px; letter-spacing: -0.02em; margin-top: 32px; color: var(--c-ink);">Resultados clave de la <em>PyG</em>.</h3>
+
+            <div class="steps" style="grid-template-columns: repeat(2, 1fr); margin-top: 16px;">
+                <div class="step">
+                    <div class="sn">%</div>
+                    <h4>Margen bruto</h4>
+                    <p>Diferencia entre ingresos por ventas y COGS. <strong>En SaaS, no debería estar por debajo del 70% y el objetivo es cerca del &gt; 80%.</strong></p>
+                </div>
+                <div class="step">
+                    <div class="sn">📈</div>
+                    <h4>Margen neto</h4>
+                    <p>Porcentaje del ingreso neto sobre las ventas.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">💰</div>
+                    <h4>Ingresos netos</h4>
+                    <p>Cantidad de dinero que queda después de descontar todos los gastos. Es el beneficio final.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">📊</div>
+                    <h4>EBIT</h4>
+                    <p>Earnings Before Interest, Taxes. Beneficio antes de intereses e impuestos. Mide la rentabilidad operativa.</p>
+                </div>
+                <div class="step" style="grid-column: span 2;">
+                    <div class="sn">🏦</div>
+                    <h4>EBITDA</h4>
+                    <p>Earnings Before Interest, Taxes, Depreciation and Amortization. Indicador de rentabilidad operativa antes de intereses, impuestos, depreciaciones y amortizaciones.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 32px; padding: 24px 26px; background: var(--c-paper-2); border: 1px solid var(--c-line); border-radius: 14px;">
+                <p style="margin: 0 !important; color: var(--c-ink); line-height: 1.55;">En SaaS, los ingresos se generan de forma recurrente, mientras que los costes se distribuyen en el tiempo, lo que puede distorsionar la percepción de rentabilidad si no se analizan correctamente.</p>
+                <p style="margin-top: 10px !important; color: var(--c-ink); line-height: 1.55;">Una cuenta de resultados correctamente estructurada es un <strong>pilar fundamental de la gestión financiera</strong>, los consejos de administración y la información que necesitan los inversores.</p>
+            </div>
+        </section>
+
+        <!-- Bloque 6 — Diferencias PyG vs Cash-flow -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>06 · PyG vs Cash-Flow</span>
+                    <h2>¿Cuáles son las <em>diferencias</em>?</h2>
+                </div>
+                <p>Ambos modelos son esenciales, pero con enfoques y propósitos distintos.</p>
+            </div>
+
+            <div class="two-col">
+                <div class="two-col-card">
+                    <div class="tag">📊 P&amp;L · Devengo</div>
+                    <h3>Cuenta de Pérdidas y Ganancias</h3>
+                    <ul>
+                        <li><strong>Enfoque:</strong> movimiento de ingresos y gastos <strong>registrados (devengo)</strong>. Rentabilidad "en papel".</li>
+                        <li><strong>Propósito:</strong> analizar el rendimiento operativo y la eficiencia del negocio.</li>
+                        <li><strong>Partidas:</strong> ingresos, COGS, gastos operativos, intereses, impuestos.</li>
+                        <li><strong>Márgenes:</strong> proporciona información sobre los márgenes de productos y servicios.</li>
+                    </ul>
+                </div>
+                <div class="two-col-card accent">
+                    <div class="tag">💵 Cash-Flow · Caja</div>
+                    <h3>Flujo de Efectivo</h3>
+                    <ul>
+                        <li><strong>Enfoque:</strong> movimiento <strong>real de dinero (caja)</strong>. Refleja la liquidez.</li>
+                        <li><strong>Propósito:</strong> visión de la liquidez y capacidad para cumplir obligaciones.</li>
+                        <li><strong>Partidas:</strong> efectivo recibido/pagado (clientes, proveedores, inversiones, financiación).</li>
+                        <li><strong>Márgenes:</strong> no directamente.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 32px; padding: 24px 26px; background: var(--c-paper-2); border: 1px solid var(--c-line); border-radius: 14px;">
+                <p style="margin: 0 !important; line-height: 1.55;">En las primeras etapas de desarrollo, no es prioritario estructurar una contabilidad analítica al detalle, pero una vez que se empiecen a tener ingresos recurrentes es <strong>imprescindible establecer una estructura de cuentas correcta</strong>. Cuesta un poco al principio, pero si lo dejamos para más adelante, habrá que rehacer muchas cosas.</p>
+                <p style="margin-top: 10px !important; line-height: 1.55;">En el SaaS es imprescindible tener en cuenta los modelos financieros, porque las inversiones y gastos del presente <strong>repercutirán en el crecimiento futuro de la empresa</strong>.</p>
+                <p style="margin-top: 10px !important; line-height: 1.55;">Otros modelos de negocio necesitan inversión para conseguir más clientes, sin embargo, si los procesos están optimizados, el SaaS puede crecer de un modo exponencial sin que sus costes lo hagan de la misma forma.</p>
+            </div>
+        </section>
+
+        <!-- Bloque 7 — Puntos clave -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>07 · Puntos clave</span>
+                    <h2>Lo que debes <em>recordar</em>.</h2>
+                </div>
+                <p>Este capítulo es fundamental para la gestión del día a día de un SaaS. Estos son los modelos financieros fundamentales en negocios SaaS.</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="sn">A</div>
+                    <h4>Flujo de efectivo (cashflow)</h4>
+                    <p>El flujo de efectivo es crucial para la viabilidad de un negocio. Los negocios mueren por la caja, no por no vender. No basta con ser rentable sobre el papel; es esencial tener liquidez para pagar a proveedores, personal y otros gastos operativos.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">B</div>
+                    <h4>Balance</h4>
+                    <p>Muestra la <strong>salud financiera</strong> de la empresa en un momento dado, con tres componentes: activos, pasivos y patrimonio neto. En SaaS, se destaca la importancia de analizar indicadores como el <strong>ratio de liquidez</strong> y el <strong>capital de trabajo</strong>.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">C</div>
+                    <h4>PyG</h4>
+                    <p>Analiza la <strong>rentabilidad operativa</strong>. En SaaS, los ingresos recurrentes y los costes asociados al servicio (COGS) son fundamentales. La PyG debe estar bien estructurada para ofrecer información útil para la gestión empresarial.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">D</div>
+                    <h4>Estructura contable</h4>
+                    <p>No es prioritario estructurar la contabilidad durante las primeras etapas, pero una vez empieces a tener ingresos recurrentes es importante establecer una <strong>estructura de cuentas correcta</strong>.</p>
+                </div>
+                <div class="step" style="grid-column: span 2;">
+                    <div class="sn">E</div>
+                    <h4>Visión futura</h4>
+                    <p>No olvides tener en cuenta los modelos financieros, porque, en el SaaS, las inversiones y gastos del presente <strong>repercuten en el crecimiento futuro</strong>. Otros modelos de negocio necesitan inversión para conseguir más clientes, sin embargo, si los procesos están optimizados, el SaaS puede crecer de un modo exponencial sin que sus costes lo hagan de la misma forma.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing CTA -->
+        <section class="sub-cta">
+            <h2>El efectivo <em>manda</em>. Siempre.</h2>
+            <p>
+                Cashflow, PyG y Balance son las tres lentes que necesitas para entender
+                tu SaaS. Sin ellas vuelas a ciegas. Con ellas — decisiones informadas y
+                empresa sostenible.
+            </p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a class="pill pill-accent" href="/metricas/pro/modelos_financieros.php">Volver al módulo →</a>
+                <a class="pill pill-ghost" href="https://nextscenario.com/es/plantilla-business-plan-saas/" target="_blank" rel="noopener">Descargar plantilla</a>
+            </div>
+        </section>
+
+    </main>
+
 </div>
-<section class="mb-16">
-<h2 class="section-title">Los Modelos Financieros Principales</h2>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-<div class="card p-6 bg-blue-50/50">
-<h4 class="font-bold text-xl text-blue-700 mb-2"><i class="fas fa-chart-line mr-2"></i> Cashflow o Flujo de Efectivo</h4>
-<p class="text-gray-700">También conocido como <strong>cash-flow</strong>. El movimiento real del dinero. Es decir, nos dice de cuanto dinero disponemos inmediatamente para atender obligaciones</p>
-</div>
-<div class="card p-6 bg-green-50/50">
-<h4 class="font-bold text-xl text-green-700 mb-2"><i class="fas fa-chart-column mr-2"></i> Pérdidas y Ganancias</h4>
-<p class="text-gray-700">La Cuenta de Pérdidas y Ganancias (PyG) o P&amp;L, es un estado financiero clave que permite analizar el rendimiento operativo y la eficiencia del negocio en un período determinado. La cuenta de pérdidas y ganancias, también conocida como estado de resultados, es un informe financiero que muestra los ingresos, gastos, y el resultado final (beneficio o pérdida) de una empresa durante un período específico de tiempo. Sirve para evaluar la rentabilidad de la empresa y entender si ha tenido éxito en sus operaciones</p>
-</div>
-<div class="card p-6 bg-purple-50/50">
-<h4 class="font-bold text-xl text-purple-700 mb-2"><i class="fas fa-balance-scale-left mr-2"></i> Balance</h4>
-<p class="text-gray-700">El balance es un resumen financiero que muestra los activos, pasivos y el patrimonio neto de una empresa en un momento específico, generalmente al final de un período contable. Es una instantánea de la posición financiera de la empresa.</p>
-</div>
-</div>
-</section>
-<section class="mb-16">
-<h2 class="section-title">CASH IS KING</h2>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-crown"></i> Por qué el Efectivo es el Rey</h3>
-<p class="text-gray-700 text-lg mb-4">Pensar que el <strong>beneficio</strong> es lo más importante es un error fácil de cometer. El beneficio es el combustible, no el destino. Sin embargo, el efectivo es quien realmente manda en un negocio.</p>
-<div class="card-inner-bg">
-<ul class="list-none p-0">
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-times-circle"></i></div> Puedes tener un buen margen o vender mucho, pero si tus clientes no te pagan y no puedes pagar tus facturas, el negocio cierra.</li>
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-exclamation-triangle"></i></div> Sin una buena gestión del cash-flow o flujo de efectivo, estás destinado a cerrar la empresa.</li>
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-chart-line-down"></i></div> Innumerables empresas rentables quiebran a diario porque se quedan sin liquidez. Aunque los beneficios existen sobre el papel, el <strong>efectivo está en el mundo real.</strong></li>
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-money-bill-transfer"></i></div> No se puede pagar el alquiler, ni al personal, ni a los deudores, ni a los proveedores con beneficios; solo podrás hacerlo con <strong>dinero en efectivo.</strong></li>
-</ul>
-</div>
-<p class="text-gray-700 text-lg mt-4 text-center">Hay un documento que debes tener en tu mesita de noche, y actualizarlo a diario: el <strong>modelo de cash-flow.</strong> </p>
-</div>
-</section>
-<section class="mb-16">
-<h2 class="section-title">MODELO DE CASH-FLOW</h2>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-chart-area"></i> Entradas y Salidas de Dinero</h3>
-<p class="text-gray-700 text-lg mb-4">El <strong>flujo de efectivo o cash-flow</strong> es un modelo financiero que sigue las entradas y salidas de dinero de una empresa. Suele estar "mensualizado" y es el documento al que más veces se recurre.</p>
-<div class="metric-box">
-<p>¡<strong>Venta cerrada no es lo mismo que venta cobrada</strong>! Por suerte en el sector de SaaS, los impagos no suelen ser elevados, porque se corta el servicio y se suele pagar por adelantado.</p>
-</div>
-<div class="card-inner-bg mt-6">
-<p class="font-bold text-lg mb-3">Partidas de un Modelo de Cash-Flow:</p>
-<ul class="list-none p-0">
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-briefcase"></i> <strong>Cash-flow de operaciones (CFO):</strong></div> Efectivo generado o utilizado por las actividades comerciales principales (venta suscripciones, prestación de servicios).</li>
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-hand-holding-usd"></i> <strong>Cash-flow de inversiones (CFI):</strong></div> Efectivo generado o utilizado por la compra o venta de activos de capital (propiedades, software, equipos, inversiones financieras).</li>
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-dollar-sign"></i> <strong>Cash-flow de financiación (CFF):</strong></div> Efectivo generado o utilizado por actividades de financiamiento (préstamos, rondas de inversión, pago de dividendos).</li>
-</ul>
-</div>
-<div class="text-center mt-6">
-<img alt="El cash-flow en la herramienta Nextscenario" class="header-image w-2/3" src="https://media.licdn.com/dms/image/v2/D4D22AQEb-mGQIMO-BQ/feedshare-shrink_800/feedshare-shrink_800/0/1726909325052?e=2147483647&amp;v=beta&amp;t=JrftS1Yulz9dEOhH1t_L0ugdAl6I3HwZ6ZEqG-wd_K4"/>
-</div>
-<div class="metric-box mt-6">
-<p>En resumen, el flujo de efectivo nos proporciona una <strong>foto fiable de nuestras obligaciones financieras</strong>, detallando la liquidez de una empresa y su capacidad para financiar sus operaciones y proyectos futuros. Para gestionar con eficiencia la tesorería en un SaaS, no solo debemos fijarnos en el pasado, sino que debemos hacer proyecciones y comprobar cada mes, la previsión con el real.</p>
-<p class="mt-2">Descarga una plantilla de cash-flow para tu SaaS aquí: <a class="text-blue-600 hover:underline" href="https://nextscenario.com/es/plantilla-business-plan-saas/" target="_blank">https://nextscenario.com/es/plantilla-business-plan-saas/</a></p>
-</div>
-</div>
-</section>
-<section class="mb-16">
-<h2 class="section-title">BALANCE</h2>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-balance-scale"></i> La Instantánea Financiera</h3>
-<p class="text-gray-700 text-lg mb-4">El <strong>balance</strong> es un resumen financiero que muestra los <strong>activos, pasivos y el patrimonio neto</strong> de una empresa en un momento específico, generalmente al final de un período contable. Es una instantánea de la posición financiera de la empresa.</p>
-<div class="card-inner-bg">
-<p class="font-bold text-lg mb-3">Componentes del Balance:</p>
-<ul class="list-none p-0">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-hand-holding-dollar"></i> <strong>Activos:</strong></div> Recursos controlados por la empresa con valor económico que se espera generen beneficios futuros (efectivo, software, cuentas por cobrar, propiedades).
-                            <ul class="list-disc list-inside ml-6 text-gray-600 text-base mt-1">
-<li><strong>Activos Corrientes:</strong> Caja y equivalentes, Cuentas por cobrar, Ingresos diferidos.</li>
-<li><strong>Activos No Corrientes:</strong> Propiedad intelectual y software, Equipamiento y hardware, Inversiones a largo plazo.</li>
-</ul>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-wallet"></i> <strong>Pasivos:</strong></div> Obligaciones financieras de la empresa (préstamos, cuentas por pagar).
-                            <ul class="list-disc list-inside ml-6 text-gray-600 text-base mt-1">
-<li><strong>Pasivos Corrientes:</strong> Deudas a corto plazo, Cuentas por pagar.</li>
-<li><strong>Pasivos No Corrientes:</strong> Préstamos a largo plazo, Obligaciones contractuales.</li>
-</ul>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-gem"></i> <strong>Patrimonio Neto:</strong></div> Diferencia entre activos y pasivos. Representa la inversión de los propietarios (capital social, reservas y beneficios retenidos).
-                        </li>
-</ul>
-</div>
-<div class="metric-box mt-6">
-<p class="font-bold text-lg mb-1">Indicadores Clave en el Balance de un SaaS:</p>
-<ul class="list-none p-0">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-chart-simple"></i> <strong>Ratio de liquidez:</strong></div>
-                            Mide la capacidad para cubrir deudas a corto plazo.
-                            <div class="metric-formula"><code>Ratio de liquidez = Activo Corriente / Pasivo Corriente</code></div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-arrow-down-up-lock"></i> <strong>Ratio de endeudamiento:</strong></div>
-                            Evalúa el nivel de apalancamiento financiero.
-                            <div class="metric-formula"><code>Ratio de endeudamiento = Pasivos Totales / Patrimonio Neto</code></div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-briefcase"></i> <strong>Working capital o capital de trabajo:</strong></div>
-                            Indicador clave de la liquidez y capacidad operativa a corto plazo.
-                            <div class="metric-formula"><code>Working Capital = Activo Corriente - Pasivo Corriente</code></div>
-</li>
-</ul>
-</div>
-</div>
-</section>
-<section class="mb-16">
-<h2 class="section-title">CUENTA DE PÉRDIDAS Y GANANCIAS (PyG)</h2>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-chart-pie"></i> Rendimiento Operativo y Eficiencia</h3>
-<p class="text-gray-700 text-lg mb-4">La <strong>Cuenta de Pérdidas y Ganancias (PyG)</strong> o P&amp;L, es un estado financiero clave que permite analizar el rendimiento operativo y la eficiencia del negocio en un período determinado.La cuenta de pérdidas y ganancias es uno de los libros contables más importantes de cualquier empresa, con independencia de su tamaño y actividad. Muestra el resultado de una empresa en un periodo determinado, tanto si son beneficios como si son pérdidas, representando su capacidad para obtener beneficios.</p>
-<div class="card-inner-bg mt-6">
-<p class="font-bold text-lg mb-3">Estructura de la PyG de un SaaS (5 Secciones Principales):</p>
-<ul class="list-none p-0">
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-dollar-sign"></i> <strong>Revenue (ingresos):</strong></div> Ingresos recurrentes y no recurrentes.</li>
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-dollar-sign"></i> <strong>Cost of Revenue (coste de los ingresos) / COGS:</strong></div> Costes asociados a la presentación de servicios (soporte, servicios, customer support, DevOps, hosting).</li>
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-sack-dollar"></i> <strong>Gastos operativos (OpEx):</strong></div> Gastos que apoyan la infraestructura, el crecimiento y el desarrollo (I+D, Ventas, Marketing, RRHH, Finanzas).</li>
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-hand-holding-usd"></i> <strong>Otros gastos e ingresos no operativos:</strong></div> Gastos e ingresos por intereses de deuda y por inversiones en efectivo.</li>
-</ul>
-</div>
-<div class="metric-box mt-6">
-<p class="font-bold text-lg mb-1">Resultados Clave de la PyG:</p>
-<ul class="list-none p-0">
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-percent"></i> <strong>Margen bruto:</strong></div> El Margen bruto es la diferencia entre ingresos por ventas y COGS. En SaaS, no debería estar por debajo del 70% y el objetivo es cerca del &gt;80%.</li>
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-chart-line"></i> <strong>Margen neto:</strong></div> Porcentaje del ingreso neto sobre las ventas.</li>
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-money-check-dollar"></i> <strong>Ingresos netos:</strong></div> Cantidad de dinero que queda después de descontar todos los gastos. Es el beneficio final.</li>
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-coins"></i> <strong>EBIT (Earnings Before Interest, Taxes):</strong></div> Beneficio antes de intereses e impuestos. Mide la rentabilidad operativa.</li>
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-piggy-bank"></i> <strong>EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization):</strong></div> Indicador de rentabilidad operativa antes de intereses, impuestos, depreciaciones y amortizaciones.</li>
-</ul>
-</div>
-<div class="metric-box">
-<p>En SaaS, los ingresos se generan de forma recurrente, mientras que los costes se distribuyen en el tiempo, lo que puede distorsionar la percepción de rentabilidad si no se analizan correctamente.</p>
-<p class="mt-2">Una cuenta de resultados correctamente estructurada es un <strong>pilar fundamental de la gestión financiera</strong>, los consejos de administración y la información que necesitan los inversores.</p>
-</div>
-</div>
-</section>
-<section class="mb-16">
-<h2 class="section-title">¿CUÁLES SON LAS DIFERENCIAS ENTRE PyG Y CASH-FLOW?</h2>
-<div class="card">
-<p class="text-gray-700 text-lg mb-4 text-center">Ambos modelos son esenciales, pero con enfoques y propósitos distintos.</p>
-<div class="overflow-x-auto">
-<table class="min-w-full">
-<thead>
-<tr>
-<th>Característica</th>
-<th>Cuenta de Pérdidas y Ganancias (PyG)</th>
-<th>Flujo de Efectivo (Cash-Flow)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Enfoque</strong></td>
-<td>Movimiento de ingresos y gastos <strong>registrados (devengo)</strong>. Rentabilidad "en papel".</td>
-<td>Movimiento <strong>real de dinero (caja)</strong>. Refleja la liquidez.</td>
-</tr>
-<tr>
-<td><strong>Propósito Principal</strong></td>
-<td>Analizar el <strong>rendimiento operativo</strong> y la eficiencia del negocio.</td>
-<td>Proporcionar una visión de la <strong>liquidez</strong> y capacidad de la empresa para cumplir obligaciones.</td>
-</tr>
-<tr>
-<td><strong>Partidas</strong></td>
-<td>Ingresos, COGS, gastos operativos, intereses, impuestos.</td>
-<td>Efectivo recibido/pagado (clientes, proveedores, inversiones, financiación).</td>
-</tr>
-<tr>
-<td><strong>Márgenes</strong></td>
-<td>Proporciona información sobre los <strong>márgenes</strong> de productos y servicios.</td>
-<td>No directamente.</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="metric-box mt-6">
-<p>En las primeras etapas de desarrollo, no es prioritario estructurar una contabilidad análitica al detalle, pero una vez que se empiecen a tener ingresos recurrentes es <strong>imprescindible establecer una estructura de cuentas correcta</strong>. Cuesta un poco al principio, pero si lo dejamos para más adelante, habrá que rehacer muchas cosas.</p>
-<p class="mt-2">En el SaaS es imprescindible tener en cuenta los modelos financieros, porque las inversiones y gastos del presente, <strong>repercutirán en el crecimiento futuro de la empresa</strong>.</p>
-<p class="mt-2">Otros modelos de negocio necesitan inversión para conseguir más clientes, sin embargo, si los procesos están optimizados, el SaaS puede crecer de un modo exponencial sin que sus costes lo hagan de la misma forma.</p>
-</div>
-</div>
-</section>
-<section class="mb-16">
-<h2 class="section-title">PUNTOS CLAVE DEL CAPÍTULO</h2>
-<div class="card">
-<p class="text-gray-700 text-lg mb-4">Este capítulo es fundamental para la gestión del día a día de un SaaS. Tal como hemos visto, estos son los modelos financieros fundamentales en negocios SaaS:</p>
-<ul class="list-none p-0">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-chart-line"></i> <strong>Flujo de efectivo (cashflow):</strong></div>
-                        El flujo de efectivo es crucial para la viabilidad  de un negocio. Los negocios mueren por la caja, no por no vender, No basta con ser rentable sobre el papel; es esencial tener liquidez para pagar a proveedores, personal y otros gastos operativos.
-                    </li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-balance-scale-left"></i> <strong>Balance:</strong></div>
-                        Este modelo muestra la <strong>salud financiera</strong> de la empresa en un momento dado, con tres componentes principales: activos (recursos de la empresa), pasivos (obligaciones financieras) y patrimonio neto (diferencia entre activos y pasivos). En el contexto de un SaaS, se destaca la importancia de analizar indicadores como el <strong>ratio de liquidez</strong> y el <strong>capital de trabajo</strong>.
-                    </li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-chart-pie"></i> <strong>Cuenta de pérdidas y ganancias (PyG):</strong></div>
-                        La PyG analiza la <strong>rentabilidad operativa</strong>. En un modelo SaaS, los ingresos recurrentes y los costes asociados al servicio (COGS) son fundamentales. La PyG debe estar bien estructurada para ofrecer información útil para la gestión empresarial.
-                    </li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-cubes"></i> <strong>Estructura Contable:</strong></div>
-                        No es prioritario estructurar la contabilidad durante las primeras etapas, pero una vez empieces a tener ingresos recurrentes es importante, empezar a establecer una <strong>estructura de cuentas correcta</strong>.
-                    </li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-forward"></i> <strong>Visión Futura:</strong></div>
-                        No olvides tener en cuenta los modelos financieros, porque, en el SaaS, las inversiones y gastos del presente, <strong>repercuten en el crecimiento futuro</strong>. Otros modelos de negocio necesitan inversión para conseguir más clientes, sin embargo, si los procesos están optimizados, el SaaS puede crecer de un modo exponencial sin que sus costes lo hagan de la misma forma.
-                    </li>
-</ul>
-</div>
-</section>
-</div>
-</main>
-</div>
-<footer class="ns-foot"><strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br/>Nextscenario · <a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a></footer>
+
+<footer class="ns-foot">
+    <strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br>
+    Nextscenario · <a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a>
+</footer>
+
 </body>
 </html>
