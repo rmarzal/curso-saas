@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Led Sales: Combinando lo Mejor del Producto y las Ventas</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Font Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <!-- Phosphor Icons for simple visuals -->
-    <script src="https://unpkg.com/phosphor-icons"></script>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Led Sales: Combinando lo Mejor del Producto y las Ventas</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Font Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Phosphor Icons for simple visuals -->
+<script src="https://unpkg.com/phosphor-icons"></script>
+<style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f8fafc; /* Tailwind gray-50 */
@@ -75,160 +76,144 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
-    <link rel="stylesheet" href="_design.css">
-</head>
-<body class="p-8">
-<nav class="ns-static-nav"><div class="ns-inner"><a class="ns-back" href="/metricas/pro/embed.php"><svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"/></svg>Volver al curso</a><span class="ns-eyebrow">Infografía · Curso SaaS</span><a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a></div></nav>
 
-    <div class="container mx-auto">
-        <!-- Main Title Section -->
-        <header class="text-center mb-12">
-            <h1 class="text-blue-700 mb-4 rounded-lg py-4">
-                Product Led Sales: Estrategia Híbrida para SaaS
-            </h1>
-            <p class="text-xl text-gray-700 font-semibold">
-                Combinando la escalabilidad del PLG con la efectividad de las ventas B2B.
-            </p>
-        </header>
-
-        <!-- Product Led Growth vs Product Led Sales Introduction -->
-        <section class="section-card">
-            <h2 class="flex items-center gap-3 text-blue-600">
-                <i class="ph-puzzle-piece icon-lg"></i>
+<link href="_design.css" rel="stylesheet"/></head>
+<body class="p-8"><nav class="ns-static-nav"><div class="ns-inner"><a class="ns-back" href="/metricas/pro/embed.php"><svg fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"></path></svg>Volver al curso</a><span class="ns-eyebrow">Infografía · Curso SaaS</span><a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a></div></nav>
+<div class="ns-shell">
+<header class="ns-hero">
+<span class="ns-hero-eyebrow"><span class="dot"></span>Infografía · Curso SaaS</span>
+<h1 class="ns-h1">Product Led Sales: Estrategia Híbrida para SaaS</h1>
+<p class="ns-lede">Combinando la escalabilidad del PLG con la efectividad de las ventas B2B.</p>
+</header>
+<main class="ns-card">
+<div class="container mx-auto">
+<!-- Main Title Section -->
+<!-- Product Led Growth vs Product Led Sales Introduction -->
+<section class="section-card">
+<h2 class="flex items-center gap-3 text-blue-600">
+<i class="ph-puzzle-piece icon-lg"></i>
                 Product Led Growth (PLG) vs. Product Led Sales (PLS)
             </h2>
-            <p>En un modelo <span class="text-accent">Product Led Growth (PLG)</span>, la empresa ofrece una versión gratuita o de prueba del producto que permite a los usuarios experimentar sus beneficios y características clave.</p>
-            <p>Otra estrategia son las <span class="text-accent">ventas B2B tradicionales</span>, que se basan en la fuerza comercial del equipo de ventas.</p>
-            <p class="p-3 bg-accent-light rounded-md text-blue-800 font-bold">
+<p>En un modelo <span class="text-accent">Product Led Growth (PLG)</span>, la empresa ofrece una versión gratuita o de prueba del producto que permite a los usuarios experimentar sus beneficios y características clave.</p>
+<p>Otra estrategia son las <span class="text-accent">ventas B2B tradicionales</span>, que se basan en la fuerza comercial del equipo de ventas.</p>
+<p class="p-3 bg-accent-light rounded-md text-blue-800 font-bold">
                 ¿Pero, y si en lugar de trabajar con una estrategia u otra, las pudiéramos combinar?
-                <img src="https://substackcdn.com/image/fetch/$s_!uhEw!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2fb21360-5b62-43dc-b6ec-8cff0df16f50_317x159.png" alt="Ejemplo de estrategia Product Led Sales de Hubspot" class="image-full-width">
-
-            </p> 
-            <p>Podríamos tener la <span class="text-accent">escalabilidad de un PLG</span>, pero <strong class="text-blue-700">empujando el cierre de ventas con comerciales</strong>.</p>
-            <p><span class="font-bold text-green-600">Product Led Sales (PLS)</span> combina lo mejor del PLG y las ventas B2B, con los beneficios que nos aporta tener una persona atendiendo las necesidades de un cliente.</p>
-        
-        </section>
-
-        <!-- What Makes PLS Different from B2B Sales? -->
-        <section class="section-card">
-            <h2 class="flex items-center gap-3 text-blue-600">
-                <i class="ph-lightbulb-filament icon-lg"></i>
+                <img alt="Ejemplo de estrategia Product Led Sales de Hubspot" class="image-full-width" src="https://substackcdn.com/image/fetch/$s_!uhEw!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2fb21360-5b62-43dc-b6ec-8cff0df16f50_317x159.png"/>
+</p>
+<p>Podríamos tener la <span class="text-accent">escalabilidad de un PLG</span>, pero <strong class="text-blue-700">empujando el cierre de ventas con comerciales</strong>.</p>
+<p><span class="font-bold text-green-600">Product Led Sales (PLS)</span> combina lo mejor del PLG y las ventas B2B, con los beneficios que nos aporta tener una persona atendiendo las necesidades de un cliente.</p>
+</section>
+<!-- What Makes PLS Different from B2B Sales? -->
+<section class="section-card">
+<h2 class="flex items-center gap-3 text-blue-600">
+<i class="ph-lightbulb-filament icon-lg"></i>
                 ¿Qué Diferencia a Product Led Sales de Ventas B2B Tradicionales?
             </h2>
-            <p>Una estrategia de ventas B2B tradicional tiene un enfoque más “tradicional”, centrado en la fuerza comercial. Las ventas apoyadas en producto (PLS) y las ventas SaaS tradicionales en B2B difieren en su enfoque para adquirir y retener clientes.</p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
-                <div class="p-4 bg-red-50 rounded-lg shadow-sm border border-red-200">
-                    <h3 class="text-red-700 flex items-center gap-2 mb-2">
-                        <i class="ph-briefcase text-2xl"></i> Ventas B2B Tradicionales
+<p>Una estrategia de ventas B2B tradicional tiene un enfoque más “tradicional”, centrado en la fuerza comercial. Las ventas apoyadas en producto (PLS) y las ventas SaaS tradicionales en B2B difieren en su enfoque para adquirir y retener clientes.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+<div class="p-4 bg-red-50 rounded-lg shadow-sm border border-red-200">
+<h3 class="text-red-700 flex items-center gap-2 mb-2">
+<i class="ph-briefcase text-2xl"></i> Ventas B2B Tradicionales
                     </h3>
-                    <ul class="list-disc list-inside ml-4 text-gray-700">
-                        <li><span class="font-semibold">Prospección Activa:</span> Identificación y contacto directo con clientes potenciales.</li>
-                        <li><span class="font-semibold">Máquina de Ventas:</span> Proceso que involucra múltiples puntos de contacto y reuniones (SDRs).</li>
-                        <li><span class="font-semibold">Rol Central del Equipo de Ventas:</span> Imprescindible para todas las fases de adquisición.</li>
-                    </ul>
-                    <p class="text-sm text-gray-500 mt-3">
-                        <a href="#" class="text-blue-500 hover:underline">Estrategia de ventas en Saas B2B</a> (Mencionado en el texto original, enlace de ejemplo).
+<ul class="list-disc list-inside ml-4 text-gray-700">
+<li><span class="font-semibold">Prospección Activa:</span> Identificación y contacto directo con clientes potenciales.</li>
+<li><span class="font-semibold">Máquina de Ventas:</span> Proceso que involucra múltiples puntos de contacto y reuniones (SDRs).</li>
+<li><span class="font-semibold">Rol Central del Equipo de Ventas:</span> Imprescindible para todas las fases de adquisición.</li>
+</ul>
+<p class="text-sm text-gray-500 mt-3">
+<a class="text-blue-500 hover:underline" href="#">Estrategia de ventas en Saas B2B</a> (Mencionado en el texto original, enlace de ejemplo).
                     </p>
-                </div>
-                <div class="p-4 bg-green-50 rounded-lg shadow-sm border border-green-200">
-                    <h3 class="text-green-700 flex items-center gap-2 mb-2">
-                        <i class="ph-shopping-cart simple-text-xl"></i> Product Led Sales (PLS)
+</div>
+<div class="p-4 bg-green-50 rounded-lg shadow-sm border border-green-200">
+<h3 class="text-green-700 flex items-center gap-2 mb-2">
+<i class="ph-shopping-cart simple-text-xl"></i> Product Led Sales (PLS)
                     </h3>
-                    <ul class="list-disc list-inside ml-4 text-gray-700">
-                        <li><span class="font-semibold">Producto como Centro:</span> Modelo freemium/free trial para autoservicio inicial.</li>
-                        <li><span class="font-semibold">Exploración Autoguiada:</span> Clientes potenciales experimentan el valor sin intervención inmediata de vendedores.</li>
-                        <li><span class="font-semibold">Automatización Inicial:</span> Fases iniciales de prospección automatizadas.</li>
-                        <li><span class="font-semibold">Apoyo de Sales Post-Registro:</span> El equipo de ventas interviene con estrategias no invasivas después de las primeras horas de uso.</li>
-                    </ul>
+<ul class="list-disc list-inside ml-4 text-gray-700">
+<li><span class="font-semibold">Producto como Centro:</span> Modelo freemium/free trial para autoservicio inicial.</li>
+<li><span class="font-semibold">Exploración Autoguiada:</span> Clientes potenciales experimentan el valor sin intervención inmediata de vendedores.</li>
+<li><span class="font-semibold">Automatización Inicial:</span> Fases iniciales de prospección automatizadas.</li>
+<li><span class="font-semibold">Apoyo de Sales Post-Registro:</span> El equipo de ventas interviene con estrategias no invasivas después de las primeras horas de uso.</li>
+</ul>
+</div>
+</div>
+<p class="mt-6 p-3 bg-blue-50 rounded-md text-blue-800 flex items-start gap-3">
+<i class="ph-sparkle text-2xl text-blue-600"></i>
+<div>
+<span class="font-bold">Ventaja Clave:</span> La definición de una estrategia donde interviene una persona del equipo de ventas permite un contacto directo con el cliente desde el minuto uno, facilitando la percepción del impacto de los mensajes y la propuesta de valor. Esto es más difícil de percibir a través de la analítica de producto, especialmente en SaaS B2B con grandes volúmenes de datos.
                 </div>
-            </div>
-            <p class="mt-6 p-3 bg-blue-50 rounded-md text-blue-800 flex items-start gap-3">
-                <i class="ph-sparkle text-2xl text-blue-600"></i>
-                <div>
-                    <span class="font-bold">Ventaja Clave:</span> La definición de una estrategia donde interviene una persona del equipo de ventas permite un contacto directo con el cliente desde el minuto uno, facilitando la percepción del impacto de los mensajes y la propuesta de valor. Esto es más difícil de percibir a través de la analítica de producto, especialmente en SaaS B2B con grandes volúmenes de datos.
-                </div>
-            </p>
-            <h3 class="text-blue-700 mt-6">Ejemplo de Product Led Sales de Hubspot:</h3>
-            <img src="https://substackcdn.com/image/fetch/$s_!1JxI!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Faa296562-0e1f-4965-a034-03bf5ac07543_2058x964.png" alt="Ejemplo de estrategia Product Led Sales de Hubspot" class="image-full-width">
-        </section>
-
-        <!-- Product Led Sales vs PLG in Enterprise Sales -->
-        <section class="section-card">
-            <h2 class="flex items-center gap-3 text-blue-600">
-                <i class="ph-buildings icon-lg"></i>
+</p>
+<h3 class="text-blue-700 mt-6">Ejemplo de Product Led Sales de Hubspot:</h3>
+<img alt="Ejemplo de estrategia Product Led Sales de Hubspot" class="image-full-width" src="https://substackcdn.com/image/fetch/$s_!1JxI!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Faa296562-0e1f-4965-a034-03bf5ac07543_2058x964.png"/>
+</section>
+<!-- Product Led Sales vs PLG in Enterprise Sales -->
+<section class="section-card">
+<h2 class="flex items-center gap-3 text-blue-600">
+<i class="ph-buildings icon-lg"></i>
                 PLS vs. PLG en Ventas Enterprise
             </h2>
-            <p>Un producto PLG suele construirse bajo las necesidades de un individuo (<span class="text-accent">buyer persona</span>) o varios, para hacer tareas específicas (<span class="text-accent">jobs to be done</span>). Esto puede complicar el <span class="text-accent">upgrade</span> a <span class="text-accent">enterprise</span> o a varias cuentas, ya que el <span class="text-accent">onboarding</span> y uso se adaptan a una necesidad individual, no empresarial.</p>
-            <p class="font-bold text-gray-700">
+<p>Un producto PLG suele construirse bajo las necesidades de un individuo (<span class="text-accent">buyer persona</span>) o varios, para hacer tareas específicas (<span class="text-accent">jobs to be done</span>). Esto puede complicar el <span class="text-accent">upgrade</span> a <span class="text-accent">enterprise</span> o a varias cuentas, ya que el <span class="text-accent">onboarding</span> y uso se adaptan a una necesidad individual, no empresarial.</p>
+<p class="font-bold text-gray-700">
                 ¿Pero esto quiere decir que es incompatible? No.
             </p>
-            <p class="p-3 bg-green-50 rounded-md text-green-800 font-bold">
+<p class="p-3 bg-green-50 rounded-md text-green-800 font-bold">
                 Un producto puede ser PLG y el equipo de ventas puede vender cuentas enterprise.
             </p>
-            <p>
-                <span class="font-semibold text-blue-700">Ejemplo Slack:</span> Tiene un producto muy PLG, pero interviene el equipo de ventas en las ventas enterprise.
+<p>
+<span class="font-semibold text-blue-700">Ejemplo Slack:</span> Tiene un producto muy PLG, pero interviene el equipo de ventas en las ventas enterprise.
             </p>
-            <img src="https://substackcdn.com/image/fetch/$s_!u82S!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F74361cd6-c37f-42d4-a3e3-8013f988eaab_2440x1570.jpeg" alt="Diagrama que muestra cómo Slack utiliza PLG y Sales para Enterprise" class="image-full-width">
-            <p class="mt-4 p-3 bg-blue-100 rounded-md text-blue-800">
+<img alt="Diagrama que muestra cómo Slack utiliza PLG y Sales para Enterprise" class="image-full-width" src="https://substackcdn.com/image/fetch/$s_!u82S!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F74361cd6-c37f-42d4-a3e3-8013f988eaab_2440x1570.jpeg"/>
+<p class="mt-4 p-3 bg-blue-100 rounded-md text-blue-800">
                 Es más sencillo transmitir una propuesta de valor de <span class="font-bold">humano a humano</span> que de producto a humano. Las personas somos más confiables, y es más fácil que nos dediquen más tiempo que a una demo de <span class="text-accent">self onboarding</span>.
             </p>
-        </section>
-
-        <!-- Success Case Study: Churn Reduction with Product Led Sales -->
-        <section class="section-card bg-green-50">
-            <h2 class="flex items-center gap-3 text-green-700">
-                <i class="ph-chart-bar-horizontal icon-lg text-green-600"></i>
+</section>
+<!-- Success Case Study: Churn Reduction with Product Led Sales -->
+<section class="section-card bg-green-50">
+<h2 class="flex items-center gap-3 text-green-700">
+<i class="ph-chart-bar-horizontal icon-lg text-green-600"></i>
                 Caso de Éxito: Estrategia Product Led Sales con Reducción del Churn
             </h2>
-            <p>Este caso habla de una startup con estrategia basada en producto con modelo <span class="text-accent"></span> <span class="text-accent">free trial</span>. Inicialmente, sin equipo de ventas para <span class="text-accent">outbound</span> ni máquina de ventas. Las conversiones se hacían de dos formas:</p>
-            <ol class="list-decimal list-inside ml-4 mb-4">
-                <li class="mb-2"><span class="font-semibold">Self-service:</span> Sin intervención de una persona en el proceso de venta.</li>
-                <li class="mb-2"><span class="font-semibold">Asistida por Sales:</span> Con intervención de una persona después del registro para acompañar en el <span class="text-accent">onboarding</span>, explicación y seguimiento durante el <span class="text-accent">trial</span>.</li>
-            </ol>
-
-            <h3 class="text-green-700 mt-6">Porcentajes de Atribución a Cada Estrategia de Activación:</h3>
-            <img src="https://substackcdn.com/image/fetch/$s_!Iuo-!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F44826e3a-8df5-4e55-bfb2-212693aff252_800x549.png" alt="Gráfico de porcentajes de atribución a estrategias de self-service vs. ventas" class="image-full-width">
-            <div class="chart-container">
-                <canvas id="attributionChart"></canvas>
-            </div>
-            <p class="text-sm text-gray-500 text-center mt-2">
+<p>Este caso habla de una startup con estrategia basada en producto con modelo <span class="text-accent"></span> <span class="text-accent">free trial</span>. Inicialmente, sin equipo de ventas para <span class="text-accent">outbound</span> ni máquina de ventas. Las conversiones se hacían de dos formas:</p>
+<ol class="list-decimal list-inside ml-4 mb-4">
+<li class="mb-2"><span class="font-semibold">Self-service:</span> Sin intervención de una persona en el proceso de venta.</li>
+<li class="mb-2"><span class="font-semibold">Asistida por Sales:</span> Con intervención de una persona después del registro para acompañar en el <span class="text-accent">onboarding</span>, explicación y seguimiento durante el <span class="text-accent">trial</span>.</li>
+</ol>
+<h3 class="text-green-700 mt-6">Porcentajes de Atribución a Cada Estrategia de Activación:</h3>
+<img alt="Gráfico de porcentajes de atribución a estrategias de self-service vs. ventas" class="image-full-width" src="https://substackcdn.com/image/fetch/$s_!Iuo-!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F44826e3a-8df5-4e55-bfb2-212693aff252_800x549.png"/>
+<div class="chart-container">
+<canvas id="attributionChart"></canvas>
+</div>
+<p class="text-sm text-gray-500 text-center mt-2">
                 Representación de la atribución inicial (hipotética) de clientes a cada estrategia.
             </p>
-
-            <h3 class="text-green-700 mt-6">Reducción del Churn con Intervención Humana:</h3>
-            <p>Analizando las métricas, se dieron cuenta de que el <span class="font-bold text-green-600">churn disminuía considerablemente</span> en los procesos en los que intervenía una persona.</p>
-            <img src="https://substackcdn.com/image/fetch/$s_!D1Fs!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F612387bb-e0ed-4cad-b63a-5d993beff1c4_2000x1216.png" alt="Gráfico de comparación de churn entre procesos self-service y asistidos" class="image-full-width">
-            <div class="chart-container">
-                <canvas id="churnChart"></canvas>
-            </div>
-            <p class="text-sm text-gray-500 text-center mt-2">
+<h3 class="text-green-700 mt-6">Reducción del Churn con Intervención Humana:</h3>
+<p>Analizando las métricas, se dieron cuenta de que el <span class="font-bold text-green-600">churn disminuía considerablemente</span> en los procesos en los que intervenía una persona.</p>
+<img alt="Gráfico de comparación de churn entre procesos self-service y asistidos" class="image-full-width" src="https://substackcdn.com/image/fetch/$s_!D1Fs!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F612387bb-e0ed-4cad-b63a-5d993beff1c4_2000x1216.png"/>
+<div class="chart-container">
+<canvas id="churnChart"></canvas>
+</div>
+<p class="text-sm text-gray-500 text-center mt-2">
                 Representación de la reducción del churn (hipotética) cuando interviene el equipo de ventas.
             </p>
-
-            <p class="font-bold text-gray-700 mt-6">¿Pero cómo puede ser posible?</p>
-            <ul class="list-disc list-inside ml-4 mb-4">
-                <li class="mb-2"><span class="font-semibold text-blue-600">Compromiso por la Reunión:</span> Al agendar una reunión, hay un compromiso que lleva al usuario a dedicar más tiempo a explorar el producto de lo que lo haría por su cuenta.</li>
-                <li class="mb-2"><span class="font-semibold text-blue-600">Dificultad de Transmitir Valor por Producto:</span> Es muy complicado transmitir una propuesta de valor completa solo a través de una <span class="text-accent">landing page</span> y un producto.</li>
-                <li class="mb-2"><span class="font-semibold text-blue-600">Adaptación Humana:</span> Una persona es capaz de captar mejor las necesidades del cliente y "adaptar" la explicación o <span class="text-accent">onboarding</span> a ellas.</li>
-            </ul>
-            <img src="https://substackcdn.com/image/fetch/$s_!xj5-!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F78453323-0545-4a78-b507-50d49e8009f4_1888x996.png" alt="Gráfico de comparación de churn entre procesos self-service y asistidos" class="image-full-width">
-
-            <p class="mt-4">Con ello, esta startup decidió potenciar la asistencia con ventas y entre febrero y marzo del año siguiente, pasaron de poco más del 30% atribuido a ventas, hasta casi el 50%. Pasando de una estrategia predominante de <span class="text-accent">product self service</span> a una <span class="font-bold text-green-600">Product Led Sales asistido</span>.</p>
-        </section>
-
-        <!-- Conclusion -->
-        <section class="section-card">
-            <h2 class="flex items-center gap-3 text-blue-600">
-                <i class="ph-check-circle icon-lg"></i>
+<p class="font-bold text-gray-700 mt-6">¿Pero cómo puede ser posible?</p>
+<ul class="list-disc list-inside ml-4 mb-4">
+<li class="mb-2"><span class="font-semibold text-blue-600">Compromiso por la Reunión:</span> Al agendar una reunión, hay un compromiso que lleva al usuario a dedicar más tiempo a explorar el producto de lo que lo haría por su cuenta.</li>
+<li class="mb-2"><span class="font-semibold text-blue-600">Dificultad de Transmitir Valor por Producto:</span> Es muy complicado transmitir una propuesta de valor completa solo a través de una <span class="text-accent">landing page</span> y un producto.</li>
+<li class="mb-2"><span class="font-semibold text-blue-600">Adaptación Humana:</span> Una persona es capaz de captar mejor las necesidades del cliente y "adaptar" la explicación o <span class="text-accent">onboarding</span> a ellas.</li>
+</ul>
+<img alt="Gráfico de comparación de churn entre procesos self-service y asistidos" class="image-full-width" src="https://substackcdn.com/image/fetch/$s_!xj5-!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F78453323-0545-4a78-b507-50d49e8009f4_1888x996.png"/>
+<p class="mt-4">Con ello, esta startup decidió potenciar la asistencia con ventas y entre febrero y marzo del año siguiente, pasaron de poco más del 30% atribuido a ventas, hasta casi el 50%. Pasando de una estrategia predominante de <span class="text-accent">product self service</span> a una <span class="font-bold text-green-600">Product Led Sales asistido</span>.</p>
+</section>
+<!-- Conclusion -->
+<section class="section-card">
+<h2 class="flex items-center gap-3 text-blue-600">
+<i class="ph-check-circle icon-lg"></i>
                 Conclusiones Product Led Sales
             </h2>
-            <p>En esta serie de posts se han abordado las estrategias <span class="text-accent">Go-To-Market</span> basadas en producto, específicamente <span class="font-bold text-green-600">Product Led Sales</span>, que combina el enfoque centrado en el producto con la fuerza comercial del equipo de ventas, comparándolo con el conocido <span class="text-accent">Product Led Growth (PLG)</span>.</p>
-            <p>La clave es <span class="font-bold text-blue-700">reflexionar sobre estas estrategias, probar, identificar los costes, pros y contras</span>, y adaptarse a las necesidades específicas de cada startup. Lo que funciona para las grandes empresas o se lee en los libros no siempre aplica a todos. <span class="font-bold italic text-blue-700">"Testea, baja al barro."</span></p>
-        </section>
-    </div>
-
-    <script>
+<p>En esta serie de posts se han abordado las estrategias <span class="text-accent">Go-To-Market</span> basadas en producto, específicamente <span class="font-bold text-green-600">Product Led Sales</span>, que combina el enfoque centrado en el producto con la fuerza comercial del equipo de ventas, comparándolo con el conocido <span class="text-accent">Product Led Growth (PLG)</span>.</p>
+<p>La clave es <span class="font-bold text-blue-700">reflexionar sobre estas estrategias, probar, identificar los costes, pros y contras</span>, y adaptarse a las necesidades específicas de cada startup. Lo que funciona para las grandes empresas o se lee en los libros no siempre aplica a todos. <span class="font-bold italic text-blue-700">"Testea, baja al barro."</span></p>
+</section>
+</div>
+<script>
         // Data for Attribution Chart (from image, simplified for Chart.js)
         const attributionData = {
             labels: ['Self-Service', 'Sales-Assisted'],
@@ -382,5 +367,8 @@
         // const improvedAttributionChartCtx = document.getElementById('improvedAttributionChart').getContext('2d');
         // new Chart(improvedAttributionChartCtx, improvedAttributionConfig);
     </script>
+</main>
+</div>
+<footer class="ns-foot"><strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br/>Nextscenario · <a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a></footer>
 </body>
 </html>
