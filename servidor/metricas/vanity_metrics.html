@@ -1,316 +1,269 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Infografía: El Peligro de las Vanity Metrics</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<style>
-        /* Estilos base para el cuerpo */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Azul muy claro, casi blanco */
-            color: #334155; /* Gris azulado oscuro para texto */
-            line-height: 1.6;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-        }
-        /* Contenedor principal de la infografía */
-        .infographic-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            border-radius: 1.5rem;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08); /* Sombra más pronunciada */
-            padding: 2.5rem;
-            border: 1px solid #e2e8f0; /* Borde gris azulado claro */
-        }
-        /* Estilo del título principal */
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: #0f172a; /* Azul muy oscuro */
-            text-align: center;
-            margin-bottom: 2.5rem;
-            line-height: 1.2;
-            letter-spacing: -0.025em;
-        }
-        /* Estilo de los encabezados de sección */
-        h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #1e3a8a; /* Azul oscuro para énfasis */
-            margin-top: 2.5rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid #93c5fd; /* Subrayado azul medio */
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        /* Estilo de los encabezados de subsección */
-        h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1f2937; /* Gris oscuro */
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            padding-left: 0.5rem;
-            border-left: 4px solid #60a5fa; /* Borde de acento azul */
-        }
-        /* Estilo de las tarjetas individuales */
-        .card {
-            background-color: #eff6ff; /* Azul muy claro para tarjetas */
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra sutil */
-            border: 1px solid #bfdbfe; /* Borde azul claro */
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-        /* Estilo para listas dentro de las tarjetas */
-        .card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .card ul li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .card ul li::before {
-            content: '•';
-            color: #2563eb; /* Viñeta azul */
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-        /* Texto fuerte dentro de las tarjetas */
-        .card strong {
-            color: #1d4ed8; /* Azul más oscuro para texto fuerte */
-        }
-        /* Estilo de iconos SVG */
-        .icon {
-            display: inline-block;
-            width: 28px;
-            height: 28px;
-            vertical-align: middle;
-            stroke-width: 2;
-        }
-        /* Estilos específicos para puntos clave */
-        .key-point {
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            color: #334155;
-        }
-        .key-point .emoji {
-            font-size: 1.2em;
-        }
-        .note {
-            background-color: #f0f9ff; /* Azul muy muy claro para notas/advertencias */
-            border-left: 4px solid #38bdf8; /* Azul cielo para el borde */
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-top: 1.5rem;
-            font-size: 0.95rem;
-            color: #0c4a6e; /* Azul oscuro para texto de nota */
-        }
-        /* Viñetas personalizadas para listas principales */
-        .main-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        .main-list li {
-            position: relative;
-            padding-left: 1.8rem;
-            margin-bottom: 0.8rem;
-        }
-        .main-list li::before {
-            content: '•'; /* Punto de viñeta general */
-            color: #3b82f6; /* Azul medio para viñetas principales */
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-size: 1.2rem;
-        }
-        .positive-bullet::before {
-            content: '✅';
-            color: #10b981; /* Verde para positivo */
-        }
-        .negative-bullet::before {
-            content: '❌';
-            color: #ef4444; /* Rojo para negativo */
-        }
-        .action-bullet::before {
-            content: '🛠️';
-            color: #2563eb; /* Azul para acción */
-        }
-        .question-bullet::before {
-            content: '❓';
-            color: #8b5cf6; /* Morado para pregunta */
-        }
-    </style>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>El peligro de las Vanity Metrics · Curso SaaS</title>
+<link rel="stylesheet" href="_design.css" />
+</head>
+<body>
 
-<link href="_design.css" rel="stylesheet"/></head>
-<body><nav class="ns-static-nav"><div class="ns-inner"><a class="ns-back" href="/metricas/pro/embed.php"><svg fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"></path></svg>Volver al curso</a><span class="ns-eyebrow">Infografía · Curso SaaS</span><a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a></div></nav>
+<nav class="ns-static-nav">
+    <div class="ns-inner">
+        <a class="ns-back" href="/metricas/pro/embed.php">
+            <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"/></svg>
+            Volver al curso
+        </a>
+        <span class="ns-eyebrow">Infografía · Curso SaaS</span>
+        <a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a>
+    </div>
+</nav>
+
 <div class="ns-shell">
-<header class="ns-hero">
-<span class="ns-hero-eyebrow"><span class="dot"></span>Infografía · Curso SaaS</span>
-<h1 class="ns-h1">Infografía: El Peligro de las Vanity Metrics</h1>
-</header>
-<main class="ns-card">
-<div class="infographic-container">
-<div class="mb-8 p-6 bg-blue-50 border border-blue-200 rounded-xl text-blue-800">
-<h2>
-<svg class="icon text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-                ¿Qué Son las Vanity Metrics? 🧐
-            </h2>
-<p class="text-lg leading-relaxed">
-                Son indicadores que <strong>parecen importantes</strong> y generan una sensación de progreso, pero <strong>no proporcionan información útil</strong> sobre el rendimiento real ni el crecimiento sostenible del negocio.
-            </p>
-<div class="note">
-                💡 Popularizadas por Eric Ries ("The Lean Startup"). Crean una <strong>falsa sensación de éxito</strong>.
+
+    <header class="ns-hero">
+        <span class="ns-hero-eyebrow"><span class="dot"></span>Módulo 04 · Métricas SaaS</span>
+        <h1 class="ns-h1">El peligro de las <em>Vanity Metrics</em>.</h1>
+        <p class="ns-lede">
+            Indicadores que <strong>parecen importantes</strong> y generan una sensación
+            de progreso, pero <strong>no proporcionan información útil</strong> sobre el
+            rendimiento real ni el crecimiento sostenible del negocio. Popularizadas por
+            Eric Ries en <em>The Lean Startup</em>, crean una
+            <span style="background: var(--c-accent); padding: 0 6px; border-radius: 4px; color: var(--c-ink);">falsa sensación de éxito</span>.
+        </p>
+
+        <div class="grid-4-kpi">
+            <div class="bigmetric"><div class="l">Test ¿Y qué?</div><div class="v">1</div><div class="sub">Pregunta única</div></div>
+            <div class="bigmetric"><div class="l">Características</div><div class="v">4</div><div class="sub">Manipulables · no accionables</div></div>
+            <div class="bigmetric"><div class="l">Áreas afectadas</div><div class="v">3</div><div class="sub">Marketing · producto · ventas</div></div>
+            <div class="bigmetric"><div class="l">Antídoto</div><div class="v">∆<em>cohorte</em></div><div class="sub">Métricas accionables</div></div>
+        </div>
+    </header>
+
+    <main class="ns-card">
+
+        <!-- Bloque 1 — Características -->
+        <section class="mf-feature" style="border-top: 0; padding-top: 0;">
+            <div class="mf-text">
+                <div class="mf-tag">01 · Cómo se reconocen</div>
+                <h3>Características <em>clave</em>.</h3>
+                <p>
+                    Una vanity metric tiene cuatro síntomas reconocibles. Si una métrica
+                    cumple varios — desconfía, probablemente está ocultando un problema
+                    en lugar de revelarlo.
+                </p>
+                <ul>
+                    <li><span class="chk">→</span><strong>Fáciles de manipular.</strong> Inflar números sin beneficiar al negocio a largo plazo (ej. comprar tráfico).</li>
+                    <li><span class="chk">→</span><strong>No accionables.</strong> No te dicen qué hacer a continuación. Sin insights claros para decisiones.</li>
+                    <li><span class="chk">→</span><strong>Sin correlación con éxito.</strong> Pueden crecer mientras ingresos, rentabilidad o satisfacción disminuyen.</li>
+                    <li><span class="chk">→</span><strong>Falsa sensación de progreso.</strong> Generan complacencia, ocultan problemas reales del negocio.</li>
+                </ul>
             </div>
-</div>
-<div class="section-card">
-<h2>
-<svg class="icon text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-                Características Clave 🔑
-            </h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-<div class="card">
-<h3>Fáciles de Manipular 🎭</h3>
-<p class="key-point">Inflar números sin beneficiar al negocio a largo plazo (ej. comprar tráfico). </p>
-</div>
-<div class="card">
-<h3>No Accionables 🤷</h3>
-<p class="key-point">No te dicen qué hacer a continuación. Sin insights claros para decisiones.</p>
-</div>
-<div class="card">
-<h3>Sin Correlación con Éxito 📉</h3>
-<p class="key-point">Pueden crecer mientras ingresos, rentabilidad o satisfacción disminuyen.</p>
-</div>
-<div class="card">
-<h3>Falsa Sensación de Progreso ☁️</h3>
-<p class="key-point">Generan complacencia, ocultan problemas reales del negocio.</p>
-</div>
-</div>
-</div>
-<div class="section-card mt-8">
-<h2>
-<svg class="icon text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V3m0 18v-5M9 3h6a2 2 0 012 2v2a2 2 0 01-2 2H9a2 2 0 01-2-2V5a2 2 0 012-2zm0 14h6a2 2 0 012 2v2a2 2 0 01-2 2H9a2 2 0 01-2-2v-2a2 2 0 012-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-                Ejemplos Comunes 📋
-            </h2>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-<div class="card">
-<h3>Marketing Digital 📊</h3>
-<ul class="main-list">
-<li class="negative-bullet">Número de Seguidores en RRSS</li>
-<li class="negative-bullet">Tráfico Web Total</li>
-<li class="negative-bullet">Impresiones de Anuncios</li>
-</ul>
-</div>
-<div class="card">
-<h3>Productos y Apps 📱</h3>
-<ul class="main-list">
-<li class="negative-bullet">Número de Descargas</li>
-<li class="negative-bullet">Usuarios Registrados (inactivos)</li>
-<li class="negative-bullet">Tiempo Total en el Sitio</li>
-</ul>
-</div>
-<div class="card">
-<h3>Ventas y Negocios 💰</h3>
-<ul class="main-list">
-<li class="negative-bullet">Leads Generados (baja calidad)</li>
-<li class="negative-bullet">Reuniones Programadas (sin cierres)</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="section-card mt-8">
-<h2>
-<svg class="icon text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-                Impacto Negativo 📉
-            </h2>
-<ul class="main-list mt-6">
-<li class="negative-bullet"><strong>Distorsión de Prioridades:</strong> Equipos enfocados en números sin valor real.</li>
-<li class="negative-bullet"><strong>Asignación Incorrecta de Recursos:</strong> Inversión en estrategias sin ROI.</li>
-<li class="negative-bullet"><strong>Decisiones Estratégicas Erróneas:</strong> Basadas en datos incorrectos.</li>
-<li class="negative-bullet"><strong>Pérdida de Oportunidades:</strong> Ignorar aspectos que sí impulsan el crecimiento.</li>
-</ul>
-</div>
-<div class="section-card mt-8">
-<h2>
-<svg class="icon text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.243 3 3 0 00-4.243 4.243zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-                Cómo Identificarlas 🤔
-            </h2>
-<ul class="main-list mt-6">
-<li class="question-bullet"><strong>El "¿Y Qué?" Test:</strong> ¿Lleva a una acción específica? Si no, es vanity.</li>
-<li class="question-bullet"><strong>Test de Correlación:</strong> ¿Se alinea con ingresos o rentabilidad? Si no, ¡alerta!</li>
-<li class="question-bullet"><strong>Test de Manipulación:</strong> ¿Puedes inflarla artificialmente sin beneficio real? Cuidado.</li>
-<li class="question-bullet"><strong>Pregunta del Contexto:</strong> ¿Tiene sentido sin más datos (ej. origen del tráfico)?</li>
-</ul>
-</div>
-<div class="section-card mt-8">
-<h2>
-<svg class="icon text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-                Métricas Accionables ✅
-            </h2>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-<div class="card">
-<h3>Características ✨</h3>
-<ul class="main-list">
-<li class="positive-bullet"><strong>Específicas y Medibles:</strong> Información clara.</li>
-<li class="positive-bullet"><strong>Vinculadas a Objetivos:</strong> Relacionadas con metas de negocio.</li>
-<li class="positive-bullet"><strong>Proporcionan Insights:</strong> Indican qué hacer.</li>
-</ul>
-</div>
-<div class="card">
-<h3>Ejemplos 🎯</h3>
-<ul class="main-list">
-<li class="positive-bullet"><strong>Marketing:</strong> CAC, ROAS, Tasa Conversión Lead.</li>
-<li class="positive-bullet"><strong>Productos:</strong> Activación, Retención por Cohortes, NPS.</li>
-<li class="positive-bullet"><strong>Ventas:</strong> LTV, Tasa Conversión Lead a Cliente.</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="section-card mt-8">
-<h2>
-<svg class="icon text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-                Estrategias para Evitarlas 🛡️
-            </h2>
-<ul class="main-list mt-6">
-<li class="action-bullet"><strong>Objetivos Claros:</strong> Cada métrica debe contribuir a un objetivo específico.</li>
-<li class="action-bullet"><strong>Métricas de Cohorte:</strong> Analiza comportamiento de grupos de clientes a lo largo del tiempo.</li>
-<li class="action-bullet"><strong>Segmenta Datos:</strong> Visión precisa por fuente, tipo de usuario, etc.</li>
-</ul>
-</div>
-<div class="text-center mt-8 p-6 bg-blue-50 border border-blue-200 rounded-xl text-blue-800">
-<h2>
-<svg class="icon text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-                Conclusión 📈
-            </h2>
-<p class="text-lg leading-relaxed">
-                Enfócate en <strong>métricas accionables</strong>, vinculadas a tus objetivos, que te den <strong>insights claros</strong> para decisiones efectivas. No busques números inflados, sino datos que construyan un negocio <strong>sostenible y rentable</strong>.
+            <div class="mf-visual">
+                <div class="vl">Síntomas de una vanity metric</div>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 14px;">
+                    <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent); letter-spacing: 0.04em;">🎭 Manipulable artificialmente</div>
+                    <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent); letter-spacing: 0.04em;">🤷 No accionable</div>
+                    <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent); letter-spacing: 0.04em;">📉 Sin correlación con €</div>
+                    <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-accent) 18%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--c-accent); letter-spacing: 0.04em;">☁ Falsa sensación de éxito</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 2 — Ejemplos comunes (steps) -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>02 · Ejemplos comunes</span>
+                    <h2>Las que ves <em>todos los días</em>.</h2>
+                </div>
+                <p>Tres áreas del negocio donde proliferan las vanity metrics. Las más típicas, listadas — para que las identifiques fácilmente.</p>
+            </div>
+
+            <div class="steps" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="step">
+                    <div class="sn">M</div>
+                    <h4>Marketing digital 📊</h4>
+                    <p style="color: var(--c-ink) !important; opacity: 0.86;">
+                        ❌ Número de seguidores en RRSS<br>
+                        ❌ Tráfico web total<br>
+                        ❌ Impresiones de anuncios
+                    </p>
+                </div>
+                <div class="step">
+                    <div class="sn">P</div>
+                    <h4>Productos y apps 📱</h4>
+                    <p style="color: var(--c-ink) !important; opacity: 0.86;">
+                        ❌ Número de descargas<br>
+                        ❌ Usuarios registrados (inactivos)<br>
+                        ❌ Tiempo total en el sitio
+                    </p>
+                </div>
+                <div class="step">
+                    <div class="sn">V</div>
+                    <h4>Ventas y negocio 💰</h4>
+                    <p style="color: var(--c-ink) !important; opacity: 0.86;">
+                        ❌ Leads generados (baja calidad)<br>
+                        ❌ Reuniones programadas (sin cierres)
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 3 — Impacto negativo -->
+        <section class="mf-feature" style="border-top: 1px solid var(--c-line);">
+            <div class="mf-text">
+                <div class="mf-tag">03 · Impacto negativo</div>
+                <h3>Lo que te <em>cuestan</em> realmente.</h3>
+                <p>
+                    Las vanity metrics no son solo "menos útiles" — son activamente
+                    perjudiciales. Distorsionan prioridades, mal-asignan recursos, y al
+                    final hacen que tomes decisiones estratégicas erróneas basadas en
+                    datos vacíos.
+                </p>
+                <ul>
+                    <li><span class="chk">→</span><strong>Distorsión de prioridades.</strong> Equipos enfocados en números sin valor real.</li>
+                    <li><span class="chk">→</span><strong>Asignación incorrecta de recursos.</strong> Inversión en estrategias sin ROI.</li>
+                    <li><span class="chk">→</span><strong>Decisiones estratégicas erróneas.</strong> Basadas en datos incorrectos.</li>
+                    <li><span class="chk">→</span><strong>Pérdida de oportunidades.</strong> Ignorar aspectos que sí impulsan el crecimiento.</li>
+                </ul>
+            </div>
+            <div class="mf-visual">
+                <div class="vl">Cuatro daños silenciosos</div>
+                <div style="margin-top: 16px; padding: 18px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 12px;">
+                    <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; line-height: 1.35; color: var(--c-paper);">
+                        "El equipo persigue lo que se mide. Si mides métricas vacías,
+                        construyes resultados vacíos."
+                    </div>
+                </div>
+                <div style="margin-top: 14px; padding: 10px 12px; background: color-mix(in oklab, var(--c-neg) 22%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #FFB3B3; letter-spacing: 0.06em;">
+                    ⚠ COSTE DE OPORTUNIDAD ALTO
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 4 — Cómo identificarlas (steps) -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>04 · Cómo identificarlas</span>
+                    <h2>Cuatro tests para <em>desenmascararlas</em>.</h2>
+                </div>
+                <p>Antes de meter una métrica en tu dashboard, pásala por estos cuatro filtros. Si falla en alguno — replantéatela.</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="sn">01</div>
+                    <h4>El test "¿Y qué?"</h4>
+                    <p>¿Lleva a una acción específica? Si no — es vanity.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">02</div>
+                    <h4>Test de correlación</h4>
+                    <p>¿Se alinea con ingresos o rentabilidad? Si no — alerta.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">03</div>
+                    <h4>Test de manipulación</h4>
+                    <p>¿Puedes inflarla artificialmente sin beneficio real? Cuidado.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">04</div>
+                    <h4>Pregunta del contexto</h4>
+                    <p>¿Tiene sentido sin más datos (ej. origen del tráfico)?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 5 — Métricas accionables (two-col) -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>05 · Antídoto</span>
+                    <h2>Métricas <em>accionables</em>.</h2>
+                </div>
+                <p>Las que reemplazan a las vanity. Específicas, medibles, vinculadas a objetivos y con insights que sí permiten decidir.</p>
+            </div>
+
+            <div class="two-col">
+                <div class="two-col-card">
+                    <div class="tag">Características ✨</div>
+                    <h3>Qué hace que una métrica sea accionable</h3>
+                    <ul>
+                        <li><strong>Específicas y medibles:</strong> información clara.</li>
+                        <li><strong>Vinculadas a objetivos:</strong> relacionadas con metas de negocio.</li>
+                        <li><strong>Proporcionan insights:</strong> indican qué hacer.</li>
+                    </ul>
+                </div>
+                <div class="two-col-card accent">
+                    <div class="tag">Ejemplos 🎯</div>
+                    <h3>Las que sí debes mirar</h3>
+                    <ul>
+                        <li><strong>Marketing:</strong> CAC, ROAS, tasa de conversión de lead.</li>
+                        <li><strong>Productos:</strong> activación, retención por cohortes, NPS.</li>
+                        <li><strong>Ventas:</strong> LTV, tasa de conversión lead a cliente.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 6 — Estrategias para evitarlas -->
+        <section class="mf-feature" style="border-top: 1px solid var(--c-line);">
+            <div class="mf-text">
+                <div class="mf-tag">06 · Estrategias prácticas</div>
+                <h3>Cómo <em>evitarlas</em> en tu equipo.</h3>
+                <p>
+                    Tres movimientos concretos para evitar que las vanity metrics se
+                    cuelen en tus reuniones de leadership y en los OKRs trimestrales.
+                </p>
+                <ul>
+                    <li><span class="chk">🛠</span><strong>Objetivos claros.</strong> Cada métrica debe contribuir a un objetivo específico.</li>
+                    <li><span class="chk">🛠</span><strong>Métricas de cohorte.</strong> Analiza comportamiento de grupos de clientes a lo largo del tiempo.</li>
+                    <li><span class="chk">🛠</span><strong>Segmenta datos.</strong> Visión precisa por fuente, tipo de usuario, etc.</li>
+                </ul>
+            </div>
+            <div class="mf-visual">
+                <div class="vl">Stack accionable · ejemplo</div>
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+                    <div style="display: flex; justify-content: space-between; padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 75%, transparent);">
+                        <span>CAC</span><span style="color: var(--c-accent);">€187</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 75%, transparent);">
+                        <span>Retención mes-12</span><span style="color: var(--c-accent);">71%</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 75%, transparent);">
+                        <span>LTV</span><span style="color: var(--c-accent);">€2.840</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 75%, transparent);">
+                        <span>NPS</span><span style="color: var(--c-accent);">+58</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing CTA -->
+        <section class="sub-cta">
+            <h2>Datos que <em>construyen</em> negocio.</h2>
+            <p>
+                Enfócate en métricas accionables, vinculadas a tus objetivos, que te den
+                insights claros para decisiones efectivas. No busques números inflados —
+                busca datos que construyan un negocio sostenible y rentable.
             </p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a class="pill pill-accent" href="/metricas/pro/metricas_fundamentales.php">Ir al módulo Métricas →</a>
+                <a class="pill pill-ghost" href="https://tidycal.com/nextscenario/mentoria-curso" target="_blank" rel="noopener">Auditar tus métricas</a>
+            </div>
+        </section>
+
+    </main>
+
 </div>
-</div>
-</main>
-</div>
-<footer class="ns-foot"><strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br/>Nextscenario · <a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a></footer>
+
+<footer class="ns-foot">
+    <strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br>
+    Nextscenario · <a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a>
+</footer>
+
 </body>
 </html>
