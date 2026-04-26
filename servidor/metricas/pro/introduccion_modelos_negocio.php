@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php?v=1"); exit(); }
+if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php"); exit(); }
 $module_num = "01";
 $module_title = "Introducción Modelos de negocio SaaS";
 $module_subtitle = "Características del modelo SaaS y los principales factores de fracaso. La base sobre la que construimos el resto del curso.";
@@ -22,7 +22,7 @@ include __DIR__ . '/_partials/head.php';
             </div>
 
             <div class="resources">
-                <a class="resource" href="/metricas/modulo1.html?v=2" target="_blank" rel="noopener">
+                <a class="resource" href="/metricas/modulo1.html" target="_blank" rel="noopener">
                     <span class="ico">📕</span>
                     <span><span class="label">Contenido de apoyo</span><span class="meta">Infografía del módulo · abre en nueva pestaña</span></span>
                 </a>

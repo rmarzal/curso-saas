@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php?v=1"); exit(); }
+if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php"); exit(); }
 $module_num = "00";
 $module_title = "¿Qué empresa quieres construir?";
 $module_subtitle = "Reflexión inicial antes de empezar el curso: el tipo de empresa SaaS que quieres construir y el camino que estás tomando.";
@@ -33,7 +33,7 @@ include __DIR__ . '/_partials/head.php';
             </div>
 
             <div class="resources">
-                <a class="resource" href="/metricas/que_empresa_quieres_construir.html?v=2" target="_blank" rel="noopener">
+                <a class="resource" href="/metricas/que_empresa_quieres_construir.html" target="_blank" rel="noopener">
                     <span class="ico">📕</span>
                     <span><span class="label">Contenido: Qué empresa quieres construir</span><span class="meta">Infografía de apoyo · abre en nueva pestaña</span></span>
                 </a>

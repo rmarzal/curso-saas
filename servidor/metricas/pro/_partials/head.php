@@ -4,17 +4,17 @@ $module_subtitle = $module_subtitle ?? '';
 
 // Orden de módulos del curso (Notion). Sirve para renderizar el nav prev/next.
 $module_order = [
-    "00" => ["num" => "00", "title" => "¿Qué empresa quieres construir?",       "href" => "que_empresa_quieres_construir.php?v=1"],
-    "01" => ["num" => "01", "title" => "Introducción a Modelos de Negocio SaaS", "href" => "introduccion_modelos_negocio.php?v=1"],
-    "02" => ["num" => "02", "title" => "Modelos de negocio y limitación",        "href" => "modelos_de_negocio.php?v=1"],
-    "03" => ["num" => "03", "title" => "Pricing SaaS",                           "href" => "pricing.php?v=1"],
-    "04" => ["num" => "04", "title" => "Métricas SaaS fundamentales",            "href" => "metricas_fundamentales.php?v=1"],
-    "05" => ["num" => "05", "title" => "B2B SaaS Metrics Framework",             "href" => "framework_b2b.php?v=1"],
-    "06" => ["num" => "06", "title" => "Retención y Engagement",                 "href" => "retencion_engagement.php?v=1"],
-    "07" => ["num" => "07", "title" => "Análisis de Cohortes",                   "href" => "analisis_cohortes.php?v=1"],
-    "08" => ["num" => "08", "title" => "Benchmark SaaS",                         "href" => "benchmark_saas.php?v=1"],
-    "09" => ["num" => "09", "title" => "Modelos Financieros SaaS",               "href" => "modelos_financieros.php?v=1"],
-    "10" => ["num" => "10", "title" => "Reporting a inversores",                 "href" => "reporting.php?v=1"],
+    "00" => ["num" => "00", "title" => "¿Qué empresa quieres construir?",       "href" => "que_empresa_quieres_construir.php"],
+    "01" => ["num" => "01", "title" => "Introducción a Modelos de Negocio SaaS", "href" => "introduccion_modelos_negocio.php"],
+    "02" => ["num" => "02", "title" => "Modelos de negocio y limitación",        "href" => "modelos_de_negocio.php"],
+    "03" => ["num" => "03", "title" => "Pricing SaaS",                           "href" => "pricing.php"],
+    "04" => ["num" => "04", "title" => "Métricas SaaS fundamentales",            "href" => "metricas_fundamentales.php"],
+    "05" => ["num" => "05", "title" => "B2B SaaS Metrics Framework",             "href" => "framework_b2b.php"],
+    "06" => ["num" => "06", "title" => "Retención y Engagement",                 "href" => "retencion_engagement.php"],
+    "07" => ["num" => "07", "title" => "Análisis de Cohortes",                   "href" => "analisis_cohortes.php"],
+    "08" => ["num" => "08", "title" => "Benchmark SaaS",                         "href" => "benchmark_saas.php"],
+    "09" => ["num" => "09", "title" => "Modelos Financieros SaaS",               "href" => "modelos_financieros.php"],
+    "10" => ["num" => "10", "title" => "Reporting a inversores",                 "href" => "reporting.php"],
 ];
 $_keys = array_keys($module_order);
 $_idx  = array_search($module_num, $_keys, true);
@@ -440,7 +440,7 @@ $next_mod = ($_idx !== false && $_idx < count($_keys) - 1) ? $module_order[$_key
 
     <nav class="nav">
         <div class="container nav-inner">
-            <a href="embed.php?v=1" class="back-link">
+            <a href="embed.php" class="back-link">
                 <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"/></svg>
                 Volver al curso
             </a>
@@ -477,7 +477,7 @@ $next_mod = ($_idx !== false && $_idx < count($_keys) - 1) ? $module_order[$_key
                 </span>
             <?php endif; ?>
 
-            <a class="mn-btn mn-home" href="embed.php?v=1">
+            <a class="mn-btn mn-home" href="embed.php">
                 <span class="dot"></span>
                 Índice del curso
             </a>
