@@ -32,13 +32,17 @@ Ya no están en este proyecto (los quité), pero en tu hosting siguen porque nad
 
 1. Abre `https://cursos.nextscenario.com/metricas/login.php` y entra con un usuario válido.
 2. Tras el login debes ver el nuevo **índice del curso** con las 11 tarjetas de módulo + contenido complementario, no el iframe de Notion.
-3. Cada módulo (0,1,2,3,5,6,7,8,10) abre una página PHP con la **misma estructura que tiene en Notion**: video(s) embebido(s), descripciones, PDFs descargables, listas de reflexión, etc. Verifica especialmente:
-   - **Módulo 0** — 2 videos + 3 preguntas de reflexión.
-   - **Módulo 2** — 4 sub-secciones con 3 videos + reflexión.
-   - **Módulo 6/7** — video + PDF descargable (en `pro/assets/`).
-   - **Módulo 7** — además, link a la plantilla de Google Sheets.
-   - **Módulo 8** — link al Benchmark Report 2024 (Firebase).
-4. `https://cursos.nextscenario.com/metricas/logout.php` cierra sesión y redirige al login.
+3. Cada módulo (0,1,2,3,5,6,7,8,10) abre una página PHP con la **misma estructura que tiene en Notion** (orden de bloques exacto), con diseño mejorado: video(s) embebido(s), descripciones, PDFs descargables, listas de reflexión, etc. Verifica especialmente:
+   - **Módulo 0** — 2 videos + H3 reflexión + 3 preguntas (cards numerados).
+   - **Módulo 2** — 4 sub-secciones (PLG / Sales / Freemium / Reflexión) con 3 videos + reflexión.
+   - **Módulo 3** — video + infografía + callout "Caso práctico".
+   - **Módulo 5** — video + infografía B2B Framework.
+   - **Módulo 6** — video + PDF descargable (en `pro/assets/`).
+   - **Módulo 7** — video + PDF + link a la plantilla de Google Sheets.
+   - **Módulo 8** — video + link al Benchmark Report 2024 (Firebase).
+   - **Módulo 10** — video + infografía Data Room / One Pager.
+4. La carpeta `pro/_partials/` contiene `head.php` y `foot.php` (layout compartido). **Tiene que subirse** junto con el resto de `pro/`.
+5. `https://cursos.nextscenario.com/metricas/logout.php` cierra sesión y redirige al login.
 
 ## Pendientes (faltan en el export de Notion)
 
