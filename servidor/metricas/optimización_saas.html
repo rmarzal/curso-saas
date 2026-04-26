@@ -1,506 +1,292 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Infografía: Cómo Mejorar la Rentabilidad de un SaaS</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet"/>
-<style>
-        :root {
-            --primary-color: #3498db; /* Azul vibrante */
-            --secondary-color: #2c3e50; /* Azul oscuro para texto */
-            --light-bg: #f8f9fa; /* Fondo muy claro */
-            --card-bg: #ffffff; /* Fondo de tarjeta blanco */
-            --inner-card-bg: #eaf4f7; /* Fondo interno de tarjeta */
-            --text-color: #495057; /* Color de texto general */
-            --light-text-color: #6c757d; /* Texto más claro */
-            --border-color: #e9ecef; /* Color de borde sutil */
-            --shadow-light: rgba(0, 0, 0, 0.05);
-            --shadow-medium: rgba(0, 0, 0, 0.1);
-        }
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Cómo mejorar la rentabilidad de un SaaS · Curso SaaS</title>
+<link rel="stylesheet" href="_design.css" />
+</head>
+<body>
 
-        body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 30px 20px;
-            background-color: var(--light-bg);
-            color: var(--text-color);
-            font-size: 16px;
-        }
+<nav class="ns-static-nav">
+    <div class="ns-inner">
+        <a class="ns-back" href="/metricas/pro/embed.php">
+            <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"/></svg>
+            Volver al curso
+        </a>
+        <span class="ns-eyebrow">Infografía · Curso SaaS</span>
+        <a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a>
+    </div>
+</nav>
 
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            background-color: var(--card-bg);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px var(--shadow-medium);
-        }
-
-        .section-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.8em;
-            color: var(--secondary-color);
-            text-align: center;
-            margin-bottom: 50px;
-            font-weight: 700;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 5px;
-            background-color: var(--primary-color);
-            border-radius: 3px;
-        }
-
-        p {
-            margin-bottom: 1em;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .text-xl {
-            font-size: 1.35rem;
-            line-height: 1.5;
-            color: var(--light-text-color);
-            margin-bottom: 30px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-left: 6px solid var(--primary-color);
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 15px var(--shadow-light);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-            position: relative;
-            overflow: hidden; /* Para el pseudoelemento del icono */
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px var(--shadow-medium);
-        }
-
-        .card-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2em;
-            color: var(--secondary-color);
-            margin-top: 0;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .card-title i {
-            margin-right: 20px;
-            color: var(--primary-color);
-            font-size: 1.3em;
-            width: 40px; /* Para asegurar el espacio fijo del icono */
-            text-align: center;
-        }
-        
-        .card > p {
-            font-size: 1.1em;
-            color: var(--text-color);
-            margin-bottom: 25px;
-        }
-
-        .card-inner-bg {
-            background-color: var(--inner-card-bg);
-            padding: 25px;
-            border-radius: 8px;
-            margin-top: 25px;
-            border: 1px solid var(--border-color);
-        }
-
-        .list-none {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .bullet-point {
-            display: flex;
-            align-items: flex-start; /* Alinea el icono con la primera línea de texto */
-            margin-bottom: 20px;
-            font-size: 1.05em;
-            color: var(--text-color);
-        }
-
-        .bullet-point-icon {
-            flex-shrink: 0;
-            width: 32px;
-            height: 32px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 15px;
-            font-size: 0.9em;
-            box-shadow: 0 2px 8px var(--shadow-light);
-        }
-        .bullet-point strong {
-            color: var(--secondary-color);
-            font-weight: 600;
-        }
-
-        .bullet-point .list-disc {
-            margin-top: 10px;
-            margin-left: 20px; /* Indentación para sub-listas */
-            color: var(--light-text-color);
-            font-size: 0.95em;
-        }
-        .bullet-point .list-disc li {
-            margin-bottom: 8px;
-        }
-
-        .image-container {
-            text-align: center;
-            margin-top: 30px;
-            margin-bottom: 20px;
-        }
-        .header-image {
-            max-width: 80%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 6px 15px var(--shadow-light);
-            transition: transform 0.3s ease;
-        }
-        .header-image:hover {
-            transform: scale(1.02);
-        }
-
-        .image-caption {
-            font-size: 0.9em;
-            color: var(--light-text-color);
-            margin-top: 10px;
-        }
-
-        .font-bold {
-            font-weight: 700;
-        }
-
-        .metric-formula {
-            background-color: #d4edda; /* Verde claro */
-            border-left: 5px solid #28a745; /* Verde oscuro */
-            padding: 18px;
-            border-radius: 8px;
-            font-family: 'Courier New', Courier, monospace;
-            color: #155724; /* Texto verde oscuro */
-            margin-top: 15px;
-            font-size: 1.05em;
-            line-height: 1.5;
-        }
-
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            body {
-                padding: 20px 15px;
-                font-size: 15px;
-            }
-            .container {
-                padding: 25px;
-            }
-            .section-title {
-                font-size: 2.2em;
-                margin-bottom: 35px;
-            }
-            .section-title::after {
-                width: 80px;
-                height: 4px;
-            }
-            .card {
-                padding: 25px;
-                margin-bottom: 30px;
-            }
-            .card-title {
-                font-size: 1.6em;
-                margin-bottom: 20px;
-            }
-            .card-title i {
-                font-size: 1.1em;
-                margin-right: 15px;
-            }
-            .bullet-point {
-                font-size: 1em;
-                margin-bottom: 15px;
-            }
-            .bullet-point-icon {
-                width: 28px;
-                height: 28px;
-                font-size: 0.8em;
-                margin-right: 12px;
-            }
-            .text-xl {
-                font-size: 1.15rem;
-                margin-bottom: 25px;
-            }
-            .header-image {
-                max-width: 90%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 15px 10px;
-                font-size: 14px;
-            }
-            .container {
-                padding: 15px;
-            }
-            .section-title {
-                font-size: 1.8em;
-                margin-bottom: 30px;
-            }
-            .card {
-                padding: 20px;
-                margin-bottom: 25px;
-            }
-            .card-title {
-                font-size: 1.4em;
-                flex-direction: column; /* Apila el icono y el texto en pantallas pequeñas */
-                align-items: flex-start;
-                margin-bottom: 15px;
-            }
-            .card-title i {
-                margin-bottom: 10px;
-                margin-right: 0;
-            }
-            .bullet-point {
-                font-size: 0.95em;
-                margin-bottom: 12px;
-            }
-            .bullet-point-icon {
-                width: 25px;
-                height: 25px;
-                font-size: 0.75em;
-                margin-right: 10px;
-            }
-            .text-xl {
-                font-size: 1.05rem;
-                margin-bottom: 20px;
-            }
-            .header-image {
-                max-width: 100%;
-            }
-            .metric-formula {
-                padding: 15px;
-                font-size: 0.95em;
-            }
-        }
-    </style>
-
-<link href="_design.css" rel="stylesheet"/></head>
-<body><nav class="ns-static-nav"><div class="ns-inner"><a class="ns-back" href="/metricas/pro/embed.php"><svg fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"></path></svg>Volver al curso</a><span class="ns-eyebrow">Infografía · Curso SaaS</span><a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a></div></nav>
 <div class="ns-shell">
-<header class="ns-hero">
-<span class="ns-hero-eyebrow"><span class="dot"></span>Infografía · Curso SaaS</span>
-<h1 class="ns-h1">Infografía: Cómo Mejorar la Rentabilidad de un SaaS</h1>
-</header>
-<main class="ns-card">
-<div class="container">
-<section>
-<h2 class="section-title">CÓMO MEJORAR LA RENTABILIDAD DE UN SAAS</h2>
-<p class="text-center text-xl">En el año 2024 se cerró el grifo de los fondos de inversión y llegó el fin de una época de crecimiento desmesurado. Ese año se consagró como el de la rentabilidad en el mundo de las startups. En 2025 parece que aún continúa esta tendencia, como siempre debió de ser. Volvemos a montar negocios cómo se ha hecho toda la vida.</p>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-arrow-up"></i> Mejora el ARPA: Sube los Precios</h3>
-<div class="card-inner-bg">
-<ul class="list-none">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-lightbulb"></i></div>
-<div>Puedes <strong>diferenciarte</strong> con otras funcionalidades, otra forma de llegar a los clientes o simplemente mejorando la atención al cliente. Los negocios <strong>B2B son menos susceptibles al precio</strong></div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-calculator"></i></div>
-<div>Para facturar 5000 € en MRR hay varios caminos:
-                                <ul class="list-disc ml-6">
-<li>Se pueden necesitar 834 clientes a un precio medio de 6 €.</li>
-<li>O 34 clientes con un ARPA de 150 €.</li>
-<li>O 16 clientes con un ARPA de 300 €.</li>
-<li>Y así verás infinitas opciones… ¿Con cuál te quedas?</li>
-</ul>
+
+    <header class="ns-hero">
+        <span class="ns-hero-eyebrow"><span class="dot"></span>Módulo 09 · Optimización SaaS</span>
+        <h1 class="ns-h1">Cómo mejorar la <em>rentabilidad</em> de un SaaS.</h1>
+        <p class="ns-lede">
+            En el año 2024 se cerró el grifo de los fondos de inversión y llegó el fin
+            de una época de crecimiento desmesurado. Ese año se consagró como el de la
+            <span style="background: var(--c-accent); padding: 0 6px; border-radius: 4px; color: var(--c-ink);">rentabilidad</span>
+            en el mundo de las startups. En 2025 parece que aún continúa esta
+            tendencia, como siempre debió de ser. Volvemos a montar negocios cómo se ha
+            hecho toda la vida.
+        </p>
+
+        <div class="grid-4-kpi">
+            <div class="bigmetric"><div class="l">Palancas</div><div class="v">5</div><div class="sub">ARPA · CAC · churn · UE · runway</div></div>
+            <div class="bigmetric"><div class="l">Ejemplo MRR</div><div class="v">€5k</div><div class="sub">834 × €6 vs 16 × €300</div></div>
+            <div class="bigmetric"><div class="l">Tipos de churn</div><div class="v">2</div><div class="sub">Voluntario · involuntario</div></div>
+            <div class="bigmetric"><div class="l">Métrica clave</div><div class="v">€<em>/emp</em></div><div class="sub">ARR / empleados FTE</div></div>
+        </div>
+    </header>
+
+    <main class="ns-card">
+
+        <!-- Bloque 1 — Mejora ARPA -->
+        <section class="mf-feature" style="border-top: 0; padding-top: 0;">
+            <div class="mf-text">
+                <div class="mf-tag">01 · Mejora el ARPA</div>
+                <h3>Sube los <em>precios</em>.</h3>
+                <p>
+                    Puedes <strong>diferenciarte</strong> con otras funcionalidades, otra
+                    forma de llegar a los clientes o simplemente mejorando la atención
+                    al cliente. Los negocios <strong>B2B son menos susceptibles al
+                    precio</strong>.
+                </p>
+                <p>
+                    Cuesta mucho captar un cliente, revisa tu <strong>unit
+                    economics</strong>. Los negocios con ARPA o ingreso medio por cuenta
+                    (Average Revenue Per Account) bajo, suelen tener mucho más churn.
+                </p>
+                <ul>
+                    <li><span class="chk">→</span><strong>Evalúa el ARPA por regiones.</strong></li>
+                    <li><span class="chk">→</span>Simplifica los precios (no más de tres planes).</li>
+                    <li><span class="chk">→</span>Intenta ofrecer upgrades.</li>
+                    <li><span class="chk">→</span>Reduce el uso de descuentos.</li>
+                </ul>
+            </div>
+            <div class="mf-visual">
+                <div class="vl">Para facturar €5.000 MRR</div>
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+                    <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);"><span>834 clientes × €6</span><span style="color: #FFB3B3;">€5.004</span></div>
+                    <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);"><span>34 clientes × €150</span><span style="color: var(--c-accent);">€5.100</span></div>
+                    <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-accent) 18%, transparent); border-radius: 10px; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--c-accent);"><span>16 clientes × €300</span><span>€4.800</span></div>
+                </div>
+                <div style="margin-top: 14px; padding: 10px 12px; background: color-mix(in oklab, var(--c-paper) 6%, transparent); border-radius: 8px; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 14px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);">
+                    "¿Con cuál te quedas?"
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 2 — CAC -->
+        <section class="mf-feature" style="border-top: 1px solid var(--c-line);">
+            <div class="mf-text">
+                <div class="mf-tag">02 · Optimiza el CAC</div>
+                <h3>Costes de <em>adquisición</em>.</h3>
+                <p>
+                    El <strong>CAC (Coste de Adquisición de Clientes)</strong> es una
+                    métrica que proporciona mucha información o muy poca. No tiene
+                    sentido analizar el CAC como una métrica global. Analizar este tipo
+                    de métricas, tiene que servir para obtener insights y activar
+                    accionables.
+                </p>
+                <p><strong>Calcula los diferentes CAC en búsqueda de ineficiencias:</strong></p>
+                <ul>
+                    <li><span class="chk">→</span>Calcula el <strong>CAC para cada plan</strong> y para cada <strong>país o región</strong>.</li>
+                    <li><span class="chk">→</span>Calcula el <strong>CAC en cada etapa y en cada fuente de adquisición</strong>.</li>
+                    <li><span class="chk">→</span>Analiza tu <strong>funnel</strong> en búsqueda de ineficiencias. Una mejora del 1% en una etapa baja del funnel puede ser significativa.</li>
+                </ul>
+            </div>
+            <div class="mf-visual">
+                <div class="vl">Tipos de CAC a calcular</div>
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent); letter-spacing: 0.04em;">CPL · Coste por lead</div>
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent); letter-spacing: 0.04em;">CAC user · freemium / trial</div>
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent); letter-spacing: 0.04em;">CAC sales · equipo + tools</div>
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent); letter-spacing: 0.04em;">CAC marketing · ads + tools</div>
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-accent) 18%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--c-accent); letter-spacing: 0.04em;">CAC campañas · solo ads</div>
+                </div>
+                <div style="margin-top: 14px; padding: 8px 12px; background: color-mix(in oklab, var(--c-paper) 6%, transparent); border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: color-mix(in oklab, var(--c-paper) 70%, transparent); letter-spacing: 0.04em;">
+                    Hubspot · si se comparte con marketing aplicar % a cada departamento
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 3 — Churn -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>03 · Churn</span>
+                    <h2>La métrica <em>clave</em> del SaaS.</h2>
+                </div>
+                <p>En un negocio SaaS el churn es la métrica clave y se refiere a la pérdida de clientes o suscriptores. Como vimos en capítulos anteriores, existen varios tipos.</p>
+            </div>
+
+            <div class="two-col">
+                <div class="two-col-card">
+                    <div class="tag">Tipo 1</div>
+                    <h3>Churn voluntario</h3>
+                    <p>Ocurre cuando un cliente decide activamente cancelar su suscripción o servicio.</p>
+                </div>
+                <div class="two-col-card accent">
+                    <div class="tag">Tipo 2 · manejable</div>
+                    <h3>Churn involuntario</h3>
+                    <p>Sucede cuando la cancelación no es una decisión directa del cliente. Por ejemplo, puede ser debido a problemas con el método de pago, como una tarjeta de crédito caducada o a problemas técnicos que impiden la renovación automática de la suscripción. <strong>Este segundo tipo de churn es manejable</strong> y debemos identificar cuándo se produce, para intentar recuperarlo en los días siguientes.</p>
+                </div>
+            </div>
+
+            <h3 style="font-family: 'Geist', sans-serif; font-weight: 500; font-size: 24px; letter-spacing: -0.02em; margin-top: 32px; color: var(--c-ink);">Estrategias para gestionar el <em>churn</em>.</h3>
+
+            <div class="steps" style="margin-top: 16px;">
+                <div class="step">
+                    <div class="sn">🔔</div>
+                    <h4>Alertas de variaciones</h4>
+                    <p>Créate alertas de variaciones de incremento de churn.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">🌍</div>
+                    <h4>Por país/plan</h4>
+                    <p>Identifica qué países o planes son los más susceptibles de churn.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">🤖</div>
+                    <h4>Avisos automáticos</h4>
+                    <p>Crea avisos que creen alertas o manden mensajes a Slack o email cuando se produce el churn involuntario, para que atención al cliente pueda recuperarlos.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">⚙</div>
+                    <h4>Definición configurable</h4>
+                    <p>Debe ser una métrica que permita cierta configuración. ¿Considerarías que los usuarios que pagan un mes y se largan deberían incluirse en el churn?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 4 — Unit Economics -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>04 · Unit Economics</span>
+                    <h2>Economía <em>unitaria</em> por plan.</h2>
+                </div>
+                <p>Revisa tus clientes y su economía unitaria según tus diferentes planes de precios.</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="sn">⚖</div>
+                    <h4>Ratio LTV/CAC</h4>
+                    <p>Relación entre el valor de vida del cliente y el coste de adquisición. Indicador de eficiencia capital.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">∞</div>
+                    <h4>LTV (Lifetime Value)</h4>
+                    <p>Ingresos totales que esperas de un cliente a lo largo de toda su vida con tu producto.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">⏱</div>
+                    <h4>Payback period</h4>
+                    <p>Tiempo necesario para recuperar el coste de adquisición de un cliente.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">🔥</div>
+                    <h4>Burn Rate Neto</h4>
+                    <p>Tasa a la cual una compañía está agotando su caja cada mes. Por ejemplo, si una empresa gasta 100 000 € al mes, pero genera 30 000 €, su burn rate neto sería de <strong>70 000 € al mes</strong>.</p>
+                </div>
+                <div class="step" style="grid-column: span 2;">
+                    <div class="sn">%</div>
+                    <h4>Margen bruto</h4>
+                    <p>Revisa si estás atribuyendo las partidas adonde corresponde. ¿Utilizas Google Cloud o AWS pero aún no pagas por los servidores gracias a los beneficios adicionales (perks) que percibes? Estima el coste como si no contaras con dichos beneficios, para analizar la viabilidad.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 5 — Runway -->
+        <section class="mf-feature" style="border-top: 1px solid var(--c-line);">
+            <div class="mf-text">
+                <div class="mf-tag">05 · Runway</div>
+                <h3>Alarga tu <em>plazo de liquidez</em>.</h3>
+                <p>
+                    El <strong>runway o plazo de liquidez</strong> son los meses de caja
+                    que te quedan. Cinco palancas concretas para extenderlo sin que la
+                    empresa pierda velocidad.
+                </p>
+                <ul>
+                    <li><span class="chk">→</span>Revisa el <strong>cash-flow</strong> y asegúrate de que esté alineado con tus proyecciones financieras.</li>
+                    <li><span class="chk">→</span>Si tienes caja y los números son positivos, piensa en la posibilidad de una <strong>financiación bancaria</strong> antes de que realmente la necesites.</li>
+                    <li><span class="chk">→</span>Cierra <strong>notas convertibles</strong> con inversores interesados que no participaron en tu última ronda de financiación.</li>
+                    <li><span class="chk">→</span>Antes de contratar a gente nueva para el equipo, evalúa si es estrictamente necesario. A menudo, la necesidad de más personal surge de alguna ineficiencia en los procesos existentes. Utiliza la métrica de <strong>ingresos generados por empleado (ARR / Total empleados a tiempo completo)</strong> para mantener una perspectiva realista.</li>
+                    <li><span class="chk">→</span>Ajusta el <strong>burn rate</strong> porque indica cuánto dinero estás consumiendo cada mes, una métrica clave que mide la eficiencia al dividir el dinero gastado cada mes entre los nuevos ingresos netos generados.</li>
+                </ul>
+            </div>
+            <div class="mf-visual">
+                <div class="vl">5 palancas runway</div>
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);">📈 Cashflow alineado con plan</div>
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);">🏦 Línea bancaria preventiva</div>
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);">🤝 Notas convertibles</div>
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent);">💼 ARR / FTE</div>
+                    <div style="padding: 10px 14px; background: color-mix(in oklab, var(--c-accent) 18%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--c-accent);">🔥 Burn rate neto</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 6 — En resumen -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>06 · En resumen</span>
+                    <h2>Olvídate de los datos <em>bonitos</em>.</h2>
+                </div>
+                <p>El cierre — los principios que debes recordar después de haber digerido todas las palancas anteriores.</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="sn">A</div>
+                    <h4>Cohortes, no medias</h4>
+                    <p>Olvídate de poner los datos bonitos y enfócate en analizar tu negocio por <strong>cohortes de usuarios</strong>.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">B</div>
+                    <h4>Las medias mienten</h4>
+                    <p>Las medianas o medias solo sirven para engañarnos. Métricas como las proyecciones en Excel se pueden adaptar para que digan lo que nos interesa mostrar. Por ejemplo, si un VC pregunta por la retención y la de los últimos meses no es muy buena, la solución fácil es hacer una media de los 6-12 últimos meses o sacar las métricas con un cohorte que te favorezca. Pero esto es <strong>mentir</strong>, tanto a ti como al fondo, y no suele tener buen final. Las buenas relaciones se basan en la <strong>confianza</strong>.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">C</div>
+                    <h4>Mejorar &gt; bonito</h4>
+                    <p>Revisa <strong>todas tus métricas</strong>. Olvídate de ponerlas en bonito y céntrate en la forma de <strong>mejorarlas</strong>.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">D</div>
+                    <h4>¡Anticípate!</h4>
+                    <p><strong>¡Actúa! ¡Anticípate!</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing CTA -->
+        <section class="sub-cta">
+            <h2>Negocios <em>rentables</em>. Como toda la vida.</h2>
+            <p>
+                ARPA, CAC, churn, unit economics y runway. Cinco palancas que decide
+                si tu SaaS sobrevive a la era post-fondos baratos. La rentabilidad ya
+                no es opcional — es la única estrategia.
+            </p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a class="pill pill-accent" href="/metricas/pro/modelos_financieros.php">Volver al módulo →</a>
+                <a class="pill pill-ghost" href="https://tidycal.com/nextscenario/mentoria-curso" target="_blank" rel="noopener">Auditar tu rentabilidad</a>
+            </div>
+        </section>
+
+    </main>
+
 </div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-hand-holding-dollar"></i></div>
-<div>Cuesta mucho captar un cliente, revisa tu <strong>unit economics</strong>. Los negocios con <strong>ARPA</strong> o ingreso medio por cuenta (<strong>Average Revenue Per Account</strong>) bajo, suelen tener mucho más churn.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-chart-area"></i></div>
-<div><strong>Evalúa el ARPA por regiones.</strong> Simplifica los precios (no más de tres planes). Intenta ofrecer upgrades. Reduce el uso de descuentos.</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-sliders"></i> Optimiza los Costes de Adquisición (CAC)</h3>
-<p>El <strong>CAC (Coste de Adquisición de Clientes)</strong> es una métrica que proporciona mucha información o muy poca. No tiene sentido analizar el CAC cómo una métrica global. Analizar este tipo de métricas, tiene que servir para obtener insights y activar accionables.</p>
-<div class="card-inner-bg">
-<p class="font-bold text-lg mb-3">Calcula los diferentes CAC en búsqueda de ineficiencias:</p>
-<ul class="list-none">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-tags"></i></div>
-<div>Calcula el <strong>CAC para cada plan</strong> y para cada <strong>país o región</strong>.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-funnel-dollar"></i></div>
-<div>Calcula el <strong>CAC en cada etapa y en cada fuente de adquisición</strong>:
-                                <ul class="list-disc ml-6">
-<li><strong>Coste por lead (CPL).</strong></li>
-<li><strong>Coste de adquisición de usuario (CAC user)</strong>, en modelos freemium o free trial.</li>
-<li><strong>CAC de ventas:</strong> Coste de adquisición teniendo en cuenta al equipo de ventas y las herramientas que utiliza. Por ejemplo Hubspot, si se comparte con marketing aplicar un porcentaje a cada departamento.</li>
-<li><strong>CAC de marketing:</strong> Coste de adquisición teniendo en cuenta al equipo de marketing, la publicidad y las herramientas.</li>
-<li><strong>CAC de campañas</strong>, teniendo en cuenta solo las campañas de marketing.</li>
-</ul>
-</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-magnifying-glass"></i></div>
-<div>Analiza tu <strong>funnel o embudo de ventas</strong> en búsqueda de ineficiencias. Una mejora de un 1 % en una etapa baja del funnel, puede ser significativa.</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-user-slash"></i> Churn</h3>
-<p>En un negocio SaaS el <strong>churn </strong> es la métrica clave y se refiere a la pérdida de clientes o suscriptores. Cómo vimos en capítulos anteriores, existen varios tipos, algo que es imprescindible identificar:</p>
-<div class="card-inner-bg">
-<ul class="list-none">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-user-minus"></i></div>
-<div><strong>Churn voluntario:</strong> Ocurre cuando un cliente decide activamente cancelar su suscripción o servicio.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-credit-card-blank"></i></div>
-<div><strong>Churn involuntario:</strong> Sucede cuando la cancelación no es una decisión directa del cliente. Por ejemplo, puede ser debido a problemas con el método de pago, como una tarjeta de crédito caducada o a problemas técnicos que impiden la renovación automática de la suscripción. <strong>Este segundo tipo de churn es manejable</strong> y debemos de identificar cuándo se produce, para intentar recuperarlo en los días siguientes.</div>
-</li>
-</ul>
-<p class="font-bold text-lg mb-3 mt-4">Estrategias para gestionar el churn:</p>
-<ul class="list-none">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-bell"></i></div>
-<div>Créate alertas de variaciones de incremento de churn.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-map-marker-alt"></i></div>
-<div>Identifica qué países o planes son los más susceptibles de churn.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-robot"></i></div>
-<div>Crea avisos que creen alertas o manden mensajes a slack o email cuando se produce el churn involuntario, para que atención al cliente pueda recuperarlos.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-cog"></i></div>
-<div>Debe ser una métrica que permita cierta configuración. ¿Considerarías que los usuarios que pagan un mes y se largan deberían incluirse en el churn?</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-chart-bar"></i> Unit Economics</h3>
-<p>Revisa tus clientes y su <strong>economía unitaria (unit economics)</strong> según tus diferentes planes de precios:</p>
-<div class="card-inner-bg">
-<ul class="list-none">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-balance-scale-right"></i></div>
-<div><strong>Ratio LTV/CAC.</strong></div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-infinity"></i></div>
-<div><strong>LTV (lifetime value).</strong></div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-cash-register"></i></div>
-<div><strong>Payback period.</strong></div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-fire"></i></div>
-<div><strong>Burn Rate Neto:</strong> Se refiere a la tasa a la cual una compañía está agotando su caja cada mes.
-                                <div class="metric-formula">
-                                    Por ejemplo, si una empresa gasta 100 000 € al mes, pero genera 30 000 €, su burn rate neto sería de <strong>70 000 € al mes</strong>.
-                                </div>
-</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-percentage"></i></div>
-<div><strong>Margen bruto:</strong> Revisa si estás atribuyendo las partidas adonde corresponde. ¿Utilizas Google Cloud o AWS pero aún no pagas por los servidores gracias a los beneficios adicionales (perks) que percibes? Estima el coste como si no contaras con dichos beneficios, para analizar la viabilidad.</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-plane"></i> Alarga tu "RUNWAY" o Plazo de Liquidez</h3>
-<p>El <strong>runway o plazo de liquidez</strong> son los meses de caja que te quedan:</p>
-<div class="card-inner-bg">
-<ul class="list-none">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-chart-line"></i></div>
-<div>Revisa el <strong>cash-flow</strong> y asegúrate de que esté alineado con tus proyecciones financieras.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-bank"></i></div>
-<div>Si tienes caja y los números son positivos, piensa en la posibilidad de una <strong>financiación bancaria</strong> antes de que realmente la necesites.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-handshake"></i></div>
-<div>Cierra <strong>notas convertibles</strong> con inversores interesados que no participaron en tu última ronda de financiación.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-user-tie"></i></div>
-<div>Antes de contratar a gente nueva para el equipo, evalúa si es estrictamente necesario. A menudo, la necesidad de más personal surge de alguna ineficiencia en los procesos existentes. Utiliza la métrica de <strong>ingresos generados por empleado (ARR / Total empleados a tiempo completo)</strong> para mantener una perspectiva realista.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-fire-extinguisher"></i></div>
-<div>Ajusta el <strong>burn rate</strong> porque indica cuánto dinero estás consumiendo cada mes, una métrica clave que mide la eficiencia al dividir el dinero que gastado cada mes entre los nuevos ingresos netos generados.</div>
-</li>
-</ul>
-</div>
-</div>
-</section>
-<section>
-<h2 class="section-title">En Resumen... </h2>
-<div class="card">
-<ul class="list-none">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-chart-area"></i></div>
-<div>Olvídate de poner los datos bonitos y enfócate en analizar tu negocio por <strong>cohortes de usuarios</strong>.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-exclamation-circle"></i></div>
-<div>Las medianas o medias solo sirven para engañarnos, métricas como las proyecciones en Excel, se pueden adaptar para que digan lo que nos interesa mostrar. Por ejemplo, si un Venture Capital, Business Angels u otro por el estilo, pregunta por la retención y la de los últimos meses no es muy buena. La solución es fácil: haz una media de los 6-12 últimos meses o saca las métricas con un cohorte de usuarios que te favorezca. Pero, a fin de cuentas, esto es <strong>mentir</strong>, tanto a ti como al fondo, y no suele tener buen final. Las buenas relaciones se basan en la <strong>confianza</strong>.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-check-circle"></i></div>
-<div>Revisa <strong>todas tus métricas</strong>. Olvídate de ponerlas en bonito y céntrate en la forma de <strong>mejorarlas</strong>.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-rocket"></i></div>
-<div><strong>¡Actúa! ¡Anticípate!</strong></div>
-</li>
-</ul>
-</div>
-</section>
-</div>
-</main>
-</div>
-<footer class="ns-foot"><strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br/>Nextscenario · <a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a></footer>
+
+<footer class="ns-foot">
+    <strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br>
+    Nextscenario · <a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a>
+</footer>
+
 </body>
 </html>
