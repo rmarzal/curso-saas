@@ -6,9 +6,6 @@ if (!isset($_SESSION['username'])) {
 }
 $username = htmlspecialchars($_SESSION['username']);
 
-$intro_video_local = __DIR__ . '/assets/Intro.mp4';
-$has_intro_video = file_exists($intro_video_local);
-
 $modules = [
     ["0️⃣", "¿Qué empresa quieres construir?",            "/metricas/pro/que_empresa_quieres_construir.php", "Reflexión inicial sobre el tipo de empresa SaaS que quieres crear."],
     ["1️⃣", "Introducción a Modelos de Negocio SaaS",     "/metricas/pro/introduccion_modelos_negocio.php",  "Características del modelo SaaS y los principales factores de fracaso."],
@@ -116,89 +113,69 @@ $extra = [
             margin-bottom: 1.25rem;
         }
 
-        .video-frame {
-            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
-            border-radius: 0.85rem; background: #0a1822;
-            border: 1px solid #d6dde5;
-            box-shadow: 0 12px 28px -10px rgba(7,59,76,0.25);
-        }
-        .video-frame iframe, .video-frame video {
-            position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
-            display: block;
-        }
-        .video-placeholder {
-            position: absolute; inset: 0;
-            display: flex; align-items: center; justify-content: center;
-            color: rgba(255,255,255,0.7);
-            text-align: center; padding: 2rem;
-            background: linear-gradient(135deg, #073B4C, #0e5870);
-            font-size: 0.92rem; line-height: 1.5;
-        }
-
-        .info-table {
-            margin-top: 1.5rem;
+        .info-bar {
+            display: flex; flex-wrap: wrap; align-items: center;
+            gap: 0.6rem 1rem;
+            background: var(--c-card);
             border: 1px solid var(--c-border);
             border-radius: 0.85rem;
-            overflow: hidden;
-            background: #fbfdff;
+            padding: 0.75rem 1rem;
+            box-shadow: 0 2px 10px rgba(20,40,60,0.04);
+            margin-bottom: 1.25rem;
+            font-size: 0.9rem;
         }
-        .info-table .head {
-            background: linear-gradient(90deg, #f0f8fc, #e9f7f1);
-            padding: 0.85rem 1.15rem;
-            font-weight: 700; color: var(--c-ink);
-            border-bottom: 1px solid var(--c-border);
-            font-size: 0.98rem;
+        .info-bar .who {
+            display: flex; align-items: center; gap: 0.5rem;
+            color: var(--c-ink); font-weight: 600;
         }
-        .info-table dl { margin: 0; padding: 0; }
-        .info-table .row {
-            display: grid;
-            grid-template-columns: 220px 1fr;
-            gap: 0;
-            border-bottom: 1px solid var(--c-border);
+        .info-bar .who .avatar {
+            width: 1.85rem; height: 1.85rem; border-radius: 50%;
+            background: linear-gradient(135deg, var(--c-blue), var(--c-mint));
+            color: #fff; font-weight: 700; font-size: 0.78rem;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
         }
-        .info-table .row:last-child { border-bottom: 0; }
-        .info-table dt {
-            padding: 0.85rem 1.15rem;
-            font-weight: 600; color: var(--c-ink-2);
-            background: #f7fafc;
-            font-size: 0.95rem;
+        .info-bar .sep {
+            width: 1px; height: 1.4rem; background: var(--c-border);
+            display: none;
         }
-        .info-table dd {
-            margin: 0;
-            padding: 0.85rem 1.15rem;
-            color: #344554; font-size: 0.98rem;
-            display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;
+        @media (min-width: 720px) { .info-bar .sep { display: block; } }
+        .info-bar .email {
+            color: var(--c-muted); font-weight: 500; text-decoration: none;
         }
-        .info-table dd a {
-            color: var(--c-blue);
-            font-weight: 600; text-decoration: none;
+        .info-bar .email:hover { color: var(--c-blue); }
+        .info-bar .actions {
+            display: flex; flex-wrap: wrap; gap: 0.4rem;
+            margin-left: auto;
         }
-        .info-table dd a:hover { text-decoration: underline; }
-        .info-table dd .meta {
-            color: var(--c-muted); font-size: 0.85rem; font-weight: 400;
+        .pill {
+            display: inline-flex; align-items: center; gap: 0.35rem;
+            padding: 0.4rem 0.75rem;
+            border-radius: 999px;
+            font-weight: 600; font-size: 0.82rem;
+            text-decoration: none;
+            transition: transform .12s, box-shadow .12s, background .12s;
         }
-        @media (max-width: 600px) {
-            .info-table .row { grid-template-columns: 1fr; }
-            .info-table dt { background: #fbfdff; padding-bottom: 0; }
+        .pill-primary {
+            background: linear-gradient(135deg, var(--c-blue), var(--c-mint));
+            color: #fff;
+            box-shadow: 0 4px 10px -4px rgba(17,138,178,0.4);
         }
+        .pill-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 14px -4px rgba(17,138,178,0.5); }
+        .pill-ghost {
+            background: #f3f7fa; color: var(--c-ink);
+            border: 1px solid var(--c-border);
+        }
+        .pill-ghost:hover { background: #e7f0f5; border-color: var(--c-blue); color: var(--c-blue); }
 
-        .aside-callout {
-            margin-top: 1.5rem;
-            display: flex; gap: 1rem;
-            background: linear-gradient(135deg, #eaf6ff 0%, #e7f7f0 100%);
-            border: 1px solid #c8e3f5;
-            border-radius: 0.95rem;
-            padding: 1.1rem 1.25rem;
-            color: var(--c-ink);
-            line-height: 1.55;
+        .info-note {
+            font-size: 0.8rem; color: var(--c-muted);
+            line-height: 1.5;
+            padding: 0 0.25rem;
+            margin-bottom: 1.25rem;
         }
-        .aside-callout .ico {
-            flex-shrink: 0; font-size: 1.25rem;
-        }
-        .aside-callout a {
-            color: var(--c-blue); font-weight: 600;
-            text-decoration: underline;
-        }
+        .info-note a { color: var(--c-blue); font-weight: 600; text-decoration: none; }
+        .info-note a:hover { text-decoration: underline; }
 
         .grid-modules {
             display: grid; gap: 0.85rem;
@@ -261,38 +238,23 @@ $extra = [
             </p>
         </header>
 
-        <section class="section-card">
-            <h2 class="section-title">🎬 Intro del curso</h2>
-
-            <div class="video-frame">
-                <?php if ($has_intro_video): ?>
-                    <video controls preload="metadata" poster="">
-                        <source src="assets/Intro.mp4" type="video/mp4">
-                        Tu navegador no soporta el reproductor.
-                    </video>
-                <?php else: ?>
-                    <div class="video-placeholder">
-                        🎥 <strong>Intro.mp4</strong> — sube el archivo a <code style="background:rgba(255,255,255,0.12); padding:0.1rem 0.4rem; border-radius:0.3rem;">/metricas/pro/assets/Intro.mp4</code> para que aparezca aquí.
-                    </div>
-                <?php endif; ?>
+        <div class="info-bar">
+            <div class="who">
+                <span class="avatar">RM</span>
+                <span>Rubén Marzal</span>
             </div>
-
-            <div class="info-table">
-                <div class="head">Curso online · Métricas y Finanzas SaaS</div>
-                <dl>
-                    <div class="row"><dt>Profesor</dt><dd>Rubén Marzal</dd></div>
-                    <div class="row"><dt>Email</dt><dd><a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a></dd></div>
-                    <div class="row"><dt>Acceso</dt><dd><a href="https://cursos.nextscenario.com/metricas/login.php">Acceso al curso</a></dd></div>
-                    <div class="row"><dt>Agendar mentorías <span class="meta">(Necesario contratar previamente)</span></dt><dd><a href="https://tidycal.com/nextscenario/mentoria-curso" target="_blank" rel="noopener">Agendar mentoría</a></dd></div>
-                    <div class="row"><dt>📕 Libro</dt><dd><a href="https://tinyurl.com/7as42k8c" target="_blank" rel="noopener">Comprar Libro SaaS</a></dd></div>
-                </dl>
+            <span class="sep"></span>
+            <a class="email" href="mailto:admin@nextscenario.com">admin@nextscenario.com</a>
+            <div class="actions">
+                <a class="pill pill-primary" href="https://tidycal.com/nextscenario/mentoria-curso" target="_blank" rel="noopener">📅 Agendar mentoría</a>
+                <a class="pill pill-ghost" href="https://tinyurl.com/7as42k8c" target="_blank" rel="noopener">📕 Libro SaaS</a>
             </div>
+        </div>
 
-            <div class="aside-callout">
-                <span class="ico">📢</span>
-                <span>Visualiza los videos cuando quieras, tantas veces como quieras. En cada apartado encontrarás el video del curso y el contenido de apoyo. Si has contratado las mentorías puedes <a href="https://tidycal.com/nextscenario/mentoria-curso" target="_blank" rel="noopener">agendar mentoría aquí</a>.</span>
-            </div>
-        </section>
+        <p class="info-note">
+            📢 Visualiza los videos cuando quieras, tantas veces como quieras. Cada módulo incluye video del curso y contenido de apoyo.
+            La mentoría requiere <a href="https://tidycal.com/nextscenario/mentoria-curso" target="_blank" rel="noopener">contratación previa</a>.
+        </p>
 
         <section class="section-card">
             <h2 class="section-title">📅 Módulos del Curso · Métricas SaaS y Modelos Financieros</h2>
