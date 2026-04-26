@@ -1,0 +1,234 @@
+/*
+ * NextScenario design system override for the static infographic pages.
+ * Loads after Tailwind + cada inline <style>, so las clases comunes
+ * (.section-card, .feature-box, .concept-card, .gradient-text, etc.)
+ * adoptan el skin Geist/cream/ink/lime.
+ *
+ * No reescribimos el contenido HTML — solo el aspecto visual.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    --c-ink: #0A1230;
+    --c-ink-2: #111B42;
+    --c-ink-3: #1B2657;
+    --c-paper: #F6F4EE;
+    --c-paper-2: #EBE7DB;
+    --c-line: rgba(10, 18, 48, 0.12);
+    --c-line-strong: rgba(10, 18, 48, 0.22);
+    --c-mute: rgba(10, 18, 48, 0.58);
+    --c-accent: #D4FF3F;
+    --c-accent-2: #5B8CFF;
+    --c-pos: #00B67A;
+    --c-neg: #E24A4A;
+}
+
+/* Reset base */
+html, body {
+    margin: 0; padding: 0;
+    background: var(--c-paper) !important;
+    color: var(--c-ink) !important;
+    font-family: 'Geist', ui-sans-serif, system-ui, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body { padding-top: 70px !important; }
+
+/* Typography overrides */
+h1, h2, h3, h4 {
+    font-family: 'Geist', system-ui, sans-serif !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.025em !important;
+    color: var(--c-ink) !important;
+}
+h1 { font-size: clamp(32px, 4vw, 56px) !important; line-height: 1.05 !important; letter-spacing: -0.035em !important; }
+h2 { font-size: clamp(24px, 2.8vw, 36px) !important; line-height: 1.1 !important; }
+h3 { font-size: clamp(18px, 1.6vw, 22px) !important; line-height: 1.25 !important; }
+
+em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; }
+
+p, li, td, th { font-family: 'Geist', system-ui, sans-serif; }
+p { color: var(--c-ink); opacity: 0.86; }
+strong { font-weight: 600; }
+
+/* Kill ALL gradient-text tricks (background-clip:text + transparent fill) */
+.gradient-text,
+.header h1,
+[style*="-webkit-text-fill-color"],
+[style*="background-clip: text"],
+[style*="background-clip:text"] {
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: var(--c-ink) !important;
+    background-image: none !important;
+    background: none !important;
+    color: var(--c-ink) !important;
+}
+
+/* Header h1 / section titles per-page customizations */
+.header h1, .header h2 { color: var(--c-ink) !important; font-weight: 500 !important; }
+.section-title {
+    color: var(--c-ink) !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.025em !important;
+}
+.section-title::after {
+    background: var(--c-accent) !important;
+    height: 4px !important;
+    width: 64px !important;
+    border-radius: 2px !important;
+    opacity: 1 !important;
+}
+
+/* Containers — kill the heavy white card wrapping the whole page */
+body > .container,
+body > div.container {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+    max-width: 1100px !important;
+}
+@media (max-width: 720px) {
+    body > .container, body > div.container { padding-left: 20px !important; padding-right: 20px !important; }
+}
+
+/* Body padding override — needs space for sticky nav */
+body { padding: 70px 0 0 0 !important; }
+
+/* Override card containers */
+.section-card,
+.card,
+.example-card,
+.concept-card,
+.error-card,
+.role-card {
+    background: color-mix(in oklab, var(--c-paper) 60%, white) !important;
+    border: 1px solid var(--c-line) !important;
+    border-radius: 18px !important;
+    box-shadow: none !important;
+    color: var(--c-ink) !important;
+}
+.concept-card { border-top: 1px solid var(--c-line) !important; }
+.concept-card.orange { border-color: var(--c-line) !important; box-shadow: inset 0 4px 0 var(--c-accent) !important; }
+.concept-card.darkblue { border-color: var(--c-line) !important; box-shadow: inset 0 4px 0 var(--c-ink) !important; }
+.concept-card.green { border-color: var(--c-line) !important; box-shadow: inset 0 4px 0 var(--c-accent-2) !important; }
+
+/* Feature/advantage callouts */
+.feature-box {
+    background: color-mix(in oklab, var(--c-accent-2) 14%, var(--c-paper)) !important;
+    border-left: 3px solid var(--c-accent-2) !important;
+    border-radius: 14px !important;
+    color: var(--c-ink) !important;
+}
+.advantage-box {
+    background: var(--c-accent) !important;
+    border-left: 3px solid var(--c-ink) !important;
+    border-radius: 14px !important;
+    color: var(--c-ink) !important;
+}
+.failure-point-box,
+.error-item {
+    background: color-mix(in oklab, var(--c-neg) 12%, var(--c-paper)) !important;
+    border-left: 3px solid var(--c-neg) !important;
+    border-radius: 14px !important;
+    color: var(--c-ink) !important;
+}
+.failure-icon { color: var(--c-neg) !important; }
+
+/* Bullet points / action items */
+.bullet-point,
+.action-bullet {
+    color: var(--c-ink) !important;
+}
+.bullet-point-icon {
+    background: var(--c-accent) !important;
+    color: var(--c-ink) !important;
+}
+
+/* Concept icon — make it cleaner */
+.concept-icon { color: var(--c-ink) !important; }
+
+/* Tailwind utility background overrides → use cream/paper variants */
+.bg-white { background: color-mix(in oklab, var(--c-paper) 50%, white) !important; }
+.bg-gray-50, .bg-gray-100 { background: var(--c-paper-2) !important; }
+.bg-blue-50, .bg-blue-100 { background: color-mix(in oklab, var(--c-accent-2) 14%, var(--c-paper)) !important; }
+.bg-green-50, .bg-green-100 { background: color-mix(in oklab, var(--c-accent) 30%, var(--c-paper)) !important; }
+.bg-yellow-50, .bg-yellow-100 { background: color-mix(in oklab, var(--c-accent) 50%, var(--c-paper)) !important; }
+.bg-red-50, .bg-red-100 { background: color-mix(in oklab, var(--c-neg) 14%, var(--c-paper)) !important; }
+.bg-purple-50, .bg-purple-100 { background: color-mix(in oklab, var(--c-accent-2) 22%, var(--c-paper)) !important; }
+.bg-indigo-50, .bg-indigo-100 { background: color-mix(in oklab, var(--c-accent-2) 22%, var(--c-paper)) !important; }
+.bg-accent-light { background: color-mix(in oklab, var(--c-accent) 30%, var(--c-paper)) !important; }
+
+/* Text color tweaks */
+.text-gray-800, .text-gray-700, .text-gray-900 { color: var(--c-ink) !important; }
+.text-gray-600, .text-gray-500 { color: var(--c-mute) !important; }
+.text-blue-600, .text-blue-700, .text-blue-800, .text-blue-500 { color: var(--c-accent-2) !important; }
+.text-green-600, .text-green-700, .text-green-500 { color: var(--c-pos) !important; }
+.text-red-500, .text-red-600 { color: var(--c-neg) !important; }
+.text-indigo-500, .text-indigo-600, .text-purple-600 { color: var(--c-accent-2) !important; }
+
+/* Borders */
+.border-blue-500, .border-blue-600 { border-color: var(--c-accent-2) !important; }
+.border-green-500, .border-green-600 { border-color: var(--c-pos) !important; }
+.border-red-500, .border-red-600 { border-color: var(--c-neg) !important; }
+.border-yellow-500 { border-color: var(--c-accent) !important; }
+
+/* Remove gradient backgrounds (`bg-gradient-to-*`) */
+[class*="bg-gradient-to"] {
+    background-image: none !important;
+    background: color-mix(in oklab, var(--c-paper) 60%, white) !important;
+}
+
+/* Charts / SVG containers — keep the navy ink as foreground */
+.axis text, .axis-x text, .axis-y text { fill: var(--c-mute) !important; font-family: 'JetBrains Mono', monospace !important; font-size: 10px !important; }
+
+/* Sticky top nav (added to each page) */
+.ns-static-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+    backdrop-filter: blur(14px);
+    background: color-mix(in oklab, var(--c-paper) 82%, transparent);
+    border-bottom: 1px solid var(--c-line);
+}
+.ns-static-nav .ns-inner {
+    max-width: 1100px; margin: 0 auto;
+    height: 60px;
+    padding: 0 32px;
+    display: flex; align-items: center; justify-content: space-between;
+}
+@media (max-width: 720px) { .ns-static-nav .ns-inner { padding: 0 20px; } }
+
+.ns-back {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; color: var(--c-ink) !important;
+    opacity: 0.7;
+    text-decoration: none;
+    font-family: 'Geist', system-ui, sans-serif;
+    transition: opacity .15s;
+}
+.ns-back:hover { opacity: 1; }
+.ns-back svg { width: 14px; height: 14px; }
+
+.ns-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-mute);
+}
+.ns-logout {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--c-mute) !important;
+    text-decoration: none;
+}
+.ns-logout:hover { color: var(--c-ink) !important; }
+
+/* Container width consistency */
+body > .container,
+body > div.container {
+    max-width: 1100px !important;
+}
