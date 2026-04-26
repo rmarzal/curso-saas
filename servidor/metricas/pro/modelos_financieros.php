@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php"); exit(); }
+if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php?v=1"); exit(); }
 $module_num = "09";
 $module_title = "Modelos Financieros SaaS";
 $module_subtitle = "Los principales modelos financieros en la gestión de una empresa: cashflow, cuenta de resultados y balance.";
