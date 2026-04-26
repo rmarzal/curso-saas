@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php"); exit(); }
+if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php?v=1"); exit(); }
 $module_num = "10";
 $module_title = "Reporting a inversores";
 $module_subtitle = "Cómo reportar a inversores y las principales herramientas que se utilizan: el One Pager y el Data Room.";

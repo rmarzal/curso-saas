@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php"); exit(); }
+if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php?v=1"); exit(); }
 $module_num = "06";
 $module_title = "Retención y Engagement";
 $module_subtitle = "Veremos la retención en detalle, desde cómo calcularla hasta una visión de producto. Una introducción a la analítica de producto para poder analizarla.";

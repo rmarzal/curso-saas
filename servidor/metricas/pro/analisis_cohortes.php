@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php"); exit(); }
+if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php?v=1"); exit(); }
 $module_num = "07";
 $module_title = "Análisis de Cohortes";
 $module_subtitle = "Cómo realizar un estudio de cohortes paso a paso. Incluye plantilla descargable de Google Sheets.";

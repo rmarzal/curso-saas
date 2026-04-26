@@ -15,7 +15,7 @@ $password = trim($_POST['password'] ?? '');
 
 if (isset($users[$username]) && strcmp($users[$username], $password) === 0) {
     $_SESSION['username'] = $username;
-    header("Location: /metricas/pro/embed.php");
+    header("Location: /metricas/pro/embed.php?ok=1");
     exit();
 } else {
     header("Location: /metricas/login.php?error=1");

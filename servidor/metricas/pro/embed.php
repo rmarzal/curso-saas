@@ -1,23 +1,23 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("Location: /metricas/login.php");
+    header("Location: /metricas/login.php?v=1");
     exit();
 }
 $username = htmlspecialchars($_SESSION['username']);
 
 $modules = [
-    ["00", "¿Qué empresa quieres construir?",            "/metricas/pro/que_empresa_quieres_construir.php", "Reflexión inicial sobre el tipo de empresa SaaS que quieres crear."],
-    ["01", "Introducción a Modelos de Negocio SaaS",     "/metricas/pro/introduccion_modelos_negocio.php",  "Características del modelo SaaS y los principales factores de fracaso."],
-    ["02", "Modelos de negocio y limitación de producto", "/metricas/pro/modelos_de_negocio.php",           "Sales vs PLG, Freemium vs Free Trial y cómo limitar el producto."],
-    ["03", "Pricing SaaS",                                "/metricas/pro/pricing.php",                      "Estrategias para definir y presentar tus precios."],
-    ["04", "Métricas SaaS fundamentales",                 "/metricas/pro/metricas_fundamentales.php",       "MRR, ARR, LTV, CAC, churn, eficiencia y unit economics."],
-    ["05", "B2B SaaS Metrics Journey Framework",          "/metricas/pro/framework_b2b.php",                "Las métricas que importan en cada etapa del viaje B2B."],
-    ["06", "Retención y Engagement",                      "/metricas/pro/retencion_engagement.php",         "Cómo medir retención e introducción a la analítica de producto."],
-    ["07", "Análisis de Cohortes",                        "/metricas/pro/analisis_cohortes.php",            "Estudio de cohortes paso a paso con plantilla de Sheets."],
-    ["08", "Benchmark SaaS",                              "/metricas/pro/benchmark_saas.php",               "Cómo comparar tu SaaS con el mercado y situarte en la media."],
-    ["09", "Modelos Financieros SaaS",                    "/metricas/pro/modelos_financieros.php",          "Cashflow, cuenta de pérdidas y ganancias y balance."],
-    ["10", "Reporting a inversores",                       "/metricas/pro/reporting.php",                   "Data Room y One Pager para presentar a inversores."],
+    ["00", "¿Qué empresa quieres construir?",            "/metricas/pro/que_empresa_quieres_construir.php?v=1", "Reflexión inicial sobre el tipo de empresa SaaS que quieres crear."],
+    ["01", "Introducción a Modelos de Negocio SaaS",     "/metricas/pro/introduccion_modelos_negocio.php?v=1",  "Características del modelo SaaS y los principales factores de fracaso."],
+    ["02", "Modelos de negocio y limitación de producto", "/metricas/pro/modelos_de_negocio.php?v=1",           "Sales vs PLG, Freemium vs Free Trial y cómo limitar el producto."],
+    ["03", "Pricing SaaS",                                "/metricas/pro/pricing.php?v=1",                      "Estrategias para definir y presentar tus precios."],
+    ["04", "Métricas SaaS fundamentales",                 "/metricas/pro/metricas_fundamentales.php?v=1",       "MRR, ARR, LTV, CAC, churn, eficiencia y unit economics."],
+    ["05", "B2B SaaS Metrics Journey Framework",          "/metricas/pro/framework_b2b.php?v=1",                "Las métricas que importan en cada etapa del viaje B2B."],
+    ["06", "Retención y Engagement",                      "/metricas/pro/retencion_engagement.php?v=1",         "Cómo medir retención e introducción a la analítica de producto."],
+    ["07", "Análisis de Cohortes",                        "/metricas/pro/analisis_cohortes.php?v=1",            "Estudio de cohortes paso a paso con plantilla de Sheets."],
+    ["08", "Benchmark SaaS",                              "/metricas/pro/benchmark_saas.php?v=1",               "Cómo comparar tu SaaS con el mercado y situarte en la media."],
+    ["09", "Modelos Financieros SaaS",                    "/metricas/pro/modelos_financieros.php?v=1",          "Cashflow, cuenta de pérdidas y ganancias y balance."],
+    ["10", "Reporting a inversores",                       "/metricas/pro/reporting.php?v=1",                   "Data Room y One Pager para presentar a inversores."],
 ];
 
 $extra = [
