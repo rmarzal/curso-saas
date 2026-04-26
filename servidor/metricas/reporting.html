@@ -1,569 +1,399 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Infografía: Tu Data Room y One Pager para Inversores SaaS</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet"/>
-<style>
-        :root {
-            --primary-color: #28a745; /* Verde vibrante */
-            --secondary-color: #2c3e50; /* Azul oscuro para texto */
-            --light-bg: #f8f9fa; /* Fondo muy claro */
-            --card-bg: #ffffff; /* Fondo de tarjeta blanco */
-            --inner-card-bg: #e6f6eb; /* Fondo interno de tarjeta, verde claro */
-            --text-color: #495057; /* Color de texto general */
-            --light-text-color: #6c757d; /* Texto más claro */
-            --border-color: #e9ecef; /* Color de borde sutil */
-            --shadow-light: rgba(0, 0, 0, 0.05);
-            --shadow-medium: rgba(0, 0, 0, 0.1);
-        }
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Data Room y One Pager para inversores SaaS · Curso SaaS</title>
+<link rel="stylesheet" href="_design.css" />
+</head>
+<body>
 
-        body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 30px 20px;
-            background-color: var(--light-bg);
-            color: var(--text-color);
-            font-size: 16px;
-        }
+<nav class="ns-static-nav">
+    <div class="ns-inner">
+        <a class="ns-back" href="/metricas/pro/embed.php">
+            <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"/></svg>
+            Volver al curso
+        </a>
+        <span class="ns-eyebrow">Infografía · Curso SaaS</span>
+        <a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a>
+    </div>
+</nav>
 
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            background-color: var(--card-bg);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px var(--shadow-medium);
-        }
-
-        .section-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.8em;
-            color: var(--secondary-color);
-            text-align: center;
-            margin-bottom: 50px;
-            font-weight: 700;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 5px;
-            background-color: var(--primary-color);
-            border-radius: 3px;
-        }
-
-        p {
-            margin-bottom: 1em;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .text-xl {
-            font-size: 1.35rem;
-            line-height: 1.5;
-            color: var(--light-text-color);
-            margin-bottom: 30px;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-left: 6px solid var(--primary-color);
-            border-radius: 10px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 15px var(--shadow-light);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px var(--shadow-medium);
-        }
-
-        .card-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2em;
-            color: var(--secondary-color);
-            margin-top: 0;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .card-title i {
-            margin-right: 20px;
-            color: var(--primary-color);
-            font-size: 1.3em;
-            width: 40px;
-            text-align: center;
-        }
-        
-        .card > p {
-            font-size: 1.1em;
-            color: var(--text-color);
-            margin-bottom: 25px;
-        }
-
-        .card-inner-bg {
-            background-color: var(--inner-card-bg);
-            padding: 25px;
-            border-radius: 8px;
-            margin-top: 25px;
-            border: 1px solid var(--border-color);
-        }
-
-        .list-none {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .bullet-point {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            font-size: 1.05em;
-            color: var(--text-color);
-        }
-
-        .bullet-point-icon {
-            flex-shrink: 0;
-            width: 32px;
-            height: 32px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 15px;
-            font-size: 0.9em;
-            box-shadow: 0 2px 8px var(--shadow-light);
-        }
-        .bullet-point strong {
-            color: var(--secondary-color);
-            font-weight: 600;
-        }
-
-        .bullet-point .list-disc {
-            margin-top: 10px;
-            margin-left: 20px;
-            color: var(--light-text-color);
-            font-size: 0.95em;
-        }
-        .bullet-point .list-disc li {
-            margin-bottom: 8px;
-        }
-        
-        .list-disc {
-            list-style-position: inside;
-            padding-left: 10px;
-        }
-        
-        .list-disc li {
-             margin-bottom: 8px;
-        }
-
-        .metric-formula {
-            background-color: #d4edda;
-            border-left: 5px solid #28a745;
-            padding: 18px;
-            border-radius: 8px;
-            font-family: 'Courier New', Courier, monospace;
-            color: #155724;
-            margin-top: 15px;
-            font-size: 1.05em;
-            line-height: 1.5;
-        }
-        
-        .font-bold {
-            font-weight: bold;
-        }
-        
-        .mb-3 {
-            margin-bottom: 1rem;
-        }
-        
-        .mt-5 {
-            margin-top: 2rem;
-        }
-
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            body {
-                padding: 20px 15px;
-                font-size: 15px;
-            }
-            .container {
-                padding: 25px;
-            }
-            .section-title {
-                font-size: 2.2em;
-                margin-bottom: 35px;
-            }
-            .section-title::after {
-                width: 80px;
-                height: 4px;
-            }
-            .card {
-                padding: 25px;
-                margin-bottom: 30px;
-            }
-            .card-title {
-                font-size: 1.6em;
-                margin-bottom: 20px;
-            }
-            .card-title i {
-                font-size: 1.1em;
-                margin-right: 15px;
-            }
-            .bullet-point {
-                font-size: 1em;
-                margin-bottom: 15px;
-            }
-            .bullet-point-icon {
-                width: 28px;
-                height: 28px;
-                font-size: 0.8em;
-                margin-right: 12px;
-            }
-            .text-xl {
-                font-size: 1.15rem;
-                margin-bottom: 25px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 15px 10px;
-                font-size: 14px;
-            }
-            .container {
-                padding: 15px;
-            }
-            .section-title {
-                font-size: 1.8em;
-                margin-bottom: 30px;
-            }
-            .card {
-                padding: 20px;
-                margin-bottom: 25px;
-            }
-            .card-title {
-                font-size: 1.4em;
-                flex-direction: column;
-                align-items: flex-start;
-                margin-bottom: 15px;
-            }
-            .card-title i {
-                margin-bottom: 10px;
-                margin-right: 0;
-            }
-            .bullet-point {
-                font-size: 0.95em;
-                margin-bottom: 12px;
-            }
-            .bullet-point-icon {
-                width: 25px;
-                height: 25px;
-                font-size: 0.75em;
-                margin-right: 10px;
-            }
-            .text-xl {
-                font-size: 1.05rem;
-                margin-bottom: 20px;
-            }
-            .metric-formula {
-                padding: 15px;
-                font-size: 0.95em;
-            }
-        }
-    </style>
-
-<link href="_design.css" rel="stylesheet"/></head>
-<body><nav class="ns-static-nav"><div class="ns-inner"><a class="ns-back" href="/metricas/pro/embed.php"><svg fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"></path></svg>Volver al curso</a><span class="ns-eyebrow">Infografía · Curso SaaS</span><a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a></div></nav>
 <div class="ns-shell">
-<header class="ns-hero">
-<span class="ns-hero-eyebrow"><span class="dot"></span>Infografía · Curso SaaS</span>
-<h1 class="ns-h1">Infografía: Tu Data Room y One Pager para Inversores SaaS</h1>
-</header>
-<main class="ns-card">
-<div class="container">
-<section>
-<h2 class="section-title">CÓMO REPORTAR A INVERSORES Y OTROS STAKEHOLDERS</h2>
-<p class="text-center text-xl">Llevar una buena relación con inversores es crucial para nuevas rondas y mantener alieneados a todos en el caso de futuras necesidades. Unas de las herramientas que te pueden ayudar a "mantener la casa ordenada" es el data room y el one pager.</p>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-chart-line"></i> ¿Por Qué un Data Room es Crucial?</h3>
-<p>Los inversores no siempre conocen tu sector a fondo, pero sí las métricas clave  de un modelo de negocio SaaS. Un buen data room les ayuda a entender el verdadero valor de tu negocio  y facilita el acceso a información estructurada.</p>
-<div class="card-inner-bg">
-<ul class="list-none">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-briefcase"></i></div>
-<div>Transmite seriedad y profesionalidad . Todo está en su sitio, con datos reales y fiables.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-exchange-alt"></i></div>
-<div>Te permite controlar el flujo de información , eligiendo qué y cuándo compartir para proteger datos sensibles.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-shield-alt"></i></div>
-<div> Seguridad y control de acceso . Monitorea quién consulta qué materiales, para entender el interés de los inversores.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-users-cog"></i></div>
-<div>Fomenta la organización abierta  con tus colaboradores, manteniéndolos siempre al día con información filtrada.</div>
-</li>
-</ul>
+
+    <header class="ns-hero">
+        <span class="ns-hero-eyebrow"><span class="dot"></span>Módulo 10 · Reporting a inversores</span>
+        <h1 class="ns-h1">Data Room y <em>One Pager</em> para inversores SaaS.</h1>
+        <p class="ns-lede">
+            Cómo reportar a inversores y otros stakeholders. Llevar una buena relación
+            con inversores es crucial para nuevas rondas y mantener
+            <span style="background: var(--c-accent); padding: 0 6px; border-radius: 4px; color: var(--c-ink);">la casa ordenada</span>.
+            Las dos herramientas principales: el <strong>Data Room</strong> y el
+            <strong>One Pager</strong>.
+        </p>
+
+        <div class="grid-4-kpi">
+            <div class="bigmetric"><div class="l">Beneficios Data Room</div><div class="v">4</div><div class="sub">Profesionalidad · control · seguridad · org.</div></div>
+            <div class="bigmetric"><div class="l">Errores comunes</div><div class="v">4</div><div class="sub">A evitar siempre</div></div>
+            <div class="bigmetric"><div class="l">Doc. esenciales</div><div class="v">3+</div><div class="sub">Financieros · clientes · técnicos</div></div>
+            <div class="bigmetric"><div class="l">One Pager</div><div class="v">1<em>p.</em></div><div class="sub">Tu primera impresión</div></div>
+        </div>
+    </header>
+
+    <main class="ns-card">
+
+        <!-- Bloque 1 — Por qué Data Room -->
+        <section class="mf-feature" style="border-top: 0; padding-top: 0;">
+            <div class="mf-text">
+                <div class="mf-tag">01 · Data Room</div>
+                <h3>Por qué un Data Room es <em>crucial</em>.</h3>
+                <p>
+                    Los inversores no siempre conocen tu sector a fondo, pero sí las
+                    métricas clave de un modelo de negocio SaaS. Un buen data room les
+                    ayuda a entender el verdadero valor de tu negocio y facilita el
+                    acceso a información estructurada.
+                </p>
+                <ul>
+                    <li><span class="chk">→</span><strong>Transmite seriedad y profesionalidad.</strong> Todo está en su sitio, con datos reales y fiables.</li>
+                    <li><span class="chk">→</span><strong>Te permite controlar el flujo de información,</strong> eligiendo qué y cuándo compartir para proteger datos sensibles.</li>
+                    <li><span class="chk">→</span><strong>Seguridad y control de acceso.</strong> Monitorea quién consulta qué materiales, para entender el interés de los inversores.</li>
+                    <li><span class="chk">→</span><strong>Fomenta la organización abierta</strong> con tus colaboradores, manteniéndolos siempre al día con información filtrada.</li>
+                </ul>
+            </div>
+            <div class="mf-visual">
+                <div class="vl">Funciones del data room</div>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 14px;">
+                    <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent); letter-spacing: 0.04em;">💼 Profesionalidad</div>
+                    <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent); letter-spacing: 0.04em;">🔄 Control de flujo</div>
+                    <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 80%, transparent); letter-spacing: 0.04em;">🛡 Seguridad y trazabilidad</div>
+                    <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-accent) 18%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--c-accent); letter-spacing: 0.04em;">👥 Organización abierta</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 2 — Errores comunes -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow" style="--c-pos: var(--c-neg);"><span class="dot" style="background: var(--c-neg); box-shadow: 0 0 0 4px color-mix(in oklab, var(--c-neg) 20%, transparent);"></span>02 · Errores comunes</span>
+                    <h2>Trampas a <em>evitar</em>.</h2>
+                </div>
+                <p>Evita estas trampas para que tu data room sea realmente efectivo y transmita la confianza que buscas.</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="sn">⊘</div>
+                    <h4>Solo usarlo para inversión</h4>
+                    <p>Un data room es útil para más stakeholders y para uso interno.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">🔓</div>
+                    <h4>No controlar el acceso</h4>
+                    <p>Sin seguimiento, pierdes visibilidad sobre el interés.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">⊠</div>
+                    <h4>No restringir permisos</h4>
+                    <p>Asegúrate de que solo se vea lo necesario.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">👁</div>
+                    <h4>Mostrar demasiada info</h4>
+                    <p>La clave es la relevancia, no la cantidad.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 3 — Contenido esencial -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>03 · Contenido esencial</span>
+                    <h2>Qué incluir en tu <em>Data Room</em> SaaS.</h2>
+                </div>
+                <p>Tu data room debe ofrecer una imagen clara de tu startup, su situación financiera y potencial de crecimiento. Aquí los documentos clave organizados en tres bloques.</p>
+            </div>
+
+            <h3 style="font-family: 'Geist', sans-serif; font-weight: 500; font-size: 22px; letter-spacing: -0.02em; margin-top: 32px; color: var(--c-ink); display: flex; align-items: center; gap: 10px;">📊 Documentos Financieros y Legales</h3>
+
+            <div class="steps" style="grid-template-columns: repeat(2, 1fr); margin-top: 16px;">
+                <div class="step">
+                    <div class="sn">📈</div>
+                    <h4>Business Plan</h4>
+                    <p>Proyecciones con varios escenarios. Debe incluir:</p>
+                    <p style="margin-top: 6px !important;"><strong>PyG (Pérdidas y Ganancias):</strong> la foto de la rentabilidad actual.<br><strong>Cashflow:</strong> el control de la caja es vital. Las startups mueren por falta de efectivo, no por no vender.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">📊</div>
+                    <h4>Investor Deck</h4>
+                    <p>Tu presentación clave para inversores (puntos clave de la startup).</p>
+                </div>
+                <div class="step">
+                    <div class="sn">📄</div>
+                    <h4>One Pager</h4>
+                    <p>Resumen conciso (una página) con información de la empresa, ronda y métricas relevantes.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">👥</div>
+                    <h4>Cap Table</h4>
+                    <p>Quiénes son los socios, porcentajes y condiciones.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">⏳</div>
+                    <h4>Rondas anteriores</h4>
+                    <p>Información de financiación e inversión de rondas previas.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">🔍</div>
+                    <h4>Due Diligence</h4>
+                    <p>Proceso de auditoría previo a la inversión.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">🤝</div>
+                    <h4>Term Sheet</h4>
+                    <p>Documento con las condiciones de inversión.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">📜</div>
+                    <h4>Pacto de socios</h4>
+                    <p>Acuerdo entre fundadores e inversores que regula derechos, obligaciones, governance y casos de salida.</p>
+                </div>
+            </div>
+
+            <h3 style="font-family: 'Geist', sans-serif; font-weight: 500; font-size: 22px; letter-spacing: -0.02em; margin-top: 32px; color: var(--c-ink); display: flex; align-items: center; gap: 10px;">👥 Información sobre Clientes</h3>
+
+            <div class="steps" style="grid-template-columns: repeat(2, 1fr); margin-top: 16px;">
+                <div class="step">
+                    <div class="sn">✓</div>
+                    <h4>Clientes y Usuarios Activos</h4>
+                    <p>Definición clara de "usuario activo" y métricas de actividad.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">📍</div>
+                    <h4>Market Research</h4>
+                    <p>Investigación de mercado, tamaño TAM/SAM/SOM y posicionamiento competitivo.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">📑</div>
+                    <h4>Contratos de clientes</h4>
+                    <p>Contratos firmados con clientes representativos y plantilla estándar.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">📥</div>
+                    <h4>Pipeline de clientes</h4>
+                    <p>Pipeline de clientes y su valor estimado.</p>
+                </div>
+            </div>
+
+            <h3 style="font-family: 'Geist', sans-serif; font-weight: 500; font-size: 22px; letter-spacing: -0.02em; margin-top: 32px; color: var(--c-ink); display: flex; align-items: center; gap: 10px;">⚙ Documentos Técnicos</h3>
+            <p style="color: var(--c-mute); margin: 8px 0 0 !important;">El producto y la tecnología son claves. Aunque menos comunes, considera incluir:</p>
+
+            <div class="steps" style="grid-template-columns: repeat(2, 1fr); margin-top: 16px;">
+                <div class="step">
+                    <div class="sn">🧱</div>
+                    <h4>Productos o funcionalidades existentes</h4>
+                    <p>Lista de productos lanzados y módulos del producto principal.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">🌐</div>
+                    <h4>System Architecture Diagram</h4>
+                    <p>Diagrama de arquitectura del sistema, flujos de datos y dependencias.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">{ }</div>
+                    <h4>API Documentation</h4>
+                    <p>Documentación pública de la API si la ofreces.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">📋</div>
+                    <h4>Product Backlog</h4>
+                    <p>Roadmap de producto e iniciativas priorizadas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 4 — Cómo crearlo (3 options) -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>04 · Cómo crear tu Data Room</span>
+                    <h2>Tres formas de <em>empezar</em>.</h2>
+                </div>
+                <p>Identifica el stage de tu startup y la información que es más relevante para tu ronda. ¡Empieza poco a poco con lo que tengas!</p>
+            </div>
+
+            <div class="steps" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="step">
+                    <div class="sn">01</div>
+                    <h4>Carpeta compartida</h4>
+                    <p>Empieza con una carpeta compartida (Google Sheets o similar). Lo más rápido y barato para empezar.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">02</div>
+                    <h4>Servidor propio</h4>
+                    <p>Créala en tu propio servidor para mayor control sobre los datos y los accesos.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">03</div>
+                    <h4>Herramientas avanzadas</h4>
+                    <p>Apóyate en herramientas de extracción, procesamiento y visualización de datos como Next Scenario para soluciones avanzadas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 5 — Carta de presentación -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div style="padding: 36px; background: var(--c-paper-2); border: 1px solid var(--c-line); border-radius: 18px; text-align: center;">
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-mute);">Tu carta de presentación</div>
+                <p style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 28px; line-height: 1.3; margin: 16px 0 0 !important; color: var(--c-ink); max-width: 64ch; margin-left: auto !important; margin-right: auto !important;">
+                    "Tu One Pager y tu Data Room son tu primera impresión. Los inversores
+                    reciben cientos cada mes. ¡Diferénciate!"
+                </p>
+                <p style="margin-top: 16px !important; font-size: 16px; line-height: 1.55; color: var(--c-mute); max-width: 60ch; margin-left: auto !important; margin-right: auto !important;">
+                    Una presentación clara, organizada y profesional es clave para
+                    generar confianza y destacar.
+                </p>
+            </div>
+        </section>
+
+        <!-- Bloque 6 — Qué es un One Pager -->
+        <section class="mf-feature" style="border-top: 1px solid var(--c-line);">
+            <div class="mf-text">
+                <div class="mf-tag">06 · One Pager</div>
+                <h3>¿Qué es un <em>One Pager</em>?</h3>
+                <p>
+                    Como su nombre indica, es un documento en el que debes mostrar la
+                    información más relevante de tu startup resumida en una página. Un
+                    One Pager de una startup debe tener un formato visual que llame la
+                    atención y muestre la información de una forma clara.
+                </p>
+                <p>
+                    <strong>Recuerda que un One Pager es la tarjeta de presentación de
+                    tu SaaS de cara al inversor.</strong>
+                </p>
+                <ul>
+                    <li><span class="chk">→</span><strong>Una página.</strong> Concisa, visual, escaneable.</li>
+                    <li><span class="chk">→</span><strong>Datos clave.</strong> Empresa, equipo, métricas, ronda.</li>
+                    <li><span class="chk">→</span><strong>Diseño.</strong> Tan importante como el contenido.</li>
+                </ul>
+            </div>
+            <div class="mf-visual">
+                <div class="vl">One Pager · estructura típica</div>
+                <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 14px;">
+                    <div style="padding: 8px 12px; background: color-mix(in oklab, var(--c-accent) 18%, transparent); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--c-accent); letter-spacing: 0.06em;">LOGO + NOMBRE</div>
+                    <div style="padding: 8px 12px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: color-mix(in oklab, var(--c-paper) 75%, transparent); letter-spacing: 0.06em;">FUNDADORES · CEO</div>
+                    <div style="padding: 8px 12px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: color-mix(in oklab, var(--c-paper) 75%, transparent); letter-spacing: 0.06em;">EQUIPO</div>
+                    <div style="padding: 8px 12px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: color-mix(in oklab, var(--c-paper) 75%, transparent); letter-spacing: 0.06em;">CAP TABLE</div>
+                    <div style="padding: 8px 12px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: color-mix(in oklab, var(--c-paper) 75%, transparent); letter-spacing: 0.06em;">EQUITY STORY</div>
+                    <div style="padding: 8px 12px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: color-mix(in oklab, var(--c-paper) 75%, transparent); letter-spacing: 0.06em;">MODELO DE NEGOCIO</div>
+                    <div style="padding: 8px 12px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: color-mix(in oklab, var(--c-paper) 75%, transparent); letter-spacing: 0.06em;">UNIT ECONOMICS</div>
+                    <div style="padding: 8px 12px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: color-mix(in oklab, var(--c-paper) 75%, transparent); letter-spacing: 0.06em;">FACTURACIÓN</div>
+                    <div style="padding: 8px 12px; background: color-mix(in oklab, var(--c-accent) 18%, transparent); border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--c-accent); letter-spacing: 0.06em;">KPIs SAAS · MRR ARR CHURN</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 7 — Cómo crear One Pager (8 secciones) -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>07 · Cómo crearlo</span>
+                    <h2>Los <em>imprescindibles</em> de un One Pager SaaS.</h2>
+                </div>
+                <p>Lo que debe contener tu One Pager de cara al inversor — bloque por bloque, con la información necesaria de cada uno.</p>
+            </div>
+
+            <div class="steps" style="grid-template-columns: repeat(2, 1fr);">
+
+                <div class="step">
+                    <div class="sn">01</div>
+                    <h4>Datos básicos</h4>
+                    <p>Nombre, logo y enlace web de tu startup. Quiénes son los fundadores, destacando al CEO. Composición y perfiles clave del equipo. Cap Table con distribución de acciones. Métricas principales del modelo de negocio.</p>
+                </div>
+
+                <div class="step">
+                    <div class="sn">02</div>
+                    <h4>Equipo</h4>
+                    <p>Es importante detallar quién compone el proyecto. Contar con un equipo de profesionales con una relevante cronología empresarial contribuirá a captar el interés de los inversores. Recuerda que ellos buscan equipos capacitados, por lo que es indispensable transmitir que no hay mejor equipo para ejecutar el proyecto.</p>
+                    <p style="margin-top: 8px !important; font-size: 12px !important;">Necesitarás aportar:<br>· Número de personas que forman parte del proyecto incluyendo al CEO.<br>· Nombres y apellidos de los miembros clave.<br>· Inversores o mentores que estén actualmente en el negocio.</p>
+                </div>
+
+                <div class="step">
+                    <div class="sn">03</div>
+                    <h4>Cap Table</h4>
+                    <p>El Cap Table muestra la distribución de acciones de una empresa. Es importante que esté bien estructurada. Un inversor se fijará en que el equipo fundador tenga suficiente equity para no diluirse demasiado en futuras rondas.</p>
+                    <p style="margin-top: 8px !important; font-size: 12px !important;">Información de interés:<br>· Porcentaje de equity del equipo fundador.<br>· Porcentaje de equity de los inversores.<br>· Porcentaje de ESOP por asignar.</p>
+                </div>
+
+                <div class="step">
+                    <div class="sn">04</div>
+                    <h4>Equity Story</h4>
+                    <p>Información sobre financiación e inversión de rondas anteriores:</p>
+                    <p style="margin-top: 8px !important; font-size: 12px !important;">· Financiación histórica.<br>· Tamaño de la ronda actual.<br>· Dinero comprometido de la ronda actual (si tienes inversores relevantes confirmados, es recomendable poner sus logos o nombres).</p>
+                </div>
+
+                <div class="step">
+                    <div class="sn">05</div>
+                    <h4>Modelo de negocio · Propuesta de valor</h4>
+                    <p>Especifica el tipo de modelo de negocio para explicar cómo se factura. Hay inversores con preferencias por sectores y modelos de negocio, por lo que es importante dejarlo claro.</p>
+                    <p style="margin-top: 8px !important; font-size: 12px !important;">· <strong>Sector:</strong> industria en la que operas.<br>· <strong>Modelo de negocio:</strong> SaaS, Marketplace, E-commerce…<br>· <strong>Descripción corta:</strong> qué hace la startup de manera clara y entendible.</p>
+                </div>
+
+                <div class="step">
+                    <div class="sn">06</div>
+                    <h4>Modelo de monetización</h4>
+                    <p><strong>Clientes:</strong> describe el nicho al que te diriges.</p>
+                    <p style="margin-top: 6px !important;"><strong>Monetización:</strong> explica de forma sencilla el modelo de pricing. Si hay varios, especifica qué porcentaje de ingresos proviene de cada uno.</p>
+                </div>
+
+                <div class="step">
+                    <div class="sn">07</div>
+                    <h4>Unit Economics</h4>
+                    <p>Ayuda al inversor a conocer tus ganancias por transacción. Deberás incluir:</p>
+                    <p style="margin-top: 8px !important; font-size: 12px !important;">· <strong>LTV/CAC:</strong> ratio entre el valor de vida del cliente y el coste de adquisición.<br>· <strong>LTV (Lifetime Value):</strong> ingresos totales esperados de un cliente.<br>· <strong>CAC (Customer Acquisition Cost):</strong> coste de adquirir un cliente (equipo de ventas, marketing, etc.).</p>
+                </div>
+
+                <div class="step">
+                    <div class="sn">08</div>
+                    <h4>Facturación</h4>
+                    <p>El inversor está interesado en conocer tus ventas y proyecciones:</p>
+                    <p style="margin-top: 8px !important; font-size: 12px !important;">· <strong>Inicio de ventas:</strong> mes y año.<br>· <strong>Facturación del ejercicio anterior:</strong> especifica si es GMV o ventas netas.<br>· <strong>Facturación acumulada</strong> del año actual.<br>· <strong>Facturación provisional</strong> del año actual.</p>
+                </div>
+
+                <div class="step" style="grid-column: span 2;">
+                    <div class="sn">★</div>
+                    <h4>KPIs relevantes para un One Pager SaaS</h4>
+                    <p><strong>Suscripción SaaS:</strong></p>
+                    <p style="margin-top: 8px !important; font-size: 13px !important;">· <strong>MRR – ARR:</strong> ingresos recurrentes mensuales y anuales.<br>· <strong>ARPA / ARPU:</strong> ingresos medios por cuenta o por usuario.<br>· <strong>Churn Rate:</strong> tasa de cancelación de clientes.<br>· <strong>Gross Margin:</strong> margen bruto.<br>· <strong>MoM Growth:</strong> crecimiento mes a mes.</p>
+                    <p style="margin-top: 8px !important; font-size: 13px !important;">Indica también el número de clientes y/o usuarios activos.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Closing CTA -->
+        <section class="sub-cta">
+            <h2>Tu primera impresión <em>importa</em>.</h2>
+            <p>
+                Los inversores reciben cientos de One Pagers cada mes. Una presentación
+                clara, organizada y profesional es clave para generar confianza y
+                destacar. ¿Estás listo para impresionar a tus futuros inversores?
+            </p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a class="pill pill-accent" href="/metricas/pro/reporting.php">Volver al módulo →</a>
+                <a class="pill pill-ghost" href="https://tidycal.com/nextscenario/mentoria-curso" target="_blank" rel="noopener">Revisar tu deck</a>
+            </div>
+        </section>
+
+    </main>
+
 </div>
-</div>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-exclamation-triangle"></i> Errores Comunes a Evitar</h3>
-<p>Evita estas trampas para que tu data room sea realmente efectivo y transmita la confianza que buscas:</p>
-<div class="card-inner-bg">
-<ul class="list-none">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-ban"></i></div>
-<div> Solo usarlo para inversión:  Un data room es útil para más stakeholders y para uso interno.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-lock-open"></i></div>
-<div> No controlar el acceso a la información:  Sin seguimiento, pierdes visibilidad sobre el interés.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-user-times"></i></div>
-<div> No restringir permisos:  Asegúrate de que solo se vea lo necesario.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-eye-slash"></i></div>
-<div> Mostrar demasiada información:  La clave es la relevancia, no la cantidad.</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-folder-open"></i> Contenido Esencial de tu Data Room SaaS</h3>
-<p>Tu data room debe ofrecer una imagen clara  de tu startup, su situación financiera y potencial de crecimiento. Aquí tienes los documentos clave:</p>
-<div class="card-inner-bg">
-<h4 class="font-bold mb-3">Documentos Financieros y Legales <i class="fas fa-file-invoice-dollar"></i></h4>
-<ul class="list-none mb-4">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-chart-pie"></i></div>
-<div><strong>Business Plan:</strong> Proyecciones con varios escenarios. Debe incluir:
-                                <ul class="list-disc ml-6">
-<li><strong>PyG (Pérdidas y Ganancias):</strong> La foto de la rentabilidad actual.</li>
-<li><strong>Cashflow:</strong> El control de la caja es vital; las startups mueren por falta de efectivo, no por no vender.</li>
-</ul>
-</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-chart-bar"></i></div>
-<div><strong>Investor Deck:</strong> Tu presentación clave para inversores (puntos clave de la startup).</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-file-alt"></i></div>
-<div><strong>One Pager:</strong> Resumen conciso (una página) con información de la empresa, ronda y métricas relevantes.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-users"></i></div>
-<div><strong>Cap Table:</strong> Quiénes son los socios, porcentajes y condiciones.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-history"></i></div>
-<div><strong>Información de rondas anteriores.</strong></div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-search-dollar"></i></div>
-<div><strong>Due Diligence:</strong> Proceso de auditoría previo a la inversión.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-handshake"></i></div>
-<div><strong>Term Sheet:</strong> Documento con las condiciones de inversión.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-file-contract"></i></div>
-<div><strong>Pacto de socios.</strong></div>
-</li>
-</ul>
-<h4 class="font-bold mb-3 mt-5">Información sobre Clientes <i class="fas fa-user-friends"></i></h4>
-<ul class="list-none mb-4">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-user-check"></i></div>
-<div><strong>Clientes y Usuarios Activos:</strong> Definición clara de "usuario activo".</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-chart-area"></i></div>
-<div><strong>Market Research.</strong></div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-file-signature"></i></div>
-<div><strong>Contratos de clientes.</strong></div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-funnel-dollar"></i></div>
-<div><strong>Pipeline de clientes y su valor.</strong></div>
-</li>
-</ul>
-<h4 class="font-bold mb-3 mt-5">Documentos Técnicos <i class="fas fa-code"></i></h4>
-<p class="text-gray-700">El producto y la tecnología son claves. Aunque menos comunes, considera incluir:</p>
-<ul class="list-none">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-cube"></i></div>
-<div><strong>Productos o funcionalidades existentes.</strong></div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-network-wired"></i></div>
-<div><strong>System Architecture Diagram.</strong></div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-file-code"></i></div>
-<div><strong>API Documentation.</strong></div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-clipboard-list"></i></div>
-<div><strong>Product Backlog.</strong></div>
-</li>
-</ul>
-</div>
-</div>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-tools"></i> ¿Cómo Crear tu Data Room?</h3>
-<p>Identifica el stage de tu startup  y la información que es más relevante para tu ronda. ¡Empieza poco a poco con lo que tengas!</p>
-<div class="card-inner-bg">
-<p class="font-bold text-lg mb-3">Opciones para tu Data Room SaaS:</p>
-<ul class="list-none">
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-folder"></i></div>
-<div>Empieza con una carpeta compartida  (Google Sheets o similar).</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-server"></i></div>
-<div>Créala en tu propio servidor  para mayor control.</div>
-</li>
-<li class="bullet-point">
-<div class="bullet-point-icon"><i class="fas fa-laptop-code"></i></div>
-<div>Apóyate en herramientas de extracción, procesamiento y visualización de datos  como Next Scenario para soluciones avanzadas.</div>
-</li>
-</ul>
-</div>
-</div>
-</section>
-<section>
-<h2 class="section-title">Tu Carta de Presentación</h2>
-<div class="card">
-<p class="text-center text-xl">Recuerda que tu One Pager  y tu Data Room  son tu primera impresión. Los inversores reciben cientos cada mes. ¡Diferénciate!  Una presentación clara, organizada y profesional es clave para generar confianza  y destacar.</p>
-<p class="text-center text-xl mt-4">¿Estás listo para impresionar a tus futuros inversores?</p>
-</div>
-</section>
-<section>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-file-alt"></i> ¿Qué es un One Pager de inversión para una startup?</h3>
-<p>Como su nombre indica, es un documento en el que debes mostrar la información más relevante de tu startup resumida en una página. Un One Pager de una startup debe tener un formato visual que llame la atención y muestre la información de una forma clara.</p>
-<p>Recuerda que un One Pager es la tarjeta de presentación de tu SaaS de cara al inversor.</p>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-lightbulb"></i> Ejemplo de One Pager</h3>
-<img alt="One Pager Ejemplo" src="https://nextscenario.com/wp-content/uploads/2022/09/image-8.png" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 15px var(--shadow-light);"/>
-<p class="text-center mt-3">Un ejemplo de One Pager para una startup SaaS. Recuerda que debe ser visual y claro.</p>
-</div>
-</div>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-magic"></i> Cómo crear un One Pager para SaaS</h3>
-<p>Un One Pager debe contener los siguientes puntos imprescindibles:</p>
-<div class="card-inner-bg">
-<ul class="list-none">
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-building"></i></div> <div><strong>Nombre, logo y enlace web de tu startup.</strong></div></li>
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-user-tie"></i></div> <div><strong>Quiénes son los fundadores, destacando al CEO.</strong></div></li>
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-users"></i></div> <div><strong>Equipo:</strong> Composición y perfiles clave.</div></li>
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-pie-chart"></i></div> <div><strong>Cap Table:</strong> Distribución de acciones.</div></li>
-<li class="bullet-point"><div class="bullet-point-icon"><i class="fas fa-rocket"></i></div> <div><strong>Métricas principales</strong> del modelo de negocio en concreto.</div></li>
-</ul>
-</div>
-<div class="card-inner-bg">
-<h4 class="font-bold mb-3">Equipo</h4>
-<p>Es importante detallar quién compone el proyecto. Contar con un equipo de profesionales con una relevante cronología empresarial contribuirá a captar el interés de los inversores. Recuerda que ellos buscan equipos capacitados, por lo que es indispensable transmitir que no hay mejor equipo para ejecutar el proyecto.</p>
-<p>Necesitarás aportar la siguiente información:</p>
-<ul class="list-disc">
-<li>Número de personas que forman parte directamente del proyecto incluyendo al CEO.</li>
-<li>Nombres y apellidos de los miembros clave.</li>
-<li>Inversores o mentores que estén actualmente en el negocio.</li>
-</ul>
-<h4 class="font-bold mb-3 mt-5">Cap Table</h4>
-<p>El Cap Table muestra la distribución de acciones de una empresa. Es importante que esté bien estructurada. Un inversor se fijará en que el equipo fundador tenga suficiente equity para no diluirse demasiado en futuras rondas.</p>
-<p>Información de interés para un inversor:</p>
-<ul class="list-disc">
-<li>Porcentaje de equity que posee el equipo fundador.</li>
-<li>Porcentaje de equity que poseen los inversores.</li>
-<li>Porcentaje de ESOP (plan de opciones sobre acciones para empleados) por asignar.</li>
-</ul>
-<h4 class="font-bold mb-3 mt-5">Equity Story (Financiación hasta la fecha)</h4>
-<p>Información sobre financiación e inversión de rondas anteriores:</p>
-<ul class="list-disc">
-<li>Financiación histórica.</li>
-<li>Tamaño de la ronda actual.</li>
-<li>Dinero comprometido de la ronda actual (si tienes inversores relevantes confirmados, es recomendable poner sus logos o nombres).</li>
-</ul>
-<h4 class="font-bold mb-3 mt-5">Modelo de negocio – Propuesta de Valor</h4>
-<p>Especifica el tipo de modelo de negocio para explicar cómo se factura. Hay inversores con preferencias por sectores y modelos de negocio, por lo que es importante dejarlo claro.</p>
-<ul class="list-disc">
-<li><strong>Sector:</strong> Industria en la que operas.</li>
-<li><strong>Modelo de negocio:</strong> (ej: SaaS, Marketplace, E-commerce...).</li>
-<li><strong>Descripción corta:</strong> Qué hace la startup de manera clara y entendible.</li>
-</ul>
-<h4 class="font-bold mb-3 mt-5">Modelo de monetización</h4>
-<p><strong>Clientes:</strong> Describe el nicho al que te diriges.</p>
-<p><strong>Monetización:</strong> Explica de forma sencilla el modelo de pricing. Si hay varios, especifica qué porcentaje de ingresos proviene de cada uno.</p>
-<h4 class="font-bold mb-3 mt-5">Unit Economics</h4>
-<p>Ayuda al inversor a conocer tus ganancias por transacción. Deberás incluir:</p>
-<ul class="list-disc">
-<li><strong>LTV/CAC:</strong> Ratio entre el valor de vida del cliente y el coste de adquisición.</li>
-<li><strong>LTV (Lifetime Value):</strong> Ingresos totales que esperas de un cliente.</li>
-<li><strong>CAC (Customer Acquisition Cost):</strong> Coste de adquirir un cliente (equipo de ventas, marketing, etc.).</li>
-</ul>
-<h4 class="font-bold mb-3 mt-5">Facturación</h4>
-<p>El inversor está interesado en conocer tus ventas y proyecciones:</p>
-<ul class="list-disc">
-<li><strong>Inicio de ventas:</strong> Indica mes y año.</li>
-<li><strong>Facturación del ejercicio anterior:</strong> Especifica si es GMV o ventas netas.</li>
-<li><strong>Facturación acumulada</strong> del año actual.</li>
-<li><strong>Facturación provisional</strong> del año actual.</li>
-</ul>
-<h4 class="font-bold mb-3 mt-5">KPIs relevantes para un One Pager de SaaS</h4>
-<p><strong>Suscripción SaaS:</strong></p>
-<ul class="list-disc">
-<li><strong>MRR – ARR:</strong> Ingresos recurrentes mensuales y anuales.</li>
-<li><strong>ARPA / ARPU:</strong> Ingresos medios por cuenta o por usuario.</li>
-<li><strong>Churn Rate:</strong> Tasa de cancelación de clientes.</li>
-<li><strong>Gross Margin:</strong> Margen bruto.</li>
-<li><strong>MoM Growth:</strong> Crecimiento mes a mes.</li>
-</ul>
-<p>Indica también el número de clientes y/o usuarios activos.</p>
-</div>
-</div>
-<div class="card">
-<h3 class="card-title"><i class="fas fa-lightbulb"></i> Ejemplo de One Pager</h3>
-<img alt="One Pager Ejemplo" src="https://nextscenario.com/wp-content/uploads/2022/09/image-8.png" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 15px var(--shadow-light);"/>
-<p class="text-center mt-3">Un ejemplo de One Pager para una startup SaaS. Recuerda que debe ser visual y claro.</p>
-</div>
-</section>
-</div>
-</main>
-</div>
-<footer class="ns-foot"><strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br/>Nextscenario · <a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a></footer>
+
+<footer class="ns-foot">
+    <strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br>
+    Nextscenario · <a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a>
+</footer>
+
 </body>
 </html>
