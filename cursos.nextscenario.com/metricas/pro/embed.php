@@ -7,17 +7,17 @@ if (!isset($_SESSION['username'])) {
 $username = htmlspecialchars($_SESSION['username']);
 
 $modules = [
-    ["0️⃣", "¿Qué empresa quieres construir?",            "/metricas/que_empresa_quieres_construir.html", "Reflexión previa: decidir el tipo de empresa SaaS que quieres crear."],
-    ["1️⃣", "Introducción a Modelos de Negocio SaaS",     "/metricas/modulo1.html",                       "Visión general de cómo funciona el negocio SaaS y sus palancas."],
-    ["2️⃣", "Modelos de negocio y limitación de producto", "/metricas/modelos_de_negocio.html",           "Tipos de modelos SaaS y cómo diseñar la limitación del producto."],
-    ["3️⃣", "Pricing SaaS",                                "/metricas/pricing.html",                      "Estrategias de precios y packaging para maximizar valor."],
-    ["4️⃣", "Métricas SaaS fundamentales",                 "/metricas/Metricas_saas.html",                "MRR, ARR, LTV, CAC, Churn y el ecosistema de datos SaaS."],
-    ["5️⃣", "B2B SaaS Metrics Journey Framework",          "/metricas/framework_b2b_saas_metrics.html",   "Las métricas que importan en cada etapa del viaje B2B."],
-    ["6️⃣", "Retención y Engagement",                      "/metricas/pro/retencion_engagement.php",      "Cómo medir retención e introducción a la analítica de producto."],
-    ["7️⃣", "Análisis de Cohortes",                        "/metricas/pro/analisis_cohortes.php",         "Estudio de cohortes paso a paso con plantilla de Google Sheets."],
-    ["8️⃣", "Benchmark SaaS",                              "/metricas/pro/benchmark_saas.php",            "Cómo comparar tu SaaS con el mercado y situarte en la media."],
-    ["9️⃣", "Modelos Financieros SaaS",                    "/metricas/modelos_financieros.html",          "Conceptos clave y construcción de modelos financieros SaaS."],
-    ["🔟", "Reporting a inversores",                       "/metricas/reporting.html",                    "Data Room y One Pager para presentar a inversores."],
+    ["0️⃣", "¿Qué empresa quieres construir?",            "/metricas/pro/que_empresa_quieres_construir.php", "Reflexión inicial sobre el tipo de empresa SaaS que quieres crear."],
+    ["1️⃣", "Introducción a Modelos de Negocio SaaS",     "/metricas/pro/introduccion_modelos_negocio.php",  "Características del modelo SaaS y los principales factores de fracaso."],
+    ["2️⃣", "Modelos de negocio y limitación de producto", "/metricas/pro/modelos_de_negocio.php",           "Go to Market: Sales vs PLG, Freemium vs Free Trial y cómo limitar el producto."],
+    ["3️⃣", "Pricing SaaS",                                "/metricas/pro/pricing.php",                      "Estrategias para definir y presentar tus precios."],
+    ["4️⃣", "Métricas SaaS fundamentales",                 "/metricas/Metricas_saas.html",                   "MRR, ARR, LTV, CAC, Churn y el ecosistema de datos SaaS."],
+    ["5️⃣", "B2B SaaS Metrics Journey Framework",          "/metricas/pro/framework_b2b.php",                "Las métricas que importan en cada etapa del viaje B2B."],
+    ["6️⃣", "Retención y Engagement",                      "/metricas/pro/retencion_engagement.php",         "Cómo medir retención e introducción a la analítica de producto."],
+    ["7️⃣", "Análisis de Cohortes",                        "/metricas/pro/analisis_cohortes.php",            "Estudio de cohortes paso a paso con plantilla de Google Sheets."],
+    ["8️⃣", "Benchmark SaaS",                              "/metricas/pro/benchmark_saas.php",               "Cómo comparar tu SaaS con el mercado y situarte en la media."],
+    ["9️⃣", "Modelos Financieros SaaS",                    "/metricas/modelos_financieros.html",             "Conceptos clave y construcción de modelos financieros SaaS."],
+    ["🔟", "Reporting a inversores",                       "/metricas/pro/reporting.php",                    "Data Room y One Pager para presentar a inversores."],
 ];
 
 $extra = [

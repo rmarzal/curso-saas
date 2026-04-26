@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benchmark SaaS — Cómo comparar negocios SaaS — Curso SaaS</title>
+    <title>B2B SaaS Metrics Journey Framework — Curso SaaS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,21 +102,20 @@ if (!isset($_SESSION['username'])) {
         <a href="embed.php" class="back-link">&larr; Volver al índice del curso</a>
 
         <header class="text-center py-8">
-            <div class="text-5xl mb-3">8️⃣</div>
-            <h1 class="text-4xl md:text-5xl font-black mb-4 gradient-text">Benchmark SaaS — Cómo comparar negocios SaaS</h1>
+            <div class="text-5xl mb-3">5️⃣</div>
+            <h1 class="text-4xl md:text-5xl font-black mb-4 gradient-text">B2B SaaS Metrics Journey Framework</h1>
         </header>
 
         <main class="section-card">
-            <p class="module-p">Seguro que muchas veces te has preguntado: <strong>¿un 5% de churn es bueno?</strong> ¿estoy en la media? Pues la cuestión es que depende de cómo y con quién te compares.</p>
-            <p class="module-p">En este módulo hablaremos sobre el benchmark de métricas SaaS entre negocios.</p>
+            <p class="module-p">Las métricas que importan en cada etapa del viaje B2B SaaS: desde la activación hasta la expansión.</p>
             <div class="video-wrap">
-                <iframe src="https://www.youtube.com/embed/pDTfWOlFlDE"
-                        title="📺 Video Benchmark SaaS"
+                <iframe src="https://www.youtube.com/embed/8ZicJMPB384"
+                        title="📺 Video — The B2B SaaS Metrics Framework"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
             </div>
-            <p class="video-label">📺 Video Benchmark SaaS</p>
-            <div class="resource-row"><a class="resource-btn btn-primary" href="https://firebasestorage.googleapis.com/v0/b/nextscenario-cf4c6.appspot.com/o/templates%2FEnglish%202024%20Saas%20Benchmark%20%20Report.pdf?alt=media&amp;token=113de9b2-9c8d-4163-8f30-a5c5bffb6ed8" target="_blank" rel="noopener"><span>📥</span> 📥 Descargar estudio sobre retención (Benchmark Report 2024)</a></div>
+            <p class="video-label">📺 Video — The B2B SaaS Metrics Framework</p>
+            <div class="resource-row"><a class="resource-btn btn-secondary" href="/metricas/framework_b2b_saas_metrics.html" target="_blank" rel="noopener"><span>📕</span> Infografía detallada del framework</a></div>
         </main>
 
         <footer class="text-center text-sm text-gray-500 py-8">

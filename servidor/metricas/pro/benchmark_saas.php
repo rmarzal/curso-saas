@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benchmark SaaS — Curso SaaS</title>
+    <title>Benchmark SaaS — Cómo comparar negocios SaaS — Curso SaaS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,64 +24,77 @@ if (!isset($_SESSION['username'])) {
         }
         .section-card {
             background-color: #fff;
-            padding: 2.5rem;
+            padding: 2rem 2.5rem;
             border-radius: 0.75rem;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             margin-bottom: 2rem;
             border: 1px solid #e2e8f0;
         }
-        h2 { font-size: 2rem; font-weight: 700; color: #2d3748; margin-bottom: 1.5rem; }
-        h3 { font-size: 1.5rem; font-weight: 600; color: #4a5568; margin-bottom: 1rem; }
-        .video-wrap {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-        }
-        .video-wrap iframe {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            border: 0;
-        }
-        .download-btn {
-            display: inline-flex;
+        .section-card > * + * { margin-top: 1rem; }
+        h2.module-h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #073B4C;
+            margin: 0 0 0.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #06D6A0;
+            display: flex;
             align-items: center;
             gap: 0.5rem;
-            background: linear-gradient(90deg, #118AB2, #06D6A0);
-            color: #fff;
-            padding: 0.85rem 1.5rem;
-            border-radius: 0.5rem;
+        }
+        h3.module-h3 {
+            font-size: 1.25rem;
             font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(17,138,178,0.2);
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            color: #118AB2;
+            margin: 0 0 0.5rem 0;
         }
-        .download-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 14px rgba(17,138,178,0.28);
+        .module-p { color: #374151; font-size: 1.05rem; line-height: 1.65; }
+        .video-wrap {
+            position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+            border-radius: 0.75rem; box-shadow: 0 4px 14px rgba(0,0,0,0.1);
         }
-        .quote-block {
+        .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .video-label { font-size: 0.95rem; color: #4a5568; margin-top: 0.6rem; font-weight: 500; }
+        .resource-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.85rem 1.5rem; border-radius: 0.5rem; font-weight: 600;
+            text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .resource-btn:hover { transform: translateY(-1px); }
+        .btn-primary { background: linear-gradient(90deg, #118AB2, #06D6A0); color: #fff;
+                       box-shadow: 0 4px 10px rgba(17,138,178,0.2); }
+        .btn-primary:hover { box-shadow: 0 6px 14px rgba(17,138,178,0.28); }
+        .btn-secondary { background: #fff; color: #118AB2; border: 2px solid #118AB2; }
+        .btn-secondary:hover { background: #e3f2fd; }
+        .resource-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+        ol.module-ol {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            list-style: decimal;
+        }
+        ol.module-ol li {
+            margin: 0.5rem 0;
+            color: #374151;
+            font-size: 1.02rem;
+            line-height: 1.55;
+            padding-left: 0.25rem;
+        }
+        ol.module-ol li::marker { color: #118AB2; font-weight: 700; }
+        .callout {
             background: #e3f2fd;
             border-left: 4px solid #118AB2;
-            padding: 1.25rem 1.5rem;
+            padding: 1rem 1.25rem;
             border-radius: 0.5rem;
             color: #073B4C;
-            font-size: 1.05rem;
-            line-height: 1.6;
+            font-size: 1.02rem;
+            line-height: 1.55;
         }
         .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            color: #118AB2;
-            text-decoration: none;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
+            display: inline-flex; align-items: center; gap: 0.35rem; color: #118AB2;
+            text-decoration: none; font-weight: 500; margin-bottom: 1.5rem;
         }
         .back-link:hover { text-decoration: underline; }
-    </style>
+</style>
 </head>
 <body class="p-6 md:p-10">
     <div class="container mx-auto max-w-5xl">
@@ -90,38 +103,20 @@ if (!isset($_SESSION['username'])) {
 
         <header class="text-center py-8">
             <div class="text-5xl mb-3">8️⃣</div>
-            <h1 class="text-4xl md:text-5xl font-black mb-4 gradient-text">Benchmark SaaS</h1>
-            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                Cómo comparar negocios SaaS entre sí y situar tus métricas frente a la media del mercado.
-            </p>
+            <h1 class="text-4xl md:text-5xl font-black mb-4 gradient-text">Benchmark SaaS — Cómo comparar negocios SaaS</h1>
         </header>
 
-        <main class="space-y-8">
-
-            <section class="section-card">
-                <div class="quote-block">
-                    Seguro que muchas veces te has preguntado: <strong>¿un 5% de churn es bueno? ¿estoy en la media?</strong> La cuestión es que depende de cómo y con quién te compares. En este módulo hablaremos sobre el benchmark de métricas SaaS entre negocios.
-                </div>
-            </section>
-
-            <section class="section-card">
-                <h2 class="text-[#073B4C] flex items-center gap-3"><span>📺</span> Video del módulo</h2>
-                <div class="video-wrap">
-                    <iframe src="https://www.youtube.com/embed/pDTfWOlFlDE"
-                            title="Benchmark SaaS"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                </div>
-            </section>
-
-            <section class="section-card">
-                <h2 class="text-[#073B4C] flex items-center gap-3"><span>📊</span> Material de apoyo</h2>
-                <p class="text-gray-700 mb-4">Descarga el <strong>SaaS Benchmark Report 2024</strong> con datos de retención y referencias del mercado.</p>
-                <a class="download-btn" href="https://firebasestorage.googleapis.com/v0/b/nextscenario-cf4c6.appspot.com/o/templates%2FEnglish%202024%20Saas%20Benchmark%20%20Report.pdf?alt=media&token=113de9b2-9c8d-4163-8f30-a5c5bffb6ed8" target="_blank" rel="noopener">
-                    <span>📥</span> Descargar Benchmark Report
-                </a>
-            </section>
-
+        <main class="section-card">
+            <p class="module-p">Seguro que muchas veces te has preguntado: <strong>¿un 5% de churn es bueno?</strong> ¿estoy en la media? Pues la cuestión es que depende de cómo y con quién te compares.</p>
+            <p class="module-p">En este módulo hablaremos sobre el benchmark de métricas SaaS entre negocios.</p>
+            <div class="video-wrap">
+                <iframe src="https://www.youtube.com/embed/pDTfWOlFlDE"
+                        title="📺 Video Benchmark SaaS"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+            <p class="video-label">📺 Video Benchmark SaaS</p>
+            <div class="resource-row"><a class="resource-btn btn-primary" href="https://firebasestorage.googleapis.com/v0/b/nextscenario-cf4c6.appspot.com/o/templates%2FEnglish%202024%20Saas%20Benchmark%20%20Report.pdf?alt=media&amp;token=113de9b2-9c8d-4163-8f30-a5c5bffb6ed8" target="_blank" rel="noopener"><span>📥</span> 📥 Descargar estudio sobre retención (Benchmark Report 2024)</a></div>
         </main>
 
         <footer class="text-center text-sm text-gray-500 py-8">

@@ -31,6 +31,19 @@ Ya no están en este proyecto (los quité), pero en tu hosting siguen porque nad
 ## Verificación post-deploy
 
 1. Abre `https://cursos.nextscenario.com/metricas/login.php` y entra con un usuario válido.
-2. Tras el login debes ver el nuevo **índice del curso** (tarjetas con los 11 módulos + contenido complementario), no el iframe de Notion.
-3. Haz clic en "Retención y Engagement", "Análisis de Cohortes" o "Benchmark SaaS" — debe abrirse la página con video de YouTube embebido y PDF descargable.
-4. `https://cursos.nextscenario.com/metricas/logout.php` debe cerrar sesión y redirigirte al login.
+2. Tras el login debes ver el nuevo **índice del curso** con las 11 tarjetas de módulo + contenido complementario, no el iframe de Notion.
+3. Cada módulo (0,1,2,3,5,6,7,8,10) abre una página PHP con la **misma estructura que tiene en Notion**: video(s) embebido(s), descripciones, PDFs descargables, listas de reflexión, etc. Verifica especialmente:
+   - **Módulo 0** — 2 videos + 3 preguntas de reflexión.
+   - **Módulo 2** — 4 sub-secciones con 3 videos + reflexión.
+   - **Módulo 6/7** — video + PDF descargable (en `pro/assets/`).
+   - **Módulo 7** — además, link a la plantilla de Google Sheets.
+   - **Módulo 8** — link al Benchmark Report 2024 (Firebase).
+4. `https://cursos.nextscenario.com/metricas/logout.php` cierra sesión y redirige al login.
+
+## Pendientes (faltan en el export de Notion)
+
+Estas dos cosas no se pudieron migrar porque no estaban en el ZIP que subiste:
+
+- **Video de Bienvenida** (`Intro.mp4`) — referenciado en la portada de Notion pero no estaba en el export. Si me pasas el archivo o el enlace de YouTube, lo añado al índice.
+- **Módulo 4 — Métricas SaaS fundamentales** y **Módulo 9 — Modelos Financieros SaaS**: Notion no exportó esas páginas. El índice por ahora enlaza a las infografías HTML existentes (`Metricas_saas.html` y `modelos_financieros.html`). Si re-exportas esas dos páginas con sus videos, puedo construirlas con la misma estructura que las demás.
+- **B2B SaaS Metrics — imagen del framework** (`b2b_saas_metrics.jpeg`) — referenciada en la página de Notion pero faltaba en el export.

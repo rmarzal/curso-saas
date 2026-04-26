@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benchmark SaaS — Cómo comparar negocios SaaS — Curso SaaS</title>
+    <title>Modelos de negocio y limitación de producto — Curso SaaS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -102,21 +102,46 @@ if (!isset($_SESSION['username'])) {
         <a href="embed.php" class="back-link">&larr; Volver al índice del curso</a>
 
         <header class="text-center py-8">
-            <div class="text-5xl mb-3">8️⃣</div>
-            <h1 class="text-4xl md:text-5xl font-black mb-4 gradient-text">Benchmark SaaS — Cómo comparar negocios SaaS</h1>
+            <div class="text-5xl mb-3">2️⃣</div>
+            <h1 class="text-4xl md:text-5xl font-black mb-4 gradient-text">Modelos de negocio y limitación de producto</h1>
         </header>
 
         <main class="section-card">
-            <p class="module-p">Seguro que muchas veces te has preguntado: <strong>¿un 5% de churn es bueno?</strong> ¿estoy en la media? Pues la cuestión es que depende de cómo y con quién te compares.</p>
-            <p class="module-p">En este módulo hablaremos sobre el benchmark de métricas SaaS entre negocios.</p>
+            <p class="module-p">En este módulo veremos las principales metodologías de Go to Market: Ventas vs Product Led Growth, los modelos Freemium vs Free Trial, y las principales estrategias para limitar un producto. Esta parte es fundamental antes de entrar en el pricing.</p>
+            <h2 class="module-h2">Go To Market: Product Led Growth</h2>
             <div class="video-wrap">
-                <iframe src="https://www.youtube.com/embed/pDTfWOlFlDE"
-                        title="📺 Video Benchmark SaaS"
+                <iframe src="https://www.youtube.com/embed/VlhroskJsJk"
+                        title="📺 Link Video Product Led Growth"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
             </div>
-            <p class="video-label">📺 Video Benchmark SaaS</p>
-            <div class="resource-row"><a class="resource-btn btn-primary" href="https://firebasestorage.googleapis.com/v0/b/nextscenario-cf4c6.appspot.com/o/templates%2FEnglish%202024%20Saas%20Benchmark%20%20Report.pdf?alt=media&amp;token=113de9b2-9c8d-4163-8f30-a5c5bffb6ed8" target="_blank" rel="noopener"><span>📥</span> 📥 Descargar estudio sobre retención (Benchmark Report 2024)</a></div>
+            <p class="video-label">📺 Link Video Product Led Growth</p>
+            <div class="resource-row"><a class="resource-btn btn-secondary" href="/metricas/product_led_growth.html" target="_blank" rel="noopener"><span>📕</span> Contenido Product Led Growth</a></div>
+            <h2 class="module-h2">Go To Market: Sales &amp; Product Led Sales</h2>
+            <div class="video-wrap">
+                <iframe src="https://www.youtube.com/embed/FJYZMjG_YZs"
+                        title="📺 Link Video Product Led Sales"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+            <p class="video-label">📺 Link Video Product Led Sales</p>
+            <div class="resource-row"><a class="resource-btn btn-secondary" href="/metricas/product_led_sales.html" target="_blank" rel="noopener"><span>📕</span> Contenido Product Led Sales</a></div>
+            <h2 class="module-h2">Cómo limitar un producto: Freemium vs Free Trial</h2>
+            <div class="video-wrap">
+                <iframe src="https://www.youtube.com/embed/aOX4yy79L_0"
+                        title="📺 Cómo limitar un producto. Modelo Freemium vs Free Trial"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+            <p class="video-label">📺 Cómo limitar un producto. Modelo Freemium vs Free Trial</p>
+            <div class="resource-row"><a class="resource-btn btn-secondary" href="/metricas/modelos_de_negocio.html" target="_blank" rel="noopener"><span>📕</span> Contenido modelos de negocio</a></div>
+            <h2 class="module-h2">Reflexión antes de continuar</h2>
+            <p class="module-p">Después de las etapas iniciales del curso, me gustaría que pararas tu tiempo para reflexionar lo que has hecho hasta ahora y/o los próximos pasos a seguir. Tómate tu tiempo antes de avanzar más en el curso.</p>
+            <ol class="module-ol">
+                <li>¿Qué estrategia de Go To Market estás siguiendo y cómo la estás ejecutando?</li>
+                <li>¿Cómo estás limitando el uso de tu producto?</li>
+                <li>¿Tienes un modelo freemium o free trial? ¿Tiene sentido para ti?</li>
+            </ol>
         </main>
 
         <footer class="text-center text-sm text-gray-500 py-8">
