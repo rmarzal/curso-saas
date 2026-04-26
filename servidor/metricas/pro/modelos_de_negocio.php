@@ -24,7 +24,7 @@ include __DIR__ . '/_partials/head.php';
             </div>
 
             <div class="resources">
-                <a class="resource" href="/metricas/product_led_growth.html" target="_blank" rel="noopener">
+                <a class="resource" href="/metricas/product_led_growth.html?v=2" target="_blank" rel="noopener">
                     <span class="ico">📕</span>
                     <span><span class="label">Contenido Product Led Growth</span><span class="meta">Infografía · abre en nueva pestaña</span></span>
                 </a>
@@ -43,7 +43,7 @@ include __DIR__ . '/_partials/head.php';
             </div>
 
             <div class="resources">
-                <a class="resource" href="/metricas/product_led_sales.html" target="_blank" rel="noopener">
+                <a class="resource" href="/metricas/product_led_sales.html?v=2" target="_blank" rel="noopener">
                     <span class="ico">📕</span>
                     <span><span class="label">Contenido Product Led Sales</span><span class="meta">Infografía · abre en nueva pestaña</span></span>
                 </a>
@@ -62,7 +62,7 @@ include __DIR__ . '/_partials/head.php';
             </div>
 
             <div class="resources">
-                <a class="resource" href="/metricas/modelos_de_negocio.html" target="_blank" rel="noopener">
+                <a class="resource" href="/metricas/modelos_de_negocio.html?v=2" target="_blank" rel="noopener">
                     <span class="ico">📕</span>
                     <span><span class="label">Contenido modelos de negocio</span><span class="meta">Infografía · abre en nueva pestaña</span></span>
                 </a>

@@ -20,7 +20,7 @@ include __DIR__ . '/_partials/head.php';
             </div>
 
             <div class="resources">
-                <a class="resource primary" href="/metricas/framework_b2b_saas_metrics.html" target="_blank" rel="noopener">
+                <a class="resource primary" href="/metricas/framework_b2b_saas_metrics.html?v=2" target="_blank" rel="noopener">
                     <span class="ico">🗺️</span>
                     <span><span class="label">Infografía detallada del framework</span><span class="meta">Mapa interactivo de las métricas B2B por etapa</span></span>
                 </a>
