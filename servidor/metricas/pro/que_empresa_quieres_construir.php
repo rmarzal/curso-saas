@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php"); exit(); }
+if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php?v=1"); exit(); }
 $module_num = "00";
 $module_title = "¿Qué empresa quieres construir?";
 $module_subtitle = "Reflexión inicial antes de empezar el curso: el tipo de empresa SaaS que quieres construir y el camino que estás tomando.";
