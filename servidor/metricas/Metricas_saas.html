@@ -1,593 +1,345 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infografía Detallada: Métricas Clave en SaaS</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f4f8; /* Soft blue-gray background */
-            color: #1f2937; /* Dark gray text */
-        }
-        .gradient-text {
-            background: linear-gradient(90deg, #118AB2, #06D6A0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .section-card {
-            background-color: #fff;
-            padding: 2.5rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            margin-bottom: 2rem;
-            border: 1px solid #e2e8f0;
-        }
-        h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #4a5568;
-            margin-bottom: 1rem;
-        }
-        .metric-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #073B4C;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid #06D6A0;
-            padding-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-        }
-        .metric-title .icon-large {
-            font-size: 2.5rem;
-            margin-right: 0.75rem;
-            line-height: 1; /* Aligns text and icon */
-        }
-        .formula {
-            background-color: #e3f2fd; /* Light blue */
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            font-family: 'Fira Code', monospace; /* Monospaced font for clarity */
-            font-size: 1.1rem;
-            color: #073B4C;
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            text-align: center;
-            overflow-x: auto; /* For long formulas on small screens */
-        }
-        .info-box {
-            background-color: #f8fafc; /* Lighter blue-gray */
-            padding: 1rem;
-            border-radius: 0.5rem;
-            border-left: 4px solid #118AB2; /* Blue accent */
-            margin-top: 1rem;
-            font-size: 0.95rem;
-            color: #4a5568;
-        }
-        .info-box strong {
-            color: #073B4C;
-        }
-        .ul-indented {
-            padding-left: 1.5rem;
-            list-style-type: disc;
-        }
-        .ul-indented li {
-            margin-bottom: 0.5rem;
-        }
-    </style>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Métricas clave en SaaS · Curso SaaS</title>
+<link rel="stylesheet" href="_design.css" />
 </head>
-<body class="p-8">
+<body>
 
-    <div class="container mx-auto max-w-7xl">
-
-        <header class="text-center py-12">
-            <h1 class="text-4xl md:text-6xl font-black mb-4 gradient-text">Métricas Clave en SaaS</h1>
-            <p class="text-xl md:text-2xl text-gray-600">"Lo que no se define, no se puede medir. Lo que no se mide, no se puede mejorar. Lo que no se mejora, se degrada siempre." - Lord Kelvin</p>
-        </header>
-
-        <main class="space-y-12">
-
-            <section class="section-card">
-                <h2 class="text-[#073B4C]">El Ecosistema de Datos en SaaS</h2>
-                <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    En el mundo SaaS, los datos son el combustible que impulsa el crecimiento y la optimización. Comprender los diferentes tipos de datos y cómo se estructuran las métricas es fundamental para tomar decisiones informadas y estratégicas. <br>
-                    <strong>No se puede gestionar lo que no se mide.</strong>
-                </p>
-
-                <h3 class="text-[#073B4C] mt-8 mb-4">Tipos de Datos Clave en SaaS</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                        <p class="text-4xl mb-2">💳</p>
-                        <h4 class="font-bold text-blue-700 mb-2">Datos Transaccionales</h4>
-                        <p class="text-sm text-gray-700">Registros de eventos comerciales completados, que reflejan la actividad monetaria y contractual.</p>
-                        <ul class="list-disc list-inside text-sm text-gray-600 mt-2">
-                            <li><strong>Ejemplos:</strong> Suscripciones, renovaciones, cancelaciones, pagos, reembolsos, upgrades, downgrades, facturas, créditos, ajustes de precio.</li>
-                            <li><strong>Fuentes Típicas:</strong> Sistema de billing (Stripe, Chargebee), CRM (Salesforce, HubSpot).</li>
-                            <li><strong>Métricas Derivadas:</strong> MRR, ARR, Customer Lifetime Value (LTV), Churn rate.</li>
-                        </ul>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-                        <p class="text-4xl mb-2">🖱️</p>
-                        <h4 class="font-bold text-green-700 mb-2">Datos de Comportamiento</h4>
-                        <p class="text-sm text-gray-700">Acciones que los usuarios realizan dentro del producto, revelando cómo interactúan con él.</p>
-                        <ul class="list-disc list-inside text-sm text-gray-600 mt-2">
-                            <li><strong>Ejemplos:</strong> Logins, sesiones, tiempo en aplicación, features utilizadas, clicks, navegación, creación de contenido, configuraciones.</li>
-                            <li><strong>Fuentes Típicas:</strong> Analytics de producto (Mixpanel, Amplitude), Logs de aplicación, Heatmaps (Hotjar).</li>
-                            <li><strong>Métricas Derivadas:</strong> Daily/Monthly Active Users (DAU/MAU), Feature adoption rate, Time to value.</li>
-                        </ul>
-                    </div>
-                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
-                        <p class="text-4xl mb-2">💰</p>
-                        <h4 class="font-bold text-purple-700 mb-2">Datos Financieros</h4>
-                        <p class="text-sm text-gray-700">Información contable y de flujo de caja que define la salud económica de la empresa.</p>
-                        <ul class="list-disc list-inside text-sm text-gray-600 mt-2">
-                            <li><strong>Ejemplos:</strong> Revenue, costes, márgenes, cash flow, burn rate, valoraciones, equity dilution.</li>
-                            <li><strong>Fuentes Típicas:</strong> Sistemas contables, Bancos y procesadores de pago, Hojas de cálculo financieras.</li>
-                            <li><strong>Métricas Derivadas:</strong> EBITDA, Gross Profit, Runway, Capital raise.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-card">
-                <h2 class="metric-title">Métricas de Monetización</h2>
-                <p class="text-center text-lg text-gray-700 leading-relaxed mb-8">
-                    En el mundo del SaaS, las métricas no son solo números en un dashboard. Entender qué medir y cómo interpretar esos datos puede marcar la diferencia entre el crecimiento sostenible y la desaparición de un negocio.
-                </p>
-
-                <!-- MRR -->
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">📈</span> MRR (Monthly Recurring Revenue)</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> Todos los ingresos recurrentes normalizados en una cantidad mensual. Constituyen el núcleo de los ingresos en un negocio SaaS, ya que representan los ingresos recurrentes mensuales de las suscripciones activas. Son el alma de cualquier SaaS.</p>
-                    <div class="formula">
-                        MRR = Número de Clientes Activos × Ingreso Promedio Mensual por Cliente
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Aclaraciones:</h4>
-                        <ul class="ul-indented">
-                            <li>Permite medir con precisión el crecimiento y el "momentum" del negocio.</li>
-                            <li>Es una métrica relativamente consistente y predecible, lo que facilita proyecciones financieras.</li>
-                            <li>En etapas iniciales, es normal que presente fluctuaciones y no sea estable.</li>
-                            <li>El cálculo básico es simple, pero en la práctica es más complejo debido a diferentes planes de precios, periodos de facturación (mensual, anual), y eventos como set up fees que no son recurrentes.</li>
-                        </ul>
-                        <h4 class="font-bold mt-4 mb-2">Movimientos de los MRR:</h4>
-                        <img src="https://nextscenario.com/wp-content/uploads/2024/02/movimientos-de-mrr.png" alt="Ejemplo de estrategia Product Led Sales de Hubspot" class="image-full-width">
-
-                        <p class="text-gray-700">Para entender el MRR, es crucial analizar sus movimientos, que definen la trayectoria del negocio:</p>
-                        <ul class="ul-indented mt-2">
-                            <li><strong>Nuevo MRR:</strong> Ingresos recurrentes generados por la adquisición de nuevos clientes.</li>
-                            <li><strong>Expansión de MRR:</strong> Crecimiento de los ingresos proveniente de clientes existentes, debido a cambios a planes superiores (upgrades) o venta cruzada (cross-selling).</li>
-                            <li><strong>Contracción de MRR:</strong> Reducción de los ingresos de clientes existentes, por cambios a planes inferiores (downgrades) o cancelación de servicios cruzados.</li>
-                            <li><strong>MRR perdidos por cancelaciones (Churn):</strong> Ingresos directamente perdidos debido a las bajas de clientes.</li>
-                            <li><strong>Reactivación de MRR:</strong> Ingresos de clientes que vuelven a suscribirse después de haberse dado de baja.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- ARR -->
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">💰</span> ARR (Annual Recurring Revenue)</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> Los ingresos recurrentes anuales son una proyección anual de los MRR y proporcionan una visión del crecimiento a largo plazo. Es una métrica clave en SaaS porque permite medir los ingresos recurrentes anuales generados a partir de suscripciones.</p>
-                    <div class="formula">
-                        ARR = MRR × 12
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Aclaraciones y Modelos de Cálculo:</h4>
-                        <p class="text-gray-700">No existe una única forma de calcular el ARR; las empresas adoptan distintas metodologías según su modelo de negocio y contratos:</p>
-                        <ul class="ul-indented">
-                            <li><strong>Modelos basados en ingresos mensuales:</strong> Multiplicación simple de los ingresos recurrentes mensuales por doce (Ej: BigCommerce, CrowdStrike, Dropbox). Común en organizaciones con planes mensuales estables.</li>
-                            <li><strong>Modelos basados en ingresos diarios:</strong> Cálculo mediante los ingresos diarios para mayor precisión cuando los contratos tienen duraciones atípicas o los ingresos fluctúan diariamente (Ej: Dynatrace, Commvault).</li>
-                            <li><strong>Modelos basados en contratos y ACV (Annual Contract Value):</strong> Enfoques que ajustan los ARR en función del valor de los contratos a lo largo del año (Ej: Nutanix, Intapp).</li>
-                            <li><strong>Modelos híbridos y específicos:</strong> Fórmulas personalizadas (Ej: ForgeRock ajusta por importe total del contrato dividido por su duración; UiPath por importes facturados por solución; SolarWinds incorpora suscripciones y licencias perpetuas anualizadas).</li>
-                        </ul>
-                    </div>
-                </div>
-
-                  <!-- ARPU -->
-                  <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">👤</span> ARPU (Average Revenue Per User)</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> Los ingresos medios por usuario (ARPU) son la métrica que mide el ingreso promedio que un negocio SaaS genera por cada usuario.</p>
-                    <div class="formula">
-                        ARPU = Ingresos Totales Generados en un Periodo / Número de Usuarios Activos en ese Periodo
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Aclaraciones:</h4>
-                        <ul class="ul-indented">
-                            <li>Es útil para evaluar la monetización del producto y comparar el rendimiento con otros modelos SaaS o con el propio rendimiento histórico.</li>
-                            <li>Puede ayudar a identificar oportunidades de upselling o cross-selling si el ARPU es bajo, o validar estrategias de precios si es alto.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                
-
-
-                <h2 class="metric-title">Métricas de Retención</h2>
-
-
-                <!-- CHURN RATE -->
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">💔</span> Churn Rate</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> El churn rate es el porcentaje de clientes que cancelan durante un periodo específico. Para el SaaS, donde los ingresos recurrentes son vitales, el churn es una métrica crucial.</p>
-                    <div class="formula">
-                        Churn Rate = (Número de Clientes Perdidos en un Periodo / Número de Clientes al Inicio del Periodo) × 100
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Tipos y Aclaraciones:</h4>
-                        <ul class="ul-indented">
-                            <li>Puede calcularse en términos de clientes (<strong>Customer Churn Rate</strong>) o de ingresos (<strong>MRR Churn Rate</strong>), que indican la baja de clientes o la pérdida de ingresos respectivamente.</li>
-                            <li>Un churn bajo indica buena retención de clientes y que el producto sigue aportando valor continuo.</li>
-                            <li>Un churn alto puede señalar insatisfacción del cliente, un mal ajuste del producto al mercado (Product-Market Fit), o problemas con el servicio al cliente.</li>
-                            <li><strong>Churn Voluntario:</strong> Cuando el cliente decide activamente cancelar el servicio porque ya no lo necesita o desea.</li>
-                            <li><strong>Churn Involuntario:</strong> Ocurre cuando un cliente deja de pagar su suscripción sin intención de cancelar, generalmente debido a problemas de pago (tarjetas caducadas, fondos insuficientes, rechazos bancarios, errores de procesamiento).</li>
-                            <li>Para el churn involuntario, se introduce el concepto de "ventana de churn": un periodo de tiempo (ej. 30 días) durante el cual se reintentan cobros, se envían notificaciones y se otorga un periodo de gracia antes de considerar al cliente como definitivamente perdido.</li>
-                        </ul>
-                    </div>
-                </div>
-
-            
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">🔗</span> Retention Rate</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> La tasa de retención mide el porcentaje de clientes que una empresa SaaS logra retener en un período determinado. Es una métrica clave para evaluar la fidelización y el crecimiento sostenible del negocio.</p>
-                    <div class="formula">
-                        Retention Rate = 1 - Churn Rate
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Tipos y Aclaraciones:</h4>
-                        <ul class="ul-indented">
-                            <li>Es la métrica opuesta al churn rate, por lo que se puede calcular fácilmente como: 1 - Churn Rate.</li>
-                            <li><strong>Customer Retention Rate (CRR):</strong> Mide la retención de clientes individuales, es decir, el porcentaje de clientes que continúan activos.</li>
-                            <li><strong>Revenue Retention Rate (NRR y GRR):</strong> Mide la retención de ingresos.
-                                <ul class="ul-indented mt-1">
-                                    <li><strong>Net Revenue Retention (NRR):</strong> Mide cuánto se retiene en ingresos de la base de clientes existente, incluyendo expansiones (upgrades, cross-sells) y deducciones (downgrades, churn). Un NRR superior al 100% significa que la empresa está creciendo netamente de su base de clientes actual, incluso con churn y contracción; si es inferior, está perdiendo ingresos netos.
-                                        <div class="formula mt-2">
-                                            NRR = ((Ingresos iniciales + Ingresos de expansión - Ingresos por contracción - Ingresos perdidos por Churn) / Ingresos iniciales) x 100
-                                        </div>
-                                    </li>
-                                    <li><strong>Gross Revenue Retention (GRR):</strong> Mide la retención de ingresos sin considerar el ingreso de expansión. Solo considera la retención de ingresos base y las pérdidas por churn/contracción.
-                                        <div class="formula mt-2">
-                                            GRR = ((Ingresos iniciales - Ingresos por contracción - Ingresos perdidos por Churn) / Ingresos iniciales) x 100
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>La principal diferencia entre retention rate y churn rate es que el primero mide los clientes (o ingresos) que siguen activos, mientras que el segundo mide los que se van.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                 <!-- USUARIOS ACTIVOS -->
-                 <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">👨‍👩‍👧‍👦</span> Usuarios Activos (MAU, WAU, DAU)</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> Estas métricas de uso indican el número de usuarios únicos que interactúan con el producto diaria (DAU), semanal (WAU) o mensualmente (MAU), respectivamente. Son especialmente útiles para medir el engagement.</p>
-                    <ul class="ul-indented mt-2">
-                        <li><strong>MAU (Monthly Active Users):</strong> Mide la cantidad de usuarios únicos activos en un mes.</li>
-                        <li><strong>WAU (Weekly Active Users):</strong> Mide la cantidad de usuarios únicos activos en una semana.</li>
-                        <li><strong>DAU (Daily Active Users):</strong> Indica cuántos usuarios activos hay en un día.</li>
-                    </ul>
-                    <div class="formula">
-                        Ratio DAU/MAU = DAU / MAU
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Aclaraciones:</h4>
-                        <ul class="ul-indented">
-                            <li>La relación DAU/MAU muestra la frecuencia de uso, que a su vez es un buen indicador de engagement. Si este ratio es alto, significa que los usuarios están usando la herramienta con regularidad.</li>
-                            <li><strong>Ejemplo práctico:</strong> Si una empresa SaaS tiene 1000 MAU y 300 DAU, su ratio DAU/MAU es 0,3 (o 30%), lo que indica que el 30% de los usuarios mensuales están activos cada día.</li>
-                            <li>Una limitación de este indicador es que no permite identificar qué usuarios se mantienen activos y cuáles generan churn. Para ello, resulta fundamental realizar un análisis de retención por cohortes.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                 <!-- NPS -->
-                 <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">🧑‍💻</span> NPS (Net Promoter Score)</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> El NPS o índice de satisfacción del cliente mide la probabilidad de que un cliente recomiende el producto, utilizando una escala de 0 a 10.</p>
-                    <ul class="ul-indented mt-2">
-                        <li><strong>Promotores (9-10):</strong> Usuarios satisfechos y leales, propensos a recomendar el producto.</li>
-                        <li><strong>Pasivos (7-8):</strong> Usuarios neutrales, satisfechos pero no entusiastas, pueden ser vulnerables a la competencia.</li>
-                        <li><strong>Detractores (0-6):</strong> Usuarios insatisfechos o que no encuentran suficiente valor, propensos a no recomendar e incluso a hablar negativamente.</li>
-                    </ul>
-                    <div class="formula">
-                        NPS = % Promotores - % Detractores
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Aclaraciones:</h4>
-                        <ul class="ul-indented">
-                            <li>El NPS se basa en una serie de preguntas al cliente, con la esencia de "¿Qué posibilidad existe de que recomiendes el producto a un conocido?".</li>
-                            <li>Un NPS positivo (mayor que 0) es generalmente bueno, mientras que un NPS alto (ej. 40 o más) es excelente.</li>
-                            <li><strong>Ejemplo práctico:</strong> Si el 60% de los clientes son promotores y el 20% son detractores, el NPS es de 40 (60% - 20%).</li>
-                            <li>Es una métrica clave para medir la lealtad del cliente y la satisfacción general.</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-
-                <h2 class="metric-title">Métricas Financieras</h2>
-
-                <!-- COGS -->
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">⚙️</span> COGS (Cost of Goods Sold)</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> En SaaS, el COGS (Coste de Bienes Vendidos) suele incluir gastos directamente relacionados con la prestación del servicio. Es clave para calcular el margen bruto, ya que representa el gasto directo asignado a la prestación del servicio o producto.</p>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Ejemplos y Aclaraciones:</h4>
-                        <ul class="ul-indented">
-                            <li><strong>Ejemplos típicos:</strong> Costes de infraestructura de servidores (cloud hosting), licencias de software de terceros utilizadas para ofrecer el servicio, costes de soporte al cliente directamente asociados a la operación del servicio.</li>
-                            <li>No incluye gastos de marketing, ventas o investigación y desarrollo.</li>
-                            <li>Un control eficiente del COGS es fundamental para la rentabilidad de un SaaS.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- GROSS MARGIN -->
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">📊</span> Gross Margin</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> El margen bruto mide la rentabilidad del producto al calcular los ingresos después de cubrir los costes directos (COGS). Un margen alto indica eficiencia operativa.</p>
-                    <div class="formula">
-                        Gross Margin = ((Ingresos Totales - COGS) / Ingresos Totales) × 100
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Aclaraciones:</h4>
-                        <ul class="ul-indented">
-                            <li>Es un indicador crucial de la salud financiera de un SaaS, ya que muestra cuánto dinero queda de cada venta después de cubrir los costes directos de prestación del servicio.</li>
-                            <li>Un margen bruto alto permite a la empresa invertir más en marketing, ventas, I+D y otras áreas de crecimiento.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- LTV -->
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">🌟</span> LTV (Lifetime Value)</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> El «lifetime value» (LTV) o valor de vida del cliente es una métrica clave en negocios SaaS que mide el valor total que un cliente aporta a la empresa durante el tiempo que permanece suscrito. Se utiliza para evaluar la rentabilidad de la adquisición de clientes y la sostenibilidad del modelo de negocio.</p>
-                    <div class="formula">
-                        LTV Básico (para SaaS de suscripción recurrente) = ARPU / Churn Rate (de clientes)
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Tipos y Aclaraciones:</h4>
-                        <p class="text-gray-700">Existen varias formas de calcular el LTV, dependiendo de la profundidad del análisis:</p>
-                        <ul class="ul-indented">
-                            <li><strong>LTV Básico:</strong> El método más utilizado en SaaS con planes de suscripción recurrente, basado en el ARPU y la tasa de churn de clientes.</li>
-                            <li><strong>LTV con Margen Bruto:</strong> Una versión más precisa que incorpora el margen bruto para reflejar la rentabilidad real:
-                                <div class="formula text-sm">
-                                    LTV con Margen Bruto = ARPU × (Margen Bruto %) / Churn Rate
-                                </div>
-                            </li>
-                            <li><strong>LTV basado en Cohortes:</strong> En vez de asumir tasas fijas de churn y ARPU, se puede calcular el LTV observando los ingresos generados por una cohorte específica de clientes a lo largo del tiempo. Es el método más preciso, pero requiere datos históricos y un análisis detallado de cohortes. Se suman los ingresos generados por la cohorte mes a mes hasta que la mayoría de los clientes hayan cancelado.</li>
-                        </ul>
-                    </div>
-                </div>
-
-
-                <!-- BURN MULTIPLE -->
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">🔥</span> Burn Multiple</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> Esta métrica mide la eficiencia con la que una empresa está convirtiendo su gasto (cash burn) en crecimiento de ingresos.</p>
-                    <div class="formula">
-                        Burn Multiple = (Cash Burn) / (Nuevo MRR Anualizado)
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Interpretación del Burn Multiple:</h4>
-                        <ul class="ul-indented">
-                            <li><strong>< 1:</strong> Eficiencia muy buena (la empresa gasta poco en comparación con su crecimiento).</li>
-                            <li><strong>1 - 1.5:</strong> Buena eficiencia.</li>
-                            <li><strong>1.5 - 2:</strong> Eficiencia moderada, pero puede mejorar.</li>
-                            <li><strong>> 2:</strong> Ineficiencia preocupante (se quema demasiado dinero sin suficiente crecimiento).</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- CASH FLOW -->
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">💸</span> Cash Flow</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> El cash flow o flujo de caja es la cantidad de dinero neto que entra y sale de un negocio en un período determinado. En SaaS, es clave porque refleja la liquidez y sostenibilidad de la empresa, más allá de la rentabilidad contable.</p>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Aclaraciones:</h4>
-                        <ul class="ul-indented">
-                            <li>Un flujo de caja positivo significa que entra más dinero del que sale, lo cual es esencial para la operación y crecimiento de la empresa.</li>
-                            <li>A diferencia de la rentabilidad (beneficios), el cash flow se centra en el movimiento real del efectivo, lo cual es vital para la supervivencia a corto plazo.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- RULE OF 40 -->
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">✨</span> Rule of 40</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> Es una métrica utilizada en SaaS para equilibrar crecimiento y rentabilidad. Se usa principalmente para evaluar si un negocio es sostenible a largo plazo. Si la suma de la tasa de crecimiento y el margen EBITDA es superior al 40%, se considera que el negocio tiene una buena combinación de crecimiento y eficiencia operativa.</p>
-                    <div class="formula">
-                        Rule of 40 = Tasa de Crecimiento Anual (%) + Margen EBITDA (%)
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Interpretación:</h4>
-                        <ul class="ul-indented">
-                            <li><strong>Por encima del 40%:</strong> La empresa tiene un buen balance entre crecimiento y rentabilidad, lo cual es altamente deseable en el mundo SaaS.</li>
-                            <li><strong>Por debajo del 40%:</strong> Puede indicar que la empresa está quemando demasiado dinero sin suficiente crecimiento, o que es demasiado conservadora en inversión y no está creciendo lo suficiente.</li>
-                            <li><strong>Ejemplo 1:</strong> Empresa SaaS crece 30% anual y tiene un margen EBITDA del 15%. <br> Rule of 40 = 30% + 15% = 45% (buena eficiencia).</li>
-                            <li><strong>Ejemplo 2:</strong> Empresa SaaS crece 50% anual, pero tiene un EBITDA negativo de -20%. <br> Rule of 40 = 50% + (-20%) = 30% (posible ineficiencia o sobreinversión).</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- MAGIC NUMBER -->
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">🎩</span> Magic Number</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> Evalúa la eficiencia en adquisición de clientes, es decir, cuánto MRR nuevo genera cada euro invertido en ventas y marketing.</p>
-                    <div class="formula">
-                        Magic Number = (MRR Nuevo Trimestral × 4) / (Gasto de Ventas y Marketing del Trimestre Anterior)
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Interpretación del Número Mágico:</h4>
-                        <ul class="ul-indented">
-                            <li><strong>> 0.75:</strong> Muy buena eficiencia de adquisición. Indica que las inversiones en ventas y marketing están generando un retorno sólido.</li>
-                            <li><strong>Entre 0.5 y 0.75:</strong> Eficiencia aceptable, pero con margen de mejora. Se debería revisar y optimizar las estrategias.</li>
-                            <li><strong>< 0.5:</strong> Ineficiencia en adquisición, posiblemente con problemas de escalabilidad. Urge una revisión profunda de las estrategias de ventas y marketing.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- RUNWAY -->
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">🛣️</span> Runway</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> El Runway indica cuántos meses puede operar la empresa con su efectivo actual antes de quedarse sin dinero, asumiendo que no obtiene ingresos adicionales ni inversiones.</p>
-                    <div class="formula">
-                        Runway = Efectivo Actual / Cash Burn Mensual
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Aclaraciones:</h4>
-                        <ul class="ul-indented">
-                            <li>Es una métrica vital para la planificación financiera y la gestión de la liquidez, especialmente para startups y empresas en crecimiento que aún no son rentables.</li>
-                            <li>Un runway más largo proporciona mayor estabilidad y tiempo para alcanzar la rentabilidad o asegurar nuevas rondas de financiación.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- MARGEN DE EBITDA -->
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">💰</span> Margen de EBITDA</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> Esta métrica mide la rentabilidad operativa de un negocio SaaS antes de intereses, impuestos, depreciación y amortización. Es clave para evaluar la eficiencia del negocio sin distorsiones contables.</p>
-                    <div class="formula">
-                        Margen EBITDA = (EBITDA / Ingresos Totales) × 100
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Aclaraciones:</h4>
-                        <ul class="ul-indented">
-                            <li>El EBITDA (Earnings Before Interest, Taxes, Depreciation, and Amortization) es una medida de la rentabilidad operativa central de la empresa.</li>
-                            <li>Un margen EBITDA alto indica que la empresa es eficiente en la gestión de sus operaciones principales y en el control de sus costes operativos.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- QUICK RATIO SAAS -->
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">⚡</span> Quick Ratio SaaS</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> El SaaS quick ratio mide la capacidad de crecimiento neto de los ingresos recurrentes de un SaaS. Evalúa cuántos MRR nuevos se generan en comparación con los que se pierden por churn y contracción.</p>
-                    <div class="formula">
-                        Quick Ratio = (Nuevo MRR + Expansión MRR) / (Contracción MRR + Churn MRR)
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Aclaraciones:</h4>
-                        <ul class="ul-indented">
-                            <li>Un ratio alto (generalmente > 4) indica un crecimiento robusto y saludable, lo que significa que la empresa está generando significativamente más ingresos nuevos de los que pierde.</li>
-                            <li>Es un excelente indicador de la tracción y la sostenibilidad del crecimiento de ingresos recurrentes.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h2 class="metric-title">Métricas de Captación</h2>
-
-                <!-- CAC -->
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">💸</span> CAC (Customer Acquisition Cost)</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> El CAC mide cuánto cuesta de promedio adquirir un cliente, incluyendo todo el gasto en marketing y ventas. Es clave para evaluar la eficiencia de las estrategias de adquisición y asegurarse de que el coste de adquisición esté alineado con los ingresos generados por cliente.</p>
-                    <div class="formula">
-                        CAC = (Gasto Total en Ventas y Marketing) / (Número de Nuevos Clientes Adquiridos)
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Aclaraciones:</h4>
-                        <ul class="ul-indented">
-                            <li>En fases iniciales, es aconsejable no imputar los gastos de personal directamente a esta métrica, ya que podrían desvirtuarla al no haber una gran masa de clientes.</li>
-                            <li>Se puede calcular un "blended CAC" que incluye el coste de los equipos de marketing y ventas, o un CAC solo de las campañas de marketing (si aplica, excluyendo si solo hay equipos de ventas).</li>
-                            <li>Es recomendable calcular el coste de captación de leads y usuarios en cada etapa del embudo de ventas.</li>
-                        </ul>
-                    </div>
-                </div>
-
-
-                <!-- RATIO LTV/CAC -->
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">⚖️</span> Ratio LTV/CAC</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> Este ratio mide la rentabilidad en la adquisición de clientes al comparar el valor de un cliente (LTV) con su coste de adquisición (CAC).</p>
-                    <div class="formula">
-                        Ratio LTV/CAC = LTV / CAC
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Interpretación:</h4>
-                        <ul class="ul-indented">
-                            <li><strong>Si LTV/CAC > 3:</strong> El modelo de negocio es sostenible y saludable. Indica que por cada euro invertido en adquisición, se recuperan 3 o más.</li>
-                            <li><strong>Si LTV/CAC < 1:</strong> El negocio está perdiendo dinero por cada cliente adquirido, lo cual es insostenible a largo plazo.</li>
-                            <li>Este ratio permite ajustar los presupuestos de adquisición, manteniendo un equilibrio entre crecimiento y rentabilidad.</li>
-                            <li><strong>Ejemplo práctico:</strong> Si el LTV de un SaaS es de 2000 € y su CAC es de 500 €, el ratio LTV/CAC sería de 4:1, lo que sugiere una buena eficiencia en la adquisición de clientes.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- PAYBACK PERIOD -->
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">⏱️</span> Payback Period</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> El payback period o periodo de recuperación mide cuánto tiempo tarda un SaaS en recuperar el coste de adquisición de un cliente (CAC) a través de los ingresos recurrentes generados por dicho cliente. Es una métrica clave para evaluar la eficiencia de adquisición y el flujo de caja.</p>
-                    <div class="formula">
-                        Payback Period = CAC / (ARPU × Gross Margin %)
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Aclaraciones:</h4>
-                        <ul class="ul-indented">
-                            <li>Un período de recuperación más corto es generalmente mejor, ya que la empresa recupera su inversión en la adquisición de clientes más rápidamente y puede reinvertir esos fondos.</li>
-                            <li>Ayuda a las empresas a planificar sus estrategias de inversión en marketing y ventas, asegurando que la adquisición de clientes sea financieramente viable.</li>
-                        </ul>
-                    </div>
-                </div>
-
-            
-
-                <!-- RPE -->
-                <div class="mb-10 p-6 border rounded-lg shadow-sm">
-                    <p class="metric-title"><span class="icon-large">🧑‍💻</span> RPE (Revenue Per Employee)</p>
-                    <p class="text-gray-700"><strong>Definición:</strong> El RPE o ingresos por empleado mide la eficiencia del equipo al calcular cuánto ingreso genera cada empleado. Es útil para entender cómo el tamaño del equipo impacta en los ingresos y para comparar la eficiencia con otras empresas.</p>
-                    <div class="formula">
-                        RPE = Ingresos Totales / Número de Empleados
-                    </div>
-                    <div class="info-box">
-                        <h4 class="font-bold mb-2">Aclaraciones:</h4>
-                        <ul class="ul-indented">
-                            <li>Un RPE alto sugiere que la empresa está utilizando su talento de manera eficiente para generar ingresos.</li>
-                            <li>Permite evaluar la productividad de la fuerza laboral y puede ser un indicador de escalabilidad del negocio.</li>
-                        </ul>
-                    </div>
-                </div>
-
-
-            <section class="section-card">
-                <p class="metric-title"><span class="icon-large">🧑‍💻</span> Cómo Trabajar con Métricas</p>
-                <img src="https://nextscenario.com/wp-content/uploads/2025/04/cashflow-dashboard.png" alt="Ejemplo de estrategia Product Led Sales de Hubspot" class="image-full-width">
-
-                <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    Comprender el ecosistema de métricas de nuestro modelo de negocio es fundamental. Todos los KPI y las métricas están interconectados. Si una métrica aumenta, necesitas saber cuál puede disminuir y en qué medida.
-                </p>
-
-                <h3 class="text-[#073B4C] mt-8 mb-4">Errores Habituales a Evitar:</h3>
-                <ul class="list-disc list-inside text-lg text-gray-700 leading-relaxed space-y-2 mb-6">
-                    <li><strong>Utilizar la misma métrica para diferentes casos de uso:</strong> Cada métrica debe tener su propia finalidad y contexto.</li>
-                    <li><strong>Métricas excesivamente complicadas:</strong> Combinar datos de forma innecesaria en vez de simplificar. Busca el equilibrio entre precisión y facilidad de mantenimiento. La lógica de los KPI debe ser sencilla e intuitiva, limitando el número de variables y cálculos.</li>
-                    <li><strong>Sobredimensionar métricas:</strong> Errores comunes como incluir el valor de pruebas gratuitas como ingresos reales o contar eventos duplicados (ej. Nextscenario.com y el problema de los MRR).</li>
-                    <li><strong>Desconectar métricas de producto y negocio:</strong> Lanzar funcionalidades sin alinear esfuerzos con objetivos de negocio ni medir su impacto real.</li>
-                </ul>
-
-                <h3 class="text-[#073B4C] mt-8 mb-4">Principios Clave para una Buena Analítica:</h3>
-                <ul class="list-disc list-inside text-lg text-gray-700 leading-relaxed space-y-2">
-                    <li><strong>Pensamiento Crítico y Medición Compuesta:</strong> Entiende las relaciones entre métricas (ej: "Alto abandono = Baja retención"). Reconoce cómo un cambio en una métrica impacta en otras a lo largo del embudo (ej: "Aumento del 25% en inscripciones -> 1% en pruebas -> 0.5% en suscripciones de pago -> 0.02% en ingresos").</li>
-                    <li><strong>Mantén la Lógica Métrica Simple:</strong> Si no estás seguro de cómo medir una iniciativa, cíñete a métricas sencillas y limita las variables.</li>
-                    <li><strong>Proporciones y Líneas de Base Claras:</strong> Es esencial tener referencias claras para interpretar los movimientos de las métricas. Esto aporta confianza al análisis, incluso cuando los informes no parezcan cuadrar completamente.</li>
-                    <li><strong>Adaptación:</strong> Cada producto requiere métricas y marcos adaptados que reflejen su modelo de negocio y comportamiento de usuario único.</li>
-                </ul>
-            </section>
-
-        </main>
-
-        <footer class="text-center py-10 mt-12 border-t border-gray-200">
-            <p class="text-gray-500">Infografía elaborada por Nextscenario base en el contenido del libro "Modelos de negocio SaaS".</p>
-        </footer>
-
+<nav class="ns-static-nav">
+    <div class="ns-inner">
+        <a class="ns-back" href="/metricas/pro/embed.php">
+            <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"/></svg>
+            Volver al curso
+        </a>
+        <span class="ns-eyebrow">Infografía · Curso SaaS</span>
+        <a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a>
     </div>
+</nav>
+
+<div class="ns-shell">
+
+    <header class="ns-hero">
+        <span class="ns-hero-eyebrow"><span class="dot"></span>Módulo 04 · Métricas SaaS fundamentales</span>
+        <h1 class="ns-h1">Métricas clave en <em>SaaS</em>.</h1>
+        <p class="ns-lede">
+            <em>"Lo que no se define, no se puede medir. Lo que no se mide, no se puede
+            mejorar. Lo que no se mejora, se degrada siempre."</em> — Lord Kelvin.
+            <strong>No se puede gestionar lo que no se mide.</strong> Los datos son el
+            <span style="background: var(--c-accent); padding: 0 6px; border-radius: 4px; color: var(--c-ink);">combustible</span>
+            que impulsa el crecimiento y la optimización en SaaS.
+        </p>
+
+        <div class="grid-4-kpi">
+            <div class="bigmetric"><div class="l">Tipos de datos</div><div class="v">3</div><div class="sub">Transaccional · comportamiento · financiero</div></div>
+            <div class="bigmetric"><div class="l">Monetización</div><div class="v">MRR<em>·</em>ARR</div><div class="sub">Ingresos recurrentes</div></div>
+            <div class="bigmetric"><div class="l">Salud</div><div class="v">LTV<em>/</em>CAC</div><div class="sub">Ratio &gt; 3 sano</div></div>
+            <div class="bigmetric"><div class="l">Regla mágica</div><div class="v">40<em>%</em></div><div class="sub">Crecimiento + EBITDA</div></div>
+        </div>
+    </header>
+
+    <main class="ns-card">
+
+        <!-- Bloque 1 — Ecosistema de datos -->
+        <section class="mf-feature" style="border-top: 0; padding-top: 0;">
+            <div class="mf-text">
+                <div class="mf-tag">01 · El ecosistema</div>
+                <h3>Tres tipos de datos <em>clave</em>.</h3>
+                <p>
+                    En el mundo SaaS, los datos son el combustible que impulsa el
+                    crecimiento y la optimización. Comprender los diferentes tipos de
+                    datos y cómo se estructuran las métricas es fundamental para tomar
+                    decisiones informadas y estratégicas.
+                </p>
+                <ul>
+                    <li><span class="chk">💳</span><strong>Transaccionales:</strong> registros de eventos comerciales completados (suscripciones, renovaciones, cancelaciones, pagos, reembolsos, upgrades, downgrades, facturas, créditos, ajustes de precio). Fuentes: Stripe, Chargebee, Salesforce, HubSpot. Métricas derivadas: MRR, ARR, LTV, Churn rate.</li>
+                    <li><span class="chk">🖱</span><strong>Comportamiento:</strong> acciones de usuarios dentro del producto (logins, sesiones, tiempo en aplicación, features utilizadas, clicks, navegación). Fuentes: Mixpanel, Amplitude, Logs, Hotjar. Métricas: DAU/MAU, Feature adoption, Time to value.</li>
+                    <li><span class="chk">💰</span><strong>Financieros:</strong> contabilidad y flujo de caja (revenue, costes, márgenes, cash flow, burn rate, valoraciones, equity dilution). Fuentes: contabilidad, bancos, hojas de cálculo. Métricas: EBITDA, Gross Profit, Runway, Capital raise.</li>
+                </ul>
+            </div>
+            <div class="mf-visual">
+                <div class="vl">3 fuentes · 3 lenguajes</div>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 14px;">
+                    <div style="padding: 14px; background: color-mix(in oklab, var(--c-accent-2) 22%, transparent); border-radius: 10px;">
+                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: color-mix(in oklab, var(--c-paper) 70%, transparent); text-transform: uppercase; letter-spacing: 0.08em;">💳 Transaccional</div>
+                        <div style="font-size: 13px; color: var(--c-paper); margin-top: 4px;">Stripe · Chargebee · CRM</div>
+                    </div>
+                    <div style="padding: 14px; background: color-mix(in oklab, var(--c-accent) 22%, transparent); border-radius: 10px;">
+                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--c-ink); text-transform: uppercase; letter-spacing: 0.08em;">🖱 Comportamiento</div>
+                        <div style="font-size: 13px; color: var(--c-ink); margin-top: 4px;">Amplitude · Mixpanel · Hotjar</div>
+                    </div>
+                    <div style="padding: 14px; background: color-mix(in oklab, var(--c-paper) 12%, transparent); border-radius: 10px;">
+                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: color-mix(in oklab, var(--c-paper) 70%, transparent); text-transform: uppercase; letter-spacing: 0.08em;">💰 Financiero</div>
+                        <div style="font-size: 13px; color: var(--c-paper); margin-top: 4px;">Contabilidad · bancos · sheets</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 2 — Métricas de Monetización -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>02 · Monetización</span>
+                    <h2>MRR, ARR y <em>ARPU</em>.</h2>
+                </div>
+                <p>En el mundo del SaaS, las métricas no son solo números en un dashboard. Entender qué medir y cómo interpretar esos datos puede marcar la diferencia entre el crecimiento sostenible y la desaparición de un negocio.</p>
+            </div>
+
+            <div class="steps" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="step">
+                    <div class="sn">📈</div>
+                    <h4>MRR · Monthly Recurring Revenue</h4>
+                    <p><strong>Definición:</strong> todos los ingresos recurrentes normalizados en una cantidad mensual. Constituyen el núcleo de los ingresos en un negocio SaaS — son el alma de cualquier SaaS.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>MRR</strong> = Clientes Activos × Ingreso Promedio Mensual</p>
+                    <p style="margin-top: 8px !important;"><strong>Movimientos del MRR:</strong> nuevo MRR (nuevos clientes) · expansión MRR (upgrades, cross-selling) · contracción MRR (downgrades) · MRR perdidos por churn (bajas) · reactivación MRR (clientes que vuelven). Es relativamente consistente y predecible. En etapas iniciales presenta fluctuaciones. El cálculo es simple en teoría, complejo en la práctica por planes, periodos y set up fees no recurrentes.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">💰</div>
+                    <h4>ARR · Annual Recurring Revenue</h4>
+                    <p><strong>Definición:</strong> proyección anual de los MRR — visión del crecimiento a largo plazo.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>ARR</strong> = MRR × 12</p>
+                    <p style="margin-top: 8px !important;"><strong>Modelos de cálculo:</strong></p>
+                    <p style="margin-top: 4px !important; font-size: 12px !important;">· <strong>Basados en ingresos mensuales:</strong> multiplicación simple × 12 (BigCommerce, CrowdStrike, Dropbox).<br>· <strong>Basados en ingresos diarios:</strong> mayor precisión con contratos atípicos (Dynatrace, Commvault).<br>· <strong>Basados en contratos y ACV:</strong> ajustan en función del valor del contrato (Nutanix, Intapp).<br>· <strong>Híbridos:</strong> fórmulas personalizadas (ForgeRock, UiPath, SolarWinds).</p>
+                </div>
+                <div class="step" style="grid-column: span 2;">
+                    <div class="sn">👤</div>
+                    <h4>ARPU · Average Revenue Per User</h4>
+                    <p><strong>Definición:</strong> los ingresos medios por usuario miden el ingreso promedio que un negocio SaaS genera por cada usuario.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>ARPU</strong> = Ingresos Totales / Usuarios Activos</p>
+                    <p style="margin-top: 8px !important;">Útil para evaluar la monetización del producto y comparar el rendimiento con otros modelos SaaS o el propio rendimiento histórico. Identifica oportunidades de upselling/cross-selling si el ARPU es bajo, o valida estrategias de precios si es alto.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 3 — Métricas de Retención -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>03 · Retención</span>
+                    <h2>Churn, retention, MAU y <em>NPS</em>.</h2>
+                </div>
+                <p>Las que miden si tus clientes se quedan o se van — y cómo interactúan con el producto durante su vida con tu SaaS.</p>
+            </div>
+
+            <div class="steps" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="step">
+                    <div class="sn">💔</div>
+                    <h4>Churn Rate</h4>
+                    <p><strong>Definición:</strong> porcentaje de clientes que cancelan durante un periodo específico. Para SaaS, donde los ingresos recurrentes son vitales, el churn es una métrica crucial.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>Churn</strong> = (Clientes perdidos / Clientes inicio) × 100</p>
+                    <p style="margin-top: 8px !important;"><strong>Tipos:</strong> Customer Churn Rate (clientes) o MRR Churn Rate (ingresos). Bajo = buena retención y producto con valor continuo. Alto = insatisfacción, mal PMF o problemas de servicio.</p>
+                    <p style="margin-top: 8px !important;"><strong>Voluntario vs involuntario:</strong> el voluntario es decisión activa del cliente. El involuntario sucede sin intención (tarjetas caducadas, fondos insuficientes, errores de procesamiento). Para el involuntario se introduce la <em>"ventana de churn"</em>: 30 días de reintentos, notificaciones y periodo de gracia antes de considerar al cliente perdido.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">🔗</div>
+                    <h4>Retention Rate</h4>
+                    <p><strong>Definición:</strong> mide el % de clientes que retiene la empresa en un periodo. Métrica opuesta al churn.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>Retention</strong> = 1 − Churn Rate</p>
+                    <p style="margin-top: 8px !important;"><strong>Customer Retention Rate (CRR):</strong> % de clientes que continúan activos.<br><strong>Net Revenue Retention (NRR):</strong> ((Ingresos iniciales + Expansión − Contracción − Churn) / Ingresos iniciales) × 100. NRR &gt; 100% = la empresa crece netamente desde su base actual.<br><strong>Gross Revenue Retention (GRR):</strong> sin contar expansión. ((Ingresos iniciales − Contracción − Churn) / Ingresos iniciales) × 100.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">👥</div>
+                    <h4>Usuarios Activos · MAU/WAU/DAU</h4>
+                    <p><strong>Definición:</strong> usuarios únicos que interactúan con el producto diaria (DAU), semanal (WAU) o mensualmente (MAU). Especialmente útiles para medir engagement.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>Ratio DAU/MAU</strong> = DAU / MAU</p>
+                    <p style="margin-top: 8px !important;">DAU/MAU muestra frecuencia de uso = engagement. Si el ratio es alto, los usuarios usan la herramienta con regularidad. <strong>Ej.:</strong> 1000 MAU + 300 DAU = 0,3 (30%). Limitación: no permite identificar qué usuarios se mantienen activos vs churn — para eso, análisis de cohortes.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">⭐</div>
+                    <h4>NPS · Net Promoter Score</h4>
+                    <p><strong>Definición:</strong> mide la probabilidad de que un cliente recomiende el producto, en escala 0-10.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>NPS</strong> = % Promotores − % Detractores</p>
+                    <p style="margin-top: 8px !important;"><strong>Promotores (9-10):</strong> satisfechos y leales, recomiendan.<br><strong>Pasivos (7-8):</strong> neutrales, vulnerables a la competencia.<br><strong>Detractores (0-6):</strong> insatisfechos, hablan negativamente.<br><strong>Ej.:</strong> 60% promotores y 20% detractores = NPS 40. NPS &gt; 0 es bueno; &gt; 40 excelente.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 4 — Métricas Financieras -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>04 · Financieras</span>
+                    <h2>COGS, márgenes, LTV, runway y <em>regla del 40</em>.</h2>
+                </div>
+                <p>Las que dicen si tu SaaS es realmente un negocio o un proyecto que devora cash. La salud financiera de un SaaS se ve aquí.</p>
+            </div>
+
+            <div class="steps" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="step">
+                    <div class="sn">⚙</div>
+                    <h4>COGS · Cost of Goods Sold</h4>
+                    <p><strong>Definición:</strong> en SaaS, COGS suele incluir gastos directamente relacionados con la prestación del servicio. Clave para calcular el margen bruto.</p>
+                    <p style="margin-top: 8px !important;"><strong>Ejemplos:</strong> infraestructura de servidores (cloud hosting), licencias de software de terceros usadas para ofrecer el servicio, soporte al cliente directamente asociado a la operación. <strong>NO incluye:</strong> marketing, ventas ni I+D. Un control eficiente del COGS es fundamental para la rentabilidad.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">📊</div>
+                    <h4>Gross Margin</h4>
+                    <p><strong>Definición:</strong> mide la rentabilidad del producto al calcular los ingresos después de cubrir los costes directos. Un margen alto indica eficiencia operativa.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>Gross Margin</strong> = ((Ingresos − COGS) / Ingresos) × 100</p>
+                    <p style="margin-top: 8px !important;">Indicador crucial de salud financiera. Margen alto = invertir más en marketing, ventas, I+D y otras áreas de crecimiento.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">🌟</div>
+                    <h4>LTV · Lifetime Value</h4>
+                    <p><strong>Definición:</strong> valor total que un cliente aporta durante el tiempo que permanece suscrito. Mide la rentabilidad de la adquisición y la sostenibilidad del modelo.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>LTV básico</strong> = ARPU / Churn Rate de clientes<br><strong>LTV con margen</strong> = ARPU × Margen Bruto% / Churn</p>
+                    <p style="margin-top: 8px !important;"><strong>LTV basado en cohortes:</strong> el método más preciso. En lugar de asumir tasas fijas, observa los ingresos generados por una cohorte específica a lo largo del tiempo. Requiere datos históricos y análisis detallado.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">🔥</div>
+                    <h4>Burn Multiple</h4>
+                    <p><strong>Definición:</strong> mide la eficiencia con la que una empresa convierte gasto (cash burn) en crecimiento de ingresos.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>Burn Multiple</strong> = Cash Burn / Nuevo MRR Anualizado</p>
+                    <p style="margin-top: 8px !important;"><strong>&lt; 1:</strong> excelente. <strong>1-1.5:</strong> buena. <strong>1.5-2:</strong> moderada, mejorable. <strong>&gt; 2:</strong> ineficiencia preocupante.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">💸</div>
+                    <h4>Cash Flow</h4>
+                    <p><strong>Definición:</strong> dinero neto que entra y sale del negocio en un período. Refleja la liquidez y sostenibilidad real, más allá de la rentabilidad contable.</p>
+                    <p style="margin-top: 8px !important;">Cash flow positivo = entra más del que sale, esencial para operación y crecimiento. A diferencia de la rentabilidad, se centra en el movimiento real del efectivo, vital para la supervivencia a corto plazo.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">✨</div>
+                    <h4>Rule of 40</h4>
+                    <p><strong>Definición:</strong> equilibra crecimiento y rentabilidad. Si la suma de tasa de crecimiento + margen EBITDA &gt; 40%, el negocio tiene buena combinación.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>Rule of 40</strong> = Crecimiento Anual % + Margen EBITDA %</p>
+                    <p style="margin-top: 8px !important;"><strong>Ej. 1:</strong> 30% + 15% = 45% (buena eficiencia). <strong>Ej. 2:</strong> 50% + (-20%) = 30% (sobreinversión).</p>
+                </div>
+                <div class="step">
+                    <div class="sn">🎩</div>
+                    <h4>Magic Number</h4>
+                    <p><strong>Definición:</strong> evalúa la eficiencia en adquisición — cuánto MRR nuevo genera cada euro invertido en ventas y marketing.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>Magic</strong> = (Nuevo MRR Trim. × 4) / S&amp;M Trim. Anterior</p>
+                    <p style="margin-top: 8px !important;"><strong>&gt; 0.75:</strong> muy buena. <strong>0.5-0.75:</strong> aceptable, mejorable. <strong>&lt; 0.5:</strong> ineficiencia, posibles problemas de escalabilidad.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">🛣</div>
+                    <h4>Runway</h4>
+                    <p><strong>Definición:</strong> cuántos meses puede operar la empresa con su efectivo actual antes de quedarse sin dinero, sin más ingresos ni inversiones.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>Runway</strong> = Efectivo Actual / Cash Burn Mensual</p>
+                    <p style="margin-top: 8px !important;">Métrica vital para planificación financiera y gestión de la liquidez. Un runway más largo proporciona más estabilidad y tiempo para alcanzar la rentabilidad o asegurar nuevas rondas.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">💼</div>
+                    <h4>Margen EBITDA</h4>
+                    <p><strong>Definición:</strong> rentabilidad operativa antes de intereses, impuestos, depreciación y amortización. Clave para evaluar eficiencia sin distorsiones contables.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>Margen EBITDA</strong> = (EBITDA / Ingresos) × 100</p>
+                    <p style="margin-top: 8px !important;">Margen alto = eficiente en operaciones principales y control de costes operativos.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">⚡</div>
+                    <h4>Quick Ratio SaaS</h4>
+                    <p><strong>Definición:</strong> mide la capacidad de crecimiento neto de los ingresos recurrentes. Cuántos MRR nuevos se generan vs los que se pierden por churn y contracción.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>Quick Ratio</strong> = (Nuevo + Expansión MRR) / (Contracción + Churn MRR)</p>
+                    <p style="margin-top: 8px !important;">Ratio alto (&gt; 4) = crecimiento robusto y saludable. Excelente indicador de tracción y sostenibilidad de ingresos recurrentes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 5 — Métricas de Captación -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>05 · Captación</span>
+                    <h2>CAC, LTV/CAC, payback y <em>RPE</em>.</h2>
+                </div>
+                <p>Las que miden si tu motor de adquisición de clientes es eficiente — o si estás quemando capital sin retorno.</p>
+            </div>
+
+            <div class="steps" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="step">
+                    <div class="sn">💸</div>
+                    <h4>CAC · Customer Acquisition Cost</h4>
+                    <p><strong>Definición:</strong> cuánto cuesta de promedio adquirir un cliente, incluyendo todo el gasto en marketing y ventas.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>CAC</strong> = (Gasto S&amp;M) / Nuevos Clientes</p>
+                    <p style="margin-top: 8px !important;">En fases iniciales, no imputar gastos de personal directamente para no desvirtuar la métrica. Calcula <strong>blended CAC</strong> (incluye equipos) o <strong>CAC solo de campañas</strong>. Recomendable calcular el coste de captación de leads y usuarios en cada etapa del embudo.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">⚖</div>
+                    <h4>Ratio LTV/CAC</h4>
+                    <p><strong>Definición:</strong> rentabilidad en la adquisición — compara el valor del cliente (LTV) con su coste (CAC).</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>LTV/CAC</strong> = LTV / CAC</p>
+                    <p style="margin-top: 8px !important;"><strong>&gt; 3:</strong> sostenible y saludable. Por cada € invertido en adquisición, se recuperan 3+. <strong>&lt; 1:</strong> el negocio pierde dinero por cliente, insostenible. <strong>Ej.:</strong> LTV €2.000 + CAC €500 = ratio 4:1.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">⏱</div>
+                    <h4>Payback Period</h4>
+                    <p><strong>Definición:</strong> tiempo que tarda un SaaS en recuperar el CAC vía los ingresos recurrentes generados por dicho cliente. Clave para evaluar eficiencia de adquisición y flujo de caja.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>Payback</strong> = CAC / (ARPU × Gross Margin %)</p>
+                    <p style="margin-top: 8px !important;">Periodo más corto = mejor. Permite reinvertir antes los fondos. Ayuda a planificar inversión en marketing y ventas.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">👨‍💻</div>
+                    <h4>RPE · Revenue Per Employee</h4>
+                    <p><strong>Definición:</strong> mide la eficiencia del equipo — cuánto ingreso genera cada empleado.</p>
+                    <p style="margin-top: 8px !important; font-family: 'JetBrains Mono', monospace; font-size: 12px !important; padding: 8px 10px; background: var(--c-paper-2); border-radius: 6px;"><strong>RPE</strong> = Ingresos Totales / Empleados</p>
+                    <p style="margin-top: 8px !important;">RPE alto = empresa usa su talento eficientemente. Indicador de productividad de la fuerza laboral y de escalabilidad del negocio.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 6 — Cómo trabajar con métricas -->
+        <section class="mf-feature" style="border-top: 1px solid var(--c-line);">
+            <div class="mf-text">
+                <div class="mf-tag">06 · Buena analítica</div>
+                <h3>Cómo <em>trabajar</em> con métricas.</h3>
+                <p>
+                    Comprender el ecosistema de métricas de nuestro modelo de negocio es
+                    fundamental. Todos los KPI y las métricas están interconectados. Si
+                    una métrica aumenta, necesitas saber cuál puede disminuir y en qué
+                    medida.
+                </p>
+                <p style="font-weight: 600; color: var(--c-ink);">Errores habituales a evitar:</p>
+                <ul>
+                    <li><span class="chk">⊘</span><strong>Usar la misma métrica para diferentes casos de uso:</strong> cada métrica debe tener su propia finalidad y contexto.</li>
+                    <li><span class="chk">⊘</span><strong>Métricas excesivamente complicadas:</strong> combinar datos innecesariamente. Busca equilibrio entre precisión y mantenibilidad. La lógica de los KPI debe ser sencilla e intuitiva.</li>
+                    <li><span class="chk">⊘</span><strong>Sobredimensionar métricas:</strong> incluir el valor de pruebas gratuitas como ingresos reales o contar eventos duplicados.</li>
+                    <li><span class="chk">⊘</span><strong>Desconectar métricas de producto y negocio:</strong> lanzar funcionalidades sin alinear con objetivos de negocio ni medir impacto real.</li>
+                </ul>
+                <p style="font-weight: 600; color: var(--c-ink); margin-top: 14px !important;">Principios clave:</p>
+                <ul>
+                    <li><span class="chk">→</span><strong>Pensamiento crítico y medición compuesta:</strong> entiende relaciones (ej. "alto abandono = baja retención"). Reconoce cómo cambios se propagan: <em>"+25% inscripciones → +1% pruebas → +0.5% suscripciones de pago → +0.02% ingresos"</em>.</li>
+                    <li><span class="chk">→</span><strong>Mantén la lógica simple:</strong> si no estás seguro de cómo medir, cíñete a métricas sencillas y limita variables.</li>
+                    <li><span class="chk">→</span><strong>Proporciones y líneas de base claras:</strong> referencias para interpretar movimientos. Aporta confianza al análisis.</li>
+                    <li><span class="chk">→</span><strong>Adaptación:</strong> cada producto requiere métricas y marcos adaptados a su modelo de negocio y comportamiento de usuario único.</li>
+                </ul>
+            </div>
+            <div class="mf-visual">
+                <div class="vl">Cascada de impactos</div>
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+                    <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-accent-2) 22%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--c-paper); display: flex; justify-content: space-between;"><span>+25% inscripciones</span><span>↓</span></div>
+                    <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 85%, transparent); display: flex; justify-content: space-between;"><span>+1% pruebas</span><span>↓</span></div>
+                    <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: color-mix(in oklab, var(--c-paper) 85%, transparent); display: flex; justify-content: space-between;"><span>+0.5% pagos</span><span>↓</span></div>
+                    <div style="padding: 12px 14px; background: color-mix(in oklab, var(--c-accent) 22%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--c-accent); display: flex; justify-content: space-between;"><span>+0.02% ingresos</span><span>$</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing CTA -->
+        <section class="sub-cta">
+            <h2>Mide lo que <em>importa</em>. Decide con datos.</h2>
+            <p>
+                MRR, ARR, ARPU, churn, LTV, CAC, payback, runway, regla del 40. Cada
+                una mide una dimensión de la salud de tu SaaS. Trabaja todas en
+                conjunto y entiende cómo se afectan entre sí.
+            </p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a class="pill pill-accent" href="/metricas/pro/metricas_fundamentales.php">Volver al módulo →</a>
+                <a class="pill pill-ghost" href="https://tidycal.com/nextscenario/mentoria-curso" target="_blank" rel="noopener">Auditar tus métricas</a>
+            </div>
+        </section>
+
+    </main>
+
+</div>
+
+<footer class="ns-foot">
+    <strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br>
+    Nextscenario · <a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a>
+</footer>
+
 </body>
 </html>

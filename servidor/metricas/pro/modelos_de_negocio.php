@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php"); exit(); }
-$module_num = "2️⃣";
+$module_num = "02";
 $module_title = "Modelos de negocio y limitación de producto";
 $module_subtitle = "Las principales metodologías de Go to Market: Ventas vs Product Led Growth, los modelos Freemium vs Free Trial y las estrategias para limitar un producto.";
 include __DIR__ . '/_partials/head.php';

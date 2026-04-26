@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php"); exit(); }
-$module_num = "4️⃣";
+$module_num = "04";
 $module_title = "Métricas SaaS fundamentales";
 $module_subtitle = "El lenguaje universal de los negocios SaaS. MRR, ARR, LTV, CAC, churn, eficiencia y unit economics.";
 include __DIR__ . '/_partials/head.php';

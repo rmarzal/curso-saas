@@ -1,415 +1,210 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Led Growth es Mentira: Pre Market Fit</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Font Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <!-- Phosphor Icons for simple visuals -->
-    <script src="https://unpkg.com/phosphor-icons"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Tailwind gray-50 */
-            color: #1f2937; /* Tailwind gray-900 */
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 960px;
-        }
-        .section-card {
-            background-color: #ffffff;
-            padding: 2.5rem;
-            border-radius: 0.75rem; /* rounded-xl */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow */
-            margin-bottom: 2rem;
-            border: 1px solid #e2e8f0; /* Subtle border */
-        }
-        h1 {
-            font-size: 2.5rem; /* text-4xl */
-            font-weight: 800; /* font-extrabold */
-            color: #1a202c; /* Tailwind gray-900 */
-        }
-        h2 {
-            font-size: 2rem; /* text-3xl */
-            font-weight: 700; /* font-bold */
-            color: #2d3748; /* Tailwind gray-800 */
-            margin-bottom: 1.5rem;
-        }
-        h3 {
-            font-size: 1.5rem; /* text-2xl */
-            font-weight: 600; /* font-semibold */
-            color: #4a5568; /* Tailwind gray-700 */
-            margin-bottom: 1rem;
-        }
-        p {
-            margin-bottom: 1rem;
-        }
-        .icon-lg {
-            font-size: 2.5rem; /* Adjust size for visual impact */
-            color: #3b82f6; /* Tailwind blue-500 */
-        }
-        .text-accent {
-            color: #1e40af; /* Deeper blue for emphasis */
-            font-weight: 600;
-        }
-        .bg-accent-light {
-            background-color: #eff6ff; /* Tailwind blue-50 */
-            border-left: 4px solid #3b82f6; /* Tailwind blue-500 */
-        }
-        .chart-container {
-            position: relative;
-            height: 300px; /* Fixed height for consistency */
-            width: 100%;
-            margin-top: 1.5rem;
-        }
-    </style>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Product Led Growth es Mentira · Curso SaaS</title>
+<link rel="stylesheet" href="_design.css" />
 </head>
-<body class="p-8">
-    <div class="container mx-auto">
-        <!-- Main Title Section -->
-        <header class="text-center mb-12">
-            <h1 class="text-blue-700 mb-4 rounded-lg py-4">
-                Product Led Growth es Mentira
-            </h1>
-            <p class="text-xl text-gray-700 font-semibold">
-                No todo lo que esta la teoria va a funcionar cuando estás pre market fit.
-            </p>
-        </header>
+<body>
 
-        <!-- Introduction Section -->
-        <section class="section-card">
-            <h2 class="flex items-center gap-3 text-blue-600">
-                <i class="ph-book-open icon-lg"></i>
-                La Realidad del Go To Market en SaaS
-            </h2>
-            <p>El 90% de las cosas que vas a leer en libros de estrategia o metodología, <span class="text-accent">no te van a servir en la búsqueda del Product Market Fit (PMF)</span>.</p>
-            <p>Te pasas meses implementando estas estrategias, el tiempo pasa, las cosas no funcionan y el <span class="text-accent">runway</span> disminuye. <strong class="text-red-600">Product Led Growth (PLG) es una de esas estrategias que difícilmente te funcionarán antes del PMF.</strong></p>
-
-            <div class="mt-8 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 flex items-start gap-3">
-                <i class="ph-warning-circle text-2xl text-red-500"></i>
-                <div>
-                    <h3 class="text-red-700 text-lg mt-0 mb-1">Muchos consejos "generales" de startups no aplican en las etapas tempranas</h3>
-                </div>
-            </div>
-        </section>
-
-        <!-- What is Product Led Growth (PLG) Section -->
-        <section class="section-card">
-            <h2 class="flex items-center gap-3 text-blue-600">
-                <i class="ph-rocket icon-lg"></i>
-                ¿Qué es Product Led Growth (PLG)?
-            </h2>
-            <p>PLG es una estrategia <span class="text-accent">Go-To-Market</span> utilizada por muchos <span class="text-accent">SaaS</span>, que se centra en el uso del producto como <strong class="text-blue-700">principal motor de adquisición y conversión de clientes</strong>.</p>
-            <p>Sus principales pilares son:</p>
-            <ul class="list-disc list-inside ml-4 mb-4">
-                <li class="mb-2"><span class="font-semibold text-blue-600">Producto Fácil de Usar:</span> La interfaz y la experiencia deben ser intuitivas.</li>
-                <li class="mb-2"><span class="font-semibold text-blue-600">Valor Claro y Diferenciado:</span> El usuario debe percibir rápidamente el beneficio.</li>
-                <li class="mb-2"><span class="font-semibold text-blue-600">Versión Freemium o Trial:</span> Permite a los usuarios experimentar el producto antes de comprar.</li>
-            </ul>
-            <p class="p-3 bg-accent-light rounded-md text-blue-800">
-                La premisa de PLG: <span class="font-bold italic">"Si un producto es lo suficientemente bueno, los clientes estarán dispuestos a pagar por él sin la intervención de nadie."</span>
-            </p>
-            <p class="mt-4 text-red-600 font-semibold">
-                Sin embargo, esto no es tan fácil de conseguir en etapas iniciales, pre market fit.
-            </p>
-        </section>
-
-        <!-- Pros of PLG Section -->
-        <section class="section-card">
-            <h2 class="flex items-center gap-3 text-blue-600">
-                <i class="ph-chart-line icon-lg"></i>
-                Pros de Product Led Growth
-            </h2>
-            <p>Aunque no sea ideal para etapas tempranas, el PLG ofrece beneficios significativos:</p>
-            <ul class="list-disc list-inside ml-4 mb-4">
-                <li class="mb-2"><span class="font-semibold text-green-600">Menores costes de adquisición de clientes (CAC)</span> respecto a otras acciones, como por ejemplo, vender con equipo comercial.</li>
-                <li class="mb-2"><span class="font-semibold text-green-600">Crecimiento más rápido y escalable</span> al no tener embudos en la captación y activación (depende de si el producto necesita onboarding de personas en el set up).</li>
-                <li class="mb-2"><span class="font-semibold text-green-600">No dependencia de equipo</span> para convertir.</li>
-            </ul>
-
-            <!-- Chart: CAC Comparison PLG vs Sales -->
-            <h3 class="text-blue-700 mt-6">Comparativa: Coste de Adquisición de Clientes (CAC)</h3>
-            <div class="chart-container">
-                <canvas id="cacChart"></canvas>
-            </div>
-            <p class="text-sm text-gray-500 text-center mt-2">
-                Comparación de CAC (hipotético) donde PLG muestra un menor costo de adquisición.
-            </p>
-        </section>
-
-        <!-- PLG Success Cases Section -->
-        <section class="section-card">
-            <h2 class="flex items-center gap-3 text-blue-600">
-                <i class="ph-trophy icon-lg"></i>
-                Compañías con Estrategia Product Led Growth (y sus Matices)
-            </h2>
-            <p>Existen muchos casos de éxito a nivel mundial que han empleado una estrategia PLG:</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                <div class="p-4 bg-blue-50 rounded-lg shadow-sm">
-                    <h3 class="text-blue-700 text-xl flex items-center gap-2 mb-2">
-                        <i class="ph-globe-hemisphere-west text-2xl"></i> Global
-                    </h3>
-                    <ul class="list-disc list-inside ml-4">
-                        <li><span class="font-semibold">Slack</span></li>
-                        <li><span class="font-semibold">Zoom</span></li>
-                        <li><span class="font-semibold">Atlassian</span></li>
-                    </ul>
-                </div>
-                <div class="p-4 bg-green-50 rounded-lg shadow-sm">
-                    <h3 class="text-green-700 text-xl flex items-center gap-2 mb-2">
-                        <i class="ph-flag-banner text-2xl"></i> En España
-                    </h3>
-                    <ul class="list-disc list-inside ml-4">
-                        <li><span class="font-semibold">Graphex</span></li>
-                        <li><span class="font-semibold">Acumbamail</span></li>
-                        <li><span class="font-semibold">Freepik</span></li>
-                        <li><span class="font-semibold">Internxt</span> (¡La excepción que confirma la regla!)</li>
-                    </ul>
-                </div>
-            </div>
-            <p class="mt-6 p-3 bg-yellow-50 border border-yellow-200 rounded-md text-yellow-800 flex items-start gap-3">
-                <i class="ph-info text-2xl text-yellow-600"></i>
-                <div>
-                    <span class="font-bold">Importante Matiz:</span> No todas estas startups usan una estrategia PLG "pura". Por ejemplo, <span class="font-semibold">Hubspot</span>, entre otras, incorpora equipos de ventas para finalizar la conversión.
-                </div>
-            </p>
-            <p class="text-sm text-gray-600 mt-4">
-                <a href="https://twitter.com/fvsegarra/status/1658092731615281154?s=20" target="_blank" class="text-blue-500 hover:underline">
-                    Conoce más sobre el caso de Internxt y Fran Segarra en Twitter.
-                </a>
-            </p>
-        </section>
-
-        <!-- Why PLG is NOT Recommended for Early Stage SaaS Section -->
-        <section class="section-card bg-red-50">
-            <h2 class="flex items-center gap-3 text-red-700">
-                <i class="ph-x-circle icon-lg text-red-600"></i>
-                ¿Por Qué PLG NO es Recomendable en SaaS Early Stage?
-            </h2>
-            <p class="font-bold text-gray-700">
-                En etapas iniciales, PLG puede captar leads o usuarios, pero convertirlos a clientes es más complicado. Estas son opiniones basadas en experiencias propias y de otros SaaS:
-            </p>
-
-            <!-- Argument 1: Buyer Persona & JTBD -->
-            <div class="bg-white p-5 rounded-lg shadow-md mb-6 border border-gray-200">
-                <h3 class="text-red-600 flex items-center gap-2 mb-3">
-                    <i class="ph-question-mark-circle text-3xl"></i>
-                    1. Identificación de Buyer Persona y Jobs to be Done
-                </h3>
-                <p>Es complicado identificar las necesidades de los usuarios y definir una propuesta de valor acorde en las primeras etapas de una startup. No tenemos claro nuestro <span class="text-accent">buyer persona</span>, ni las inquietudes que le llevan a contratar servicios. Todos hemos pivotado o adaptado nuestras ideas y desarrollos iniciales.</p>
-                <div class="flex justify-center mt-4">
-                    <i class="ph-users-three text-6xl text-gray-400"></i>
-                    <i class="ph-question text-6xl text-red-400 -ml-4"></i>
-                </div>
-            </div>
-
-            <!-- Argument 2: UX/UI & Value Transmission -->
-            <div class="bg-white p-5 rounded-lg shadow-md mb-6 border border-gray-200">
-                <h3 class="text-red-600 flex items-center gap-2 mb-3">
-                    <i class="ph-computer-tower text-3xl"></i>
-                    2. Dificultad de Transmitir Propuesta de Valor (UX/UI)
-                </h3>
-                <p>Aun teniendo claro el punto anterior, es muy difícil transmitir lo que queremos contar a través de una web o producto. Esto lleva muchas horas e iteraciones y es complejo de conseguir.</p>
-                <div class="flex justify-center mt-4">
-                    <i class="ph-palette text-6xl text-gray-400"></i>
-                    <i class="ph-x text-6xl text-red-400 -ml-4"></i>
-                </div>
-            </div>
-
-            <!-- Argument 3: Product Analytics Setup -->
-            <div class="bg-white p-5 rounded-lg shadow-md mb-6 border border-gray-200">
-                <h3 class="text-red-600 flex items-center gap-2 mb-3">
-                    <i class="ph-chart-pie text-3xl"></i>
-                    3. Complejo Set Up de Analítica de Producto
-                </h3>
-                <p>PLG necesita un set up de analítica de producto importante, lo que implica:</p>
-                <ul class="list-none space-y-3 mt-4">
-                    <li class="flex items-center gap-3">
-                        <i class="ph-check-circle text-green-500 text-xl"></i>
-                        Estrategia de medición.
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i class="ph-check-circle text-green-500 text-xl"></i>
-                        Definición de eventos de medición.
-                    </li>
-                    <li class="flex items-center gap-3 font-semibold text-gray-700">
-                        <i class="ph-stack-overflow text-blue-500 text-xl"></i>
-                        Definir stack de medición:
-                        <ul class="list-disc list-inside ml-8 text-sm font-normal text-gray-600">
-                            <li>Base de datos propia o Rudderstack.</li>
-                            <li>Tracking de eventos propio o herramientas de terceros (Segment o similares).</li>
-                            <li>Definición de plataforma de Visualización e Insights (Amplitude, Mixpanel…).</li>
-                        </ul>
-                    </li>
-                </ul>
-                <p class="mt-4">En resumen: <span class="font-bold text-red-600">muchos meses de implementación, muchas herramientas</span> (gratuitas al principio, pero costosas con volumen) y la necesidad de <span class="font-bold text-red-600">personal en el equipo para implementarlo</span>.</p>
-                <p>Y aun así, sacar <span class="text-accent">insights</span> de la analítica de producto no es nada fácil; vas a seguir necesitando hablar con el cliente.</p>
-                <div class="flex justify-center mt-4">
-                    <i class="ph-timer text-6xl text-gray-400"></i>
-                    <i class="ph-wrench text-6xl text-gray-400 -ml-4"></i>
-                    <i class="ph-currency-dollar text-6xl text-red-400 -ml-4"></i>
-                </div>
-            </div>
-
-            <!-- Argument 4: Economic Needs -->
-            <div class="bg-white p-5 rounded-lg shadow-md mb-6 border border-gray-200">
-                <h3 class="text-red-600 flex items-center gap-2 mb-3">
-                    <i class="ph-wallet icon-3xl"></i>
-                    4. Necesidades Económicas
-                </h3>
-                <p>La elección entre centrarse en la venta directa o el uso de producto tiene implicaciones financieras:</p>
-                <ul class="list-disc list-inside ml-4 mb-4">
-                    <li class="mb-2"><span class="font-semibold text-green-600">Venta Directa:</span> Te puede acercar a clientes con los que construir y financiarte.</li>
-                    <li class="mb-2"><span class="font-semibold text-red-600">Modelo PLG:</span> Si vas a un modelo PLG puro, <strong class="text-red-700">vas a necesitar una ronda de financiación</strong> para mantener el <span class="text-accent">runway</span>.</li>
-                </ul>
-
-                <!-- Chart: Funding Needs Comparison -->
-                <h3 class="text-blue-700 mt-6">Comparativa: Necesidad de Financiación (Etapa Early Stage)</h3>
-                <div class="chart-container">
-                    <canvas id="fundingChart"></canvas>
-                </div>
-                <p class="text-sm text-gray-500 text-center mt-2">
-                    Comparación (hipotética) de la dependencia de financiación en modelos PLG vs. Sales-Led.
-                </p>
-            </div>
-
-            <!-- Argument 5: Founder's Fear of Sales -->
-            <div class="bg-white p-5 rounded-lg shadow-md mb-6 border border-gray-200">
-                <h3 class="text-red-600 flex items-center gap-2 mb-3">
-                    <i class="ph-smiley-x-eyes text-3xl"></i>
-                    5. Miedo a las Ventas de los Founders
-                </h3>
-                <p>Detrás de muchas estrategias PLG se esconden <span class="text-accent">Founders</span> a los que les cuesta enfrentarse a la venta o no saben cómo hacerlo.</p>
-                <div class="flex justify-center mt-4">
-                    <i class="ph-user-circle-minus text-6xl text-gray-400"></i>
-                    <i class="ph-megaphone-simple-slash text-6xl text-red-400 -ml-4"></i>
-                </div>
-            </div>
-
-            <!-- Argument 6: Lack of Customer Contact -->
-            <div class="bg-white p-5 rounded-lg shadow-md mb-6 border border-gray-200">
-                <h3 class="text-red-600 flex items-center gap-2 mb-3">
-                    <i class="ph-chat-circle-dots text-3xl"></i>
-                    6. Falta de Contacto con el Cliente
-                </h3>
-                <p>En estas fases, el <span class="text-accent">feedback cualitativo del cliente es clave</span>. Se aprende más en una demo o fase de venta con el cliente, o en una implantación, que solo observando la analítica de producto.</p>
-                <div class="flex justify-center mt-4">
-                    <i class="ph-headset text-6xl text-blue-400"></i>
-                    <i class="ph-chart-bar text-6xl text-gray-400 -ml-4"></i>
-                </div>
-            </div>
-        </section>
-
+<nav class="ns-static-nav">
+    <div class="ns-inner">
+        <a class="ns-back" href="/metricas/pro/embed.php">
+            <svg viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.707 4.293a1 1 0 0 1 0 1.414L6.414 9H17a1 1 0 1 1 0 2H6.414l3.293 3.293a1 1 0 1 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414l5-5a1 1 0 0 1 1.414 0Z"/></svg>
+            Volver al curso
+        </a>
+        <span class="ns-eyebrow">Infografía · Curso SaaS</span>
+        <a class="ns-logout" href="/metricas/logout.php">Cerrar sesión</a>
     </div>
+</nav>
 
-    <script>
-        // Data for CAC Chart (hypothetical)
-        const cacData = {
-            labels: ['Product Led Growth (PLG)', 'Sales-Led (Ventas)'],
-            datasets: [{
-                label: 'Coste de Adquisición de Clientes (€)',
-                data: [100, 500], // Hypothetical lower CAC for PLG
-                backgroundColor: ['#3b82f6', '#ef4444'], // Blue for PLG, Red for Sales
-                borderColor: ['#2563eb', '#dc2626'],
-                borderWidth: 1,
-                borderRadius: 5,
-            }]
-        };
+<div class="ns-shell">
 
-        // Configuration for CAC Chart
-        const cacConfig = {
-            type: 'bar',
-            data: cacData,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'top',
-                    },
-                    title: {
-                        display: false,
-                        text: 'Comparación de Coste de Adquisición de Clientes (CAC)'
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Coste (€)'
-                        }
-                    },
-                    x: {
-                        grid: {
-                            display: false
-                        }
-                    }
-                }
-            },
-        };
+    <header class="ns-hero">
+        <span class="ns-hero-eyebrow"><span class="dot"></span>Go-to-Market · Pre Market Fit</span>
+        <h1 class="ns-h1">Product Led Growth es <em>mentira</em>.</h1>
+        <p class="ns-lede">
+            El 90&nbsp;% de lo que vas a leer en libros de estrategia o metodología
+            <strong>no te va a servir en la búsqueda del Product Market Fit</strong>.
+            PLG es una de esas estrategias que difícilmente te funcionarán antes del PMF —
+            te pasas meses, el <span style="background: var(--c-accent); padding: 0 6px; border-radius: 4px; color: var(--c-ink);">runway</span>
+            disminuye, y las cosas no funcionan.
+        </p>
 
-        // Render CAC Chart
-        const cacChartCtx = document.getElementById('cacChart').getContext('2d');
-        new Chart(cacChartCtx, cacConfig);
+        <div class="grid-4-kpi">
+            <div class="bigmetric"><div class="l">CAC PLG vs Sales</div><div class="v">5×</div><div class="sub">Más bajo (post-PMF)</div></div>
+            <div class="bigmetric"><div class="l">Setup analítica</div><div class="v">6m+</div><div class="sub">Antes de extraer insights</div></div>
+            <div class="bigmetric"><div class="l">Dependencia ronda</div><div class="v">80<em>%</em></div><div class="sub">PLG puro early stage</div></div>
+            <div class="bigmetric"><div class="l">Razones contra</div><div class="v">6</div><div class="sub">Pre-PMF</div></div>
+        </div>
+    </header>
 
-        // Data for Funding Chart (hypothetical)
-        const fundingData = {
-            labels: ['Dependencia de Ronda (PLG)', 'Financiación por Venta (Sales-Led)'],
-            datasets: [{
-                label: 'Porcentaje de Dependencia de Financiación',
-                data: [80, 20], // Hypothetical: PLG needs more funding, Sales-led less
-                backgroundColor: ['#ef4444', '#22c55e'], // Red for PLG, Green for Sales
-                borderColor: ['#dc2626', '#16a34a'],
-                borderWidth: 1,
-                borderRadius: 5,
-            }]
-        };
+    <main class="ns-card">
 
-        // Configuration for Funding Chart
-        const fundingConfig = {
-            type: 'bar',
-            data: fundingData,
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'top',
-                    },
-                    title: {
-                        display: false,
-                        text: 'Necesidad de Financiación (Etapa Early Stage)'
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        title: {
-                            display: true,
-                            text: 'Porcentaje (%)'
-                        }
-                    },
-                    x: {
-                        grid: {
-                            display: false
-                        }
-                    }
-                }
-            },
-        };
+        <!-- Bloque 1 — Qué es PLG -->
+        <section class="mf-feature" style="border-top: 0; padding-top: 0;">
+            <div class="mf-text">
+                <div class="mf-tag">01 · Definición</div>
+                <h3>¿Qué es <em>Product Led Growth</em>?</h3>
+                <p>
+                    Una estrategia Go-to-Market donde el <strong>producto</strong> es el motor
+                    principal de adquisición y conversión. Sin equipo comercial empujando,
+                    sin demos, sin emails de seguimiento. El usuario llega, se registra,
+                    prueba el producto y paga si lo usa.
+                </p>
+                <ul>
+                    <li><span class="chk">→</span><strong>Producto fácil de usar.</strong> Onboarding intuitivo.</li>
+                    <li><span class="chk">→</span><strong>Valor claro y diferenciado.</strong> El usuario lo percibe en segundos.</li>
+                    <li><span class="chk">→</span><strong>Freemium o trial.</strong> Pruebas el valor antes de pagar.</li>
+                </ul>
+            </div>
+            <div class="mf-visual">
+                <div class="vl">La premisa de PLG</div>
+                <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 24px; line-height: 1.3; margin-top: 14px; color: var(--c-paper);">
+                    "Si un producto es lo suficientemente bueno, los clientes pagarán por él
+                    sin la intervención de nadie."
+                </div>
+                <div style="margin-top: 18px; padding: 12px 14px; background: color-mix(in oklab, var(--c-accent) 18%, transparent); border-radius: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--c-accent); letter-spacing: 0.06em;">
+                    ⚠ DIFÍCIL DE CONSEGUIR PRE-PMF
+                </div>
+            </div>
+        </section>
 
-        // Render Funding Chart
-        const fundingChartCtx = document.getElementById('fundingChart').getContext('2d');
-        new Chart(fundingChartCtx, fundingConfig);
-    </script>
+        <!-- Bloque 2 — Pros vs Sales-Led (two-col) -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow"><span class="dot"></span>02 · Comparativa CAC</span>
+                    <h2>PLG vs <em>Sales-Led</em>.</h2>
+                </div>
+                <p>El CAC de PLG es claramente menor — pero solo cuando el producto ya tiene tracción y los usuarios entienden la propuesta.</p>
+            </div>
+
+            <div class="two-col">
+                <div class="two-col-card accent">
+                    <div class="tag">Product Led Growth</div>
+                    <h3>CAC ~ €100</h3>
+                    <p>Menor coste por cliente cuando el producto está pulido. Sin equipo comercial, escala automáticamente.</p>
+                    <ul>
+                        <li>Menores costes por adquisición</li>
+                        <li>Crecimiento escalable sin embudos manuales</li>
+                        <li>No depende de equipo para convertir</li>
+                    </ul>
+                </div>
+                <div class="two-col-card dark">
+                    <div class="tag">Sales-Led</div>
+                    <h3>CAC ~ €500</h3>
+                    <p>Más caro pero más adecuado pre-PMF: el contacto directo con el cliente acelera la iteración del producto.</p>
+                    <ul>
+                        <li>Demos y ventas como fuente de aprendizaje</li>
+                        <li>Cierres más rápidos en early stage</li>
+                        <li>Financiación parcial vía clientes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 3 — Casos -->
+        <section class="mf-feature" style="border-top: 1px solid var(--c-line);">
+            <div class="mf-text">
+                <div class="mf-tag">03 · Casos de éxito</div>
+                <h3>Quién lo ha conseguido (y con qué <em>matices</em>).</h3>
+                <p>
+                    Existen casos a nivel mundial que han crecido con PLG. Pero ojo: no todas
+                    estas startups usan PLG <em>puro</em>. Hubspot, por ejemplo, integra
+                    equipos de ventas para finalizar la conversión.
+                </p>
+                <ul>
+                    <li><span class="chk">✓</span><strong>Global:</strong> Slack, Zoom, Atlassian.</li>
+                    <li><span class="chk">✓</span><strong>España:</strong> Graphex, Acumbamail, Freepik, Internxt.</li>
+                    <li><span class="chk">→</span>Internxt es la excepción que confirma la regla.</li>
+                </ul>
+            </div>
+            <div class="mf-visual">
+                <div class="vl">Compañías PLG · selección</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px;">
+                    <div style="padding: 14px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 10px;">
+                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; color: color-mix(in oklab, var(--c-paper) 55%, transparent); text-transform: uppercase; letter-spacing: 0.1em;">Global</div>
+                        <div style="font-size: 14px; margin-top: 8px; line-height: 1.6; color: var(--c-paper);">Slack<br>Zoom<br>Atlassian</div>
+                    </div>
+                    <div style="padding: 14px; background: color-mix(in oklab, var(--c-accent) 18%, transparent); border-radius: 10px;">
+                        <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--c-accent); text-transform: uppercase; letter-spacing: 0.1em;">España</div>
+                        <div style="font-size: 14px; margin-top: 8px; line-height: 1.6; color: var(--c-paper);">Graphex<br>Acumbamail<br>Freepik<br>Internxt</div>
+                    </div>
+                </div>
+                <div style="margin-top: 14px; padding: 10px 12px; background: color-mix(in oklab, var(--c-paper) 8%, transparent); border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: color-mix(in oklab, var(--c-paper) 70%, transparent); letter-spacing: 0.04em;">
+                    ⓘ Hubspot mezcla PLG + ventas
+                </div>
+            </div>
+        </section>
+
+        <!-- Bloque 4 — Por qué NO funciona pre-PMF (steps) -->
+        <section style="padding: 56px 0; border-top: 1px solid var(--c-line);">
+            <div class="section-head">
+                <div>
+                    <span class="ns-hero-eyebrow" style="--c-pos: var(--c-neg);"><span class="dot" style="background: var(--c-neg); box-shadow: 0 0 0 4px color-mix(in oklab, var(--c-neg) 20%, transparent);"></span>04 · Por qué NO en early stage</span>
+                    <h2>Seis razones por las que <em>no funciona</em> pre-PMF.</h2>
+                </div>
+                <p>PLG puede captar leads, pero convertirlos sin contacto humano cuando todavía no entiendes a tu cliente es prácticamente imposible.</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="sn">01</div>
+                    <h4>Buyer persona difuso</h4>
+                    <p>No tienes claro a quién vendes ni qué problema resuelves. Sin eso, ningún onboarding va a convertir.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">02</div>
+                    <h4>UX/UI no transmite valor</h4>
+                    <p>Comunicar la propuesta a través de una landing y un trial requiere meses de iteración pulidísima.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">03</div>
+                    <h4>Setup analítica complejo</h4>
+                    <p>Estrategia, eventos, stack (Rudderstack, Segment, Amplitude…). Meses de trabajo y personal dedicado.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">04</div>
+                    <h4>Necesitas ronda</h4>
+                    <p>PLG puro early stage = dependencia de financiación externa. Sales-led te financia con tus clientes.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">05</div>
+                    <h4>Miedo a vender</h4>
+                    <p>Detrás de muchas estrategias PLG hay fundadores que no quieren — o no saben — vender directamente.</p>
+                </div>
+                <div class="step">
+                    <div class="sn">06</div>
+                    <h4>Sin contacto con cliente</h4>
+                    <p>El feedback cualitativo es clave pre-PMF. Una demo enseña más que mil eventos de analítica.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing CTA -->
+        <section class="sub-cta">
+            <h2>Vende primero. <em>Producteliza</em> después.</h2>
+            <p>
+                Pre-PMF, el contacto directo con el cliente es la mejor analítica. Cuando
+                el producto esté maduro y la propuesta de valor sea clara, entonces — y
+                solo entonces — el PLG escalará.
+            </p>
+            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                <a class="pill pill-accent" href="/metricas/pro/modelos_de_negocio.php">Ir al módulo Modelos de Negocio →</a>
+                <a class="pill pill-ghost" href="https://tidycal.com/nextscenario/mentoria-curso" target="_blank" rel="noopener">Hablar con un mentor</a>
+            </div>
+        </section>
+
+    </main>
+
+</div>
+
+<footer class="ns-foot">
+    <strong>Curso SaaS</strong> · Métricas, Finanzas y Modelos Financieros<br>
+    Nextscenario · <a href="mailto:admin@nextscenario.com">admin@nextscenario.com</a>
+</footer>
+
 </body>
 </html>
-
