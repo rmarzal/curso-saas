@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("Location: /metricas/login.php?v=1");
+    header("Location: /metricas/login.php");
     exit();
 }
 $username = htmlspecialchars($_SESSION['username']);

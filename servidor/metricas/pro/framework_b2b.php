@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php?v=1"); exit(); }
+if (!isset($_SESSION['username'])) { header("Location: /metricas/login.php"); exit(); }
 $module_num = "05";
 $module_title = "B2B SaaS Metrics Journey Framework";
 $module_subtitle = "Las métricas que importan en cada etapa del viaje B2B SaaS, desde la captación hasta la expansión.";
